@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>dpkg123的博客</title>
+  
+  <subtitle>Test Page</subtitle>
+  <link href="https://dpkg123.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://dpkg123.github.io/"/>
+  <updated>2023-04-10T15:30:01.000Z</updated>
+  <id>https://dpkg123.github.io/</id>
+  
+  <author>
+    <name>dpkg123</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>新博客</title>
+    <link href="https://dpkg123.github.io/2023/04/10/%E6%96%B0%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://dpkg123.github.io/2023/04/10/%E6%96%B0%E5%8D%9A%E5%AE%A2/</id>
+    <published>2023-04-10T15:30:01.000Z</published>
+    <updated>2023-04-10T15:30:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="为什么要创建这个博客"><a href="#为什么要创建这个博客" class="headerlink" title="为什么要创建这个博客"></a>为什么要创建这个博客</h1><p>原因:之前的源码被我手贱删除力</p><h1 id="todo"><a href="#todo" class="headerlink" title="todo"></a>todo</h1><ul><li><input checked="" disabled="" type="checkbox"> 创建博客</li><li><input checked="" disabled="" type="checkbox"> 上传第一篇文章</li><li><input disabled="" type="checkbox"> 迁移软件仓库</li><li><input disabled="" type="checkbox"> 主题完善</li><li><input disabled="" type="checkbox"> 页面重定向<br>先这样</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;为什么要创建这个博客&quot;&gt;&lt;a href=&quot;#为什么要创建这个博客&quot; class=&quot;headerlink&quot; title=&quot;为什么要创建这个博客&quot;&gt;&lt;/a&gt;为什么要创建这个博客&lt;/h1&gt;&lt;p&gt;原因:之前的源码被我手贱删除力&lt;/p&gt;
+&lt;h1 id=&quot;todo&quot;&gt;&lt;a h</summary>
+      
+    
+    
+    
+    
+    <category term="hexo" scheme="https://dpkg123.github.io/tags/hexo/"/>
+    
+    <category term="网页搭建" scheme="https://dpkg123.github.io/tags/%E7%BD%91%E9%A1%B5%E6%90%AD%E5%BB%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://dpkg123.github.io/1970/01/01/hello-world/"/>
+    <id>https://dpkg123.github.io/1970/01/01/hello-world/</id>
+    <published>1970-01-01T00:00:00.000Z</published>
+    <updated>1970-01-01T00:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>

@@ -6,7 +6,7 @@
   <link href="https://dpkg123.github.io/atom.xml" rel="self"/>
   
   <link href="https://dpkg123.github.io/"/>
-  <updated>2023-04-10T15:30:01.000Z</updated>
+  <updated>2023-04-10T17:46:16.000Z</updated>
   <id>https://dpkg123.github.io/</id>
   
   <author>
@@ -17,13 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>hexo博客源码备份</title>
+    <link href="https://dpkg123.github.io/2023/04/11/hexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E7%A0%81%E5%A4%87%E4%BB%BD/"/>
+    <id>https://dpkg123.github.io/2023/04/11/hexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E7%A0%81%E5%A4%87%E4%BB%BD/</id>
+    <published>2023-04-10T17:46:16.000Z</published>
+    <updated>2023-04-10T17:46:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>作为一个写代码的人来说，保存和备份是非常重要的，所以随手保存和存有备份已经成为我的习惯了。使用Hexo在github搭建的博客，仓库里只有生成的静态网页文件，是没有Hexo的源文件的，所以如何备份就成为了一个重要的问题，这篇文章便应运而生了</p><h1 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h1><p>找到你的博客目录</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar -cvf blogbackup.tar.gz blogbackup</span><br></pre></td></tr></table></figure><p>这里的blogbackup为你的博客源码文件夹名称<br>然后将备份完之后的压缩包上传到网盘</p><h1 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h1><p>cd到博客源码文件夹，首先执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo cl</span><br></pre></td></tr></table></figure><p>清理生成完毕的网页</p><p>接下来在github新建一个仓库，假设这里的仓库地址为<code>https://github.com/xxx/blogbackup</code></p><p>然后执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/xxx/blogbackup</span><br></pre></td></tr></table></figure><p>会提示</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">正克隆到 &#x27;blogbackip&#x27;...</span><br><span class="line">警告：您似乎克隆了一个空仓库。</span><br></pre></td></tr></table></figure><p>将文件放入此目录然后提交即可</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;作为一个写代码的人来说，保存和备份是非常重要的，所以随手保存和存有备份已经成为我的习惯了。使用Hexo在github搭建的博客，仓库里只有生</summary>
+      
+    
+    
+    
+    
+    <category term="hexo" scheme="https://dpkg123.github.io/tags/hexo/"/>
+    
+    <category term="web前端" scheme="https://dpkg123.github.io/tags/web%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="github" scheme="https://dpkg123.github.io/tags/github/"/>
+    
+  </entry>
+  
+  <entry>
     <title>新博客</title>
     <link href="https://dpkg123.github.io/2023/04/10/%E6%96%B0%E5%8D%9A%E5%AE%A2/"/>
     <id>https://dpkg123.github.io/2023/04/10/%E6%96%B0%E5%8D%9A%E5%AE%A2/</id>
     <published>2023-04-10T15:30:01.000Z</published>
     <updated>2023-04-10T15:30:01.000Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="为什么要创建这个博客"><a href="#为什么要创建这个博客" class="headerlink" title="为什么要创建这个博客"></a>为什么要创建这个博客</h1><p>原因:之前的源码被我手贱删除力</p><h1 id="todo"><a href="#todo" class="headerlink" title="todo"></a>todo</h1><ul><li><input checked="" disabled="" type="checkbox"> 创建博客</li><li><input checked="" disabled="" type="checkbox"> 上传第一篇文章</li><li><input disabled="" type="checkbox"> 迁移软件仓库</li><li><input disabled="" type="checkbox"> 主题完善</li><li><input disabled="" type="checkbox"> 页面重定向<br>先这样</li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="为什么要创建这个博客"><a href="#为什么要创建这个博客" class="headerlink" title="为什么要创建这个博客"></a>为什么要创建这个博客</h1><p>原因:之前的源码被我手贱删除力</p><h1 id="todo"><a href="#todo" class="headerlink" title="todo"></a>todo</h1><ul><li><input checked="" disabled="" type="checkbox"> 创建博客</li><li><input checked="" disabled="" type="checkbox"> 上传第一篇文章</li><li><input checked="" disabled="" type="checkbox"> 迁移软件仓库</li><li><input disabled="" type="checkbox"> 主题完善</li><li><input checked="" disabled="" type="checkbox"> 页面重定向<br>先这样</li></ul>]]></content>
     
     
       

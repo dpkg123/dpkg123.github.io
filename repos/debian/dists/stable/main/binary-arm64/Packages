@@ -1,0 +1,16 @@
+Package: tmoe-linux-tool
+Version: 1.4989.50.2
+Architecture: all
+Installed-Size: 8600
+Maintainer: 2moe <tmoe@noreply.github.com>
+Pre-Depends: aria2 (>= 1.30.0), binutils (>= 2.28-5), coreutils (>= 8.26-3), curl (>= 7.52.1-5), findutils (>= 4.6.0), git (>= 1:2.11.0-3), lsof (>= 4.89), micro (>= 2.0.6-2), nano (>= 2.7.4-1), proot (>= 5.1.0), procps (>= 2:3.3.12), sudo (>= 1.8.19p1-2.1), tar (>= 1.29b-1.1),  util-linux (>= 2.29.2-1), whiptail (>= 0.52.19), xz-utils (>= 5.2.2), zstd (>= 1.1.2),eatmydata,aptitude,catimg,fontconfig,nano,wget
+Priority: optional
+Section: admin
+Filename: pool/main/t/tmoe-linux-tool/tmoe-linux-tool_1.4989.50.2_all.deb
+Size: 701514
+SHA256: 213b1b8dc00d6bf4e568a95c4f7418f3176db77444e1521d843dbce7cd7a8453
+SHA1: 63fd423e13885b2acb4a74466d4197144c06b9d4
+MD5sum: 73cf1d3e03eae1520bfb6364f5744a99
+Description: TMOE, More Optional Environments
+  extended description over several lines
+

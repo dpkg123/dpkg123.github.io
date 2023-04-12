@@ -1,3 +1,300 @@
+Package: app.web.163.mail
+Version: 1.0.0
+Architecture: all
+Maintainer: kylin <kylin@kylinos.cn>
+Installed-Size: 21
+Priority: optional
+Section: universe/admin
+Filename: pool/main/a/app.web.163.mail/app.web.163.mail_1.0.0_all.deb
+Size: 10244
+SHA256: 85e68e1be8113af978ae038addc7cfda94c4ac51bba2130202bbd3c501144f00
+SHA1: 0aa720440b263cae317852f8b1906365a194b573
+MD5sum: 927ad3fb3598c0736f1507b7bf3055ce
+Description: app.web.163.mail
+
+Package: app.web.163.music
+Version: 1.0.0
+Architecture: all
+Maintainer: kylin <kylin@kylinos.cn>
+Installed-Size: 35
+Priority: optional
+Section: universe/admin
+Filename: pool/main/a/app.web.163.music/app.web.163.music_1.0.0_all.deb
+Size: 24548
+SHA256: fc2b46a12b1ffc14568bd9c4cd7de1e1a78eb2bd50726f33848e706a1377bbb9
+SHA1: 634373f3fd7257b3e11532bcfaf003b086022d04
+MD5sum: 42d468258b1928c5bcbb3b06727e5e24
+Description: app.web.163.music
+
+Package: app.web.baidu.map
+Version: 1.0.0
+Architecture: all
+Maintainer: kylin <kylin@kylinos.cn>
+Installed-Size: 23
+Priority: optional
+Section: universe/admin
+Filename: pool/main/a/app.web.baidu.map/app.web.baidu.map_1.0.0_all.deb
+Size: 11576
+SHA256: acbe2d0a9c48ac40d6bc9f13c6738765923083ae33245f59e2fb9cf16c284f80
+SHA1: c831ab09c2eb39c8aaa384f0b009fcbb7f2ffbd6
+MD5sum: 6ff5fb4180428edf43b427a6cd05953a
+Description: app.web.baidu.map
+
+Package: app.web.kugou
+Version: 1.0.0
+Architecture: all
+Maintainer: kylin <kylin@kylinos.cn>
+Installed-Size: 36
+Priority: optional
+Section: universe/admin
+Filename: pool/main/a/app.web.kugou/app.web.kugou_1.0.0_all.deb
+Size: 25930
+SHA256: 99c94138209c1e196ca8335dbeaf4c56e94d28f96df585f4b251e6fef4c94945
+SHA1: e859ec7793a99884ac4b4bd949abc7111397068d
+MD5sum: 318f1de49b6a2f2dc13a6b23ac74181b
+Description: app.web.kugou
+
+Package: app.web.youdao.dict
+Version: 1.0.0
+Architecture: all
+Maintainer: kylin <kylin@kylinos.cn>
+Installed-Size: 33
+Priority: optional
+Section: universe/admin
+Filename: pool/main/a/app.web.youdao.dict/app.web.youdao.dict_1.0.0_all.deb
+Size: 22434
+SHA256: a39bb74651bbc84797d2c603b2ac757f3c2c75542467eadb0875ba06dc7e2f10
+SHA1: 9208372aed2076fe88869a5e1939248028fc158a
+MD5sum: 565fa98b5f3bd7011558d5ac6726c9aa
+Description: app.web.youdao.dict
+
+Package: box64
+Installed-Size: 13024
+Maintainer: root@ed411aafa29f
+Architecture: arm64
+Version: 0.2.3+20230322.900f387-1
+Provides: box64
+Conflicts: qemu-user-static
+Priority: extra
+Section: checkinstall
+Filename: pool/main/b/box64/box64_0.2.3+20230322.900f387-1_arm64.deb
+Size: 2314536
+SHA256: b2ec4b2df71c15945dbf822dffcc3d3cbfb9e56e0e879cbc6c8ce317e9f503d4
+SHA1: c1f0660a182c64386c1ff9542e4df3d25f87decf
+MD5sum: 94725dbd291a15965e37937250e57eac
+Description: Box64 lets you run x86_64 Linux programs (such as games) on non-x86_64 Linux systems, like ARM (host system needs to be 64bit little-endian)
+ Box64 lets you run x86_64 Linux programs (such as games) on non-x86_64 Linux systems, like ARM (host system needs to be 64bit little-endian)
+
+Package: box64-android
+Installed-Size: 12988
+Maintainer: root@7c43e5f333f1
+Architecture: arm64
+Version: 0.2.3+20230324.dcc1a5d-1
+Provides: box64
+Conflicts: qemu-user-static
+Priority: extra
+Section: checkinstall
+Filename: pool/main/b/box64-android/box64-android_0.2.3+20230324.dcc1a5d-1_arm64.deb
+Size: 2329080
+SHA256: f5a22c7f9336e4b0141813413cb267da8f966cb243e0d3979a193e2ea2fc6cc2
+SHA1: 586b4adaa4e96b1cdafa0c80f7dbc1c42c42aa9d
+MD5sum: afc746b095efca5c4f6fd88deda08a07
+Description: Box64 lets you run x86_64 Linux programs (such as games) on non-x86_64 Linux systems, like ARM (host system needs to be 64bit little-endian)
+ Box64 lets you run x86_64 Linux programs (such as games) on non-x86_64 Linux systems, like ARM (host system needs to be 64bit little-endian)
+
+Package: box64-generic-arm
+Installed-Size: 13000
+Maintainer: root@7c43e5f333f1
+Architecture: arm64
+Version: 0.2.3+20230324.dcc1a5d-1
+Provides: box64
+Conflicts: qemu-user-static
+Priority: extra
+Section: checkinstall
+Filename: pool/main/b/box64-generic-arm/box64-generic-arm_0.2.3+20230324.dcc1a5d-1_arm64.deb
+Size: 2313716
+SHA256: 84cf26e5568e0b4cbf4934af70a05a890802b15f4a2a614cea12a19c39219a53
+SHA1: 3fa25f59348c7f98952bd0b1db324da3604e8b7b
+MD5sum: a704b0fe09d42388e3d6e459ae38af45
+Description: Box64 lets you run x86_64 Linux programs (such as games) on non-x86_64 Linux systems, like ARM (host system needs to be 64bit little-endian)
+ Box64 lets you run x86_64 Linux programs (such as games) on non-x86_64 Linux systems, like ARM (host system needs to be 64bit little-endian)
+
+Package: box64-rk3399
+Installed-Size: 13048
+Maintainer: root@7c43e5f333f1
+Architecture: arm64
+Version: 0.2.3+20230324.dcc1a5d-1
+Provides: box64
+Conflicts: qemu-user-static
+Priority: extra
+Section: checkinstall
+Filename: pool/main/b/box64-rk3399/box64-rk3399_0.2.3+20230324.dcc1a5d-1_arm64.deb
+Size: 2324264
+SHA256: 76b84be42f74b6e88714937fca5cc4d55620b5d03ad24069d55fea01e803c146
+SHA1: 476c3d94309b7c72e842b9175056bdede5170421
+MD5sum: 8794ca8cfa516ff78af38095a87bd275
+Description: Box64 lets you run x86_64 Linux programs (such as games) on non-x86_64 Linux systems, like ARM (host system needs to be 64bit little-endian)
+ Box64 lets you run x86_64 Linux programs (such as games) on non-x86_64 Linux systems, like ARM (host system needs to be 64bit little-endian)
+
+Package: box64-rpi4arm64
+Installed-Size: 13028
+Maintainer: root@7c43e5f333f1
+Architecture: arm64
+Version: 0.2.3+20230324.dcc1a5d-1
+Provides: box64
+Conflicts: qemu-user-static
+Priority: extra
+Section: checkinstall
+Filename: pool/main/b/box64-rpi4arm64/box64-rpi4arm64_0.2.3+20230324.dcc1a5d-1_arm64.deb
+Size: 2315244
+SHA256: c4679632d93b3aa71385b12657ceaac196dafac42772bfd008f9ec44135067f9
+SHA1: b3268261eec089494331ab6a128148cff9f80b20
+MD5sum: b92cb6da07ae7079bb06d8d2b08036b5
+Description: Box64 lets you run x86_64 Linux programs (such as games) on non-x86_64 Linux systems, like ARM (host system needs to be 64bit little-endian)
+ Box64 lets you run x86_64 Linux programs (such as games) on non-x86_64 Linux systems, like ARM (host system needs to be 64bit little-endian)
+
+Package: box64-tegrax1
+Installed-Size: 13028
+Maintainer: root@7c43e5f333f1
+Architecture: arm64
+Version: 0.2.3+20230324.dcc1a5d-1
+Provides: box64
+Conflicts: qemu-user-static
+Priority: extra
+Section: checkinstall
+Filename: pool/main/b/box64-tegrax1/box64-tegrax1_0.2.3+20230324.dcc1a5d-1_arm64.deb
+Size: 2323436
+SHA256: 553da98bd133a90c1f8231af68008502271e68adee565093613bb14562637d96
+SHA1: f3f0e06a29babd1405ce8a21b156a50981a50318
+MD5sum: cc3be50e341118e9473b40efb8639798
+Description: Box64 lets you run x86_64 Linux programs (such as games) on non-x86_64 Linux systems, like ARM (host system needs to be 64bit little-endian)
+ Box64 lets you run x86_64 Linux programs (such as games) on non-x86_64 Linux systems, like ARM (host system needs to be 64bit little-endian)
+
+Package: fantascene-dynamic-wallpaper
+Version: 1.4.2
+Architecture: arm64
+Maintainer: liuminghang <liuminghang0821@gmail.com>
+Installed-Size: 6947
+Depends: libc6 (>= 2.34), libgcc-s1 (>= 3.3.1), libglib2.0-0 (>= 2.35.8), libmpv1 (>= 0.29), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.14.1), libqt5gui5 (>= 5.10.0) | libqt5gui5-gles (>= 5.10.0), libqt5webenginewidgets5 (>= 5.14.1), libqt5widgets5 (>= 5.11.0~rc1), libqt5x11extras5 (>= 5.6.0), libstdc++6 (>= 11), libx11-6, libxcb-ewmh2 (>= 0.4.1), libxcb1, qdbus-qt5
+Recommends: libqt5libqgtk2, kimageformat-plugins
+Homepage: http://github.com/dependon
+Priority: optional
+Section: utils
+Filename: pool/main/f/fantascene-dynamic-wallpaper/fantascene-dynamic-wallpaper_1.4.2_arm64.deb
+Size: 6586324
+SHA256: 9aa82aa588baafe7bf78fed8c2525974057f89a3323573b4e8f141663900203c
+SHA1: 16f6ceec03dcbcf78db9a8e3d208b5d34d23c985
+MD5sum: a3aa244ffb0ce612c2816f360a82d635
+Description: video wallpaper for fantascene.
+
+Package: linuxqq
+Version: 2.0.0-b2
+Architecture: arm64
+Installed-Size: 32284
+Maintainer: Tencent <support@tencent.com>
+Recommends: tint2
+Homepage: https://im.qq.com/linuxqq
+Priority: optional
+Section: Internet
+Filename: pool/main/l/linuxqq/linuxqq_2.0.0-b2_arm64.deb
+Size: 10734232
+SHA256: a5d5b660beab4ee0bf5cab69b9768e6bb6c4f59a18bacf6a3bb30aacfbd908e7
+SHA1: 8360966371c500da8205a8b09543638d9fbb0a77
+MD5sum: 5bd895e954c16476cc575d2f45cb2741
+Description: 腾讯QQ Linux版本。
+
+Package: lx-music-desktop
+Version: 1.22.3
+License: Apache-2.0
+Vendor: lyswhut <lyswhut@qq.com>
+Architecture: arm64
+Maintainer: lyswhut <lyswhut@qq.com>
+Installed-Size: 244984
+Depends: libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0
+Recommends: libappindicator3-1
+Homepage: https://github.com/lyswhut/lx-music-desktop#readme
+Priority: optional
+Section: default
+Filename: pool/main/l/lx-music-desktop/lx-music-desktop_1.22.3_arm64.deb
+Size: 61774004
+SHA256: 5a33178e9061d26e20ad10ac4d9df4eb9952a511e5cf27f0e82cb14fe3e066b4
+SHA1: e91b223a8958bcdca15904d9d923fef865ca2edc
+MD5sum: 05d5db136f41b51a604bedbdb01e079e
+Description: 
+  一个免费的音乐查找助手
+
+Package: pi-apps
+Version: 1.02
+Architecture: arm64
+Essential: no
+Installed-Size: 59011
+Maintainer: Botspotq
+Priority: optional
+Section: custom
+Filename: pool/main/p/pi-apps/pi-apps_1.02_arm64.deb
+Size: 6860408
+SHA256: 9e95efc754f88896da6426ffcae54b26086f86114b8b3b40ef0e69aad57bff4a
+SHA1: 44d766b743df8e64a5d4b4083923b45ab571830a
+MD5sum: 372899f7601593747e5e20ed91b2db78
+Description: Raspberry Pi App Store for Open Source Projects
+Pre-Depends: yad,curl,wget,aria2,lsb-release,software-properties-common,apt-utils,imagemagick,bc,librsvg2-bin,locales,shellcheck,git,wmctrl,xdotool,x11-utils,rsync
+
+Package: qemu-laucher
+Architecture: all
+Installed-Size: 332
+Maintainer: ernel <3234252572@qq.com>
+Version: 0.1beta
+Priority: optional
+Section: custom
+Filename: pool/main/q/qemu-laucher/qemu-laucher_0.1beta_all.deb
+Size: 1468
+SHA256: f66fe20606bd3f3695c52425e518263dead07dfb1416c4cf60d117b98408d22e
+SHA1: 8d4ccadb13d0370f805818410b5ba4017ff1a7d3
+MD5sum: ced5fa12ecb5bdbdf1db83eed1a03335
+Description: Easily to lauch qemu.
+Essential: no
+Pre-Depends: qemu-system
+
+Package: sogoupinyin
+Version: 4.0.1.2800
+Architecture: arm64
+Maintainer: Sogou IME Team <LinuxImeDev@sogou-inc.com>
+Installed-Size: 267204
+Depends: fcitx (>= 1:4.2.8), fcitx-frontend-gtk2, fcitx-frontend-gtk3, fcitx-frontend-qt5, fcitx-module-x11, libxtst6, im-config, lsb-release
+Recommends: fonts-droid | fonts-droid-fallback
+Breaks: fcitx-ui-qimpanel
+Homepage: http://pinyin.sogou.com/linux
+Priority: optional
+Section: utils
+Filename: pool/main/s/sogoupinyin/sogoupinyin_4.0.1.2800_arm64.deb
+Size: 81643488
+SHA256: 0a7a28a5fcf17f4f81a03fb463fbfc53b412efa5177347c425c777a8a67e6bf0
+SHA1: 88ceb15ee348ce0f14642d86f5c8cfb99f7d41b9
+MD5sum: 78c1c51e1c1bcbb3c181f501963a283b
+Description: Business Sogou Input Method
+ Based on web search engine technology, Sogou Pinyin input method is
+ the next-generation input method designed for Internet users. As it
+ is backed with search engine technology, user input method can be
+ extremely fast, and it is much more advanced than other input method
+ engines in terms of the volume of the vocabulary database and its
+ accuracy. Sogou input method is the most popular input methods in
+ China, and Sogou promises it will always be free of charge.
+
+Package: test2
+Version: 1.0
+Architecture: arm64
+Essential: no
+Installed-Size: 1024
+Maintainer: test2.org
+Priority: optional
+Section: custom
+Filename: pool/main/t/test2/test2_1.0_arm64.deb
+Size: 4210
+SHA256: fcd7b88fcd9790f24e6650483f9a3cf19674f745e56415cbd4818679f9f0f948
+SHA1: d21516f15d3250f29a84558be5bd081abd6e2597
+MD5sum: 2531005ff0ce47de7284748fb3f30c27
+Description: 打印一些名言 
+
 Package: tmoe-linux-tool
 Version: 1.4989.50.2
 Architecture: all
@@ -13,4 +310,42 @@ SHA1: 63fd423e13885b2acb4a74466d4197144c06b9d4
 MD5sum: 73cf1d3e03eae1520bfb6364f5744a99
 Description: TMOE, More Optional Environments
   extended description over several lines
+
+Package: typora
+Version: 1.5.10-1
+Architecture: arm64
+Recommends: lsb-release
+Suggests: pandoc
+Installed-Size: 270330
+Maintainer: typora<hi@typora.io>
+Homepage: http://typora.io
+Priority: optional
+Section: editors
+Filename: pool/main/t/typora/typora_1.5.10-1_arm64.deb
+Size: 75806048
+SHA256: f65cc6d9ad34ef1aad13dcd9debb10c40ad73e456a40fd23bc7cb66ed9529cd9
+SHA1: 858587c7fd0380db3b8c810c1d203213d2e733eb
+MD5sum: 3c14d189b4d4947f8676b38037292e27
+Description: a minimal Markdown reading & writing app. Change Log: (https://typora.io/releases/all)
+ Markdown Editor
+
+Package: yesplaymusic
+Version: 0.4.5
+License: unknown
+Vendor: qier222 <qier222@outlook.com>
+Architecture: arm64
+Maintainer: qier222 <qier222@outlook.com>
+Installed-Size: 238678
+Depends: libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0
+Recommends: libappindicator3-1
+Homepage: https://github.com/qier222/YesPlayMusic
+Priority: optional
+Section: default
+Filename: pool/main/y/yesplaymusic/yesplaymusic_0.4.5_arm64.deb
+Size: 63063128
+SHA256: e8c66b009197b8427d1cc5237b7a694f3dab75a072770a1028193a69ff35a53d
+SHA1: 8540bfee11703071064a528767eb4ece059e02eb
+MD5sum: b260e5ca11c56a241662f4d7cc682682
+Description: 
+  A third party music player for Netease Music
 

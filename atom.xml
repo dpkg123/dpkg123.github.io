@@ -6,7 +6,7 @@
   <link href="https://dpkg123.github.io/atom.xml" rel="self"/>
   
   <link href="https://dpkg123.github.io/"/>
-  <updated>2023-04-10T17:46:16.000Z</updated>
+  <updated>2023-04-12T12:03:44.000Z</updated>
   <id>https://dpkg123.github.io/</id>
   
   <author>
@@ -15,6 +15,56 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux娘</title>
+    <link href="https://dpkg123.github.io/2023/04/12/linux%E5%A8%98/"/>
+    <id>https://dpkg123.github.io/2023/04/12/linux%E5%A8%98/</id>
+    <published>2023-04-12T12:03:44.000Z</published>
+    <updated>2023-04-12T12:03:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="linux娘"><a href="#linux娘" class="headerlink" title="linux娘"></a>linux娘</h1><p><img src="/img/20230412/debian.jpg" alt="debian娘" title="debian娘"><br><img src="/img/20230412/arch.jpg" alt="arch娘" title="arch娘"><br><img src="/img/20230412/nix.jpg" alt="nixos娘" title="nixos娘"><br><img src="/img/20230412/gentoo.jpg" alt="gentoo娘" title="gentoo娘"><br><img src="/img/20230412/android.jpg" alt="android娘" title="android娘"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
+    <category term="二次元" scheme="https://dpkg123.github.io/tags/%E4%BA%8C%E6%AC%A1%E5%85%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用netlify加快博客访问速度</title>
+    <link href="https://dpkg123.github.io/2023/04/12/%E4%BD%BF%E7%94%A8netlify%E5%8A%A0%E5%BF%AB%E5%8D%9A%E5%AE%A2%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/"/>
+    <id>https://dpkg123.github.io/2023/04/12/%E4%BD%BF%E7%94%A8netlify%E5%8A%A0%E5%BF%AB%E5%8D%9A%E5%AE%A2%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/</id>
+    <published>2023-04-12T11:24:39.000Z</published>
+    <updated>2023-04-12T11:24:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h1><p><img src="/img/20230412/1.jpg" alt="效果图" title="效果图"></p><h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>一个github账户<br>一个静态网站仓库<br>(可选)一个域名</p><h1 id="前言-废话"><a href="#前言-废话" class="headerlink" title="前言(废话)"></a>前言(<del>废话</del>)</h1><p>现在有越来越多的开发者选择把自己的博客以静态网站的方式托管在 GitHub 上, 这样的方式只需要一个域名就可以通过诸如 Jekyll, Hexo, 纸小墨 等等现有的静态博客生成工具, 非常便捷地搭建出一个样式美观的静态博客.</p><p>Github Pages免费且稳定的服务让我可以专注内容，而无需考虑成本及维护的问题，非常方便广受好评，但其最大的一个问题就是国内访问速度很慢，如何简单快速又低成本的解决这个问题呢？这里介绍一个服务：Netlify</p><h1 id="什么是netlify"><a href="#什么是netlify" class="headerlink" title="什么是netlify"></a>什么是netlify</h1><p>Netlify 是一个提供静态资源网络托管的综合平台，提供CI服务，能够将托管 GitHub，GitLab 等网站上的 Jekyll，Hexo，Hugo 等代码自动编译并生成静态网站。</p><p>Netlify 有如下的功能:</p><ul><li>能够托管服务，免费 CDN </li><li>能够绑定自定义域名</li><li>能够启用免费的TLS证书，启用HTTPS</li><li>支持自动构建</li><li>提供 Webhooks 和 API</li></ul><h1 id="登录netlify"><a href="#登录netlify" class="headerlink" title="登录netlify"></a>登录netlify</h1><p>打开netlity.com，点击<code>Get stared for free</code>按钮<br><img src="/img/20230412/2.jpg" alt="主页" title="主页"><br>点击 <code>Sign in with Github</code>按钮<br><img src="/img/20230412/3.jpg" alt="登录" title="登录"><br>然后同意授权<br><img src="/img/20230412/4.jpg" alt="授权" title="授权"><br><img src="/img/20230412/5.jpg" alt="同意授权" title="同意授权"><br>如果之前没有登录过github,会出现以下页面<br><img src="/img/20230412/6.jpg" alt="登录到github" title="登录到github"><br>登录即可</p><h1 id="使用netlify"><a href="#使用netlify" class="headerlink" title="使用netlify"></a>使用netlify</h1><p>进入空间管理中心，，点击<code>New site from git</code>按钮开始部署你的博客<br>然后根据自己的托管平台，可以选择GitHub、GitLab或者BitBucket（这里以 GitHub 为例）<br>点击GitHub之后会弹出一个让你授权的窗口，给 Netlify 授权后，就会自动读取你 GitHub 的仓库<br>选择仓库后，Netlify 会自动识别到 hexo，并填入相关信息，这时候只要无脑点击 <code>Deploy site</code>就可以了<br>稍等一段时间就可以看到你的博客已经部署成功，并且给你分配了一个二级域名。</p><h1 id="可选-绑定域名"><a href="#可选-绑定域名" class="headerlink" title="(可选)绑定域名"></a>(可选)绑定域名</h1><p>如果之前域名绑定了github,请在dns解析页面删除所有的github page解析</p><p>登录netlify，找到之前创建的网站<br><img src="/img/20230412/7.jpg" alt="网站" title="网站"><br>点击<code>Site settings</code><br>点击<code>General</code>下的<code>Domain management</code><br>点击<code>Add domain alias</code>按钮添加域名<br>添加域名后，进入域名面板，点击<code>DNS解析</code>页面<br>根据提示添加netlify页面重定向<br><img src="/img/20230412/8.jpg" alt="DNS解析" title="DNS解析"><br>添加成功后，回到netlify，会发现添加后的域名会变成绿色<br><img src="/img/20230412/9.jpg" alt="完成后的效果" title="完成后的效果"></p><p>最后为自定义域名开启HTTPS支持，Domain management -&gt; HTTPS，点击<code>Verify DNS configuration</code>，域名验证通过则会自动申请证书<br>至此Netlify与Github绑定完成，可以通过自定义域名访问网站了，之后你每一次提交代码到Github，便会自动发布至Netlify，无需额外操作，非常方便</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="hexo" scheme="https://dpkg123.github.io/tags/hexo/"/>
+    
+    <category term="github" scheme="https://dpkg123.github.io/tags/github/"/>
+    
+    <category term="网页加速" scheme="https://dpkg123.github.io/tags/%E7%BD%91%E9%A1%B5%E5%8A%A0%E9%80%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo博客源码备份</title>
@@ -36,9 +86,9 @@
     
     <category term="hexo" scheme="https://dpkg123.github.io/tags/hexo/"/>
     
-    <category term="web前端" scheme="https://dpkg123.github.io/tags/web%E5%89%8D%E7%AB%AF/"/>
-    
     <category term="github" scheme="https://dpkg123.github.io/tags/github/"/>
+    
+    <category term="web前端" scheme="https://dpkg123.github.io/tags/web%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   

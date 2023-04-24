@@ -130,9 +130,9 @@
     
     <category term="hexo" scheme="https://dpkg123.github.io/tags/hexo/"/>
     
-    <category term="github" scheme="https://dpkg123.github.io/tags/github/"/>
-    
     <category term="web前端" scheme="https://dpkg123.github.io/tags/web%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="github" scheme="https://dpkg123.github.io/tags/github/"/>
     
   </entry>
   

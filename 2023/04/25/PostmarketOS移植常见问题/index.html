@@ -6,14 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://dpkg123.github.io">
-  <title>Archives | dpkg123的博客</title>
+  <title>PostmarketOD移植常见问题 | dpkg123的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="dpkg123的博客">
-<meta property="og:url" content="https://dpkg123.github.io/archives/index.html">
+  <meta name="description" content="前言这篇文章简单介绍下我移植k20pro-PostmarketOS出现的问题以及解决方法移植教程可以参考这篇文章 问题1: xxx patch无法打补丁这个问题出现在执行pmbootstrap kconfig edit时解决办法:在linux-xiaomi-raphael&#x2F;APKBUILD中删除所有.patch字样 问题2: asm&#x2F;type.h not found这个问题出现在执行pm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PostmarketOD移植常见问题">
+<meta property="og:url" content="https://dpkg123.github.io/2023/04/25/PostmarketOS%E7%A7%BB%E6%A4%8D%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="dpkg123的博客">
+<meta property="og:description" content="前言这篇文章简单介绍下我移植k20pro-PostmarketOS出现的问题以及解决方法移植教程可以参考这篇文章 问题1: xxx patch无法打补丁这个问题出现在执行pmbootstrap kconfig edit时解决办法:在linux-xiaomi-raphael&#x2F;APKBUILD中删除所有.patch字样 问题2: asm&#x2F;type.h not found这个问题出现在执行pm">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-04-24T21:30:12.000Z">
+<meta property="article:modified_time" content="2023-04-24T21:30:12.000Z">
 <meta property="article:author" content="dpkg123">
+<meta property="article:tag" content="PostmarketOS">
+<meta property="article:tag" content="ROM移植">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="dpkg123的博客" type="application/atom+xml">
@@ -156,36 +162,65 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-PostmarketOS移植常见问题" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/25/PostmarketOS%E7%A7%BB%E6%A4%8D%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  	<time datetime="2023-04-24T21:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-24</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/25/PostmarketOS%E7%A7%BB%E6%A4%8D%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">PostmarketOD移植常见问题</a>
+    <h1 class="article-title" itemprop="name">
+      PostmarketOD移植常见问题
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2023/04/25/PostmarketOS%E7%A7%BB%E6%A4%8D%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2023-04-24T21:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这篇文章简单介绍下我移植k20pro-PostmarketOS出现的问题以及解决方法<br>移植教程可以参考<a target="_blank" rel="noopener" href="https://ivonblog.com/posts/xperia5-ii-postmarketos-porting/">这篇文章</a></p>
+<h1 id="问题1-xxx-patch无法打补丁"><a href="#问题1-xxx-patch无法打补丁" class="headerlink" title="问题1: xxx patch无法打补丁"></a>问题1: xxx patch无法打补丁</h1><p>这个问题出现在执行<code>pmbootstrap kconfig edit</code>时<br>解决办法:<br>在<code>linux-xiaomi-raphael/APKBUILD</code>中删除所有.patch字样</p>
+<h1 id="问题2-asm-x2F-type-h-not-found"><a href="#问题2-asm-x2F-type-h-not-found" class="headerlink" title="问题2: asm&#x2F;type.h not found"></a>问题2: asm&#x2F;type.h not found</h1><p>这个问题出现在执行<code>pmbootstrap build linux-xiaomi-raphael</code>时<br>解决办法:<br>执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pmbootstrap <span class="built_in">chroot</span></span><br><span class="line">$ apk add linux-headers <span class="comment">#此命令需要在上一条命令执行成功后再执行</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="问题3-gzip-cpio-command-not-found"><a href="#问题3-gzip-cpio-command-not-found" class="headerlink" title="问题3: gzip(cpio) command not found"></a>问题3: gzip(cpio) command not found</h1><p>同上<br>解决办法:<br>将上面的linux-headers换成gzip(cpio)</p>
+<h1 id="问题4-c语言错误"><a href="#问题4-c语言错误" class="headerlink" title="问题4 c语言错误"></a>问题4 c语言错误</h1><p>同上<br>解决办法:<br>如果你是c语言大佬，可以试试修复<br>否则尝逝更换编译器为clang<br>在<code>linux-xiaomi-raphael/APKBUILD</code>中添加以下字段</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CC=&quot;clang&quot;</span><br><span class="line">HOSTCC=&quot;clang&quot;</span><br></pre></td></tr></table></figure>
+<p>或者使用gcc6&#x2F;gcc4<br>在<code>linux-xiaomi-raphael/APKBUILD</code>中添加以下字段</p>
+<h1 id="Compiler-GCC-6-doesn’t-boot-when-compiled-with-newer-versions"><a href="#Compiler-GCC-6-doesn’t-boot-when-compiled-with-newer-versions" class="headerlink" title="Compiler: GCC 6 (doesn’t boot when compiled with newer versions)"></a>Compiler: GCC 6 (doesn’t boot when compiled with newer versions)</h1><p>if [ “${CC:0:5}” !&#x3D; “gcc6-“ ]; then<br>    CC&#x3D;”gcc6-$CC”<br>    HOSTCC&#x3D;”gcc6-gcc”<br>    CROSS_COMPILE&#x3D;”gcc6-$CROSS_COMPILE”<br>fi</p>
+<p>如果要使用gcc4,请将上面字段的6改成4</p>
+<h1 id="问题5-Permission-denied"><a href="#问题5-Permission-denied" class="headerlink" title="问题5: Permission denied"></a>问题5: Permission denied</h1><p>这个问题可能出现在执行<code>pmbootstrap build linux-xiaomi-raphael</code>或者<code>pmbootstrap install</code>的时候<br>解决办法:<br>换个目录并将目录权限设置成755或者777(不推荐)</p>
+
+      
+
+
+       
+         <div class="essayending">
+           <div>
+            <div style="text-align:center;color: #ccc;font-size:22px;">
+            <br/>
+            <br/>
+ -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+            <br/>
+            <br/>
+             <br/>
+             <br/>
+            </div>
+           </div>
+         </div>
+         
+
+  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -201,259 +236,135 @@
 		</ul>
 	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/14/redmi-k20-pro%E7%A7%BB%E6%A4%8DPostmarketOS%E6%8C%87%E5%8C%97/" class="archive-article-date">
-  	<time datetime="2023-04-13T17:13:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/14/redmi-k20-pro%E7%A7%BB%E6%A4%8DPostmarketOS%E6%8C%87%E5%8C%97/">redmi k20 pro移植PostmarketOS指北</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/12/linux%E5%A8%98/" class="archive-article-date">
-  	<time datetime="2023-04-12T12:03:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/12/linux%E5%A8%98/">linux娘</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">二次元</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/12/%E4%BD%BF%E7%94%A8netlify%E5%8A%A0%E5%BF%AB%E5%8D%9A%E5%AE%A2%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/" class="archive-article-date">
-  	<time datetime="2023-04-12T11:24:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-12</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/12/%E4%BD%BF%E7%94%A8netlify%E5%8A%A0%E5%BF%AB%E5%8D%9A%E5%AE%A2%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/">使用netlify加快博客访问速度</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网页加速</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/11/hexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E7%A0%81%E5%A4%87%E4%BB%BD/" class="archive-article-date">
-  	<time datetime="2023-04-10T17:46:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/11/hexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E7%A0%81%E5%A4%87%E4%BB%BD/">hexo博客源码备份</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/04/10/%E6%96%B0%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  	<time datetime="2023-04-10T15:30:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/04/10/%E6%96%B0%E5%8D%9A%E5%AE%A2/">新博客</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">网页搭建</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/1970" class="archive-year">1970</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/1970/01/01/hello-world/" class="archive-article-date">
-  	<time datetime="1970-01-01T00:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>1970-01-01</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/1970/01/01/hello-world/">Hello World</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://dpkg123.github.io/2023/04/25/PostmarketOS%E7%A7%BB%E6%A4%8D%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2023/04/14/redmi-k20-pro%E7%A7%BB%E6%A4%8DPostmarketOS%E6%8C%87%E5%8C%97/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">redmi k20 pro移植PostmarketOS指北</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%981-xxx-patch%E6%97%A0%E6%B3%95%E6%89%93%E8%A1%A5%E4%B8%81"><span class="toc-number">2.</span> <span class="toc-text">问题1: xxx patch无法打补丁</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%982-asm-x2F-type-h-not-found"><span class="toc-number">3.</span> <span class="toc-text">问题2: asm&#x2F;type.h not found</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%983-gzip-cpio-command-not-found"><span class="toc-number">4.</span> <span class="toc-text">问题3: gzip(cpio) command not found</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%984-c%E8%AF%AD%E8%A8%80%E9%94%99%E8%AF%AF"><span class="toc-number">5.</span> <span class="toc-text">问题4 c语言错误</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Compiler-GCC-6-doesn%E2%80%99t-boot-when-compiled-with-newer-versions"><span class="toc-number">6.</span> <span class="toc-text">Compiler: GCC 6 (doesn’t boot when compiled with newer versions)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%985-Permission-denied"><span class="toc-number">7.</span> <span class="toc-text">问题5: Permission denied</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
+  <div id="gitment-ctn"></div> 
+<link rel="stylesheet" href="//imsun.github.io/gitment/style/default.css">
+<script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  id: "https://dpkg123.github.io/2023/04/25/PostmarketOS%E7%A7%BB%E6%A4%8D%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/",
+  owner: 'dpkg123',
+  repo: 'dpkg123.github.io',
+  oauth: {
+    client_id: '0fcdcb0b87b884d8a05f',
+    client_secret: '6fb4473c2cdd9a45282ff0faa3cf0a0a1795d605',
+  },
+})
+gitment.render('gitment-ctn')
+</script>
+  
 
 
           </div>
@@ -481,8 +392,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

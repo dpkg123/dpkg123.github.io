@@ -158,6 +158,161 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-PostmarketOS移植常见问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/04/25/PostmarketOS%E7%A7%BB%E6%A4%8D%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">PostmarketOD移植常见问题</a>
+    </h1>
+  
+
+        
+        <a href="/2023/04/25/PostmarketOS%E7%A7%BB%E6%A4%8D%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2023-04-24T21:30:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这篇文章简单介绍下我移植k20pro-PostmarketOS出现的问题以及解决方法<br>移植教程可以参考<a target="_blank" rel="noopener" href="https://ivonblog.com/posts/xperia5-ii-postmarketos-porting/">这篇文章</a></p>
+<h1 id="问题1-xxx-patch无法打补丁"><a href="#问题1-xxx-patch无法打补丁" class="headerlink" title="问题1: xxx patch无法打补丁"></a>问题1: xxx patch无法打补丁</h1><p>这个问题出现在执行<code>pmbootstrap kconfig edit</code>时<br>解决办法:<br>在<code>linux-xiaomi-raphael/APKBUILD</code>中删除所有.patch字样</p>
+<h1 id="问题2-asm-x2F-type-h-not-found"><a href="#问题2-asm-x2F-type-h-not-found" class="headerlink" title="问题2: asm&#x2F;type.h not found"></a>问题2: asm&#x2F;type.h not found</h1><p>这个问题出现在执行<code>pmbootstrap build linux-xiaomi-raphael</code>时<br>解决办法:<br>执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ pmbootstrap <span class="built_in">chroot</span></span><br><span class="line">$ apk add linux-headers <span class="comment">#此命令需要在上一条命令执行成功后再执行</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="问题3-gzip-cpio-command-not-found"><a href="#问题3-gzip-cpio-command-not-found" class="headerlink" title="问题3: gzip(cpio) command not found"></a>问题3: gzip(cpio) command not found</h1><p>同上<br>解决办法:<br>将上面的linux-headers换成gzip(cpio)</p>
+<h1 id="问题4-c语言错误"><a href="#问题4-c语言错误" class="headerlink" title="问题4 c语言错误"></a>问题4 c语言错误</h1><p>同上<br>解决办法:<br>如果你是c语言大佬，可以试试修复<br>否则尝逝更换编译器为clang<br>在<code>linux-xiaomi-raphael/APKBUILD</code>中添加以下字段</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CC=&quot;clang&quot;</span><br><span class="line">HOSTCC=&quot;clang&quot;</span><br></pre></td></tr></table></figure>
+<p>或者使用gcc6&#x2F;gcc4<br>在<code>linux-xiaomi-raphael/APKBUILD</code>中添加以下字段</p>
+<h1 id="Compiler-GCC-6-doesn’t-boot-when-compiled-with-newer-versions"><a href="#Compiler-GCC-6-doesn’t-boot-when-compiled-with-newer-versions" class="headerlink" title="Compiler: GCC 6 (doesn’t boot when compiled with newer versions)"></a>Compiler: GCC 6 (doesn’t boot when compiled with newer versions)</h1><p>if [ “${CC:0:5}” !&#x3D; “gcc6-“ ]; then<br>    CC&#x3D;”gcc6-$CC”<br>    HOSTCC&#x3D;”gcc6-gcc”<br>    CROSS_COMPILE&#x3D;”gcc6-$CROSS_COMPILE”<br>fi</p>
+<p>如果要使用gcc4,请将上面字段的6改成4</p>
+<h1 id="问题5-Permission-denied"><a href="#问题5-Permission-denied" class="headerlink" title="问题5: Permission denied"></a>问题5: Permission denied</h1><p>这个问题可能出现在执行<code>pmbootstrap build linux-xiaomi-raphael</code>或者<code>pmbootstrap install</code>的时候<br>解决办法:<br>换个目录并将目录权限设置成755或者777(不推荐)</p>
+
+      
+
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">PostmarketOS</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">ROM移植</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/04/25/PostmarketOS%E7%A7%BB%E6%A4%8D%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-redmi-k20-pro移植PostmarketOS指北" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/04/14/redmi-k20-pro%E7%A7%BB%E6%A4%8DPostmarketOS%E6%8C%87%E5%8C%97/">redmi k20 pro移植PostmarketOS指北</a>
+    </h1>
+  
+
+        
+        <a href="/2023/04/14/redmi-k20-pro%E7%A7%BB%E6%A4%8DPostmarketOS%E6%8C%87%E5%8C%97/" class="archive-article-date">
+  	<time datetime="2023-04-13T17:13:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/04/14/redmi-k20-pro%E7%A7%BB%E6%A4%8DPostmarketOS%E6%8C%87%E5%8C%97/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-linux娘" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -391,11 +546,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web前端</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">web前端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">github</a>
         		</li>
       		
 		</ul>
@@ -701,19 +856,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网页加速</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">web前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网页搭建</a>
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -722,6 +869,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">二次元</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">PostmarketOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ROM移植</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网页加速</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网页搭建</a>
               </li>
             
             <div class="clearfix"></div>

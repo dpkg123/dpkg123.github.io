@@ -194,6 +194,10 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">chmod</span> 755 $(pmbootstrap_work_dir)</span><br></pre></td></tr></table></figure>
 
 <h1 id="问题6-xxx-h-no-such-file-or-directory"><a href="#问题6-xxx-h-no-such-file-or-directory" class="headerlink" title="问题6: xxx.h no such file or directory"></a>问题6: xxx.h no such file or directory</h1><p>这个问题出现在执行<code>pmbootstrap build linux-xiaomi-raphael</code>时，且问题多出自与小米官方内核<del>雷军，金凡！</del><br>解决办法:<br>使用find命令找到缺失的文件然后将文件复制到报错的文件的目录中</p>
+<h1 id="问题7-x2F-include-x2F-linux-x2F-compiler-gcc-h-2-2-error-error-“Please-don’t-include-lt-linux-x2F-compiler-gcc-h-gt-directly-include-lt-linux-x2F-compiler-h-gt-instead-”"><a href="#问题7-x2F-include-x2F-linux-x2F-compiler-gcc-h-2-2-error-error-“Please-don’t-include-lt-linux-x2F-compiler-gcc-h-gt-directly-include-lt-linux-x2F-compiler-h-gt-instead-”" class="headerlink" title="问题7:..&#x2F;include&#x2F;linux&#x2F;compiler-gcc.h:2:2: error: #error “Please don’t include &lt;linux&#x2F;compiler-gcc.h&gt; directly, include &lt;linux&#x2F;compiler.h&gt; instead.”"></a>问题7:..&#x2F;include&#x2F;linux&#x2F;compiler-gcc.h:2:2: error: #error “Please don’t include &lt;linux&#x2F;compiler-gcc.h&gt; directly, include &lt;linux&#x2F;compiler.h&gt; instead.”</h1><p>同上<br>解决办法:<br>将<code>APKBUILD</code>中的</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">prepare() &#123;</span><br><span class="line">	default_prepare</span><br><span class="line">	. downstreamkernel_prepare</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>换成</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">prepare() &#123;</span><br><span class="line">	default_prepare</span><br><span class="line">	REPLACE_GCCH=0</span><br><span class="line">	. downstreamkernel_prepare</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -529,7 +533,7 @@
 <p>然后执行</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/xxx/blogbackup</span><br></pre></td></tr></table></figure>
 <p>会提示</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">正克隆到 &#x27;blogbackip&#x27;...</span><br><span class="line">警告：您似乎克隆了一个空仓库。</span><br></pre></td></tr></table></figure>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">正克隆到 &#x27;blogbackup&#x27;...</span><br><span class="line">警告：您似乎克隆了一个空仓库。</span><br></pre></td></tr></table></figure>
 <p>将文件放入此目录然后提交即可</p>
 
       

@@ -6,7 +6,7 @@
   <link href="https://dpkg123.github.io/atom.xml" rel="self"/>
   
   <link href="https://dpkg123.github.io/"/>
-  <updated>2023-04-29T14:26:36.000Z</updated>
+  <updated>2023-04-29T14:52:37.000Z</updated>
   <id>https://dpkg123.github.io/</id>
   
   <author>
@@ -15,6 +15,60 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux刷机工具箱</title>
+    <link href="https://dpkg123.github.io/2023/04/29/linux%E5%88%B7%E6%9C%BA%E5%B7%A5%E5%85%B7%E7%AE%B1/"/>
+    <id>https://dpkg123.github.io/2023/04/29/linux%E5%88%B7%E6%9C%BA%E5%B7%A5%E5%85%B7%E7%AE%B1/</id>
+    <published>2023-04-29T14:52:37.000Z</published>
+    <updated>2023-04-29T14:52:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>写了个linux刷机工具箱，基于linux shell脚本<br>更新地址<a href="https://dabao1955/flash-tool-linux">https://dabao1955/flash-tool-linux</a><br>安装<br>执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install aria2 -y</span><br><span class="line">aria2c https://raw.githubusercontent.com/dabao1955/flash-tool-linux/eula/setup.sh | bash</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="shell" scheme="https://dpkg123.github.io/tags/shell/"/>
+    
+    <category term="刷机工具" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>简单写一个shell刷机脚本之进阶篇</title>
+    <link href="https://dpkg123.github.io/2023/04/29/%E7%AE%80%E5%8D%95%E5%86%99%E4%B8%80%E4%B8%AAshell%E5%88%B7%E6%9C%BA%E8%84%9A%E6%9C%AC%E4%B9%8B%E8%BF%9B%E9%98%B6%E7%AF%87/"/>
+    <id>https://dpkg123.github.io/2023/04/29/%E7%AE%80%E5%8D%95%E5%86%99%E4%B8%80%E4%B8%AAshell%E5%88%B7%E6%9C%BA%E8%84%9A%E6%9C%AC%E4%B9%8B%E8%BF%9B%E9%98%B6%E7%AF%87/</id>
+    <published>2023-04-29T14:42:10.000Z</published>
+    <updated>2023-04-29T14:42:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="https://dpkg123.github.io/2023/04/29/%E7%AE%80%E5%8D%95%E5%86%99%E4%B8%80%E4%B8%AAshell%E5%88%B7%E6%9C%BA%E8%84%9A%E6%9C%AC/">上一篇文章</a>我们简单写了一个shell刷机脚本，这期我们要在上一期文章的基础上添加更多的操作</p><h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><ul><li>创建两个选择，一个是刷入magisk-boot镜像，另一个是还原官方镜像</li><li>实现在开机状态下自动进入fastboot模式，在fastboot模式下自动执行指令</li><li>如果没解锁fastboot将提示无法刷写<br>注:为了方便，将会用<code>fastboot</code>取代<code>/usr/lib/android-sdk/platform-tools/fastboot</code></li></ul><h1 id="使用的命令"><a href="#使用的命令" class="headerlink" title="使用的命令"></a>使用的命令</h1><p>命令太多就暂时不写了</p><h1 id="实操"><a href="#实操" class="headerlink" title="实操"></a>实操</h1><p>首先要确保magisk镜像叫<code>magisk-boot.img</code>，官方boot镜像叫<code>offical-boot.img</code><br>首先输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> 这是一个简单的刷机脚本</span><br></pre></td></tr></table></figure><p>为了美观可以在前面输入<code>clear或者reset</code>来清理屏幕<br>Tips:reset不是重启系统的命令,<code>reboot才是</code>，而且reboot命令需要root权限<br>然后输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS3=<span class="string">&#x27;选择一项: &#x27;</span></span><br></pre></td></tr></table></figure><p>这里设置PS3变量。 这是<code>select语句</code>在从我们的多选菜单中进行选择时使用的提示。<br>接下来创建预定选项列表。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">options=(<span class="string">&quot;刷入magisk boot&quot;</span> <span class="string">&quot;还原官方boot&quot;</span> <span class="string">&quot;退出&quot;</span>)</span><br></pre></td></tr></table></figure><p>接下来，我们开始创建菜单的选择构造。 在这一行中，我们告诉select选择从options数组创建菜单。 我们还将在$menu变量中设置用户选择。 select语句的语法类似于for循环，这就是为什么您在末尾看到do语句的原因。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select menu <span class="keyword">in</span> <span class="string">&quot;<span class="variable">$&#123;options[@]&#125;</span>&quot;</span>; <span class="keyword">do</span></span><br></pre></td></tr></table></figure><p>使用case语句创建更多可靠的选项<br>case语句使您可以有选择地执行与第一个匹配模式相对应的命令。 例如，如果我们从多项选择菜单中选择第一项，它将执行与该单词相对应的命令列表。</p><p>在case语句中，我们有开头节。 这告诉案例搜索与$menu变量的值匹配的选项。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="variable">$menu</span> <span class="keyword">in</span></span><br></pre></td></tr></table></figure><p>然后这里添加选项一的子句。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;刷入magisk boot&quot;</span>)</span><br><span class="line">            <span class="built_in">echo</span> <span class="comment">#这里的命令一会再回过头来修改</span></span><br><span class="line">            ;;</span><br></pre></td></tr></table></figure><p>这里的命令一会再回过头来修改，<br>执行完毕后，如果想直接退出脚本，可以在后面敲一行回车后输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">break</span></span><br></pre></td></tr></table></figure><p>然后如法炮制地添加第二三条选项即可。<br>tips:第三项是退出选项，只需要将echo和后面的换成<code>exit 0</code>即可。</p><p>如果输入了除了1,2,3以外的数字或字母将可能会导致脚本运行错误，这时候需要输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*) <span class="built_in">echo</span> <span class="string">&quot;未知选项 <span class="variable">$REPLY</span>&quot;</span>;;</span><br></pre></td></tr></table></figure><p>来告诉这是无效的输入<br>在所有子句之后，我们以esac结束case语句，<code>而esac是反写的的。 这类似于以fi结束if语句</code>。输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure><p>最后一行关闭用do打开的select语句。输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure><p>到这时候，一个基本的选择页面就完成了。接下来我们回过头来修改之前选项里的内容<br>上期图文的脚本中我们只写了一个fastboot flash boot.img来刷写boot，虽然但是，改需要手动从开机页面重启到fastboot模式，很不方便。<br>于是可以使用if语句判断手机是否进入fastboot模式</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> fastboot devices</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">adb reboot bootloader</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">fastboot flash boot magisk-boot.img</span><br><span class="line">fastboot reboot</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">当然如果想告诉用户刷入失败的原因的话可以整一个<span class="keyword">if</span>嵌套循环。</span><br><span class="line">adb devices</span><br><span class="line"><span class="keyword">if</span> [ $? -ne 0 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">adb reboot bootloader</span><br><span class="line"><span class="built_in">echo</span> 即将刷入boot</span><br><span class="line"><span class="built_in">sleep</span> 5s</span><br><span class="line">fastboot flash magisk-boot.img</span><br><span class="line"><span class="keyword">if</span> [ $? -ne 0 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">fastboot reboot</span><br><span class="line"><span class="built_in">exit</span> 0</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> 刷入失败，请确保手机已解锁bootloader</span><br><span class="line"><span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> 请确保手机已经开启usb调试且允许这台计算机进行调试</span><br><span class="line"><span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure><p>这里的<code>if [ $? -ne 0 ]</code>是用来判断上一条命令是否执行成功<br><code>exit 1</code>的意思是非正常退出，与<code>exit 0</code>相反<br>Tips:if嵌套循环分开执行也是可以的。<br>if嵌套循环如果写错了就会产生这样的杯具</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flash.sh: 行 17: 未预期的记号 &quot;fi&quot; 附近有语法错误</span><br><span class="line">flash.sh: 行 17: `fi&#x27;</span><br></pre></td></tr></table></figure><p>还原官方boot同理，将<code>magisk-boot.img</code>字段替换成<code>offical-boot.img</code>即可</p><p>当然，为了防止<code>adb :command not found</code>出现，也可以在脚本上加入adb检测，只要将上篇文章的<code>sudo apt install fastboot -y</code>换成<br><code>sudo apt install adb -y</code>即可<br>当然有些系统的adb不叫这个，例如termux上的adb软件包叫<code>android-tools</code></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="shell" scheme="https://dpkg123.github.io/tags/shell/"/>
+    
+    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
+    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
+    
+    <category term="fastboot" scheme="https://dpkg123.github.io/tags/fastboot/"/>
+    
+  </entry>
   
   <entry>
     <title>简单写一个shell刷机脚本</title>
@@ -34,31 +88,11 @@
     
     
     
-    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
-    
     <category term="shell" scheme="https://dpkg123.github.io/tags/shell/"/>
     
+    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
     <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>写一个简单的linux shell 刷机脚本</title>
-    <link href="https://dpkg123.github.io/2023/04/27/%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84linux-shell-%E5%88%B7%E6%9C%BA%E8%84%9A%E6%9C%AC/"/>
-    <id>https://dpkg123.github.io/2023/04/27/%E5%86%99%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84linux-shell-%E5%88%B7%E6%9C%BA%E8%84%9A%E6%9C%AC/</id>
-    <published>2023-04-26T20:53:35.000Z</published>
-    <updated>2023-04-26T20:53:35.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
-      
-    
-    
-    
     
   </entry>
   
@@ -83,26 +117,6 @@
     <category term="PostmarketOS" scheme="https://dpkg123.github.io/tags/PostmarketOS/"/>
     
     <category term="ROM移植" scheme="https://dpkg123.github.io/tags/ROM%E7%A7%BB%E6%A4%8D/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>redmi k20 pro移植PostmarketOS指北</title>
-    <link href="https://dpkg123.github.io/2023/04/14/redmi-k20-pro%E7%A7%BB%E6%A4%8DPostmarketOS%E6%8C%87%E5%8C%97/"/>
-    <id>https://dpkg123.github.io/2023/04/14/redmi-k20-pro%E7%A7%BB%E6%A4%8DPostmarketOS%E6%8C%87%E5%8C%97/</id>
-    <published>2023-04-13T17:13:06.000Z</published>
-    <updated>2023-04-13T17:13:06.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
-      
-    
-    
-    
     
   </entry>
   
@@ -176,9 +190,9 @@
     
     <category term="hexo" scheme="https://dpkg123.github.io/tags/hexo/"/>
     
-    <category term="github" scheme="https://dpkg123.github.io/tags/github/"/>
-    
     <category term="web前端" scheme="https://dpkg123.github.io/tags/web%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="github" scheme="https://dpkg123.github.io/tags/github/"/>
     
   </entry>
   

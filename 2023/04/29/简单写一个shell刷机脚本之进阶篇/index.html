@@ -18,8 +18,8 @@
 <meta property="article:published_time" content="2023-04-29T14:42:10.000Z">
 <meta property="article:modified_time" content="2023-04-29T14:42:10.000Z">
 <meta property="article:author" content="dpkg123">
-<meta property="article:tag" content="linux">
 <meta property="article:tag" content="shell">
+<meta property="article:tag" content="linux">
 <meta property="article:tag" content="fastboot">
 <meta property="article:tag" content="刷机">
 <meta name="twitter:card" content="summary">
@@ -214,7 +214,9 @@
 <p>最后一行关闭用do打开的select语句。输入</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
 <p>到这时候，一个基本的选择页面就完成了。接下来我们回过头来修改之前选项里的内容<br>上期图文的脚本中我们只写了一个fastboot flash boot.img来刷写boot，虽然但是，改需要手动从开机页面重启到fastboot模式，很不方便。<br>于是可以使用if语句判断手机是否进入fastboot模式</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> fastboot devices</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">adb reboot bootloader</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">fastboot flash boot magisk-boot.img</span><br><span class="line">fastboot reboot</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line">当然如果想告诉用户刷入失败的原因的话可以整一个<span class="keyword">if</span>嵌套循环。</span><br><span class="line">adb devices</span><br><span class="line"><span class="keyword">if</span> [ $? -ne 0 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">adb reboot bootloader</span><br><span class="line"><span class="built_in">echo</span> 即将刷入boot</span><br><span class="line"><span class="built_in">sleep</span> 5s</span><br><span class="line">fastboot flash magisk-boot.img</span><br><span class="line"><span class="keyword">if</span> [ $? -ne 0 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">fastboot reboot</span><br><span class="line"><span class="built_in">exit</span> 0</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> 刷入失败，请确保手机已解锁bootloader</span><br><span class="line"><span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> 请确保手机已经开启usb调试且允许这台计算机进行调试</span><br><span class="line"><span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> fastboot devices</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">adb reboot bootloader</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">fastboot flash boot magisk-boot.img</span><br><span class="line">fastboot reboot</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+<p>当然如果想告诉用户刷入失败的原因的话可以整一个if嵌套循环。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">adb devices</span><br><span class="line"><span class="keyword">if</span> [ $? -ne 0 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">adb reboot bootloader</span><br><span class="line"><span class="built_in">echo</span> 即将刷入boot</span><br><span class="line"><span class="built_in">sleep</span> 5s</span><br><span class="line">fastboot flash magisk-boot.img</span><br><span class="line"><span class="keyword">if</span> [ $? -ne 0 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">fastboot reboot</span><br><span class="line"><span class="built_in">exit</span> 0</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> 刷入失败，请确保手机已解锁bootloader</span><br><span class="line"><span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> 请确保手机已经开启usb调试且允许这台计算机进行调试</span><br><span class="line"><span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
 <p>这里的<code>if [ $? -ne 0 ]</code>是用来判断上一条命令是否执行成功<br><code>exit 1</code>的意思是非正常退出，与<code>exit 0</code>相反<br>Tips:if嵌套循环分开执行也是可以的。<br>if嵌套循环如果写错了就会产生这样的杯具</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flash.sh: 行 17: 未预期的记号 &quot;fi&quot; 附近有语法错误</span><br><span class="line">flash.sh: 行 17: `fi&#x27;</span><br></pre></td></tr></table></figure>
 <p>还原官方boot同理，将<code>magisk-boot.img</code>字段替换成<code>offical-boot.img</code>即可</p>
@@ -251,11 +253,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">shell</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -512,15 +514,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
+                <a href="javascript:void(0)" class="js-tag color5">刷机工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,11 +530,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">刷机工具</a>
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网页加速</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -552,7 +554,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网页加速</a>
+                <a href="javascript:void(0)" class="js-tag color1">web前端</a>
               </li>
             
             <div class="clearfix"></div>

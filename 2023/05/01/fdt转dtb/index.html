@@ -6,16 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://dpkg123.github.io">
-  <title>categories | dpkg123的博客</title>
+  <title>fdt转dtb | dpkg123的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="https://dpkg123.github.io/categories/index.html">
+  <meta name="description" content="从机器导出dtc手机链接电脑，然后执行下列命令:(需要root) 12$ adb shell su -c cp &#x2F;sys&#x2F;firmware&#x2F;fdt &#x2F;sdcard$ adb pull &#x2F;sdcard&#x2F;fdr .&#x2F;  fdt转dts执行 1$ dtc -I dtb -O dts -o fdt.dts .&#x2F;fdt  dts转dtb执行 1$ dtc -I dts -O dtb -o fdt.dtb .">
+<meta property="og:type" content="article">
+<meta property="og:title" content="fdt转dtb">
+<meta property="og:url" content="https://dpkg123.github.io/2023/05/01/fdt%E8%BD%ACdtb/index.html">
 <meta property="og:site_name" content="dpkg123的博客">
+<meta property="og:description" content="从机器导出dtc手机链接电脑，然后执行下列命令:(需要root) 12$ adb shell su -c cp &#x2F;sys&#x2F;firmware&#x2F;fdt &#x2F;sdcard$ adb pull &#x2F;sdcard&#x2F;fdr .&#x2F;  fdt转dts执行 1$ dtc -I dtb -O dts -o fdt.dts .&#x2F;fdt  dts转dtb执行 1$ dtc -I dts -O dtb -o fdt.dtb .">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-04-10T17:43:24.000Z">
-<meta property="article:modified_time" content="2023-04-10T17:43:24.000Z">
+<meta property="article:published_time" content="2023-04-30T23:03:54.000Z">
+<meta property="article:modified_time" content="2023-04-30T23:03:54.000Z">
 <meta property="article:author" content="dpkg123">
+<meta property="article:tag" content="android">
+<meta property="article:tag" content="dtb">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="dpkg123的博客" type="application/atom+xml">
@@ -158,27 +162,35 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-fdt转dtb" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      categories
+      fdt转dtb
     </h1>
   
 
         
-        <a href="/categories/index.html" class="archive-article-date">
-  	<time datetime="2023-04-10T17:43:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-10</time>
+        <a href="/2023/05/01/fdt%E8%BD%ACdtb/" class="archive-article-date">
+  	<time datetime="2023-04-30T23:03:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="从机器导出dtc"><a href="#从机器导出dtc" class="headerlink" title="从机器导出dtc"></a>从机器导出dtc</h1><p>手机链接电脑，然后执行下列命令:(需要root)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ adb shell su -c <span class="built_in">cp</span> /sys/firmware/fdt /sdcard</span><br><span class="line">$ adb pull /sdcard/fdr ./</span><br></pre></td></tr></table></figure>
+
+<h1 id="fdt转dts"><a href="#fdt转dts" class="headerlink" title="fdt转dts"></a>fdt转dts</h1><p>执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ dtc -I dtb -O dts -o fdt.dts ./fdt</span><br></pre></td></tr></table></figure>
+
+<h1 id="dts转dtb"><a href="#dts转dtb" class="headerlink" title="dts转dtb"></a>dts转dtb</h1><p>执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ dtc -I dts -O dtb -o fdt.dtb ./fdt.dts</span><br></pre></td></tr></table></figure>
+
       
 
 
@@ -205,6 +217,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">dtb</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -255,7 +282,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://dpkg123.github.io/categories/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://dpkg123.github.io/2023/05/01/fdt%E8%BD%ACdtb/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -267,6 +294,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2023/05/01/coloros%E5%92%8Cmiui/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">coloros和miui</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -288,7 +325,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8E%E6%9C%BA%E5%99%A8%E5%AF%BC%E5%87%BAdtc"><span class="toc-number">1.</span> <span class="toc-text">从机器导出dtc</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#fdt%E8%BD%ACdts"><span class="toc-number">2.</span> <span class="toc-text">fdt转dts</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#dts%E8%BD%ACdtb"><span class="toc-number">3.</span> <span class="toc-text">dts转dtb</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -313,7 +350,7 @@
 <script src="//imsun.github.io/gitment/dist/gitment.browser.js"></script>
 <script>
 var gitment = new Gitment({
-  id: "https://dpkg123.github.io/categories/index.html",
+  id: "https://dpkg123.github.io/2023/05/01/fdt%E8%BD%ACdtb/",
   owner: 'dpkg123',
   repo: 'dpkg123.github.io',
   oauth: {
@@ -351,7 +388,7 @@ gitment.render('gitment-ctn')
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

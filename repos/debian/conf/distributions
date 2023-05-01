@@ -1,0 +1,7 @@
+Codename: stable
+Update: sink
+Architectures: arm64 amd64 armhf
+Components: main
+Description: test
+UDebComponents: main
+SignWith: C98C969E

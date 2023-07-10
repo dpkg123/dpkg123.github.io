@@ -86,9 +86,9 @@
     
     <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
-    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
-    
     <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
+    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
     
   </entry>
   
@@ -110,13 +110,13 @@
     
     
     
-    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
-    
     <category term="联发科" scheme="https://dpkg123.github.io/tags/%E8%81%94%E5%8F%91%E7%A7%91/"/>
     
     <category term="KernelSU" scheme="https://dpkg123.github.io/tags/KernelSU/"/>
     
     <category term="kvm" scheme="https://dpkg123.github.io/tags/kvm/"/>
+    
+    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
     
   </entry>
   
@@ -216,9 +216,9 @@
     
     
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
-    
     <category term="dtb" scheme="https://dpkg123.github.io/tags/dtb/"/>
+    
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
   </entry>
   
@@ -268,11 +268,11 @@
     
     
     
-    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
-    
     <category term="shell" scheme="https://dpkg123.github.io/tags/shell/"/>
     
     <category term="刷机工具" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
     
   </entry>
   
@@ -294,11 +294,11 @@
     
     
     
-    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
+    <category term="shell" scheme="https://dpkg123.github.io/tags/shell/"/>
     
     <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
     
-    <category term="shell" scheme="https://dpkg123.github.io/tags/shell/"/>
+    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
     
     <category term="fastboot" scheme="https://dpkg123.github.io/tags/fastboot/"/>
     
@@ -322,11 +322,11 @@
     
     
     
-    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
+    <category term="shell" scheme="https://dpkg123.github.io/tags/shell/"/>
     
     <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
     
-    <category term="shell" scheme="https://dpkg123.github.io/tags/shell/"/>
+    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
     
   </entry>
   
@@ -424,9 +424,9 @@
     
     <category term="hexo" scheme="https://dpkg123.github.io/tags/hexo/"/>
     
-    <category term="github" scheme="https://dpkg123.github.io/tags/github/"/>
-    
     <category term="web前端" scheme="https://dpkg123.github.io/tags/web%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="github" scheme="https://dpkg123.github.io/tags/github/"/>
     
   </entry>
   

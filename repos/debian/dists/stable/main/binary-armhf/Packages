@@ -1,0 +1,228 @@
+Package: app.web.163.mail
+Version: 1.0.0
+Architecture: all
+Maintainer: kylin <kylin@kylinos.cn>
+Installed-Size: 21
+Priority: optional
+Section: universe/admin
+Filename: pool/main/a/app.web.163.mail/app.web.163.mail_1.0.0_all.deb
+Size: 10244
+SHA256: 85e68e1be8113af978ae038addc7cfda94c4ac51bba2130202bbd3c501144f00
+SHA1: 0aa720440b263cae317852f8b1906365a194b573
+MD5sum: 927ad3fb3598c0736f1507b7bf3055ce
+Description: app.web.163.mail
+
+Package: app.web.163.music
+Version: 1.0.0
+Architecture: all
+Maintainer: kylin <kylin@kylinos.cn>
+Installed-Size: 35
+Priority: optional
+Section: universe/admin
+Filename: pool/main/a/app.web.163.music/app.web.163.music_1.0.0_all.deb
+Size: 24548
+SHA256: fc2b46a12b1ffc14568bd9c4cd7de1e1a78eb2bd50726f33848e706a1377bbb9
+SHA1: 634373f3fd7257b3e11532bcfaf003b086022d04
+MD5sum: 42d468258b1928c5bcbb3b06727e5e24
+Description: app.web.163.music
+
+Package: app.web.baidu.map
+Version: 1.0.0
+Architecture: all
+Maintainer: kylin <kylin@kylinos.cn>
+Installed-Size: 23
+Priority: optional
+Section: universe/admin
+Filename: pool/main/a/app.web.baidu.map/app.web.baidu.map_1.0.0_all.deb
+Size: 11576
+SHA256: acbe2d0a9c48ac40d6bc9f13c6738765923083ae33245f59e2fb9cf16c284f80
+SHA1: c831ab09c2eb39c8aaa384f0b009fcbb7f2ffbd6
+MD5sum: 6ff5fb4180428edf43b427a6cd05953a
+Description: app.web.baidu.map
+
+Package: app.web.kugou
+Version: 1.0.0
+Architecture: all
+Maintainer: kylin <kylin@kylinos.cn>
+Installed-Size: 36
+Priority: optional
+Section: universe/admin
+Filename: pool/main/a/app.web.kugou/app.web.kugou_1.0.0_all.deb
+Size: 25930
+SHA256: 99c94138209c1e196ca8335dbeaf4c56e94d28f96df585f4b251e6fef4c94945
+SHA1: e859ec7793a99884ac4b4bd949abc7111397068d
+MD5sum: 318f1de49b6a2f2dc13a6b23ac74181b
+Description: app.web.kugou
+
+Package: app.web.youdao.dict
+Version: 1.0.0
+Architecture: all
+Maintainer: kylin <kylin@kylinos.cn>
+Installed-Size: 33
+Priority: optional
+Section: universe/admin
+Filename: pool/main/a/app.web.youdao.dict/app.web.youdao.dict_1.0.0_all.deb
+Size: 22434
+SHA256: a39bb74651bbc84797d2c603b2ac757f3c2c75542467eadb0875ba06dc7e2f10
+SHA1: 9208372aed2076fe88869a5e1939248028fc158a
+MD5sum: 565fa98b5f3bd7011558d5ac6726c9aa
+Description: app.web.youdao.dict
+
+Package: box86-android
+Installed-Size: 11692
+Maintainer: root@69cdf48997bb
+Architecture: armhf
+Version: 0.3.1+20230323.1a0888c-1
+Provides: box86
+Conflicts: qemu-user-static
+Priority: extra
+Section: checkinstall
+Filename: pool/main/b/box86-android/box86-android_0.3.1+20230323.1a0888c-1_armhf.deb
+Size: 2345156
+SHA256: cd0258168d712febc55a907d54f4b3d8ce360ad13cdf6664bd06f688a2e99a81
+SHA1: cdf7736b66bac039d8a9ad9780eead92599a3ac6
+MD5sum: 74598170e61d46dd0340eff26b906882
+Description: Box86 lets you run x86 Linux programs (such as games) on non-x86 Linux systems, like ARM (host system needs to be 32bit little-endian)
+ Box86 lets you run x86 Linux programs (such as games) on non-x86 Linux systems, like ARM (host system needs to be 32bit little-endian)
+
+Package: box86-generic-arm
+Installed-Size: 11692
+Maintainer: root@69cdf48997bb
+Architecture: armhf
+Version: 0.3.1+20230323.1a0888c-1
+Provides: box86
+Conflicts: qemu-user-static
+Priority: extra
+Section: checkinstall
+Filename: pool/main/b/box86-generic-arm/box86-generic-arm_0.3.1+20230323.1a0888c-1_armhf.deb
+Size: 2340808
+SHA256: 269b2c1607ae19016c10962d1fb6b64c282b732ea17d94fb4ba93027507c4bf3
+SHA1: dd52e4a071f6f5d3130cafa2cbb38aa675340c47
+MD5sum: fd8274e7caf9605adeb05da2fac7c396
+Description: Box86 lets you run x86 Linux programs (such as games) on non-x86 Linux systems, like ARM (host system needs to be 32bit little-endian)
+ Box86 lets you run x86 Linux programs (such as games) on non-x86 Linux systems, like ARM (host system needs to be 32bit little-endian)
+
+Package: box86-rk3399
+Installed-Size: 11876
+Maintainer: root@69cdf48997bb
+Architecture: armhf
+Version: 0.3.1+20230323.1a0888c-1
+Provides: box86
+Conflicts: qemu-user-static
+Priority: extra
+Section: checkinstall
+Filename: pool/main/b/box86-rk3399/box86-rk3399_0.3.1+20230323.1a0888c-1_armhf.deb
+Size: 2342320
+SHA256: 7780d99032ab260c636fe4e4c6a5958a564bbc4812d4ff6d6b2f210aa152ca94
+SHA1: 434d8378826e1195df8312bc034b8d40645d1bf6
+MD5sum: 55ca27c6edc42abb79316c1ca9930167
+Description: Box86 lets you run x86 Linux programs (such as games) on non-x86 Linux systems, like ARM (host system needs to be 32bit little-endian)
+ Box86 lets you run x86 Linux programs (such as games) on non-x86 Linux systems, like ARM (host system needs to be 32bit little-endian)
+
+Package: box86-rpi4arm64
+Installed-Size: 11876
+Maintainer: root@69cdf48997bb
+Architecture: armhf
+Version: 0.3.1+20230323.1a0888c-1
+Provides: box86
+Conflicts: qemu-user-static
+Priority: extra
+Section: checkinstall
+Filename: pool/main/b/box86-rpi4arm64/box86-rpi4arm64_0.3.1+20230323.1a0888c-1_armhf.deb
+Size: 2343252
+SHA256: e40b327ad0c2d722da8de46334ef0edb959b0a4673f1d19d5906714ab9d67ce2
+SHA1: 9296d84fcfe5b5835a2e114afdaedcddfd05671a
+MD5sum: 7d8debe0cc78d81b1169d844c824ca46
+Description: Box86 lets you run x86 Linux programs (such as games) on non-x86 Linux systems, like ARM (host system needs to be 32bit little-endian)
+ Box86 lets you run x86 Linux programs (such as games) on non-x86 Linux systems, like ARM (host system needs to be 32bit little-endian)
+
+Package: box86-tegrax1
+Installed-Size: 11876
+Maintainer: root@69cdf48997bb
+Architecture: armhf
+Version: 0.3.1+20230323.1a0888c-1
+Provides: box86
+Conflicts: qemu-user-static
+Priority: extra
+Section: checkinstall
+Filename: pool/main/b/box86-tegrax1/box86-tegrax1_0.3.1+20230323.1a0888c-1_armhf.deb
+Size: 2340960
+SHA256: b03a2e21bb43ee3662eb2792639bebafd50492dd4c02a4df1711e1556c66c5d9
+SHA1: b29456aac40b2b8f82d7268dca727f44d6e294e9
+MD5sum: f0dccfaeebf9e950aeeda79d34b2ab75
+Description: Box86 lets you run x86 Linux programs (such as games) on non-x86 Linux systems, like ARM (host system needs to be 32bit little-endian)
+ Box86 lets you run x86 Linux programs (such as games) on non-x86 Linux systems, like ARM (host system needs to be 32bit little-endian)
+
+Package: qemu-laucher
+Architecture: all
+Installed-Size: 332
+Maintainer: ernel <3234252572@qq.com>
+Version: 0.1beta
+Priority: optional
+Section: custom
+Filename: pool/main/q/qemu-laucher/qemu-laucher_0.1beta_all.deb
+Size: 1468
+SHA256: f66fe20606bd3f3695c52425e518263dead07dfb1416c4cf60d117b98408d22e
+SHA1: 8d4ccadb13d0370f805818410b5ba4017ff1a7d3
+MD5sum: ced5fa12ecb5bdbdf1db83eed1a03335
+Description: Easily to lauch qemu.
+Essential: no
+Pre-Depends: qemu-system
+
+Package: tmoe-linux-tool
+Version: 1.4989.50.2
+Architecture: all
+Installed-Size: 8600
+Maintainer: 2moe <tmoe@noreply.github.com>
+Pre-Depends: aria2 (>= 1.30.0), binutils (>= 2.28-5), coreutils (>= 8.26-3), curl (>= 7.52.1-5), findutils (>= 4.6.0), git (>= 1:2.11.0-3), lsof (>= 4.89), micro (>= 2.0.6-2), nano (>= 2.7.4-1), proot (>= 5.1.0), procps (>= 2:3.3.12), sudo (>= 1.8.19p1-2.1), tar (>= 1.29b-1.1),  util-linux (>= 2.29.2-1), whiptail (>= 0.52.19), xz-utils (>= 5.2.2), zstd (>= 1.1.2),eatmydata,aptitude,catimg,fontconfig,nano,wget
+Priority: optional
+Section: admin
+Filename: pool/main/t/tmoe-linux-tool/tmoe-linux-tool_1.4989.50.2_all.deb
+Size: 701514
+SHA256: 213b1b8dc00d6bf4e568a95c4f7418f3176db77444e1521d843dbce7cd7a8453
+SHA1: 63fd423e13885b2acb4a74466d4197144c06b9d4
+MD5sum: 73cf1d3e03eae1520bfb6364f5744a99
+Description: TMOE, More Optional Environments
+  extended description over several lines
+
+Package: trelby
+Version: 2.2.0-1~opt11
+Architecture: all
+Maintainer: Anil Gulecha <anil.verve@gmail.com>
+Installed-Size: 1984
+Depends: python-wxgtk3.0, python-crypto, python-lxml
+Homepage: http://www.trelby.org/
+Priority: extra
+Section: python
+Filename: pool/main/t/trelby/trelby_2.2.0-1~opt11_all.deb
+Size: 1394156
+SHA256: 06323057c929841f4b4bf387e0423dfc73854f89aaf4035def8c81fc8069a0cc
+SHA1: 04ccc5d8160059c55889f3341556e1c5f76cd7f5
+MD5sum: bfdd269db49f5f02c0492973ff7421ae
+Description: Feature-rich screenwriting program
+ Trelby is a simple, powerful, full-featured, multi-platform program for
+ writing movie screenplays. It is simple, fast and elegantly laid out to
+ make screenwriting simple, and it is infinitely configurable.
+ .
+ Features:
+ .
+  * Screenplay editor: Enforces correct script format and pagination,
+    auto-completion, and spell checking.
+  * Multiplatform: Behaves identically on all platforms, generating the exact
+    same output.
+  * Choice of view: Multiple views, including draft view, WYSIWYG mode,
+    and fullscreen to suit your writing style.
+  * Name database: Character name database containing over 200,000 names
+    from various countries.
+  * Reporting: Scene/location/character/dialogue reports.
+  * Compare: Ability to compare scripts, so you know what changed between
+    versions.
+  * Import: Screenplay formatted text, Final Draft XML (.fdx)
+     and Celtx (.celtx).
+  * Export: PDF, formatted text, HTML, RTF, Final Draft XML (.fdx).
+  * PDF: Built-in, highly configurable PDF generator. Supports embedding your
+    chosen font. Also supports generating PDFs with custom watermarks,
+    to help track shared files.
+  * Free software: Licensed under the GPL, Trelby welcomes developers and
+    screenwriters to contribute in making it more useful.
+

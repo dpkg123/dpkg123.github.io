@@ -1,0 +1,25 @@
+Package: sogoupinyin
+Version: 4.2.1.145
+Architecture: loongarch64
+Maintainer: Sogou IME Team <LinuxImeDev@sogou-inc.com>
+Installed-Size: 186335
+Depends: fcitx (>= 1:4.2.8), fcitx-frontend-gtk2, fcitx-frontend-gtk3, fcitx-frontend-qt5, fcitx-module-x11, libxtst6, im-config, lsb-release
+Recommends: fonts-droid | fonts-droid-fallback
+Breaks: fcitx-ui-qimpanel
+Homepage: http://pinyin.sogou.com/linux
+Priority: optional
+Section: utils
+Filename: pool/main/s/sogoupinyin/sogoupinyin_4.2.1.145_loongarch64.deb
+Size: 71298832
+SHA256: 5a6147a1df7e34f533808992721e60f322d6ada38f31b88283f6a59f8360fe04
+SHA1: d9239a37c4b5747ffac4dd4a4829789a43f6e3db
+MD5sum: 459181cc9049d9a52f0c6a71ef6667e0
+Description: Business Sogou Input Method
+ Based on web search engine technology, Sogou Pinyin input method is
+ the next-generation input method designed for Internet users. As it
+ is backed with search engine technology, user input method can be
+ extremely fast, and it is much more advanced than other input method
+ engines in terms of the volume of the vocabulary database and its
+ accuracy. Sogou input method is the most popular input methods in
+ China, and Sogou promises it will always be free of charge.
+

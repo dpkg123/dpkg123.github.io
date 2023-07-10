@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>dpkg123的博客</title>
+  
+  <subtitle>Test Page</subtitle>
+  <link href="https://dpkg123.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://dpkg123.github.io/"/>
+  <updated>2023-06-28T20:09:52.000Z</updated>
+  <id>https://dpkg123.github.io/</id>
+  
+  <author>
+    <name>dpkg123</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>哔哩哔哩危险地带部分补档</title>
+    <link href="https://dpkg123.github.io/2023/06/29/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E5%8D%B1%E9%99%A9%E5%9C%B0%E5%B8%A6%E9%83%A8%E5%88%86%E8%A1%A5%E6%A1%A3/"/>
+    <id>https://dpkg123.github.io/2023/06/29/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E5%8D%B1%E9%99%A9%E5%9C%B0%E5%B8%A6%E9%83%A8%E5%88%86%E8%A1%A5%E6%A1%A3/</id>
+    <published>2023-06-28T20:09:52.000Z</published>
+    <updated>2023-06-28T20:09:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="地址"><a href="#地址" class="headerlink" title="地址"></a>地址</h3><p><a href="../../../../ubc26/">点击这里</a></p><h3 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h3><p>搬运自<a href="https://ubc2.github.io/links/menu.html">ubc26</a>, 侵删</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="哔哩哔哩" scheme="https://dpkg123.github.io/tags/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9/"/>
+    
+    <category term="av10492" scheme="https://dpkg123.github.io/tags/av10492/"/>
+    
+    <category term="猎奇" scheme="https://dpkg123.github.io/tags/%E7%8C%8E%E5%A5%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用dh_make快速构建deb</title>
+    <link href="https://dpkg123.github.io/2023/06/22/%E4%BD%BF%E7%94%A8dh-make%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BAdeb/"/>
+    <id>https://dpkg123.github.io/2023/06/22/%E4%BD%BF%E7%94%A8dh-make%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BAdeb/</id>
+    <published>2023-06-22T13:34:29.000Z</published>
+    <updated>2023-06-22T13:34:29.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>注: 本方法适用于需要编译的项目</p><h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>以<a href="https://github.com/moe-hacker/ruri">ruri</a>为例<br>克隆</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/moe-hacker/ruri</span><br></pre></td></tr></table></figure><p>安装编译所需依赖</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install dh_make dpkg-dev build-essential libcap-dev -y</span><br></pre></td></tr></table></figure><p>删除.git文件夹</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ruri</span><br><span class="line">rm -rf .git</span><br></pre></td></tr></table></figure><h1 id="运行dh-make生成基本文件"><a href="#运行dh-make生成基本文件" class="headerlink" title="运行dh_make生成基本文件"></a>运行dh_make生成基本文件</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dh_make --createorig -y -s -a -c apache -e Moe-hacker@outlook.com -p ruri</span><br></pre></td></tr></table></figure><p>dh_make是一个用于创建Debian软件包的工具，它可以根据源代码生成debian目录和一些模板文件。dh_make的选项有以下几种：</p><ul><li>-e, –email <email>：指定维护者的电子邮件地址，如果不指定，则使用环境变量DEBEMAIL或EMAIL。</li><li>-f, –file <file>：指定源代码的压缩文件，如果不指定，则使用当前目录下的第一个压缩文件。</li><li>-n, –native：创建一个原生的Debian软件包，即没有上游的源代码。</li><li>-s, –single：创建一个单一的二进制软件包，即只有一个deb文件。</li><li>-i, –indep：创建一个独立的二进制软件包，即不依赖于架构的deb文件。</li><li>-m, –multi：创建一个多个二进制软件包，即有多个deb文件。</li><li>-l, –library：创建一个库软件包，即包含共享库或静态库的deb文件。</li><li>-k, –kmod：创建一个内核模块软件包，即包含内核模块的deb文件。</li><li>-b, –cdbs：使用cdbs（Common Debian Build System）来构建软件包，这是一种简化的构建系统。</li><li>-r, –createorig：创建一个.orig.tar.gz文件，这是Debian软件包中用于存放上游源代码的压缩文件。</li><li>-c, –copyright <name>：指定版权所有者的姓名，如果不指定，则使用环境变量DEBFULLNAME或NAME。</li><li>-p, –packagename <name>：指定软件包的名称，如果不指定，则使用源代码目录的名称。</li><li>-v, –version <version>：指定软件包的版本号，如果不指定，则使用源代码压缩文件中的版本号。</li><li>-t, –templates <dir>:指定模板文件的目录，如果不指定，则使用&#x2F;usr&#x2F;share&#x2F;dh-make&#x2F;templates&#x2F;目录。</li><li>-d, –defaultless：不使用默认值来填充模板文件中的字段，而是让用户自己输入。</li><li>-y, –yes：不询问用户任何问题，而是使用默认值或环境变量来填充模板文件中的字段。</li><li>-h, –help：显示帮助信息并退出。</li></ul><p>当前目录下会自动创建debian目录,目录下有很多打包使用的模板文件,以.ex&#x2F;.EX结尾。可以删除换成自己的</p><h1 id="修改文件"><a href="#修改文件" class="headerlink" title="修改文件"></a>修改文件</h1><p>主要修改以下几个文件:</p><ul><li>postinst<br>可以用作者配置好的，如果没有可以不用填写</li><li>changelog<br>参考以下格式: <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ruri (9.0) unstable; urgency=low</span><br><span class="line"></span><br><span class="line">  * Initial release.</span><br><span class="line"></span><br><span class="line"> -- Moe-hacker &lt;Moe-hacker@outlook.com&gt;  Mon, 19 Jun 2023 16:32:34 +0800</span><br></pre></td></tr></table></figure></li><li>copyright</li></ul><p>一般不用修改。如果要往里添加的话参考</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Files: src/riru</span><br><span class="line">Copyright: 2023 Moe-hacker &lt;moe-hacker@outlook.com&gt;</span><br><span class="line"></span><br><span class="line">License: Apache-2.0</span><br></pre></td></tr></table></figure><ul><li>compat<br>一般为9,构建的时候可能会出现警告，调成10即可。</li><li>rules<br>参考<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/make -f</span><br><span class="line">include /usr/share/dpkg/default.mk</span><br><span class="line"></span><br><span class="line">%:</span><br><span class="line">dh $@ --parallel</span><br><span class="line"></span><br><span class="line">override_dh_auto_configure:</span><br><span class="line">dh_auto_configure -- DEFINES+=&quot;VERSION=$(DEB_VERSION_UPSTREAM)&quot;</span><br></pre></td></tr></table></figure></li><li>ruri.install</li></ul><p>默认是没有这个文件的，需要手动创建。<br>建议先make一下。看看编译后生成的文件到底在哪。<br>ruri编译后默认生成到根目录<br>就可以写</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruri /usr/bin</span><br></pre></td></tr></table></figure><ul><li>control<br>主要修改以下内容<br>Maintainer: 换成你自己的名字+你自己的邮箱，邮箱可以不填<br>Homepage: 项目主页<br>Depends: 所需要的依赖<br>Build-Depends: 编译所需要的依赖<br>Description: 描述<br>参考<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ource: ruri</span><br><span class="line">Priority: optional</span><br><span class="line">Maintainer: Moe-hacker &lt;Moe-hacker@outlook.com&gt;</span><br><span class="line">Build-Depends: debhelper-compat (= 13) ,clang ,build-essential ,libcap-dev</span><br><span class="line">Standards-Version: 4.6.0</span><br><span class="line">Homepage: https://github.com/Moe-hacker/ruri</span><br><span class="line">Rules-Requires-Root: no</span><br><span class="line"></span><br><span class="line">Package: ruri</span><br><span class="line">Architecture: any</span><br><span class="line">Depends: xz-utils</span><br><span class="line">Description: chroot/unshare Linux containers</span><br><span class="line"> simple &amp; secure</span><br></pre></td></tr></table></figure></li></ul><h1 id="打包deb"><a href="#打包deb" class="headerlink" title="打包deb"></a>打包deb</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg-buildpackage -b -us -uc</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
+    <category term="debian" scheme="https://dpkg123.github.io/tags/debian/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux解压payload.bin和转换system.new.dat.br</title>
+    <link href="https://dpkg123.github.io/2023/06/18/linux%E8%A7%A3%E5%8E%8Bpayload-bin%E5%92%8C%E8%BD%AC%E6%8D%A2system-new-dat-br/"/>
+    <id>https://dpkg123.github.io/2023/06/18/linux%E8%A7%A3%E5%8E%8Bpayload-bin%E5%92%8C%E8%BD%AC%E6%8D%A2system-new-dat-br/</id>
+    <published>2023-06-18T13:53:07.000Z</published>
+    <updated>2023-06-18T13:53:07.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="前排提示"><a href="#前排提示" class="headerlink" title="前排提示:"></a>前排提示:</h1><ul><li>本图文基于debian12操作，其他操作系统仅供参考。</li><li>通用依赖: git python3</li></ul><h1 id="解包system-new-dat-br"><a href="#解包system-new-dat-br" class="headerlink" title="解包system.new.dat.br"></a>解包system.new.dat.br</h1><p>理论上vendor.new.dat.br也可以这样做<br>安装brotli</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install brotli -y</span><br><span class="line"> 或</span><br><span class="line">pip install brotli </span><br></pre></td></tr></table></figure><p>然后把system.new.dat.br和system.transfer.list放到一个文件夹中<br>输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brotli -d system.new.dat.br</span><br></pre></td></tr></table></figure><p>完成后会得到system.new.dat<br>然后克隆sdat2img</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/xpirt/sdat2img</span><br></pre></td></tr></table></figure><p>然后输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 sdat2img/sdat2img.py system.transfer.list system.new.dat</span><br></pre></td></tr></table></figure><p>就得到system.img</p><h1 id="解包payload-bin"><a href="#解包payload-bin" class="headerlink" title="解包payload.bin"></a>解包payload.bin</h1><p>克隆</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/vm03/payload_dumper</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> payload_dumper</span><br><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure><p>注: debian12无法使用pip，可手动编译安装解决。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 payload_dumper.py ../payload.bin</span><br></pre></td></tr></table></figure><p>最后会得到一堆img文件。<br>如果只提取单一分区的文件可以执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 payload_dumper.py -partitions boot ../payload.bin </span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
+    
+    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
+    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>浅谈联发科设备玩机的可能性</title>
+    <link href="https://dpkg123.github.io/2023/05/15/%E6%B5%85%E8%B0%88%E8%81%94%E5%8F%91%E7%A7%91%E8%AE%BE%E5%A4%87%E7%8E%A9%E6%9C%BA%E7%9A%84%E5%8F%AF%E8%83%BD%E6%80%A7/"/>
+    <id>https://dpkg123.github.io/2023/05/15/%E6%B5%85%E8%B0%88%E8%81%94%E5%8F%91%E7%A7%91%E8%AE%BE%E5%A4%87%E7%8E%A9%E6%9C%BA%E7%9A%84%E5%8F%AF%E8%83%BD%E6%80%A7/</id>
+    <published>2023-05-15T14:18:39.000Z</published>
+    <updated>2023-05-15T14:18:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="先说结论-想玩机的，能买高通的就不要买联发科的，特别是蓝绿厂设备"><a href="#先说结论-想玩机的，能买高通的就不要买联发科的，特别是蓝绿厂设备" class="headerlink" title="先说结论:想玩机的，能买高通的就不要买联发科的，特别是蓝绿厂设备"></a>先说结论:想玩机的，能买高通的就不要买联发科的，特别是蓝绿厂设备</h3><p><del>(你是不是歧视绿厂用户.jpg)</del></p><h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>有一天，有一个人找到了我，希望能给他的reno6pro整一个带kernelSU和带kvm的内核(估计是受了红米note10pro能开kvm的启发)。<br>我说，行。于是我编译了出来。<br>然后我发现这机子没有twrp，于是就手动打包成了boot.img。<br>第二天，这个人找到了我说刷完不开机，已经送售后寄修了。<br>我就想，不对啊，他发给我的config里的kprobes是来着的啊，总不能是源码出问题了吧。<br>然后<br><img src="/img/20230515/1.jpg" alt="1"><br>头一次见刷boot还要双清的<br><img src="/img/20230515/2.jpg" alt="2"><br><img src="/img/20230515/3.jpg" alt="3"><br>很离谱<br><img src="/img/20230515/4.jpg" alt="4"><br>深度测试到c11就无了<br><img src="/img/20230515/5.jpg" alt="5"><br><img src="/img/20230515/6.jpg" alt="6"><br><img src="/img/20230515/7.jpg" alt="7"><br><img src="/img/20230515/8.jpg" alt="8"><br>为了赚钱嘛</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
+    
+    <category term="联发科" scheme="https://dpkg123.github.io/tags/%E8%81%94%E5%8F%91%E7%A7%91/"/>
+    
+    <category term="KernelSU" scheme="https://dpkg123.github.io/tags/KernelSU/"/>
+    
+    <category term="kvm" scheme="https://dpkg123.github.io/tags/kvm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>给OPPO Reno6移植kernelSU</title>
+    <link href="https://dpkg123.github.io/2023/05/11/%E7%BB%99OPPO-Reno6%E7%A7%BB%E6%A4%8DkernelSU/"/>
+    <id>https://dpkg123.github.io/2023/05/11/%E7%BB%99OPPO-Reno6%E7%A7%BB%E6%A4%8DkernelSU/</id>
+    <published>2023-05-10T20:14:10.000Z</published>
+    <updated>2023-05-10T20:14:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="KernelSU简介"><a href="#KernelSU简介" class="headerlink" title="KernelSU简介"></a>KernelSU简介</h3><h1 id="什么是-KernelSU"><a href="#什么是-KernelSU" class="headerlink" title="什么是 KernelSU?"></a>什么是 KernelSU?</h1><p>KernelSU 是 Android GKI 设备的 root 解决方案，它工作在内核模式，并直接在内核空间中为用户空间应用程序授予 root 权限</p><h1 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h1><p>KernelSU 的主要特点是它是基于内核的。 KernelSU 运行在内核空间， 所以它可以提供我们以前从未有过的内核接口。 例如，我们可以在内核模式下为任何进程添加硬件断点；我们可以在任何进程的物理内存中访问，而无人知晓；我们可以在内核空间拦截任何系统调用; 等等。</p><p>KernelSU 还提供了一个基于 overlayfs 的模块系统，允许您加载自定义插件到系统中。它还提供了一种修改 &#x2F;system 分区中文件的机制。</p><h3 id="构建支持kerbelSU的内核-使用官方内核源码"><a href="#构建支持kerbelSU的内核-使用官方内核源码" class="headerlink" title="构建支持kerbelSU的内核(使用官方内核源码)"></a>构建支持kerbelSU的内核(使用官方内核源码)</h3><h1 id="配置环境和编译链"><a href="#配置环境和编译链" class="headerlink" title="配置环境和编译链"></a>配置环境和编译链</h1><p>执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install libncurses5-dev libncurses-dev libssl-dev device-tree-compiler bc cpio lib32ncurses5-dev lib32z1 build-essential binutils bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5 libncurses5-dev libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev git</span><br></pre></td></tr></table></figure><p>安装所需依赖</p><p>执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_aarch64-linux-android-4.9 aarch64-linux-android-4.9 --depth=1</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9 arm-linux-androideabi-4.9 --depth=1</span><br><span class="line">wget https://android.googlesource.com/platform/prebuilts/clang/host/linux-x86/+archive/refs/heads/android12-release/clang-r383902.tar.gz ; tar -xvf clang*.tar.gz</span><br></pre></td></tr></table></figure><p>安装编译环境</p><h1 id="拉取内核源码-android12"><a href="#拉取内核源码-android12" class="headerlink" title="拉取内核源码(android12)"></a>拉取内核源码(android12)</h1><p>oppo reno6的官方源码: <a href="https://github.com/oppo-source/android_kernel_oppo_mt6877">https://github.com/oppo-source/android_kernel_oppo_mt6877</a><br>通过wget的方式下载，直接git会丢文件</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ wget https://github.com/oppo-source/android_kernel_oppo_mt6877/archive/4a0cd0dd4399ed76c1d09b9bf6a218ccd0494f80.tar.gz ; tar -xvf 4a*.tar.gz</span><br></pre></td></tr></table></figure><p>oppo reno6的附加源码: <a href="https://github.com/oppo-source/android_kernel_modules_oppo_mt6877">https://github.com/oppo-source/android_kernel_modules_oppo_mt6877</a><br>通过git或者wget下载都可以</p><h1 id="拉取内核源码-android13"><a href="#拉取内核源码-android13" class="headerlink" title="拉取内核源码(android13)"></a>拉取内核源码(android13)</h1><p>与android12大同小异。<br>源码: <a href="https://github.com/oppo-source/android_kernel_oppo_mtk_4.19">https://github.com/oppo-source/android_kernel_oppo_mtk_4.19</a><br>附加模块: <a href="https://github.com/oppo-source/android_kernel_modules_oppo_mtk_4.19">https://github.com/oppo-source/android_kernel_modules_oppo_mtk_4.19</a><br>另外需要手动复制vendor&#x2F;oplus&#x2F;kernel_4.19&#x2F;audio到sound&#x2F;soc&#x2F;codecs目录</p><h1 id="添加kernelSU"><a href="#添加kernelSU" class="headerlink" title="添加kernelSU"></a>添加kernelSU</h1><p>进入源码目录，执行<code>curl -LSs &quot;https://raw.githubusercontent.com/tiann/KernelSU/main/kernel/setup.sh&quot; | bash -</code></p><h1 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h1><p><code>将kernel source folder和kernel vendor source folder放在同一个目录下</code>，然后进入源码目录<br>然后配置编译参数,这里假设我的编译链放在内核源码的上一层目录</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">export</span>  BUILD_CROSS_COMPILE=../aarch64-linux-android-4.9/bin/aarch64-linux-android-</span><br><span class="line"><span class="built_in">export</span> CLANG_PATH=../clang/bin</span><br><span class="line"><span class="built_in">export</span> CROSS_COMPILE_ARM32=../arm-linux-androideabi-4.9/bin/arm-linux-androideabi-</span><br><span class="line"><span class="built_in">export</span> ARCH=arm64</span><br></pre></td></tr></table></figure><p>然后提取手机里的&#x2F;proc&#x2F;config.gz里的config文件，重命名为ksu_defconfig(需root)扔到arch&#x2F;arm64&#x2F;configs<br>如果没有的话可以使用oplus6877_defconfig<br>然后检查内核配置文件有没有启用kprobes,如果没有，需要启用他们<br>执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ make oplus6877_defconfig</span><br><span class="line">make menuconfig</span><br></pre></td></tr></table></figure><p>然后按&#x2F;键搜索<code>kprobes</code>并启用他们。<br>或者在.config里添加</p><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CONFIG_KPROBES=y</span><br><span class="line">CONFIG_HAVE_KPROBES=y</span><br><span class="line">CONFIG_KPROBE_EVENTS=y</span><br><span class="line">CONFIG_MODULES=y</span><br></pre></td></tr></table></figure><p>然后执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ make</span><br></pre></td></tr></table></figure><p>编译完成的内核文件在arch&#x2F;arm64&#x2F;boot目录</p><h3 id="构建支持kerbelSU的内核-使用我提供的内核源码"><a href="#构建支持kerbelSU的内核-使用我提供的内核源码" class="headerlink" title="构建支持kerbelSU的内核(使用我提供的内核源码)"></a>构建支持kerbelSU的内核(使用我提供的内核源码)</h3><p>我提供的oppo reno6 内核源码: <a href="https://github.com/dabao1955/android_kernel_OPPO_PEQM00/">https://github.com/dabao1955/android_kernel_OPPO_PEQM00/</a><br>安卓版本为13<br>构建过程跟官方内核大同小异。不过相比之下有以下几点变更</p><ul><li>需要将编译链放到家目录</li><li>进入内核目录需要执行setup.sh同步kernelsu</li><li>执行build.sh来编译内核</li></ul><h3 id="打包成卡刷文件"><a href="#打包成卡刷文件" class="headerlink" title="打包成卡刷文件"></a>打包成卡刷文件</h3><p>克隆anykernel3</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/karthik558/AnyKernel3</span><br></pre></td></tr></table></figure><p>删除以下目录或文件</p><ul><li>.git*</li><li>dtbo.img</li><li>f2fs*</li><li>banner(可选)</li><li>README.md<br>然后编辑anykernel.sh<br>修改以下内容<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">device.name(1-5)=</span><br><span class="line">supported.versions=</span><br></pre></td></tr></table></figure>然后使用zip命令打包<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ zip -r xxx.zip ./*</span><br></pre></td></tr></table></figure></li></ul><h3 id="集成到boot-img"><a href="#集成到boot-img" class="headerlink" title="集成到boot.img"></a>集成到boot.img</h3><p>使用magiskboot<br>解包boot.img</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ magiskboot unpack boot.img</span><br></pre></td></tr></table></figure><p>然后替换kernel并生成新的boot.img</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ magiskboot repack boot.img boot-1.img</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
+    <category term="kernelSU" scheme="https://dpkg123.github.io/tags/kernelSU/"/>
+    
+    <category term="移植" scheme="https://dpkg123.github.io/tags/%E7%A7%BB%E6%A4%8D/"/>
+    
+    <category term="内核编译" scheme="https://dpkg123.github.io/tags/%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91/"/>
+    
+    <category term="Kernel" scheme="https://dpkg123.github.io/tags/Kernel/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>别当欧尼酱了12集归档</title>
+    <link href="https://dpkg123.github.io/2023/05/02/%E5%88%AB%E5%BD%93%E6%AC%A7%E5%B0%BC%E9%85%B1%E4%BA%8612%E9%9B%86%E5%BD%92%E6%A1%A3/"/>
+    <id>https://dpkg123.github.io/2023/05/02/%E5%88%AB%E5%BD%93%E6%AC%A7%E5%B0%BC%E9%85%B1%E4%BA%8612%E9%9B%86%E5%BD%92%E6%A1%A3/</id>
+    <published>2023-05-02T14:34:19.000Z</published>
+    <updated>2023-05-02T14:34:19.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="https://qw5d-my.sharepoint.com/:v:/g/personal/test1_qw5d_onmicrosoft_com/ETpiQymApU9JmUm4aCa5osgBH8PN8fu7jxGWqAyke1C_8A?e=BmxClr">第1集</a><br><a href="https://qw5d-my.sharepoint.com/:v:/g/personal/test1_qw5d_onmicrosoft_com/EQffyuYemcVNq7zPmyM0lwoBD2NMi1DWW0upHJ8J2AXmRQ?e=v9cfi3">第2集</a><br><a href="https://qw5d-my.sharepoint.com/:v:/g/personal/test1_qw5d_onmicrosoft_com/EWziRns7ZhlIsfEhOgl8MeUBSFtNr9MdpxvpfTT1KgObEA?e=f58QId">第3集</a><br><a href="https://qw5d-my.sharepoint.com/:v:/g/personal/test1_qw5d_onmicrosoft_com/EfYV7sDay6FGvJUrK-Itm5gBC0FTQFTRr1cC9h_SyiQaOw?e=ayAUNH">第4集</a><br><a href="https://qw5d-my.sharepoint.com/:v:/g/personal/test1_qw5d_onmicrosoft_com/EW71n8N3egNHuuz87Utuw84BX0f5RttirpaRxEB4iZ-j6w?e=AICiFo">第5集</a><br><a href="https://qw5d-my.sharepoint.com/:v:/g/personal/test1_qw5d_onmicrosoft_com/EUiJN19jigxMun6eX3yEYT4B3L-GiQ276UBvpAuYUjqfEg?e=O7N1Tu">第6集</a><br><a href="https://qw5d-my.sharepoint.com/:v:/g/personal/test1_qw5d_onmicrosoft_com/ES-wtYuBGdpGmmSDzEHp68IBQrrNBft0hDsIyvkG3A7BFA?e=eytA8x">第7集</a><br><a href="https://qw5d-my.sharepoint.com/:v:/g/personal/test1_qw5d_onmicrosoft_com/EcdL12mjv9JMtRVRYHGcCN0Be8a4g1iJdz5Y6BjRX3BbWw?e=vgZMaE">第8集</a><br><a href="https://qw5d-my.sharepoint.com/:v:/g/personal/test1_qw5d_onmicrosoft_com/EazD3eW7hohGo1mqZWWZl_sBUZefZl7sXK4jNh4rGkxYSg?e=oTiyu7">第9集</a><br><a href="https://qw5d-my.sharepoint.com/:v:/g/personal/test1_qw5d_onmicrosoft_com/EbgngaE7uJpDqeLkRoe20voB6K_lE6_SeePiVXsRtJQoLg?e=vfeax7">第10集</a><br><a href="https://qw5d-my.sharepoint.com/:v:/g/personal/test1_qw5d_onmicrosoft_com/EQuzaYvQHwBPukcbDPSoabcBy5FK_TQ8ZGQn0zZ7hupqCg?e=osLzQJ">第11集</a><br><a href="https://qw5d-my.sharepoint.com/:v:/g/personal/test1_qw5d_onmicrosoft_com/EbgngaE7uJpDqeLkRoe20voB6K_lE6_SeePiVXsRtJQoLg?e=vfeax7">第12集</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="归档" scheme="https://dpkg123.github.io/tags/%E5%BD%92%E6%A1%A3/"/>
+    
+    <category term="番剧" scheme="https://dpkg123.github.io/tags/%E7%95%AA%E5%89%A7/"/>
+    
+    <category term="别当欧尼酱了" scheme="https://dpkg123.github.io/tags/%E5%88%AB%E5%BD%93%E6%AC%A7%E5%B0%BC%E9%85%B1%E4%BA%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>珍爱生命，远离小众云</title>
+    <link href="https://dpkg123.github.io/2023/05/01/%E7%8F%8D%E7%88%B1%E7%94%9F%E5%91%BD%EF%BC%8C%E8%BF%9C%E7%A6%BB%E5%B0%8F%E4%BC%97%E4%BA%91/"/>
+    <id>https://dpkg123.github.io/2023/05/01/%E7%8F%8D%E7%88%B1%E7%94%9F%E5%91%BD%EF%BC%8C%E8%BF%9C%E7%A6%BB%E5%B0%8F%E4%BC%97%E4%BA%91/</id>
+    <published>2023-05-01T15:43:13.000Z</published>
+    <updated>2023-05-01T15:43:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="温馨提示，这篇文章可能是一群废话"><a href="#温馨提示，这篇文章可能是一群废话" class="headerlink" title="温馨提示，这篇文章可能是一群废话"></a>温馨提示，这篇文章可能是一群废话</h1><h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>由于想跑一个编译业务，自家电脑不方便测试，遂想买一台vps<br>于是就选了优豆云一个比较便宜的配置(<del>没钱.jpg</del>)<br>4g运存，60g硬盘，10m带宽</p><h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><p>然后到安装操作系统的时候我就傻眼了<br><img src="/img/20230501/1.jpg" alt="我一定是活在16年.jpg"></p><p>首先这个操作系统的选择只有win,cent,ubt三种<br>然后centos支持5.6-7.7<br>windows支实持2003-2022<br>ubuntu只有14.04和16.04两个可以选，连debian都没有<br>我就想，行扒。到时候重装个debian11<br>然后跑脚本的时候发现vnc就是个残废，连都连不上<br><del>他们的vnc是比较差的那种</del><br>然后就一直循环安装程序<br>于是我就打算从16.04升到20.04<br>升级后发现有几个包无法配置<br>于是一顿操作猛如虎就配置好了。<br>然后就出现了一个比较操蛋的问题</p><h1 id="踢皮球"><a href="#踢皮球" class="headerlink" title="踢皮球"></a>踢皮球</h1><p>我创建了一个用户但是他无法使用sudo,明明连sudoers都配置好了<br> <img src="/img/20230501/2.jpg" alt="sudoers"><br>于是我就去反馈，然后客服告诉我<br><img src="/img/20230501/3.jpg" alt="结果"><br>就他妈离谱，我有问题才过来反馈的，然后你就让我自己研究是吧<br>然后更操蛋的事情发生了，当我用neofetch的时候发现这机子的u是e5 2690v3<br><img src="/img/20230501/4.jpg" alt="6"><br>真就e5恒久远，一颗咏流传是吧</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="vps" scheme="https://dpkg123.github.io/tags/vps/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>fdt转dtb</title>
+    <link href="https://dpkg123.github.io/2023/05/01/fdt%E8%BD%ACdtb/"/>
+    <id>https://dpkg123.github.io/2023/05/01/fdt%E8%BD%ACdtb/</id>
+    <published>2023-04-30T23:03:54.000Z</published>
+    <updated>2023-04-30T23:03:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="从机器导出dtc"><a href="#从机器导出dtc" class="headerlink" title="从机器导出dtc"></a>从机器导出dtc</h1><p>手机链接电脑，然后执行下列命令:(需要root)</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ adb shell su -c <span class="built_in">cp</span> /sys/firmware/fdt /sdcard</span><br><span class="line">$ adb pull /sdcard/fdr ./</span><br></pre></td></tr></table></figure><h1 id="fdt转dts"><a href="#fdt转dts" class="headerlink" title="fdt转dts"></a>fdt转dts</h1><p>执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ dtc -I dtb -O dts -o fdt.dts ./fdt</span><br></pre></td></tr></table></figure><h1 id="dts转dtb"><a href="#dts转dtb" class="headerlink" title="dts转dtb"></a>dts转dtb</h1><p>执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ dtc -I dts -O dtb -o fdt.dtb ./fdt.dts</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="dtb" scheme="https://dpkg123.github.io/tags/dtb/"/>
+    
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>coloros和miui</title>
+    <link href="https://dpkg123.github.io/2023/05/01/coloros%E5%92%8Cmiui/"/>
+    <id>https://dpkg123.github.io/2023/05/01/coloros%E5%92%8Cmiui/</id>
+    <published>2023-04-30T22:16:11.000Z</published>
+    <updated>2023-04-30T22:16:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>别拿MIUI比ColorOS了，两个系统不在一条赛道上，一个功能强一个稳定。MIUI是强大，但是这几年的表现真的不太令人满意，旗舰机只有两年保质期而且全程一堆Bug，MIUI12画的大饼到现在都没填完，优化系统靠一代一代砍模糊砍动画。COS功能上是不如MIUI，但是稳定流畅程度上MIUI真的没法比，845开始三年大版本更新，2023开始四年大版本更新。<br>至于小米两个855的12.5我的评价是完全的答辩，动画全程掉帧，模糊也砍得不少，停在了最糟糕的一个版本，现在10系停更也算是吓人一跳。MIUI很强大也很适合玩机人群，但是就MIUI目前的表现而言这个系统放到5k+的旗舰上显然不太合格，对于大多数不太喜欢捣鼓系统追求稳定流畅的人来说还是ColorOS更好</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
+    
+    <category term="miui" scheme="https://dpkg123.github.io/tags/miui/"/>
+    
+    <category term="coloros" scheme="https://dpkg123.github.io/tags/coloros/"/>
+    
+    <category term="手机" scheme="https://dpkg123.github.io/tags/%E6%89%8B%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux刷机工具箱</title>
+    <link href="https://dpkg123.github.io/2023/04/29/linux%E5%88%B7%E6%9C%BA%E5%B7%A5%E5%85%B7%E7%AE%B1/"/>
+    <id>https://dpkg123.github.io/2023/04/29/linux%E5%88%B7%E6%9C%BA%E5%B7%A5%E5%85%B7%E7%AE%B1/</id>
+    <published>2023-04-29T14:52:37.000Z</published>
+    <updated>2023-04-29T14:52:37.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>写了个linux刷机工具箱，基于linux shell脚本<br>更新地址<a href="https://github.com/dabao1955/flash-tool-linux">https://github.com/dabao1955/flash-tool-linux</a><br>安装<br>执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install aria2 -y</span><br><span class="line">aria2c https://raw.githubusercontent.com/dabao1955/flash-tool-linux/eula/setup.sh | bash</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="shell" scheme="https://dpkg123.github.io/tags/shell/"/>
+    
+    <category term="刷机工具" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA%E5%B7%A5%E5%85%B7/"/>
+    
+    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>简单写一个shell刷机脚本之进阶篇</title>
+    <link href="https://dpkg123.github.io/2023/04/29/%E7%AE%80%E5%8D%95%E5%86%99%E4%B8%80%E4%B8%AAshell%E5%88%B7%E6%9C%BA%E8%84%9A%E6%9C%AC%E4%B9%8B%E8%BF%9B%E9%98%B6%E7%AF%87/"/>
+    <id>https://dpkg123.github.io/2023/04/29/%E7%AE%80%E5%8D%95%E5%86%99%E4%B8%80%E4%B8%AAshell%E5%88%B7%E6%9C%BA%E8%84%9A%E6%9C%AC%E4%B9%8B%E8%BF%9B%E9%98%B6%E7%AF%87/</id>
+    <published>2023-04-29T14:42:10.000Z</published>
+    <updated>2023-04-29T14:42:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="https://dpkg123.github.io/2023/04/29/%E7%AE%80%E5%8D%95%E5%86%99%E4%B8%80%E4%B8%AAshell%E5%88%B7%E6%9C%BA%E8%84%9A%E6%9C%AC/">上一篇文章</a>我们简单写了一个shell刷机脚本，这期我们要在上一期文章的基础上添加更多的操作</p><h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><ul><li>创建两个选择，一个是刷入magisk-boot镜像，另一个是还原官方镜像</li><li>实现在开机状态下自动进入fastboot模式，在fastboot模式下自动执行指令</li><li>如果没解锁fastboot将提示无法刷写<br>注:为了方便，将会用<code>fastboot</code>取代<code>/usr/lib/android-sdk/platform-tools/fastboot</code></li></ul><h1 id="使用的命令"><a href="#使用的命令" class="headerlink" title="使用的命令"></a>使用的命令</h1><p>命令太多就暂时不写了</p><h1 id="实操"><a href="#实操" class="headerlink" title="实操"></a>实操</h1><p>首先要确保magisk镜像叫<code>magisk-boot.img</code>，官方boot镜像叫<code>offical-boot.img</code><br>首先输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> 这是一个简单的刷机脚本</span><br></pre></td></tr></table></figure><p>为了美观可以在前面输入<code>clear或者reset</code>来清理屏幕<br>Tips:reset不是重启系统的命令,<code>reboot才是</code>，而且reboot命令需要root权限<br>然后输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS3=<span class="string">&#x27;选择一项: &#x27;</span></span><br></pre></td></tr></table></figure><p>这里设置PS3变量。 这是<code>select语句</code>在从我们的多选菜单中进行选择时使用的提示。<br>接下来创建预定选项列表。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">options=(<span class="string">&quot;刷入magisk boot&quot;</span> <span class="string">&quot;还原官方boot&quot;</span> <span class="string">&quot;退出&quot;</span>)</span><br></pre></td></tr></table></figure><p>接下来，我们开始创建菜单的选择构造。 在这一行中，我们告诉select选择从options数组创建菜单。 我们还将在$menu变量中设置用户选择。 select语句的语法类似于for循环，这就是为什么您在末尾看到do语句的原因。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select menu <span class="keyword">in</span> <span class="string">&quot;<span class="variable">$&#123;options[@]&#125;</span>&quot;</span>; <span class="keyword">do</span></span><br></pre></td></tr></table></figure><p>使用case语句创建更多可靠的选项<br>case语句使您可以有选择地执行与第一个匹配模式相对应的命令。 例如，如果我们从多项选择菜单中选择第一项，它将执行与该单词相对应的命令列表。</p><p>在case语句中，我们有开头节。 这告诉案例搜索与$menu变量的值匹配的选项。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="variable">$menu</span> <span class="keyword">in</span></span><br></pre></td></tr></table></figure><p>然后这里添加选项一的子句。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;刷入magisk boot&quot;</span>)</span><br><span class="line">            <span class="built_in">echo</span> <span class="comment">#这里的命令一会再回过头来修改</span></span><br><span class="line">            ;;</span><br></pre></td></tr></table></figure><p>这里的命令一会再回过头来修改，<br>执行完毕后，如果想直接退出脚本，可以在后面敲一行回车后输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">break</span></span><br></pre></td></tr></table></figure><p>然后如法炮制地添加第二三条选项即可。<br>tips:第三项是退出选项，只需要将echo和后面的换成<code>exit 0</code>即可。</p><p>如果输入了除了1,2,3以外的数字或字母将可能会导致脚本运行错误，这时候需要输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*) <span class="built_in">echo</span> <span class="string">&quot;未知选项 <span class="variable">$REPLY</span>&quot;</span>;;</span><br></pre></td></tr></table></figure><p>来告诉这是无效的输入<br>在所有子句之后，我们以esac结束case语句，<code>而esac是反写的的。 这类似于以fi结束if语句</code>。输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure><p>最后一行关闭用do打开的select语句。输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure><p>到这时候，一个基本的选择页面就完成了。接下来我们回过头来修改之前选项里的内容<br>上期图文的脚本中我们只写了一个fastboot flash boot.img来刷写boot，虽然但是，改需要手动从开机页面重启到fastboot模式，很不方便。<br>于是可以使用if语句判断手机是否进入fastboot模式</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> fastboot devices</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">adb reboot bootloader</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">fastboot flash boot magisk-boot.img</span><br><span class="line">fastboot reboot</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure><p>当然如果想告诉用户刷入失败的原因的话可以整一个if嵌套循环。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">adb devices</span><br><span class="line"><span class="keyword">if</span> [ $? -ne 0 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">adb reboot bootloader</span><br><span class="line"><span class="built_in">echo</span> 即将刷入boot</span><br><span class="line"><span class="built_in">sleep</span> 5s</span><br><span class="line">fastboot flash magisk-boot.img</span><br><span class="line"><span class="keyword">if</span> [ $? -ne 0 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">fastboot reboot</span><br><span class="line"><span class="built_in">exit</span> 0</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> 刷入失败，请确保手机已解锁bootloader</span><br><span class="line"><span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> 请确保手机已经开启usb调试且允许这台计算机进行调试</span><br><span class="line"><span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure><p>这里的<code>if [ $? -ne 0 ]</code>是用来判断上一条命令是否执行成功<br><code>exit 1</code>的意思是非正常退出，与<code>exit 0</code>相反<br>Tips:if嵌套循环分开执行也是可以的。<br>if嵌套循环如果写错了就会产生这样的杯具</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flash.sh: 行 17: 未预期的记号 &quot;fi&quot; 附近有语法错误</span><br><span class="line">flash.sh: 行 17: `fi&#x27;</span><br></pre></td></tr></table></figure><p>还原官方boot同理，将<code>magisk-boot.img</code>字段替换成<code>offical-boot.img</code>即可</p><p>当然，为了防止<code>adb :command not found</code>出现，也可以在脚本上加入adb检测，只要将上篇文章的<code>sudo apt install fastboot -y</code>换成<br><code>sudo apt install adb -y</code>即可<br>当然有些系统的adb不叫这个，例如termux上的adb软件包叫<code>android-tools</code></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="shell" scheme="https://dpkg123.github.io/tags/shell/"/>
+    
+    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
+    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
+    
+    <category term="fastboot" scheme="https://dpkg123.github.io/tags/fastboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>简单写一个shell刷机脚本</title>
+    <link href="https://dpkg123.github.io/2023/04/29/%E7%AE%80%E5%8D%95%E5%86%99%E4%B8%80%E4%B8%AAshell%E5%88%B7%E6%9C%BA%E8%84%9A%E6%9C%AC/"/>
+    <id>https://dpkg123.github.io/2023/04/29/%E7%AE%80%E5%8D%95%E5%86%99%E4%B8%80%E4%B8%AAshell%E5%88%B7%E6%9C%BA%E8%84%9A%E6%9C%AC/</id>
+    <published>2023-04-29T14:26:36.000Z</published>
+    <updated>2023-04-29T14:26:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>相比各种编程语言，linux shell脚本具有容易上手，运行速度快，轻量，跨架构运行，便于编写和测试等优点。如果想做的项目比较简单，或者你是没有编程经验的新手，那选择shell脚本应该会比较合适。<br>学会linux shell能做什么？可以完成大部分刷机操作的自动化，写各种一键工具等等。<br>linux shell简介<br>Shell是一个命令解释器，它解释由用户输入的命令并且把它们送到内核。不仅如此，Shell有自己的编程语言用于对命令的编辑，它允许用户编写由shell命令组成的程序。Shell编程语言具有普通编程语言的很多特点，比如它也有循环结构和分支控制结构等，用这种编程语言编写的Shell程序与其他应用程序具有同样的效果。<br>shell脚本是指后缀为.sh或其他后缀的脚本文件。新建一个txt文本文件并重命名为xxx.sh，就是创建了一个shell脚本。在shell脚本里，每一行字符就是一条命令，脚本开始运行后会从上到下逐行执行。shell脚本实际上就是文本，可以用任何文本编辑器编辑。</p><h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><p>确定一个目标是写shell脚本的第一步。本教程将带领大家完成一个最简单的fastboot刷入boot脚本。<br>命令简介<br>本教程用到的命令如下：</p><ul><li>echo :显示文字</li><li>sleep :延迟多少时间后执行下一条指令</li><li>fastboot flash xxx xxx.img:调用&#x2F;usr&#x2F;bin&#x2F;fastboot刷入xxx.img</li><li>if+else :如果表达式为真则表达if语句内的语句代码，否则表达else内的语句代码。</li><li>exit: 退出脚本</li></ul><h1 id="实操"><a href="#实操" class="headerlink" title="实操"></a>实操</h1><p>这里以debian 12和nano文本编辑器为例，其他操作系统仅供参考<br>新建一个文本文件并重命名为flash.sh<br>可以使用touch命令创建或者使用文本编辑器创建</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">touch</span> flash.sh</span><br></pre></td></tr></table></figure><p>或</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nano flash.sh</span><br></pre></td></tr></table></figure><p>然后将要刷入的boot.img也放到同一个文件夹中。然后编辑flash.sh(如果使用文本编辑器创建的话会直接跳转到编辑界面)<br>然后在脚本第一行写</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br></pre></td></tr></table></figure><p>第一行的内容指定了shell脚本解释器的路径，而且这个指定路径只能放在文件的第一行。第一行写错或者不写时，系统会有一个默认的解释器进行解释。<br>然后输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> 准备刷入boot</span><br></pre></td></tr></table></figure><p>由于在linux shell上实现windows bat那样按任意键继续是比较困难的，这里使用sleep命令<br>输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sleep</span> 5s</span><br></pre></td></tr></table></figure><p>这里的5s指的是在执行sleep命令多少时间后执行下一个命令<br>然后输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/lib/android-sdk/platform-tools/fastboot flash boot boot.img</span><br></pre></td></tr></table></figure><p>这里是调用<code>/usr/lib/android-sdk/platform-tools/fastboot</code>完成刷入boot.img的操作，其中&#x2F;usr&#x2F;lib&#x2F;android-sdk&#x2F;platform-tools&#x2F;fastboot是fastboot程序所在的位置，而&#x2F;usr&#x2F;bin&#x2F;fastboot定向到&#x2F;usr&#x2F;lib&#x2F;android-sdk&#x2F;platform-tools&#x2F;fastboot。当然直接写<code>fastboot</code>或者<code>/usr/bin/fastboot</code>也是可以的。<br>刷入完成后，最后再加上</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure><p>exit 0的意思是正常退出程序，当然写exit也行。不加的话，如果脚本后面没有内容的话也会自动退出。<br>当然如果你要把这个脚本放在别的机器上用的话可能会出现</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">找不到命令 “fastboot”，但可以通过以下软件包安装它：</span><br><span class="line">apt install fastboot</span><br><span class="line">请联系您的管理员。</span><br></pre></td></tr></table></figure><p>当然我这里是装了<code>command not found</code>软件包，如果不装的话就会出现</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot:未找到命令</span><br></pre></td></tr></table></figure><p>原因是机器上没有<code>/usr/bin/fastboot</code><br>你也可以在文件夹里添加fastboot程序，只不过需要将fastboot程序设置为可执行权限并将脚本修改成</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./fastboot flash boot boot.img</span><br></pre></td></tr></table></figure><p>可以使用</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 755 fastboot</span><br><span class="line"><span class="built_in">chmod</span> +x fastboot</span><br></pre></td></tr></table></figure><p>增加可执行权限<br>不过软件仓库里有我为什么还要附带<br>可以在脚本前面加上</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install fastboot -y</span><br></pre></td></tr></table></figure><p>这里的 -y是确认安装fastboot软件包的意思。<br>如果不加-y的话,apt就会询问是否安装fastboot软件包<br>这里的sudo意思是用已认证的用户以root用户的身份执行命令，如果不加sudo的话apt会提示</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dpkg: 错误: 所请求的操作需要超级用户权限</span><br><span class="line">错误：GDBus.Error:org.freedesktop.DBus.Error.Spawn.PermissionsInvalid: The permission of the setuid helper is not correct</span><br><span class="line">E: Sub-process /usr/bin/dpkg returned an error code (2)</span><br></pre></td></tr></table></figure><p>实际上apt是dpkg的前端而dpkg中的部分操作(安装，卸载，配置软件包等)是需要root权限的<br>如果你没有刷新软件仓库的话可能会提示</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">正在读取软件包列表... 完成</span><br><span class="line">正在分析软件包的依赖关系树... 完成</span><br><span class="line">正在读取状态信息... 完成</span><br><span class="line">E: 无法定位软件包 fastboot</span><br></pre></td></tr></table></figure><p>所以需要在sudo apt install fastboot -y前面加上</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure><p>这个命令的意思是刷新软件源的意思，apt的索引文件存放于<code>/var/lib/apt/lists</code></p><p>当然，这样的话无论你是否安装了fastboot软件包都会执行一遍sudo apt update<br>然后再执行一遍sudo apt install fastboot -y<br>为了避免这种情况的发生，我们需要检测是否安装fastboot软件包，如果安装了，则执行下一步操作。<br>这里使用if命令<br>if后面可以接选项，文件路径，也可以接命令<br>这里演示两种写法<br>一种是通过判断&#x2F;usr&#x2F;bin&#x2F;fastboot是否存在然后执行下一步操作</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ -d /usr/bin/fastboot ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> </span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install fastboot -y</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="built_in">echo</span> 准备刷入boot</span><br><span class="line">...</span><br></pre></td></tr></table></figure><p>另一种是通过dpkg –list fastboot 来判断fastboot软件包是否安装,但是这样做的话无论是否安装fastboot软件包，都会显示dpkg的输出结果。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> dpkg --list fastboot</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> </span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install fastboot -y</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="built_in">echo</span> 准备刷入boot</span><br><span class="line">...</span><br></pre></td></tr></table></figure><p>这里的语法意思是如果安装了fastboot就直接进行下一步操作，反之先刷新软件源列表，安装fastboot软件包，再执行下一步操作。</p><p>这样一个简单的刷入boot的脚本就完成了。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="shell" scheme="https://dpkg123.github.io/tags/shell/"/>
+    
+    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
+    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PostmarketOS移植常见问题</title>
+    <link href="https://dpkg123.github.io/2023/04/25/PostmarketOS%E7%A7%BB%E6%A4%8D%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
+    <id>https://dpkg123.github.io/2023/04/25/PostmarketOS%E7%A7%BB%E6%A4%8D%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</id>
+    <published>2023-04-24T21:30:12.000Z</published>
+    <updated>2023-04-24T21:30:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这篇文章简单介绍下我移植k20pro-PostmarketOS出现的问题以及解决方法<br>移植教程可以参考<a href="https://ivonblog.com/posts/xperia5-ii-postmarketos-porting/">这篇文章</a><br>注:以下问题需要执行<code>pmbootstrap log</code>才能找到，或者在pmbootstrap的工作目录里的<code>log.txt</code>里找到<br>建议编译内核前先删除pmbootstrap的工作目录里的<code>log.txt</code></p><h1 id="问题1-xxx-patch无法打补丁"><a href="#问题1-xxx-patch无法打补丁" class="headerlink" title="问题1: xxx patch无法打补丁"></a>问题1: xxx patch无法打补丁</h1><p>这个问题出现在执行<code>pmbootstrap kconfig edit</code>时<br>解决办法:<br>在<code>linux-xiaomi-raphael/APKBUILD</code>中删除所有.patch字样</p><h1 id="问题2-asm-x2F-type-h-no-such-file-or-directory"><a href="#问题2-asm-x2F-type-h-no-such-file-or-directory" class="headerlink" title="问题2: asm&#x2F;type.h :no such file or directory"></a>问题2: asm&#x2F;type.h :no such file or directory</h1><p>这个问题出现在执行<code>pmbootstrap build linux-xiaomi-raphael</code>时<br>解决办法:<br>执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ pmbootstrap <span class="built_in">chroot</span></span><br><span class="line">$ apk add linux-headers </span><br><span class="line"><span class="comment">#注:第二条命令需要在第一条命令执行成功后再执行</span></span><br></pre></td></tr></table></figure><h1 id="问题3-gzip-cpio-command-not-found"><a href="#问题3-gzip-cpio-command-not-found" class="headerlink" title="问题3: gzip(cpio) command not found"></a>问题3: gzip(cpio) command not found</h1><p>同上<br>解决办法:<br>将上面的<code>linux-headers</code>换成gzip(cpio)</p><h1 id="问题4-c语言错误"><a href="#问题4-c语言错误" class="headerlink" title="问题4 c语言错误"></a>问题4 c语言错误</h1><p>同上<br>解决办法:<br>如果你是c语言大佬，可以试试修复<br>否则尝逝更换编译器为<code>clang</code><br>在<code>linux-xiaomi-raphael/APKBUILD</code>中添加以下字段</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CC=&quot;clang&quot;</span><br><span class="line">HOSTCC=&quot;clang&quot;</span><br></pre></td></tr></table></figure><p>或者使用gcc6&#x2F;gcc4<br>在<code>linux-xiaomi-raphael/APKBUILD</code>中添加以下字段</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Compiler: GCC 6 (doesn&#x27;t boot when compiled with newer versions)</span><br><span class="line">if [ &quot;$&#123;CC:0:5&#125;&quot; != &quot;gcc6-&quot; ]; then</span><br><span class="line">CC=&quot;gcc6-$CC&quot;</span><br><span class="line">HOSTCC=&quot;gcc6-gcc&quot;</span><br><span class="line">CROSS_COMPILE=&quot;gcc6-$CROSS_COMPILE&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure><p>如果要使用gcc4,请将上面字段的6改成4</p><p>如果还是不行的话，建议更换一个问题较少的内核<del>这里着重点名小米，官方内核就是一坨shit</del></p><h1 id="问题5-Permission-denied"><a href="#问题5-Permission-denied" class="headerlink" title="问题5: Permission denied"></a>问题5: Permission denied</h1><p>这个问题可能出现在执行<code>pmbootstrap build linux-xiaomi-raphael</code>或者<code>pmbootstrap install</code>的时候<br>解决办法:<br>换个目录并将目录权限设置成<code>755</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">chmod</span> 755 $(pmbootstrap_work_dir)</span><br></pre></td></tr></table></figure><h1 id="问题6-xxx-h-no-such-file-or-directory"><a href="#问题6-xxx-h-no-such-file-or-directory" class="headerlink" title="问题6: xxx.h no such file or directory"></a>问题6: xxx.h no such file or directory</h1><p>这个问题出现在执行<code>pmbootstrap build linux-xiaomi-raphael</code>时，且问题多出自与小米官方内核<del>雷军，金凡！</del><br>解决办法:<br>使用find命令找到缺失的文件然后将文件复制到报错的文件的目录中</p><h1 id="问题7-x2F-include-x2F-linux-x2F-compiler-gcc-h-2-2-error-error-“Please-don’t-include-lt-linux-x2F-compiler-gcc-h-gt-directly-include-lt-linux-x2F-compiler-h-gt-instead-”"><a href="#问题7-x2F-include-x2F-linux-x2F-compiler-gcc-h-2-2-error-error-“Please-don’t-include-lt-linux-x2F-compiler-gcc-h-gt-directly-include-lt-linux-x2F-compiler-h-gt-instead-”" class="headerlink" title="问题7:..&#x2F;include&#x2F;linux&#x2F;compiler-gcc.h:2:2: error: #error “Please don’t include &lt;linux&#x2F;compiler-gcc.h&gt; directly, include &lt;linux&#x2F;compiler.h&gt; instead.”"></a>问题7:..&#x2F;include&#x2F;linux&#x2F;compiler-gcc.h:2:2: error: #error “Please don’t include &lt;linux&#x2F;compiler-gcc.h&gt; directly, include &lt;linux&#x2F;compiler.h&gt; instead.”</h1><p>同上<br>解决办法:<br>将<code>APKBUILD</code>中的</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">prepare() &#123;</span><br><span class="line">default_prepare</span><br><span class="line">. downstreamkernel_prepare</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>换成</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">prepare() &#123;</span><br><span class="line">default_prepare</span><br><span class="line">REPLACE_GCCH=0</span><br><span class="line">. downstreamkernel_prepare</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="PostmarketOS" scheme="https://dpkg123.github.io/tags/PostmarketOS/"/>
+    
+    <category term="ROM移植" scheme="https://dpkg123.github.io/tags/ROM%E7%A7%BB%E6%A4%8D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>linux娘</title>
+    <link href="https://dpkg123.github.io/2023/04/12/linux%E5%A8%98/"/>
+    <id>https://dpkg123.github.io/2023/04/12/linux%E5%A8%98/</id>
+    <published>2023-04-12T12:03:44.000Z</published>
+    <updated>2023-04-12T12:03:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="linux娘"><a href="#linux娘" class="headerlink" title="linux娘"></a>linux娘</h1><p><img src="/img/20230412/debian.jpg" alt="debian娘" title="debian娘"><br><img src="/img/20230412/arch.jpg" alt="arch娘" title="arch娘"><br><img src="/img/20230412/nix.jpg" alt="nixos娘" title="nixos娘"><br><img src="/img/20230412/gentoo.jpg" alt="gentoo娘" title="gentoo娘"><br><img src="/img/20230412/android.jpg" alt="android娘" title="android娘"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
+    <category term="二次元" scheme="https://dpkg123.github.io/tags/%E4%BA%8C%E6%AC%A1%E5%85%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用netlify加快博客访问速度</title>
+    <link href="https://dpkg123.github.io/2023/04/12/%E4%BD%BF%E7%94%A8netlify%E5%8A%A0%E5%BF%AB%E5%8D%9A%E5%AE%A2%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/"/>
+    <id>https://dpkg123.github.io/2023/04/12/%E4%BD%BF%E7%94%A8netlify%E5%8A%A0%E5%BF%AB%E5%8D%9A%E5%AE%A2%E8%AE%BF%E9%97%AE%E9%80%9F%E5%BA%A6/</id>
+    <published>2023-04-12T11:24:39.000Z</published>
+    <updated>2023-04-12T11:24:39.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h1><p><img src="/img/20230412/1.jpg" alt="效果图" title="效果图"></p><h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>一个github账户<br>一个静态网站仓库<br>(可选)一个域名</p><h1 id="前言-废话"><a href="#前言-废话" class="headerlink" title="前言(废话)"></a>前言(<del>废话</del>)</h1><p>现在有越来越多的开发者选择把自己的博客以静态网站的方式托管在 GitHub 上, 这样的方式只需要一个域名就可以通过诸如 Jekyll, Hexo, 纸小墨 等等现有的静态博客生成工具, 非常便捷地搭建出一个样式美观的静态博客.</p><p>Github Pages免费且稳定的服务让我可以专注内容，而无需考虑成本及维护的问题，非常方便广受好评，但其最大的一个问题就是国内访问速度很慢，如何简单快速又低成本的解决这个问题呢？这里介绍一个服务：Netlify</p><h1 id="什么是netlify"><a href="#什么是netlify" class="headerlink" title="什么是netlify"></a>什么是netlify</h1><p>Netlify 是一个提供静态资源网络托管的综合平台，提供CI服务，能够将托管 GitHub，GitLab 等网站上的 Jekyll，Hexo，Hugo 等代码自动编译并生成静态网站。</p><p>Netlify 有如下的功能:</p><ul><li>能够托管服务，免费 CDN </li><li>能够绑定自定义域名</li><li>能够启用免费的TLS证书，启用HTTPS</li><li>支持自动构建</li><li>提供 Webhooks 和 API</li></ul><h1 id="登录netlify"><a href="#登录netlify" class="headerlink" title="登录netlify"></a>登录netlify</h1><p>打开netlity.com，点击<code>Get stared for free</code>按钮<br><img src="/img/20230412/2.jpg" alt="主页" title="主页"><br>点击 <code>Sign in with Github</code>按钮<br><img src="/img/20230412/3.jpg" alt="登录" title="登录"><br>然后同意授权<br><img src="/img/20230412/4.jpg" alt="授权" title="授权"><br><img src="/img/20230412/5.jpg" alt="同意授权" title="同意授权"><br>如果之前没有登录过github,会出现以下页面<br><img src="/img/20230412/6.jpg" alt="登录到github" title="登录到github"><br>登录即可</p><h1 id="使用netlify"><a href="#使用netlify" class="headerlink" title="使用netlify"></a>使用netlify</h1><p>进入空间管理中心，，点击<code>New site from git</code>按钮开始部署你的博客<br>然后根据自己的托管平台，可以选择GitHub、GitLab或者BitBucket（这里以 GitHub 为例）<br>点击GitHub之后会弹出一个让你授权的窗口，给 Netlify 授权后，就会自动读取你 GitHub 的仓库<br>选择仓库后，Netlify 会自动识别到 hexo，并填入相关信息，这时候只要无脑点击 <code>Deploy site</code>就可以了<br>稍等一段时间就可以看到你的博客已经部署成功，并且给你分配了一个二级域名。</p><h1 id="可选-绑定域名"><a href="#可选-绑定域名" class="headerlink" title="(可选)绑定域名"></a>(可选)绑定域名</h1><p>如果之前域名绑定了github,请在dns解析页面删除所有的github page解析</p><p>登录netlify，找到之前创建的网站<br><img src="/img/20230412/7.jpg" alt="网站" title="网站"><br>点击<code>Site settings</code><br>点击<code>General</code>下的<code>Domain management</code><br>点击<code>Add domain alias</code>按钮添加域名<br>添加域名后，进入域名面板，点击<code>DNS解析</code>页面<br>根据提示添加netlify页面重定向<br><img src="/img/20230412/8.jpg" alt="DNS解析" title="DNS解析"><br>添加成功后，回到netlify，会发现添加后的域名会变成绿色<br><img src="/img/20230412/9.jpg" alt="完成后的效果" title="完成后的效果"></p><p>最后为自定义域名开启HTTPS支持，Domain management -&gt; HTTPS，点击<code>Verify DNS configuration</code>，域名验证通过则会自动申请证书<br>至此Netlify与Github绑定完成，可以通过自定义域名访问网站了，之后你每一次提交代码到Github，便会自动发布至Netlify，无需额外操作，非常方便</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="hexo" scheme="https://dpkg123.github.io/tags/hexo/"/>
+    
+    <category term="github" scheme="https://dpkg123.github.io/tags/github/"/>
+    
+    <category term="网页加速" scheme="https://dpkg123.github.io/tags/%E7%BD%91%E9%A1%B5%E5%8A%A0%E9%80%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hexo博客源码备份</title>
+    <link href="https://dpkg123.github.io/2023/04/11/hexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E7%A0%81%E5%A4%87%E4%BB%BD/"/>
+    <id>https://dpkg123.github.io/2023/04/11/hexo%E5%8D%9A%E5%AE%A2%E6%BA%90%E7%A0%81%E5%A4%87%E4%BB%BD/</id>
+    <published>2023-04-10T17:46:16.000Z</published>
+    <updated>2023-04-10T17:46:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>作为一个写代码的人来说，保存和备份是非常重要的，所以随手保存和存有备份已经成为我的习惯了。使用Hexo在github搭建的博客，仓库里只有生成的静态网页文件，是没有Hexo的源文件的，所以如何备份就成为了一个重要的问题，这篇文章便应运而生了</p><h1 id="方法1"><a href="#方法1" class="headerlink" title="方法1"></a>方法1</h1><p>找到你的博客目录</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tar -cvf blogbackup.tar.gz blogbackup</span><br></pre></td></tr></table></figure><p>这里的blogbackup为你的博客源码文件夹名称<br>然后将备份完之后的压缩包上传到网盘</p><h1 id="方法2"><a href="#方法2" class="headerlink" title="方法2"></a>方法2</h1><p>cd到博客源码文件夹，首先执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo cl</span><br></pre></td></tr></table></figure><p>清理生成完毕的网页</p><p>接下来在github新建一个仓库，假设这里的仓库地址为<code>https://github.com/xxx/blogbackup</code></p><p>然后执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/xxx/blogbackup</span><br></pre></td></tr></table></figure><p>会提示</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">正克隆到 &#x27;blogbackup&#x27;...</span><br><span class="line">警告：您似乎克隆了一个空仓库。</span><br></pre></td></tr></table></figure><p>将文件放入此目录然后提交即可</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="hexo" scheme="https://dpkg123.github.io/tags/hexo/"/>
+    
+    <category term="web前端" scheme="https://dpkg123.github.io/tags/web%E5%89%8D%E7%AB%AF/"/>
+    
+    <category term="github" scheme="https://dpkg123.github.io/tags/github/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>新博客</title>
+    <link href="https://dpkg123.github.io/2023/04/10/%E6%96%B0%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://dpkg123.github.io/2023/04/10/%E6%96%B0%E5%8D%9A%E5%AE%A2/</id>
+    <published>2023-04-10T15:30:01.000Z</published>
+    <updated>2023-04-10T15:30:01.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="为什么要创建这个博客"><a href="#为什么要创建这个博客" class="headerlink" title="为什么要创建这个博客"></a>为什么要创建这个博客</h1><p>原因:之前的源码被我手贱删除力</p><h1 id="todo"><a href="#todo" class="headerlink" title="todo"></a>todo</h1><ul><li><input checked="" disabled="" type="checkbox"> 创建博客</li><li><input checked="" disabled="" type="checkbox"> 上传第一篇文章</li><li><input checked="" disabled="" type="checkbox"> 迁移软件仓库</li><li><input disabled="" type="checkbox"> 主题完善</li><li><input checked="" disabled="" type="checkbox"> 页面重定向<br>先这样</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="hexo" scheme="https://dpkg123.github.io/tags/hexo/"/>
+    
+    <category term="网页搭建" scheme="https://dpkg123.github.io/tags/%E7%BD%91%E9%A1%B5%E6%90%AD%E5%BB%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://dpkg123.github.io/1970/01/01/hello-world/"/>
+    <id>https://dpkg123.github.io/1970/01/01/hello-world/</id>
+    <published>1970-01-01T00:00:00.000Z</published>
+    <updated>1970-01-01T00:00:00.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>

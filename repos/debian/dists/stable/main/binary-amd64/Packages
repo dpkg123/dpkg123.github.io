@@ -532,6 +532,30 @@ MD5sum: d3689b2e1ecde4300d6fad736de04898
 Description: Spectator
  Application to check endpoints
 
+Package: sunloginclient
+Version: 10.1.1.28779
+Maintainer: Oray <dev@oray.com>
+Installed-Size: 38100
+Architecture: amd64
+Depends: libncurses5 
+Recommends:
+HomePage:https://www.oray.com
+Priority: extra
+Section: Internet
+Filename: pool/main/s/sunloginclient/sunloginclient_10.1.1.28779_amd64.deb
+Size: 1351206
+SHA256: 923a8bfdb1194ee50d8c6dd7b51a0f16ab34b3414c768f5ffa2b49d80874eed5
+SHA1: 1970f263b5a8c2dbdbe7e5b175f66b632047f548
+MD5sum: fc0112b8429fd7202c5e15b9b55d6bc0
+Description: SunloginClient-10.1.1.28779 (Beta) for Linux
+ Sunlogin Remote Control is a software that supports remote control of mobile
+ devices, Windows, Mac, Linux and other systems. It is the best choice for IT
+ technology, game players, designers and other people with remote management
+ needs. By using Sunlogin, you can control other computers or mobile phones
+ anytime, anywhere. You can make things feasible, including remote high-risk
+ operations, remote power on/off, download files, AFK, and so on. Download
+ Sunlogin and explore more exciting features!
+
 Package: tenvideo-universal
 Version: 1.0.10
 License: CC0-1.0

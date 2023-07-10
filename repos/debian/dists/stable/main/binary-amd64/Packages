@@ -106,22 +106,22 @@ Description: Edit application menu
   * Change application's display name, icon and more
 
 Package: baidunetdisk
-Version: 4.14.5
+Version: 4.17.7
 License: https://pan.baidu.com/disk/duty/
 Vendor: lidan06 <lidan06@baidu.com>
 Architecture: amd64
 Maintainer: lidan06 <lidan06@baidu.com>
-Installed-Size: 368095
+Installed-Size: 371533
 Depends: libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0
 Recommends: libappindicator3-1
 Homepage: https://pan.baidu.com/
 Priority: optional
 Section: default
-Filename: pool/main/b/baidunetdisk/baidunetdisk_4.14.5_amd64.deb
-Size: 102228844
-SHA256: d5f1acb2e2a41f241c83d30dd590f70919afc3573136b0bb0b4f07b1dc338ab8
-SHA1: 1cbbe602009c627227c93a890c689997f5ebc854
-MD5sum: 429cfbbecf197ddb689f275035963040
+Filename: pool/main/b/baidunetdisk/baidunetdisk_4.17.7_amd64.deb
+Size: 103967440
+SHA256: 50ec18f05626a13f57ef034630416d481682bc1018539f33397d5c71bc653b3d
+SHA1: 2611c99adbc0c6e447c3da036ab92c3944e3ca84
+MD5sum: 44ca8795d5844fadf038442ec565bb51
 Description: 
   百度网盘
 

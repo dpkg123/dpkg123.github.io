@@ -249,9 +249,9 @@
 <p>这两个选项仅适用于mtk芯片组。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Platform</span><br><span class="line">TARGET_BOARD_PLATFORM := sm8250</span><br></pre></td></tr></table></figure>
 <p>此处定义了cpu的代号。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># BOARD_BOOTIMG_HEADER_VERSION := 2</span><br><span class="line"># BOARD_KERNEL_BASE := 0x40078000</span><br><span class="line"># BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 buildvariant=user</span><br><span class="line"># BOARD_KERNEL_PAGESIZE := 2048</span><br><span class="line"># BOARD_RAMDISK_OFFSET := 0x11088000</span><br><span class="line"># BOARD_KERNEL_TAGS_OFFSET := 0x07c08000</span><br><span class="line"># BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)</span><br><span class="line"># BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)</span><br><span class="line"># BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)</span><br><span class="line"># BOARD_KERNEL_IMAGE_NAME := Image</span><br><span class="line"># BOARD_INCLUDE_DTB_IN_BOOTIMG := true</span><br><span class="line"># BOARD_KERNEL_SEPARATED_DTBO := true</span><br><span class="line"># TARGET_KERNEL_CONFIG := xxxx_defconfig</span><br><span class="line"># TARGET_KERNEL_SOURCE := device/yyyy/xxxx</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># BOARD_BOOTIMG_HEADER_VERSION := 2</span><br><span class="line"># BOARD_KERNEL_BASE := 0x40078000</span><br><span class="line"># BOARD_KERNEL_CMDLINE := ttyMSM0,115200n8 earlycon=msm_geni_serial,0xa90000 androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=a600000.dwc3 swiotlb=2048 loop.max_part=7 cgroup.memory=nokmem,nosocket reboot=panic_warm kpti=off buildvariant=user</span><br><span class="line"># BOARD_KERNEL_PAGESIZE := 2048</span><br><span class="line"># BOARD_RAMDISK_OFFSET := 0x11088000</span><br><span class="line"># BOARD_KERNEL_TAGS_OFFSET := 0x07c08000</span><br><span class="line"># BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)</span><br><span class="line"># BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)</span><br><span class="line"># BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)</span><br><span class="line"># BOARD_KERNEL_IMAGE_NAME := Image</span><br><span class="line"># BOARD_INCLUDE_DTB_IN_BOOTIMG := true</span><br><span class="line"># BOARD_KERNEL_SEPARATED_DTBO := true</span><br><span class="line"># TARGET_KERNEL_CONFIG := xxxx_defconfig</span><br><span class="line"># TARGET_KERNEL_SOURCE := device/yyyy/xxxx</span><br></pre></td></tr></table></figure>
 <p>使用源码编译才使用此部分。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2 buildvariant=user androidboot.selinux=permissive</span><br><span class="line">TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel</span><br><span class="line">TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img</span><br><span class="line">BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img</span><br><span class="line">BOARD_INCLUDE_RECOVERY_DTBO := true</span><br><span class="line">BOARD_BOOTIMG_HEADER_VERSION := 2</span><br><span class="line">BOARD_RAMDISK_OFFSET := 0x11088000</span><br><span class="line">BOARD_KERNEL_BASE := 0x40078000</span><br><span class="line">BOARD_KERNEL_TAGS_OFFSET := 0x07c08000</span><br><span class="line">BOARD_KERNEL_PAGESIZE := 2048</span><br><span class="line">BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)</span><br><span class="line">BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)</span><br><span class="line">BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)</span><br><span class="line">BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)</span><br><span class="line">BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)</span><br><span class="line">BOARD_KERNEL_IMAGE_NAME := kernel</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">BOARD_KERNEL_CMDLINE := ttyMSM0,115200n8 earlycon=msm_geni_serial,0xa90000 androidboot.hardware=qcom androidboot.console=ttyMSM0 androidboot.memcg=1 lpm_levels.sleep_disabled=1 video=vfb:640x400,bpp=32,memsize=3072000 msm_rtb.filter=0x237 service_locator.enable=1 androidboot.usbcontroller=a600000.dwc3 swiotlb=2048 loop.max_part=7 cgroup.memory=nokmem,nosocket reboot=panic_warm kpti=off buildvariant=user</span><br><span class="line">TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/kernel</span><br><span class="line">TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilt/dtb.img</span><br><span class="line">BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img</span><br><span class="line">BOARD_INCLUDE_RECOVERY_DTBO := true</span><br><span class="line">BOARD_BOOTIMG_HEADER_VERSION := 2</span><br><span class="line">BOARD_RAMDISK_OFFSET := 0x11088000</span><br><span class="line">BOARD_KERNEL_BASE := 0x40078000</span><br><span class="line">BOARD_KERNEL_TAGS_OFFSET := 0x07c08000</span><br><span class="line">BOARD_KERNEL_PAGESIZE := 2048</span><br><span class="line">BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)</span><br><span class="line">BOARD_MKBOOTIMG_ARGS += --ramdisk_offset $(BOARD_RAMDISK_OFFSET)</span><br><span class="line">BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)</span><br><span class="line">BOARD_MKBOOTIMG_ARGS += --dtb $(TARGET_PREBUILT_DTB)</span><br><span class="line">BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)</span><br><span class="line">BOARD_KERNEL_IMAGE_NAME := kernel</span><br></pre></td></tr></table></figure>
 <p>使用预编译内核。你需要提取手机的boot.img并使用<a target="_blank" rel="noopener" href="https://github.com/osm0sis/Android-Image-Kitchen">Android Image Kitchen</a>来获取预编译内核，dtb和dtbo(如果有)以及cmdline。</p>
 <p>然后替换cmdline。</p>
 <p>再将预编译内核放入引用的路径。这里引用的路径是<code>$(DEVICE_PATH)/prebuilt/</code></p>
@@ -299,7 +299,7 @@
 <p>此处定义了使用 A&#x2F;B 特性的分</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">AB_OTA_POSTINSTALL_CONFIG += \ </span><br><span class="line">    RUN_POSTINSTALL_system=true \</span><br><span class="line">    POSTINSTALL_PATH_system=system/bin/otapreopt_script \</span><br><span class="line">    FILESYSTEM_TYPE_system=ext4 \</span><br><span class="line">    POSTINSTALL_OPTIONAL_system=true</span><br></pre></td></tr></table></figure>
 <p>此处定义了A&#x2F;B分区ota的一些选项。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">PRODUCT_PACKAGES += \</span><br><span class="line">    otapreopt_script \</span><br><span class="line">    cppreopts.sh \</span><br><span class="line">    update_engine \</span><br><span class="line">    update_verifier \</span><br><span class="line">    update_engine_sideload</span><br><span class="line"></span><br><span class="line"># Boot control</span><br><span class="line">PRODUCT_PACKAGES += \</span><br><span class="line">    android.hardware.boot@1.0-impl \</span><br><span class="line">    android.hardware.boot@1.0-service \</span><br><span class="line">    bootctrl.msm8998 \</span><br><span class="line"></span><br><span class="line">PRODUCT_PACKAGES_DEBUG += \</span><br><span class="line">    bootctl</span><br><span class="line"></span><br><span class="line">PRODUCT_STATIC_BOOT_CONTROL_HAL := \</span><br><span class="line">    bootctrl.msm8998 \</span><br><span class="line">    libcutils \</span><br><span class="line">    libgptutils \</span><br><span class="line">    libz</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">PRODUCT_PACKAGES += \</span><br><span class="line">    otapreopt_script \</span><br><span class="line">    cppreopts.sh \</span><br><span class="line">    update_engine \</span><br><span class="line">    update_verifier \</span><br><span class="line">    update_engine_sideload</span><br><span class="line"></span><br><span class="line"># Boot control</span><br><span class="line">PRODUCT_PACKAGES += \</span><br><span class="line">    android.hardware.boot@1.0-impl \</span><br><span class="line">    android.hardware.boot@1.0-service \</span><br><span class="line">    bootctrl.sm8250 \</span><br><span class="line"></span><br><span class="line">PRODUCT_PACKAGES_DEBUG += \</span><br><span class="line">    bootctl</span><br><span class="line"></span><br><span class="line">PRODUCT_STATIC_BOOT_CONTROL_HAL := \</span><br><span class="line">    bootctrl.sm8250 \</span><br><span class="line">    libcutils \</span><br><span class="line">    libgptutils \</span><br><span class="line">    libz</span><br></pre></td></tr></table></figure>
 <p>此处定义了需要引用的包。</p>
 <p>修改完成后，在 twrp_xxxx.mk 里调用</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$(call inherit-product, device/yyyy/xxxx/device.mk)</span><br></pre></td></tr></table></figure>
@@ -693,14 +693,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">PostmarketOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ROM移植</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">3DS</a>
               </li>
              
@@ -733,6 +725,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dtb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -742,10 +738,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dtb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -761,35 +753,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">9008</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">twrp</a>
+                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">build</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">debian</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">哔哩哔哩</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">av10492</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">猎奇</a>
+                <a href="javascript:void(0)" class="js-tag color5">网页加速</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -805,15 +777,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网页加速</a>
+                <a href="javascript:void(0)" class="js-tag color5">twrp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">android kernel</a>
+                <a href="javascript:void(0)" class="js-tag color1">build</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gki</a>
+                <a href="javascript:void(0)" class="js-tag color5">哔哩哔哩</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">av10492</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">猎奇</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">debian</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -825,15 +809,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">联发科</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">KernelSU</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kvm</a>
+                <a href="javascript:void(0)" class="js-tag color4">vps</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -857,11 +833,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vps</a>
+                <a href="javascript:void(0)" class="js-tag color3">PostmarketOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ROM移植</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">android kernel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">gki</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">makefile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">联发科</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">KernelSU</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kvm</a>
               </li>
             
             <div class="clearfix"></div>

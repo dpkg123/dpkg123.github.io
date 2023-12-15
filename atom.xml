@@ -62,13 +62,13 @@
     
     
     
-    <category term="3DS" scheme="https://dpkg123.github.io/tags/3DS/"/>
-    
     <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
     
-    <category term="buildroot" scheme="https://dpkg123.github.io/tags/buildroot/"/>
-    
     <category term="kernel" scheme="https://dpkg123.github.io/tags/kernel/"/>
+    
+    <category term="3DS" scheme="https://dpkg123.github.io/tags/3DS/"/>
+    
+    <category term="buildroot" scheme="https://dpkg123.github.io/tags/buildroot/"/>
     
   </entry>
   
@@ -162,9 +162,9 @@
     
     
     
-    <category term="kernel" scheme="https://dpkg123.github.io/tags/kernel/"/>
-    
     <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
+    
+    <category term="kernel" scheme="https://dpkg123.github.io/tags/kernel/"/>
     
     <category term="android kernel" scheme="https://dpkg123.github.io/tags/android-kernel/"/>
     
@@ -372,9 +372,9 @@
     
     
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
-    
     <category term="dtb" scheme="https://dpkg123.github.io/tags/dtb/"/>
+    
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
   </entry>
   

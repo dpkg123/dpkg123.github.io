@@ -219,6 +219,8 @@
 <h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><p>hugo默认是没有主题的。需要手动下载安装到themes目录。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/birdgg/hugo-theme-shoka themes/shoka --depth=1</span><br></pre></td></tr></table></figure>
 <h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hugo server --theme=shoka --buildDrafts</span><br></pre></td></tr></table></figure>
+<p>输出结果:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">localhost:~/blog-hugo$ hugo server</span><br><span class="line">Watching <span class="keyword">for</span> changes <span class="keyword">in</span> /home/user/blog-hugo/&#123;archetypes,assets,content,data,i18n,layouts,static&#125;</span><br><span class="line">Watching <span class="keyword">for</span> config changes <span class="keyword">in</span> /home/user/blog-hugo/hugo.toml</span><br><span class="line">Start building sites …</span><br><span class="line">hugo v0.120.4+extended linux/x86_64 BuildDate=unknown</span><br><span class="line"></span><br><span class="line">WARN  found no layout file <span class="keyword">for</span> <span class="string">&quot;html&quot;</span> <span class="keyword">for</span> kind <span class="string">&quot;page&quot;</span>: You should create a template file <span class="built_in">which</span> matches Hugo Layouts Lookup Rules <span class="keyword">for</span> this combination.</span><br><span class="line">WARN  found no layout file <span class="keyword">for</span> <span class="string">&quot;html&quot;</span> <span class="keyword">for</span> kind <span class="string">&quot;taxonomy&quot;</span>: You should create a template file <span class="built_in">which</span> matches Hugo Layouts Lookup Rules <span class="keyword">for</span> this combination.</span><br><span class="line">WARN  found no layout file <span class="keyword">for</span> <span class="string">&quot;html&quot;</span> <span class="keyword">for</span> kind <span class="string">&quot;home&quot;</span>: You should create a template file <span class="built_in">which</span> matches Hugo Layouts Lookup Rules <span class="keyword">for</span> this combination.</span><br><span class="line"></span><br><span class="line">                   | EN</span><br><span class="line">-------------------+-----</span><br><span class="line">  Pages            |  3</span><br><span class="line">  Paginator pages  |  0</span><br><span class="line">  Non-page files   |  0</span><br><span class="line">  Static files     |  0</span><br><span class="line">  Processed images |  0</span><br><span class="line">  Aliases          |  0</span><br><span class="line">  Sitemaps         |  1</span><br><span class="line">  Cleaned          |  0</span><br><span class="line"></span><br><span class="line">Built <span class="keyword">in</span> 54 ms</span><br><span class="line">Environment: <span class="string">&quot;development&quot;</span></span><br><span class="line">Serving pages from memory</span><br><span class="line">Running <span class="keyword">in</span> Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender</span><br><span class="line">Web Server is available at http://localhost:1313/ (<span class="built_in">bind</span> address 127.0.0.1)</span><br><span class="line">Press Ctrl+C to stop</span><br></pre></td></tr></table></figure>
 <p>浏览器打开: <a target="_blank" rel="noopener" href="http://localhost:1313/">http://localhost:1313</a></p>
 <h2 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h2><p>需要创建xxx.github.io仓库(xxx为github用户名)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hugo --theme=shoka --baseUrl=<span class="string">&quot;http://xxx.github.io/&quot;</span></span><br><span class="line"><span class="built_in">cd</span> public</span><br><span class="line">git init</span><br><span class="line">git remote add origin https://github.com/xxx/xxx.github.io.git</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;Initial Commit&quot;</span></span><br><span class="line">git push -u origin </span><br></pre></td></tr></table></figure>
@@ -575,6 +577,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">3DS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">buildroot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">kernel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">PostmarketOS</a>
               </li>
              
@@ -583,11 +601,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color3">android</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">makefile</a>
+                <a href="javascript:void(0)" class="js-tag color5">miui</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">coloros</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">手机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -595,15 +621,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">android</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color1">web前端</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">刷机工具</a>
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -612,6 +638,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">刷机工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -639,14 +673,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网页加速</a>
               </li>
              
@@ -663,10 +689,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网页搭建</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">哔哩哔哩</a>
               </li>
              
@@ -679,15 +701,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">kernel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">android kernel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gki</a>
+                <a href="javascript:void(0)" class="js-tag color5">网页搭建</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -707,27 +721,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">fastboot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">vps</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">miui</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">coloros</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">手机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -747,11 +741,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">3DS</a>
+                <a href="javascript:void(0)" class="js-tag color5">android kernel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">buildroot</a>
+                <a href="javascript:void(0)" class="js-tag color4">gki</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">fastboot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">makefile</a>
               </li>
             
             <div class="clearfix"></div>

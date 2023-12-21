@@ -18,8 +18,8 @@
 <meta property="article:published_time" content="2023-12-10T10:41:08.000Z">
 <meta property="article:modified_time" content="2023-12-10T10:41:08.000Z">
 <meta property="article:author" content="dpkg123">
-<meta property="article:tag" content="linux">
 <meta property="article:tag" content="android">
+<meta property="article:tag" content="linux">
 <meta property="article:tag" content="twrp">
 <meta property="article:tag" content="build">
 <meta name="twitter:card" content="summary">
@@ -216,10 +216,10 @@
 <p>或修改 &#x2F;usr&#x2F;bin&#x2F;repo</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/python</span><br></pre></td></tr></table></figure>
 <p>改成</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/python3</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/python3</span></span><br></pre></td></tr></table></figure>
 <p>源码同步成功后会占用磁盘20g-30g的空间。</p>
 <h2 id="初始化编译必要文件"><a href="#初始化编译必要文件" class="headerlink" title="初始化编译必要文件"></a>初始化编译必要文件</h2><blockquote>
-<p>⚠️ 注意：下列步骤将由xxxx替代要适配的手机代号</p>
+<p>⚠️ 注意：下列步骤将由xxxx替代要适配的手机代号，yyyy代替手机厂商。</p>
 </blockquote>
 <p>不管是编译 Android 还是 TWRP，这些文件都是必要的:</p>
 <ul>
@@ -228,7 +228,7 @@
 <li>BoardConfig.mk</li>
 <li>twrp_xxxx.mk<br>这几个文件可以直接从其他的twrp设备树拿，然后进行修改。</li>
 </ul>
-<p>Android.mk、AndroidProduct.mk、omni_cheryl.mk 一般情况下无需进行修改</p>
+<p>Android.mk、AndroidProduct.mk、twrp_xxxx.mk 一般情况下无需进行修改</p>
 <p>编译 TWRP 需要对 BoardConfig.mk 等文件进行修改</p>
 <h2 id="修改-BoardConfig-mk"><a href="#修改-BoardConfig-mk" class="headerlink" title="修改 BoardConfig.mk"></a>修改 BoardConfig.mk</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">DEVICE_PATH := device/yyyy/xxxx</span><br></pre></td></tr></table></figure>
 
@@ -333,7 +333,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">installer</span><br><span class="line">installer/META-INF/</span><br><span class="line">installer/META-INF/com</span><br><span class="line">installer/META-INF/com/google</span><br><span class="line">installer/META-INF/com/google/android/</span><br></pre></td></tr></table></figure>
 <p>添加magiskboot到installer目录</p>
 <p>添加update-binary到installer&#x2F;META-INF&#x2F;com&#x2F;google&#x2F;android&#x2F;目录:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line">#!/sbin/sh</span><br><span class="line"># LazyFlasher installer backend (for helper functions only)</span><br><span class="line"></span><br><span class="line">tmp=/tmp/twrp-install</span><br><span class="line"></span><br><span class="line">if [ &quot;$3&quot; ]; then</span><br><span class="line">	zip=$3</span><br><span class="line">	console=/proc/$$/fd/$2</span><br><span class="line">	# write the location of the console buffer to /tmp/console for other scripts to use</span><br><span class="line">	echo &quot;$console&quot; &gt; /tmp/console</span><br><span class="line">else</span><br><span class="line">	console=$(cat /tmp/console)</span><br><span class="line">	[ &quot;$console&quot; ] || console=/proc/$$/fd/1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">print() &#123;</span><br><span class="line">	if [ &quot;$1&quot; ]; then</span><br><span class="line">		echo &quot;ui_print $1&quot; &gt; &quot;$console&quot;</span><br><span class="line">	else</span><br><span class="line">		echo &quot;ui_print  &quot; &gt; &quot;$console&quot;</span><br><span class="line">	fi</span><br><span class="line">	echo</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">abort() &#123;</span><br><span class="line">	[ &quot;$1&quot; ] &amp;&amp; &#123;</span><br><span class="line">		print &quot;Error: $1&quot;</span><br><span class="line">		print &quot;Aborting...&quot;</span><br><span class="line">	&#125;</span><br><span class="line">	cleanup</span><br><span class="line">	print &quot;Failed to patch boot image!&quot;</span><br><span class="line">	exit 1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">cleanup() &#123;</span><br><span class="line">	[ &quot;$zip&quot; ] &amp;&amp; rm /tmp/console</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">extract() &#123;</span><br><span class="line">	rm -rf &quot;$2&quot;</span><br><span class="line">	mkdir -p &quot;$2&quot;</span><br><span class="line">	unzip -o &quot;$1&quot; -d &quot;$2&quot; || abort &quot;Failed to extract zip to $2!&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">print &quot;#########################################&quot;</span><br><span class="line">print &quot;#          TWRP installer               #&quot;</span><br><span class="line">print &quot;#########################################&quot;</span><br><span class="line"></span><br><span class="line"># Unpack the installer</span><br><span class="line">[ &quot;$zip&quot; ] &amp;&amp; &#123;</span><br><span class="line">	print &quot;Unpacking the installer...&quot;</span><br><span class="line">	extract &quot;$zip&quot; &quot;$tmp&quot;</span><br><span class="line">&#125;</span><br><span class="line">cd &quot;$tmp&quot;</span><br><span class="line">toolname=&quot;/magiskboot&quot;</span><br><span class="line">tool=&quot;$tmp$toolname&quot;</span><br><span class="line">targetfile=&quot;/boot.img&quot;</span><br><span class="line">target=&quot;$tmp$targetfile&quot;</span><br><span class="line"></span><br><span class="line">chmod 755 &quot;$tool&quot;</span><br><span class="line"></span><br><span class="line">print &quot;Running boot image patcher on slot A...&quot;</span><br><span class="line">dd if=/dev/block/bootdevice/by-name/boot_a &quot;of=$target&quot;</span><br><span class="line">&quot;$tool&quot; --unpack boot.img</span><br><span class="line">cp -f ramdisk-recovery.cpio ramdisk.cpio</span><br><span class="line">&quot;$tool&quot; --repack boot.img</span><br><span class="line">dd if=new-boot.img of=/dev/block/bootdevice/by-name/boot_a</span><br><span class="line">rm boot.img</span><br><span class="line">rm dtb</span><br><span class="line">rm kernel</span><br><span class="line">rm new-boot.img</span><br><span class="line">rm ramdisk.cpio</span><br><span class="line">print &quot;Running boot image patcher on slot B...&quot;</span><br><span class="line">dd if=/dev/block/bootdevice/by-name/boot_b &quot;of=$target&quot;</span><br><span class="line">&quot;$tool&quot; --unpack boot.img</span><br><span class="line">cp -f ramdisk-recovery.cpio ramdisk.cpio</span><br><span class="line">&quot;$tool&quot; --repack boot.img</span><br><span class="line">dd if=new-boot.img of=/dev/block/bootdevice/by-name/boot_b</span><br><span class="line"></span><br><span class="line">print &quot;Boot image patching complete&quot;</span><br><span class="line"></span><br><span class="line">#cleanup</span><br><span class="line">print &quot;Done installing TWRP!&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">#!/sbin/sh</span><br><span class="line"></span><br><span class="line">tmp=/tmp/twrp-install</span><br><span class="line"></span><br><span class="line">if [ &quot;$3&quot; ]; then</span><br><span class="line">	zip=$3</span><br><span class="line">	console=/proc/$$/fd/$2</span><br><span class="line">	# write the location of the console buffer to /tmp/console for other scripts to use</span><br><span class="line">	echo &quot;$console&quot; &gt; /tmp/console</span><br><span class="line">else</span><br><span class="line">	console=$(cat /tmp/console)</span><br><span class="line">	[ &quot;$console&quot; ] || console=/proc/$$/fd/1</span><br><span class="line">fi</span><br><span class="line"></span><br><span class="line">print() &#123;</span><br><span class="line">	if [ &quot;$1&quot; ]; then</span><br><span class="line">		echo &quot;ui_print $1&quot; &gt; &quot;$console&quot;</span><br><span class="line">	else</span><br><span class="line">		echo &quot;ui_print  &quot; &gt; &quot;$console&quot;</span><br><span class="line">	fi</span><br><span class="line">	echo</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">abort() &#123;</span><br><span class="line">	[ &quot;$1&quot; ] &amp;&amp; &#123;</span><br><span class="line">		print &quot;Error: $1&quot;</span><br><span class="line">		print &quot;Aborting...&quot;</span><br><span class="line">	&#125;</span><br><span class="line">	cleanup</span><br><span class="line">	print &quot;Failed to patch boot image!&quot;</span><br><span class="line">	exit 1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">cleanup() &#123;</span><br><span class="line">	[ &quot;$zip&quot; ] &amp;&amp; rm /tmp/console</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">extract() &#123;</span><br><span class="line">	rm -rf &quot;$2&quot;</span><br><span class="line">	mkdir -p &quot;$2&quot;</span><br><span class="line">	unzip -o &quot;$1&quot; -d &quot;$2&quot; || abort &quot;Failed to extract zip to $2!&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">print &quot;#########################################&quot;</span><br><span class="line">print &quot;#          TWRP installer               #&quot;</span><br><span class="line">print &quot;#########################################&quot;</span><br><span class="line"></span><br><span class="line"># Unpack the installer</span><br><span class="line">[ &quot;$zip&quot; ] &amp;&amp; &#123;</span><br><span class="line">	print &quot;Unpacking the installer...&quot;</span><br><span class="line">	extract &quot;$zip&quot; &quot;$tmp&quot;</span><br><span class="line">&#125;</span><br><span class="line">cd &quot;$tmp&quot;</span><br><span class="line">toolname=&quot;/magiskboot&quot;</span><br><span class="line">tool=&quot;$tmp$toolname&quot;</span><br><span class="line">targetfile=&quot;/boot.img&quot;</span><br><span class="line">target=&quot;$tmp$targetfile&quot;</span><br><span class="line"></span><br><span class="line">chmod 755 &quot;$tool&quot;</span><br><span class="line"></span><br><span class="line">print &quot;Running boot image patcher on slot A...&quot;</span><br><span class="line">dd if=/dev/block/bootdevice/by-name/boot_a &quot;of=$target&quot;</span><br><span class="line">&quot;$tool&quot; --unpack boot.img</span><br><span class="line">cp -f ramdisk-recovery.cpio ramdisk.cpio</span><br><span class="line">&quot;$tool&quot; --repack boot.img</span><br><span class="line">dd if=new-boot.img of=/dev/block/bootdevice/by-name/boot_a</span><br><span class="line">rm boot.img</span><br><span class="line">rm dtb</span><br><span class="line">rm kernel</span><br><span class="line">rm new-boot.img</span><br><span class="line">rm ramdisk.cpio</span><br><span class="line">print &quot;Running boot image patcher on slot B...&quot;</span><br><span class="line">dd if=/dev/block/bootdevice/by-name/boot_b &quot;of=$target&quot;</span><br><span class="line">&quot;$tool&quot; --unpack boot.img</span><br><span class="line">cp -f ramdisk-recovery.cpio ramdisk.cpio</span><br><span class="line">&quot;$tool&quot; --repack boot.img</span><br><span class="line">dd if=new-boot.img of=/dev/block/bootdevice/by-name/boot_b</span><br><span class="line"></span><br><span class="line">print &quot;Boot image patching complete&quot;</span><br><span class="line"></span><br><span class="line">#cleanup</span><br><span class="line">print &quot;Done installing TWRP!&quot;</span><br></pre></td></tr></table></figure>
 <p>注:A&#x2F;B分区可能需要准备installer&#x2F;META-INF&#x2F;MANIFEST.MF，installer&#x2F;META-INF&#x2F;CERT.SF，installer&#x2F;META-INF&#x2F;CERT.RSA</p>
 
       
@@ -367,11 +367,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -702,6 +702,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">PostmarketOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ROM移植</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dtb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">3DS</a>
               </li>
              
@@ -718,31 +734,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">makefile</a>
+                <a href="javascript:void(0)" class="js-tag color5">hugo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">PostmarketOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ROM移植</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">android</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">miui</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">coloros</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">手机</a>
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -758,27 +754,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hugo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dtb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">刷机工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">二次元</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">twrp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">build</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -790,11 +774,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">twrp</a>
+                <a href="javascript:void(0)" class="js-tag color5">网页加速</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">build</a>
+                <a href="javascript:void(0)" class="js-tag color2">debian</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">刷机工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -810,6 +802,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">android kernel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">gki</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">哔哩哔哩</a>
               </li>
              
@@ -822,26 +822,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">android kernel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gki</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">debian</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网页搭建</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">联发科</a>
               </li>
              
@@ -851,6 +831,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">kvm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网页搭建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">fastboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -870,15 +862,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">fastboot</a>
+                <a href="javascript:void(0)" class="js-tag color5">miui</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vps</a>
+                <a href="javascript:void(0)" class="js-tag color3">coloros</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网页加速</a>
+                <a href="javascript:void(0)" class="js-tag color3">手机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">makefile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
             
             <div class="clearfix"></div>

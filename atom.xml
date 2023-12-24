@@ -6,7 +6,7 @@
   <link href="https://dpkg123.github.io/atom.xml" rel="self"/>
   
   <link href="https://dpkg123.github.io/"/>
-  <updated>2023-12-19T13:19:13.000Z</updated>
+  <updated>2023-12-24T12:01:05.000Z</updated>
   <id>https://dpkg123.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android boot.img 文件的解包、修改与重打包小记</title>
+    <link href="https://dpkg123.github.io/2023/12/24/Android%20boot.img%20%E6%96%87%E4%BB%B6%E7%9A%84%E8%A7%A3%E5%8C%85%E3%80%81%E4%BF%AE%E6%94%B9%E4%B8%8E%E9%87%8D%E6%89%93%E5%8C%85%E5%B0%8F%E8%AE%B0/"/>
+    <id>https://dpkg123.github.io/2023/12/24/Android%20boot.img%20%E6%96%87%E4%BB%B6%E7%9A%84%E8%A7%A3%E5%8C%85%E3%80%81%E4%BF%AE%E6%94%B9%E4%B8%8E%E9%87%8D%E6%89%93%E5%8C%85%E5%B0%8F%E8%AE%B0/</id>
+    <published>2023-12-24T12:01:05.000Z</published>
+    <updated>2023-12-24T12:01:05.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文记录 Andoird 的 boot.img 文件的组成、解包、修改以及重打包方法。</p><p>Android 的文件由以下内容组成：</p><pre><code>* kernel，文件名一般为 zImage* ramdisk，文件名一般为 initrd.gz。该文件解压之后是一个 cpio archive 文件（亦是 cramfs 文件系统？）* second，这是第二阶段启动文件系统</code></pre><p>此外，上述文件的地址偏移量也是在打包的时候必须提供的信息。</p><hr><p>使用 abootimg 可以轻松地解压。</p><p><a href="https://github.com/ggrandou/abootimg">https://github.com/ggrandou/abootimg</a></p><hr><h2 id="处理过程"><a href="#处理过程" class="headerlink" title="处理过程"></a>处理过程</h2><pre><code>* 使用 abootimg 将 boot.img 解包，得到 kernel、ramdisk、second 等文件* 使用 cpio 将 ramdisk 文件解包* 修改 ramdisk 中的文件* 使用 cpio 将修改好的文件重新打包成新的 ramdisk 文件* 使用 abootimg 将新的 ramdisk 文件更新到 boot.img 中* 使用 fastboot 刷入 abootimg</code></pre><p>注意，cpio 解包和打包过程均应使用 root 用户。</p><h3 id="使用-cpio-解包-ramdisk"><a href="#使用-cpio-解包-ramdisk" class="headerlink" title="使用 cpio 解包 ramdisk"></a>使用 cpio 解包 ramdisk</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gzip -d boot.img-ramdisk.gz</span><br><span class="line">mkdir ramdisk</span><br><span class="line">cd ramdisk</span><br><span class="line">cpio -i -d -H newc -F ../boot.img-ramdisk --no-absolute-filenames</span><br></pre></td></tr></table></figure><h3 id="使用-cpio-制作-ramdisk"><a href="#使用-cpio-制作-ramdisk" class="headerlink" title="使用 cpio 制作 ramdisk"></a>使用 cpio 制作 ramdisk</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 在 ramdisk 目录下</span><br><span class="line">sudo find . | sudo cpio --create --format=&#x27;newc&#x27; &gt;../new-boot.img-ramdisk</span><br></pre></td></tr></table></figure><h3 id="使用-abootimg-将新的-ramdisk-更新到-boot-img-中"><a href="#使用-abootimg-将新的-ramdisk-更新到-boot-img-中" class="headerlink" title="使用 abootimg 将新的 ramdisk 更新到 boot.img 中"></a>使用 abootimg 将新的 ramdisk 更新到 boot.img 中</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abootimg -u boot.img -r new-boot.img-ramdisk</span><br></pre></td></tr></table></figure><h3 id="摘录——Android-系统在连接电源时自动开机的方法"><a href="#摘录——Android-系统在连接电源时自动开机的方法" class="headerlink" title="摘录——Android 系统在连接电源时自动开机的方法"></a>摘录——Android 系统在连接电源时自动开机的方法</h3><p><a href="https://android.stackexchange.com/questions/20021/automatically-power-on-android-when-the-charger-is-connected">https://android.stackexchange.com/questions/20021/automatically-power-on-android-when-the-charger-is-connected</a></p><p><code>fastboot oem off-mode-charge 0</code> is the genuine method if your device supports. It’s Google’s recommended method but not all OEMs&#x2F;vendors implement the command in bootloader. Or on some devices it’s reset on next reboot. If off-mode-charge is disabled, bootloader won’t pass androidboot.mode&#x3D;charger commandline parameter to kernel when charger is inserted, so device boots normally.</p><p>Otherwise when ro.bootmode property is set to charger on boot, init doesn’t continue the normal boot process. Instead limited number of services are started and charging animation is displayed. So you can instruct init to reboot the device whenever charger mode is detected. Create a new .rc file or edit any existing one:</p><h1 id="x2F-system-x2F-etc-x2F-init-x2F-off-mode-charge-rc"><a href="#x2F-system-x2F-etc-x2F-init-x2F-off-mode-charge-rc" class="headerlink" title="&#x2F;system&#x2F;etc&#x2F;init&#x2F;off_mode_charge.rc"></a>&#x2F;system&#x2F;etc&#x2F;init&#x2F;off_mode_charge.rc</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">on charger</span><br><span class="line">    setprop sys.powerctl reboot,leaving-off-mode-charging</span><br><span class="line">Or execute reboot binary:</span><br><span class="line"></span><br><span class="line">on charger</span><br><span class="line">    exec - -- /system/bin/reboot leaving-off-mode-charging</span><br><span class="line">But if SELinux is enforcing, stock policy may not let init execute /system/bin/reboot. So use Magisk&#x27;s context (or whatever rooting solution you use):</span><br><span class="line"></span><br><span class="line">on charger</span><br><span class="line">    exec u:r:magisk:s0 -- /system/bin/reboot</span><br><span class="line">Don&#x27;t forget to set permissions on *.rc file (chown 0.0, chmod 0644, chcon u:object_r:system_file:s0).</span><br><span class="line"></span><br><span class="line">It&#x27;s also possible to continue boot process instead of restarting the device by replacing class_start charger with trigger late-init in /init.rc file:</span><br><span class="line"></span><br><span class="line">on charger</span><br><span class="line">    #class_start charger</span><br><span class="line">    trigger late-init</span><br><span class="line">Or by setting property sys.boot_from_charger_mode:</span><br><span class="line"></span><br><span class="line">on charger</span><br><span class="line">    setprop sys.boot_from_charger_mode 1</span><br></pre></td></tr></table></figure><p>This method should work on all devices irrespective of OEM as it doesn’t depend on vendor-specific charging binaries like playlpm, battery_charging, chargeonlymode, zchgd, kpoc_charger and so on.</p><p>Also replacing binaries of important services like healthd - which take care of a lot of things related to battery, storage etc. - is not a good idea. In this case if the service runs both in charger and normal mode, device may get into bootloop.</p><p>On non-System-as-Root devices it’s not necessary to modify &#x2F;system partition (e.g. if you don’t want to break dm-verity for OTA updates to work). Simply unpack boot.img and edit &#x2F;init.rc file in ramdisk.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
+    
+  </entry>
   
   <entry>
     <title>hugo从入门到放弃</title>
@@ -473,9 +497,9 @@
     
     <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
     
-    <category term="shell" scheme="https://dpkg123.github.io/tags/shell/"/>
-    
     <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
+    
+    <category term="shell" scheme="https://dpkg123.github.io/tags/shell/"/>
     
     <category term="fastboot" scheme="https://dpkg123.github.io/tags/fastboot/"/>
     
@@ -501,33 +525,9 @@
     
     <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
     
-    <category term="shell" scheme="https://dpkg123.github.io/tags/shell/"/>
-    
     <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
     
-  </entry>
-  
-  <entry>
-    <title>PostmarketOS移植常见问题</title>
-    <link href="https://dpkg123.github.io/2023/04/25/PostmarketOS%E7%A7%BB%E6%A4%8D%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
-    <id>https://dpkg123.github.io/2023/04/25/PostmarketOS%E7%A7%BB%E6%A4%8D%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</id>
-    <published>2023-04-24T21:30:12.000Z</published>
-    <updated>2023-04-24T21:30:12.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这篇文章简单介绍下我移植k20pro-PostmarketOS出现的问题以及解决方法<br>移植教程可以参考<a href="https://ivonblog.com/posts/xperia5-ii-postmarketos-porting/">这篇文章</a><br>注:以下问题需要执行<code>pmbootstrap log</code>才能找到，或者在pmbootstrap的工作目录里的<code>log.txt</code>里找到<br>建议编译内核前先删除pmbootstrap的工作目录里的<code>log.txt</code></p><h1 id="问题1-xxx-patch无法打补丁"><a href="#问题1-xxx-patch无法打补丁" class="headerlink" title="问题1: xxx patch无法打补丁"></a>问题1: xxx patch无法打补丁</h1><p>这个问题出现在执行<code>pmbootstrap kconfig edit</code>时<br>解决办法:<br>在<code>linux-xiaomi-raphael/APKBUILD</code>中删除所有.patch字样</p><h1 id="问题2-asm-x2F-type-h-no-such-file-or-directory"><a href="#问题2-asm-x2F-type-h-no-such-file-or-directory" class="headerlink" title="问题2: asm&#x2F;type.h :no such file or directory"></a>问题2: asm&#x2F;type.h :no such file or directory</h1><p>这个问题出现在执行<code>pmbootstrap build linux-xiaomi-raphael</code>时<br>解决办法:<br>执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ pmbootstrap <span class="built_in">chroot</span></span><br><span class="line">$ apk add linux-headers </span><br><span class="line"><span class="comment">#注:第二条命令需要在第一条命令执行成功后再执行</span></span><br></pre></td></tr></table></figure><h1 id="问题3-gzip-cpio-command-not-found"><a href="#问题3-gzip-cpio-command-not-found" class="headerlink" title="问题3: gzip(cpio) command not found"></a>问题3: gzip(cpio) command not found</h1><p>同上<br>解决办法:<br>将上面的<code>linux-headers</code>换成gzip(cpio)</p><h1 id="问题4-c语言错误"><a href="#问题4-c语言错误" class="headerlink" title="问题4 c语言错误"></a>问题4 c语言错误</h1><p>同上<br>解决办法:<br>如果你是c语言大佬，可以试试修复<br>否则尝逝更换编译器为<code>clang</code><br>在<code>linux-xiaomi-raphael/APKBUILD</code>中添加以下字段</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CC=&quot;clang&quot;</span><br><span class="line">HOSTCC=&quot;clang&quot;</span><br></pre></td></tr></table></figure><p>或者使用gcc6&#x2F;gcc4<br>在<code>linux-xiaomi-raphael/APKBUILD</code>中添加以下字段</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Compiler: GCC 6 (doesn&#x27;t boot when compiled with newer versions)</span><br><span class="line">if [ &quot;$&#123;CC:0:5&#125;&quot; != &quot;gcc6-&quot; ]; then</span><br><span class="line">CC=&quot;gcc6-$CC&quot;</span><br><span class="line">HOSTCC=&quot;gcc6-gcc&quot;</span><br><span class="line">CROSS_COMPILE=&quot;gcc6-$CROSS_COMPILE&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure><p>如果要使用gcc4,请将上面字段的6改成4</p><p>如果还是不行的话，建议更换一个问题较少的内核<del>这里着重点名小米，官方内核就是一坨shit</del></p><h1 id="问题5-Permission-denied"><a href="#问题5-Permission-denied" class="headerlink" title="问题5: Permission denied"></a>问题5: Permission denied</h1><p>这个问题可能出现在执行<code>pmbootstrap build linux-xiaomi-raphael</code>或者<code>pmbootstrap install</code>的时候<br>解决办法:<br>换个目录并将目录权限设置成<code>755</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">chmod</span> 755 $(pmbootstrap_work_dir)</span><br></pre></td></tr></table></figure><h1 id="问题6-xxx-h-no-such-file-or-directory"><a href="#问题6-xxx-h-no-such-file-or-directory" class="headerlink" title="问题6: xxx.h no such file or directory"></a>问题6: xxx.h no such file or directory</h1><p>这个问题出现在执行<code>pmbootstrap build linux-xiaomi-raphael</code>时，且问题多出自与小米官方内核<del>雷军，金凡！</del><br>解决办法:<br>使用find命令找到缺失的文件然后将文件复制到报错的文件的目录中</p><h1 id="问题7-x2F-include-x2F-linux-x2F-compiler-gcc-h-2-2-error-error-“Please-don’t-include-lt-linux-x2F-compiler-gcc-h-gt-directly-include-lt-linux-x2F-compiler-h-gt-instead-”"><a href="#问题7-x2F-include-x2F-linux-x2F-compiler-gcc-h-2-2-error-error-“Please-don’t-include-lt-linux-x2F-compiler-gcc-h-gt-directly-include-lt-linux-x2F-compiler-h-gt-instead-”" class="headerlink" title="问题7:..&#x2F;include&#x2F;linux&#x2F;compiler-gcc.h:2:2: error: #error “Please don’t include &lt;linux&#x2F;compiler-gcc.h&gt; directly, include &lt;linux&#x2F;compiler.h&gt; instead.”"></a>问题7:..&#x2F;include&#x2F;linux&#x2F;compiler-gcc.h:2:2: error: #error “Please don’t include &lt;linux&#x2F;compiler-gcc.h&gt; directly, include &lt;linux&#x2F;compiler.h&gt; instead.”</h1><p>同上<br>解决办法:<br>将<code>APKBUILD</code>中的</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">prepare() &#123;</span><br><span class="line">default_prepare</span><br><span class="line">. downstreamkernel_prepare</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>换成</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">prepare() &#123;</span><br><span class="line">default_prepare</span><br><span class="line">REPLACE_GCCH=0</span><br><span class="line">. downstreamkernel_prepare</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
-      
-    
-    
-    
-    
-    <category term="PostmarketOS" scheme="https://dpkg123.github.io/tags/PostmarketOS/"/>
-    
-    <category term="ROM移植" scheme="https://dpkg123.github.io/tags/ROM%E7%A7%BB%E6%A4%8D/"/>
+    <category term="shell" scheme="https://dpkg123.github.io/tags/shell/"/>
     
   </entry>
   

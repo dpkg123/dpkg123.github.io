@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="https://dpkg123.github.io">
   <title>Android boot.img 文件的解包、修改与重打包小记 | dpkg123的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="本文记录 Andoird 的 boot.img 文件的组成、解包、修改以及重打包方法。 Android 的文件由以下内容组成： * kernel，文件名一般为 zImage * ramdisk，文件名一般为 initrd.gz。该文件解压之后是一个 cpio archive 文件（亦是 cramfs 文件系统？） * second，这是第二阶段启动文件系统  此外，上述文件的地址偏移量也是在打包的">
+  <meta name="description" content="本文记录 Andoird 的 boot.img 文件的组成、解包、修改以及重打包方法。 Android 的文件由以下内容组成： - kernel，文件名一般为 zImage - ramdisk，文件名一般为 initrd.gz。该文件解压之后是一个 cpio archive 文件（亦是 cramfs 文件系统？） - second，这是第二阶段启动文件系统  此外，上述文件的地址偏移量也是在打包的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android boot.img 文件的解包、修改与重打包小记">
 <meta property="og:url" content="https://dpkg123.github.io/2023/12/24/Android%20boot.img%20%E6%96%87%E4%BB%B6%E7%9A%84%E8%A7%A3%E5%8C%85%E3%80%81%E4%BF%AE%E6%94%B9%E4%B8%8E%E9%87%8D%E6%89%93%E5%8C%85%E5%B0%8F%E8%AE%B0/index.html">
 <meta property="og:site_name" content="dpkg123的博客">
-<meta property="og:description" content="本文记录 Andoird 的 boot.img 文件的组成、解包、修改以及重打包方法。 Android 的文件由以下内容组成： * kernel，文件名一般为 zImage * ramdisk，文件名一般为 initrd.gz。该文件解压之后是一个 cpio archive 文件（亦是 cramfs 文件系统？） * second，这是第二阶段启动文件系统  此外，上述文件的地址偏移量也是在打包的">
+<meta property="og:description" content="本文记录 Andoird 的 boot.img 文件的组成、解包、修改以及重打包方法。 Android 的文件由以下内容组成： - kernel，文件名一般为 zImage - ramdisk，文件名一般为 initrd.gz。该文件解压之后是一个 cpio archive 文件（亦是 cramfs 文件系统？） - second，这是第二阶段启动文件系统  此外，上述文件的地址偏移量也是在打包的">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-12-24T12:01:05.000Z">
 <meta property="article:modified_time" content="2023-12-24T12:01:05.000Z">
 <meta property="article:author" content="dpkg123">
-<meta property="article:tag" content="linux">
 <meta property="article:tag" content="android">
+<meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="dpkg123的博客" type="application/atom+xml">
@@ -197,21 +197,19 @@
       
         <p>本文记录 Andoird 的 boot.img 文件的组成、解包、修改以及重打包方法。</p>
 <p>Android 的文件由以下内容组成：</p>
-<pre><code>* kernel，文件名一般为 zImage
-* ramdisk，文件名一般为 initrd.gz。该文件解压之后是一个 cpio archive 文件（亦是 cramfs 文件系统？）
-* second，这是第二阶段启动文件系统
+<pre><code>- kernel，文件名一般为 zImage
+- ramdisk，文件名一般为 initrd.gz。该文件解压之后是一个 cpio archive 文件（亦是 cramfs 文件系统？）
+- second，这是第二阶段启动文件系统
 </code></pre>
 <p>此外，上述文件的地址偏移量也是在打包的时候必须提供的信息。</p>
-<hr>
 <p>使用 abootimg 可以轻松地解压。</p>
 <p><a target="_blank" rel="noopener" href="https://github.com/ggrandou/abootimg">https://github.com/ggrandou/abootimg</a></p>
-<hr>
-<h2 id="处理过程"><a href="#处理过程" class="headerlink" title="处理过程"></a>处理过程</h2><pre><code>* 使用 abootimg 将 boot.img 解包，得到 kernel、ramdisk、second 等文件
-* 使用 cpio 将 ramdisk 文件解包
-* 修改 ramdisk 中的文件
-* 使用 cpio 将修改好的文件重新打包成新的 ramdisk 文件
-* 使用 abootimg 将新的 ramdisk 文件更新到 boot.img 中
-* 使用 fastboot 刷入 abootimg
+<h2 id="处理过程"><a href="#处理过程" class="headerlink" title="处理过程"></a>处理过程</h2><pre><code>- 使用 abootimg 将 boot.img 解包，得到 kernel、ramdisk、second 等文件
+- 使用 cpio 将 ramdisk 文件解包
+- 修改 ramdisk 中的文件
+- 使用 cpio 将修改好的文件重新打包成新的 ramdisk 文件
+- 使用 abootimg 将新的 ramdisk 文件更新到 boot.img 中
+- 使用 fastboot 刷入 abootimg
 </code></pre>
 <p>注意，cpio 解包和打包过程均应使用 root 用户。</p>
 <h3 id="使用-cpio-解包-ramdisk"><a href="#使用-cpio-解包-ramdisk" class="headerlink" title="使用 cpio 解包 ramdisk"></a>使用 cpio 解包 ramdisk</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gzip -d boot.img-ramdisk.gz</span><br><span class="line">mkdir ramdisk</span><br><span class="line">cd ramdisk</span><br><span class="line">cpio -i -d -H newc -F ../boot.img-ramdisk --no-absolute-filenames</span><br></pre></td></tr></table></figure>
@@ -259,11 +257,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		
 		</ul>
@@ -577,6 +575,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">PostmarketOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ROM移植</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dtb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">3DS</a>
               </li>
              
@@ -593,22 +607,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">makefile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">PostmarketOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ROM移植</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">android</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -621,11 +619,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hugo</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
+                <a href="javascript:void(0)" class="js-tag color5">刷机工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -641,31 +639,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">twrp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">build</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">debian</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网页加速</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">哔哩哔哩</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">av10492</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">猎奇</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -681,23 +659,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">twrp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">build</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">哔哩哔哩</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">av10492</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">猎奇</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网页搭建</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">android kernel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gki</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dtb</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -713,11 +699,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color5">android kernel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">fastboot</a>
+                <a href="javascript:void(0)" class="js-tag color4">gki</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hugo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -737,7 +731,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">刷机工具</a>
+                <a href="javascript:void(0)" class="js-tag color4">vps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">makefile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">fastboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -750,10 +752,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">手机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vps</a>
               </li>
             
             <div class="clearfix"></div>

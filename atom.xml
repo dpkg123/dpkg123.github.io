@@ -23,7 +23,7 @@
     <published>2023-12-24T12:01:05.000Z</published>
     <updated>2023-12-24T12:01:05.000Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文记录 Andoird 的 boot.img 文件的组成、解包、修改以及重打包方法。</p><p>Android 的文件由以下内容组成：</p><pre><code>* kernel，文件名一般为 zImage* ramdisk，文件名一般为 initrd.gz。该文件解压之后是一个 cpio archive 文件（亦是 cramfs 文件系统？）* second，这是第二阶段启动文件系统</code></pre><p>此外，上述文件的地址偏移量也是在打包的时候必须提供的信息。</p><hr><p>使用 abootimg 可以轻松地解压。</p><p><a href="https://github.com/ggrandou/abootimg">https://github.com/ggrandou/abootimg</a></p><hr><h2 id="处理过程"><a href="#处理过程" class="headerlink" title="处理过程"></a>处理过程</h2><pre><code>* 使用 abootimg 将 boot.img 解包，得到 kernel、ramdisk、second 等文件* 使用 cpio 将 ramdisk 文件解包* 修改 ramdisk 中的文件* 使用 cpio 将修改好的文件重新打包成新的 ramdisk 文件* 使用 abootimg 将新的 ramdisk 文件更新到 boot.img 中* 使用 fastboot 刷入 abootimg</code></pre><p>注意，cpio 解包和打包过程均应使用 root 用户。</p><h3 id="使用-cpio-解包-ramdisk"><a href="#使用-cpio-解包-ramdisk" class="headerlink" title="使用 cpio 解包 ramdisk"></a>使用 cpio 解包 ramdisk</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gzip -d boot.img-ramdisk.gz</span><br><span class="line">mkdir ramdisk</span><br><span class="line">cd ramdisk</span><br><span class="line">cpio -i -d -H newc -F ../boot.img-ramdisk --no-absolute-filenames</span><br></pre></td></tr></table></figure><h3 id="使用-cpio-制作-ramdisk"><a href="#使用-cpio-制作-ramdisk" class="headerlink" title="使用 cpio 制作 ramdisk"></a>使用 cpio 制作 ramdisk</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 在 ramdisk 目录下</span><br><span class="line">sudo find . | sudo cpio --create --format=&#x27;newc&#x27; &gt;../new-boot.img-ramdisk</span><br></pre></td></tr></table></figure><h3 id="使用-abootimg-将新的-ramdisk-更新到-boot-img-中"><a href="#使用-abootimg-将新的-ramdisk-更新到-boot-img-中" class="headerlink" title="使用 abootimg 将新的 ramdisk 更新到 boot.img 中"></a>使用 abootimg 将新的 ramdisk 更新到 boot.img 中</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abootimg -u boot.img -r new-boot.img-ramdisk</span><br></pre></td></tr></table></figure><h3 id="摘录——Android-系统在连接电源时自动开机的方法"><a href="#摘录——Android-系统在连接电源时自动开机的方法" class="headerlink" title="摘录——Android 系统在连接电源时自动开机的方法"></a>摘录——Android 系统在连接电源时自动开机的方法</h3><p><a href="https://android.stackexchange.com/questions/20021/automatically-power-on-android-when-the-charger-is-connected">https://android.stackexchange.com/questions/20021/automatically-power-on-android-when-the-charger-is-connected</a></p><p><code>fastboot oem off-mode-charge 0</code> is the genuine method if your device supports. It’s Google’s recommended method but not all OEMs&#x2F;vendors implement the command in bootloader. Or on some devices it’s reset on next reboot. If off-mode-charge is disabled, bootloader won’t pass androidboot.mode&#x3D;charger commandline parameter to kernel when charger is inserted, so device boots normally.</p><p>Otherwise when ro.bootmode property is set to charger on boot, init doesn’t continue the normal boot process. Instead limited number of services are started and charging animation is displayed. So you can instruct init to reboot the device whenever charger mode is detected. Create a new .rc file or edit any existing one:</p><h1 id="x2F-system-x2F-etc-x2F-init-x2F-off-mode-charge-rc"><a href="#x2F-system-x2F-etc-x2F-init-x2F-off-mode-charge-rc" class="headerlink" title="&#x2F;system&#x2F;etc&#x2F;init&#x2F;off_mode_charge.rc"></a>&#x2F;system&#x2F;etc&#x2F;init&#x2F;off_mode_charge.rc</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">on charger</span><br><span class="line">    setprop sys.powerctl reboot,leaving-off-mode-charging</span><br><span class="line">Or execute reboot binary:</span><br><span class="line"></span><br><span class="line">on charger</span><br><span class="line">    exec - -- /system/bin/reboot leaving-off-mode-charging</span><br><span class="line">But if SELinux is enforcing, stock policy may not let init execute /system/bin/reboot. So use Magisk&#x27;s context (or whatever rooting solution you use):</span><br><span class="line"></span><br><span class="line">on charger</span><br><span class="line">    exec u:r:magisk:s0 -- /system/bin/reboot</span><br><span class="line">Don&#x27;t forget to set permissions on *.rc file (chown 0.0, chmod 0644, chcon u:object_r:system_file:s0).</span><br><span class="line"></span><br><span class="line">It&#x27;s also possible to continue boot process instead of restarting the device by replacing class_start charger with trigger late-init in /init.rc file:</span><br><span class="line"></span><br><span class="line">on charger</span><br><span class="line">    #class_start charger</span><br><span class="line">    trigger late-init</span><br><span class="line">Or by setting property sys.boot_from_charger_mode:</span><br><span class="line"></span><br><span class="line">on charger</span><br><span class="line">    setprop sys.boot_from_charger_mode 1</span><br></pre></td></tr></table></figure><p>This method should work on all devices irrespective of OEM as it doesn’t depend on vendor-specific charging binaries like playlpm, battery_charging, chargeonlymode, zchgd, kpoc_charger and so on.</p><p>Also replacing binaries of important services like healthd - which take care of a lot of things related to battery, storage etc. - is not a good idea. In this case if the service runs both in charger and normal mode, device may get into bootloop.</p><p>On non-System-as-Root devices it’s not necessary to modify &#x2F;system partition (e.g. if you don’t want to break dm-verity for OTA updates to work). Simply unpack boot.img and edit &#x2F;init.rc file in ramdisk.</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>本文记录 Andoird 的 boot.img 文件的组成、解包、修改以及重打包方法。</p><p>Android 的文件由以下内容组成：</p><pre><code>- kernel，文件名一般为 zImage- ramdisk，文件名一般为 initrd.gz。该文件解压之后是一个 cpio archive 文件（亦是 cramfs 文件系统？）- second，这是第二阶段启动文件系统</code></pre><p>此外，上述文件的地址偏移量也是在打包的时候必须提供的信息。</p><p>使用 abootimg 可以轻松地解压。</p><p><a href="https://github.com/ggrandou/abootimg">https://github.com/ggrandou/abootimg</a></p><h2 id="处理过程"><a href="#处理过程" class="headerlink" title="处理过程"></a>处理过程</h2><pre><code>- 使用 abootimg 将 boot.img 解包，得到 kernel、ramdisk、second 等文件- 使用 cpio 将 ramdisk 文件解包- 修改 ramdisk 中的文件- 使用 cpio 将修改好的文件重新打包成新的 ramdisk 文件- 使用 abootimg 将新的 ramdisk 文件更新到 boot.img 中- 使用 fastboot 刷入 abootimg</code></pre><p>注意，cpio 解包和打包过程均应使用 root 用户。</p><h3 id="使用-cpio-解包-ramdisk"><a href="#使用-cpio-解包-ramdisk" class="headerlink" title="使用 cpio 解包 ramdisk"></a>使用 cpio 解包 ramdisk</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gzip -d boot.img-ramdisk.gz</span><br><span class="line">mkdir ramdisk</span><br><span class="line">cd ramdisk</span><br><span class="line">cpio -i -d -H newc -F ../boot.img-ramdisk --no-absolute-filenames</span><br></pre></td></tr></table></figure><h3 id="使用-cpio-制作-ramdisk"><a href="#使用-cpio-制作-ramdisk" class="headerlink" title="使用 cpio 制作 ramdisk"></a>使用 cpio 制作 ramdisk</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 在 ramdisk 目录下</span><br><span class="line">sudo find . | sudo cpio --create --format=&#x27;newc&#x27; &gt;../new-boot.img-ramdisk</span><br></pre></td></tr></table></figure><h3 id="使用-abootimg-将新的-ramdisk-更新到-boot-img-中"><a href="#使用-abootimg-将新的-ramdisk-更新到-boot-img-中" class="headerlink" title="使用 abootimg 将新的 ramdisk 更新到 boot.img 中"></a>使用 abootimg 将新的 ramdisk 更新到 boot.img 中</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abootimg -u boot.img -r new-boot.img-ramdisk</span><br></pre></td></tr></table></figure><h3 id="摘录——Android-系统在连接电源时自动开机的方法"><a href="#摘录——Android-系统在连接电源时自动开机的方法" class="headerlink" title="摘录——Android 系统在连接电源时自动开机的方法"></a>摘录——Android 系统在连接电源时自动开机的方法</h3><p><a href="https://android.stackexchange.com/questions/20021/automatically-power-on-android-when-the-charger-is-connected">https://android.stackexchange.com/questions/20021/automatically-power-on-android-when-the-charger-is-connected</a></p><p><code>fastboot oem off-mode-charge 0</code> is the genuine method if your device supports. It’s Google’s recommended method but not all OEMs&#x2F;vendors implement the command in bootloader. Or on some devices it’s reset on next reboot. If off-mode-charge is disabled, bootloader won’t pass androidboot.mode&#x3D;charger commandline parameter to kernel when charger is inserted, so device boots normally.</p><p>Otherwise when ro.bootmode property is set to charger on boot, init doesn’t continue the normal boot process. Instead limited number of services are started and charging animation is displayed. So you can instruct init to reboot the device whenever charger mode is detected. Create a new .rc file or edit any existing one:</p><h1 id="x2F-system-x2F-etc-x2F-init-x2F-off-mode-charge-rc"><a href="#x2F-system-x2F-etc-x2F-init-x2F-off-mode-charge-rc" class="headerlink" title="&#x2F;system&#x2F;etc&#x2F;init&#x2F;off_mode_charge.rc"></a>&#x2F;system&#x2F;etc&#x2F;init&#x2F;off_mode_charge.rc</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">on charger</span><br><span class="line">    setprop sys.powerctl reboot,leaving-off-mode-charging</span><br><span class="line">Or execute reboot binary:</span><br><span class="line"></span><br><span class="line">on charger</span><br><span class="line">    exec - -- /system/bin/reboot leaving-off-mode-charging</span><br><span class="line">But if SELinux is enforcing, stock policy may not let init execute /system/bin/reboot. So use Magisk&#x27;s context (or whatever rooting solution you use):</span><br><span class="line"></span><br><span class="line">on charger</span><br><span class="line">    exec u:r:magisk:s0 -- /system/bin/reboot</span><br><span class="line">Don&#x27;t forget to set permissions on *.rc file (chown 0.0, chmod 0644, chcon u:object_r:system_file:s0).</span><br><span class="line"></span><br><span class="line">It&#x27;s also possible to continue boot process instead of restarting the device by replacing class_start charger with trigger late-init in /init.rc file:</span><br><span class="line"></span><br><span class="line">on charger</span><br><span class="line">    #class_start charger</span><br><span class="line">    trigger late-init</span><br><span class="line">Or by setting property sys.boot_from_charger_mode:</span><br><span class="line"></span><br><span class="line">on charger</span><br><span class="line">    setprop sys.boot_from_charger_mode 1</span><br></pre></td></tr></table></figure><p>This method should work on all devices irrespective of OEM as it doesn’t depend on vendor-specific charging binaries like playlpm, battery_charging, chargeonlymode, zchgd, kpoc_charger and so on.</p><p>Also replacing binaries of important services like healthd - which take care of a lot of things related to battery, storage etc. - is not a good idea. In this case if the service runs both in charger and normal mode, device may get into bootloop.</p><p>On non-System-as-Root devices it’s not necessary to modify &#x2F;system partition (e.g. if you don’t want to break dm-verity for OTA updates to work). Simply unpack boot.img and edit &#x2F;init.rc file in ramdisk.</p>]]></content>
     
     
       
@@ -34,9 +34,9 @@
     
     
     
-    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
-    
     <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
+    
+    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
     
   </entry>
   
@@ -79,9 +79,9 @@
     
     
     
-    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
-    
     <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
+    
+    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
     
     <category term="twrp" scheme="https://dpkg123.github.io/tags/twrp/"/>
     
@@ -207,9 +207,9 @@
     
     
     
-    <category term="kernel" scheme="https://dpkg123.github.io/tags/kernel/"/>
-    
     <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
+    
+    <category term="kernel" scheme="https://dpkg123.github.io/tags/kernel/"/>
     
     <category term="android kernel" scheme="https://dpkg123.github.io/tags/android-kernel/"/>
     
@@ -285,9 +285,9 @@
     
     
     
-    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
-    
     <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
+    
+    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
     
     <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
     
@@ -417,9 +417,9 @@
     
     
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
-    
     <category term="dtb" scheme="https://dpkg123.github.io/tags/dtb/"/>
+    
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
   </entry>
   
@@ -497,9 +497,9 @@
     
     <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
     
-    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
-    
     <category term="shell" scheme="https://dpkg123.github.io/tags/shell/"/>
+    
+    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
     
     <category term="fastboot" scheme="https://dpkg123.github.io/tags/fastboot/"/>
     
@@ -525,9 +525,9 @@
     
     <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
     
-    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
-    
     <category term="shell" scheme="https://dpkg123.github.io/tags/shell/"/>
+    
+    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
     
   </entry>
   

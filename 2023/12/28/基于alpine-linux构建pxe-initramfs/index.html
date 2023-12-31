@@ -6,18 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://dpkg123.github.io">
-  <title>404 | dpkg123的博客</title>
+  <title>基于alpine linux构建pxe initramfs | dpkg123的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前面的区域，以后再来探索吧！ 返回首页">
-<meta property="og:type" content="website">
-<meta property="og:title" content="404">
-<meta property="og:url" content="https://dpkg123.github.io/404/index.html">
+  <meta name="description" content="注:这是一篇尚未完成的文章。  Alpine Linux介绍:  “Alpine Linux是一个由社区开发的基于musl和BusyBox的Linux操作系统，该操作系统以安全为理念，面向x86路由器、防火墙、虚拟专用网、IP电话盒及服务器而设计。”  Init简介:  “init（为英语：initialization的简写）是 Unix 和 类Unix 系统中用来产生其它所有进程的程序。它以守">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于alpine linux构建pxe initramfs">
+<meta property="og:url" content="https://dpkg123.github.io/2023/12/28/%E5%9F%BA%E4%BA%8Ealpine-linux%E6%9E%84%E5%BB%BApxe-initramfs/index.html">
 <meta property="og:site_name" content="dpkg123的博客">
-<meta property="og:description" content="前面的区域，以后再来探索吧！ 返回首页">
+<meta property="og:description" content="注:这是一篇尚未完成的文章。  Alpine Linux介绍:  “Alpine Linux是一个由社区开发的基于musl和BusyBox的Linux操作系统，该操作系统以安全为理念，面向x86路由器、防火墙、虚拟专用网、IP电话盒及服务器而设计。”  Init简介:  “init（为英语：initialization的简写）是 Unix 和 类Unix 系统中用来产生其它所有进程的程序。它以守">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-04-10T13:51:04.000Z">
-<meta property="article:modified_time" content="2023-04-10T13:51:04.000Z">
+<meta property="article:published_time" content="2023-12-27T23:04:29.000Z">
+<meta property="article:modified_time" content="2023-12-27T23:04:29.000Z">
 <meta property="article:author" content="dpkg123">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="alpine">
+<meta property="article:tag" content="initramfs">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="dpkg123的博客" type="application/atom+xml">
@@ -173,27 +176,65 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+            <article id="post-基于alpine-linux构建pxe-initramfs" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      404
+      基于alpine linux构建pxe initramfs
     </h1>
   
 
         
-        <a href="/404/index.html" class="archive-article-date">
-  	<time datetime="2023-04-10T13:51:04.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-10</time>
+        <a href="/2023/12/28/%E5%9F%BA%E4%BA%8Ealpine-linux%E6%9E%84%E5%BB%BApxe-initramfs/" class="archive-article-date">
+  	<time datetime="2023-12-27T23:04:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-12-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="前面的区域，以后再来探索吧！"><a href="#前面的区域，以后再来探索吧！" class="headerlink" title="前面的区域，以后再来探索吧！"></a>前面的区域，以后再来探索吧！</h1><p> <a href="/">返回首页</a></p>
+        <blockquote>
+<p>注:这是一篇尚未完成的文章。</p>
+</blockquote>
+<p>Alpine Linux介绍:</p>
+<blockquote>
+<p>“Alpine Linux是一个由社区开发的基于musl和BusyBox的Linux操作系统，该操作系统以安全为理念，面向x86路由器、防火墙、虚拟专用网、IP电话盒及服务器而设计。”</p>
+</blockquote>
+<p>Init简介:</p>
+<blockquote>
+<p>“init（为英语：initialization的简写）是 Unix 和 类Unix 系统中用来产生其它所有进程的程序。它以守护进程的方式存在，其进程号为1。Linux系统在引导时加载Linux内核后，便由Linux内核加载init程序，由init程序完成余下的引导过程，比如加载执行级别，加载服务，启动Shell&#x2F;图形化界面等等。”</p>
+</blockquote>
+<p>构建环境:</p>
+<ul>
+<li>alpine linux 3.18 x86_64</li>
+</ul>
+<p>构建基本系统</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apk afdalpine-make-rootfs</span><br><span class="line">sudo alpine-make-rootfs root</span><br></pre></td></tr></table></figure>
+<p>可选参数:</p>
+<ul>
+<li>–branch alpine的版本，默认为最新稳定版本</li>
+<li>–mirror-uri 软件源网址，可选择国内镜像站加快下载速度</li>
+<li>–no-cleanup 不清理rootfs</li>
+<li>–packages 要安装的软件包</li>
+<li>–temp-dir 临时文件存放目录</li>
+<li>–timezone 设定rootfs的时区。</li>
+</ul>
+<p>例:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo alpine-make-rootfs --branch v3.18 --packages &#x27;nano openssh&#x27; --timezone Asia/Shanghai root</span><br></pre></td></tr></table></figure>
+
+<p>默认参数安装的rootfs大小为2M左右。</p>
+<p>为了让它能作为 initramfs 被 kernel 启动，需要在根目录下放一个 init 文件，在 init 文件中写上启动过程（文件系统挂载、执行 &#x2F;sbin&#x2F;init等）。由于alpine默认使用busybox而不是coreutils，所以需要修改&#x2F;init下的脚本:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">mount -t proc -o nodev,noexec,nosuid proc /proc</span><br><span class="line">mount -t sysfs -o nodev,noexec,nosuid sysfs /sys</span><br><span class="line">ln -sf /proc/mounts /etc/mtab</span><br><span class="line">mount -t tmpfs -o size=64k,mode=0755 tmpfs /dev</span><br><span class="line">[ -e /dev/console ] || mknod -m 0600 /dev/console c 5 1</span><br><span class="line">[ -e /dev/null ] || mknod /dev/null c 1 3</span><br><span class="line">mkdir -p /dev/pts</span><br><span class="line">mount -t devpts -o noexec,nosuid,gid=5,mode=0620 devpts /dev/pts</span><br><span class="line">mount -t tmpfs -o &quot;noexec,nosuid,size=10%,mode=0755&quot; tmpfs /run</span><br><span class="line">echo &quot;Loading modules...&quot;</span><br><span class="line"># hotplug with mdev</span><br><span class="line">echo /bin/mdev &gt; /proc/sys/kernel/hotplug</span><br><span class="line">mdev -s</span><br><span class="line"># coldplug: load devices supporting modules</span><br><span class="line">find /sys/devices -name modalias | xargs -r cat | xargs -r modprobe -qa</span><br><span class="line"># extra modules</span><br><span class="line">[ -f /etc/modules ] &amp;&amp; cat /etc/modules | grep -v &quot;^[[:blank:]]#&quot; |\</span><br><span class="line">    xargs -r modprobe -qa</span><br><span class="line">exec /sbin/init</span><br></pre></td></tr></table></figure>
+<p>当 GRUB 载入 kernel 和 initramfs 后，kernel 会把 initramfs 在内存中展开，然后执行其根目录下的 init ，也就是上面的脚本。以上的脚本会执行 mount 工作，准备好目录结构，然后执行 &#x2F;sbin&#x2F;init 转换入 ubuntu 的初始化过程（system-v init ，upstart ， systemd，用 udev 自动创建设备文件等）。</p>
+<p>busybox 的 init 需要一个 inittab 文件描述初始化过程 :</p>
+<ul>
+<li>&#x2F;etc&#x2F;inittab<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">::sysinit:/etc/init.d/rcS</span><br><span class="line">::ctrlaltdel:/sbin/reboot</span><br><span class="line">::shutdown:/sbin/swapoff -a</span><br><span class="line">::shutdown:/bin/umount -a -r</span><br><span class="line">::restart:/sbin/init</span><br><span class="line">tty1::respawn:/bin/sh</span><br><span class="line">tty2::askfirst:/bin/sh</span><br><span class="line">tty3::askfirst:/bin/sh</span><br><span class="line">tty4::askfirst:/bin/sh</span><br></pre></td></tr></table></figure>
+然后加入linux kernel modules到rootfs:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">touch mini/etc/init.d/rcS</span><br><span class="line">chmod +x mini/etc/init.d/rcS</span><br><span class="line"></span><br><span class="line">mkdir tmp</span><br><span class="line">apk fetch linux-lts</span><br><span class="line">tar -zxf linux-lts-*.apk -C tmp</span><br><span class="line">cp -r tmp/lib/modules/ root/lib</span><br><span class="line">sudo chroot mini depmod</span><br></pre></td></tr></table></figure>
+最后，打包rootfs:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(cd root; sudo find . | sudo cpio -o -H newc | sudo gzip -9 &gt; ../initramfs.gz)</span><br></pre></td></tr></table></figure></li>
+</ul>
 
       
 
@@ -221,6 +262,25 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">alpine</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">initramfs</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -271,7 +331,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://dpkg123.github.io/404/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://dpkg123.github.io/2023/12/28/%E5%9F%BA%E4%BA%8Ealpine-linux%E6%9E%84%E5%BB%BApxe-initramfs/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -283,6 +343,16 @@
 </article>
 
   
+<nav id="article-nav">
+  
+  
+    <a href="/2023/12/24/Android%20boot.img%20%E6%96%87%E4%BB%B6%E7%9A%84%E8%A7%A3%E5%8C%85%E3%80%81%E4%BF%AE%E6%94%B9%E4%B8%8E%E9%87%8D%E6%89%93%E5%8C%85%E5%B0%8F%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Android boot.img 文件的解包、修改与重打包小记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -304,7 +374,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E9%9D%A2%E7%9A%84%E5%8C%BA%E5%9F%9F%EF%BC%8C%E4%BB%A5%E5%90%8E%E5%86%8D%E6%9D%A5%E6%8E%A2%E7%B4%A2%E5%90%A7%EF%BC%81"><span class="toc-number">1.</span> <span class="toc-text">前面的区域，以后再来探索吧！</span></a></li></ol>
+                    No Such File Or Directory
                     </div>
                 </span>
             </div>
@@ -449,7 +519,7 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

@@ -248,7 +248,7 @@
 <p>任何在makefile中的目标都可以被指定成终极目标，但是除了以“-”打头，或是包含了“&#x3D;”的目标，因为有这些字符的目标，会被解析成命令行参数或是变量。甚至没有被我们明确写出来的目标也可以成为make的终极目标，也就是说，只要make可以找到其隐含规则推导规则，那么这个隐含目标同样可以被指定成终极目标。</p>
 <p>使用指定终极目标的方法可以很方便地让我们编译我们的程序，例如下面这个例子：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.PHONY: all</span><br><span class="line">all: arg1 arg2 arg3</span><br></pre></td></tr></table></figure>
-<p>从这个例子中，我们可以使用“make all”命令来编译所有的目标（如果把all置成第一个目标，那么只需执行“make”），我们也可以使用 “make prog2”来单独编译目标“prog2”。</p>
+<p>从这个例子中，我们可以使用“make all”命令来编译所有的目标（如果把all置成第一个目标，那么只需执行“make”），我们也可以使用 “make arg2”来单独编译目标“arg2”。</p>
 <p>即然make可以指定所有makefile中的目标，那么也包括“伪目标”，于是我们可以根据这种性质来让我们的makefile根据指定的不同的目标来完成不同的事。</p>
 <p>下面请看这个例子</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">claen: out</span><br><span class="line">	rm -rf out</span><br></pre></td></tr></table></figure>
@@ -270,6 +270,8 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ifeq ($(CC),gcc)</span><br><span class="line">  ld=$(ld)</span><br><span class="line">else</span><br><span class="line">  ld=$(ld.lld)</span><br><span class="line">endif</span><br></pre></td></tr></table></figure>
 
 <p>上面代码判断当前编译器是否 gcc ，然后指定不同ld。</p>
+<h3 id="附录-一个简单的Makefile例子"><a href="#附录-一个简单的Makefile例子" class="headerlink" title="附录:一个简单的Makefile例子"></a>附录:一个简单的Makefile例子</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">CC = gcc</span><br><span class="line">CXX = g++</span><br><span class="line">CFLAGS = -static -Wall -o</span><br><span class="line"></span><br><span class="line">SRCS = $(wildcard *.c *.cpp)</span><br><span class="line"></span><br><span class="line">OBJS = $(patsubst %.c,%.o,$(patsubst %.cpp,%.o,$(SRCS)))</span><br><span class="line"></span><br><span class="line">%.o: %.c</span><br><span class="line">	$(CC) $(CFLAGS) $@ $&lt;</span><br><span class="line">%.o: %.cpp</span><br><span class="line">	$(CXX) $(CFLAGS) $@ $&lt;</span><br><span class="line"></span><br><span class="line">.PHONY: all</span><br><span class="line">all: $(OBJS)</span><br><span class="line"></span><br><span class="line">.PHONY: clean</span><br><span class="line">clean:</span><br><span class="line">	-rm -rf *.o</span><br></pre></td></tr></table></figure>
+<p>这个Makefile可以编译目录下所有独立的cpp和c</p>
 
       
 
@@ -414,7 +416,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#make%E5%91%BD%E4%BB%A4%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">make命令简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Makefile%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">Makefile基本语法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Makefile%E6%89%A9%E5%B1%95%E8%AF%AD%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">Makefile扩展语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Makefile%E6%89%8B%E5%8A%A8%E5%8F%98%E9%87%8F"><span class="toc-number">3.0.1.</span> <span class="toc-text">Makefile手动变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Makefile%E8%87%AA%E5%8A%A8%E5%8F%98%E9%87%8F"><span class="toc-number">3.0.2.</span> <span class="toc-text">Makefile自动变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Makefile%E6%A8%A1%E5%BC%8F%E8%A7%84%E5%88%99"><span class="toc-number">3.0.3.</span> <span class="toc-text">Makefile模式规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Makefile-%E7%9B%AE%E6%A0%87"><span class="toc-number">3.0.4.</span> <span class="toc-text">Makefile 目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Makefile%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">3.0.5.</span> <span class="toc-text">Makefile返回值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E8%BF%9B%E5%85%B6%E4%BB%96Makefile"><span class="toc-number">3.0.6.</span> <span class="toc-text">引进其他Makefile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Makefile%E5%88%A4%E6%96%AD"><span class="toc-number">3.0.7.</span> <span class="toc-text">Makefile判断</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#make%E5%91%BD%E4%BB%A4%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">make命令简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Makefile%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">Makefile基本语法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Makefile%E6%89%A9%E5%B1%95%E8%AF%AD%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">Makefile扩展语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Makefile%E6%89%8B%E5%8A%A8%E5%8F%98%E9%87%8F"><span class="toc-number">3.0.1.</span> <span class="toc-text">Makefile手动变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Makefile%E8%87%AA%E5%8A%A8%E5%8F%98%E9%87%8F"><span class="toc-number">3.0.2.</span> <span class="toc-text">Makefile自动变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Makefile%E6%A8%A1%E5%BC%8F%E8%A7%84%E5%88%99"><span class="toc-number">3.0.3.</span> <span class="toc-text">Makefile模式规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Makefile-%E7%9B%AE%E6%A0%87"><span class="toc-number">3.0.4.</span> <span class="toc-text">Makefile 目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Makefile%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">3.0.5.</span> <span class="toc-text">Makefile返回值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E8%BF%9B%E5%85%B6%E4%BB%96Makefile"><span class="toc-number">3.0.6.</span> <span class="toc-text">引进其他Makefile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Makefile%E5%88%A4%E6%96%AD"><span class="toc-number">3.0.7.</span> <span class="toc-text">Makefile判断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%84%E5%BD%95-%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84Makefile%E4%BE%8B%E5%AD%90"><span class="toc-number">3.0.8.</span> <span class="toc-text">附录:一个简单的Makefile例子</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -629,22 +631,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">PostmarketOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ROM移植</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dtb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">android</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">3DS</a>
               </li>
              
@@ -661,6 +647,38 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">makefile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">PostmarketOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ROM移植</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dtb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">miui</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">coloros</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">手机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
@@ -673,11 +691,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color5">hugo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">刷机工具</a>
+                <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -693,23 +711,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">debian</a>
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网页加速</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">归档</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">番剧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">别当欧尼酱了</a>
+                <a href="javascript:void(0)" class="js-tag color5">刷机工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -733,11 +739,43 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">debian</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网页加速</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网页搭建</a>
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">alpine</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">initramfs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">android kernel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">gki</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">fastboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -750,22 +788,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">kvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">android kernel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gki</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hugo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">博客</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -785,27 +807,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vps</a>
+                <a href="javascript:void(0)" class="js-tag color3">归档</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">makefile</a>
+                <a href="javascript:void(0)" class="js-tag color3">番剧</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">fastboot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">miui</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">coloros</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">手机</a>
+                <a href="javascript:void(0)" class="js-tag color2">别当欧尼酱了</a>
               </li>
             
             <div class="clearfix"></div>

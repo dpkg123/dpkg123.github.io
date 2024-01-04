@@ -6,7 +6,7 @@
   <link href="https://dpkg123.github.io/atom.xml" rel="self"/>
   
   <link href="https://dpkg123.github.io/"/>
-  <updated>2023-12-27T23:04:29.000Z</updated>
+  <updated>2023-12-24T12:01:05.000Z</updated>
   <id>https://dpkg123.github.io/</id>
   
   <author>
@@ -15,32 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>基于alpine linux构建pxe initramfs</title>
-    <link href="https://dpkg123.github.io/2023/12/28/%E5%9F%BA%E4%BA%8Ealpine-linux%E6%9E%84%E5%BB%BApxe-initramfs/"/>
-    <id>https://dpkg123.github.io/2023/12/28/%E5%9F%BA%E4%BA%8Ealpine-linux%E6%9E%84%E5%BB%BApxe-initramfs/</id>
-    <published>2023-12-27T23:04:29.000Z</published>
-    <updated>2023-12-27T23:04:29.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote><p>注:这是一篇尚未完成的文章。</p></blockquote><p>Alpine Linux介绍:</p><blockquote><p>“Alpine Linux是一个由社区开发的基于musl和BusyBox的Linux操作系统，该操作系统以安全为理念，面向x86路由器、防火墙、虚拟专用网、IP电话盒及服务器而设计。”</p></blockquote><p>Init简介:</p><blockquote><p>“init（为英语：initialization的简写）是 Unix 和 类Unix 系统中用来产生其它所有进程的程序。它以守护进程的方式存在，其进程号为1。Linux系统在引导时加载Linux内核后，便由Linux内核加载init程序，由init程序完成余下的引导过程，比如加载执行级别，加载服务，启动Shell&#x2F;图形化界面等等。”</p></blockquote><p>构建环境:</p><ul><li>alpine linux 3.18 x86_64</li></ul><p>构建基本系统</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apk afdalpine-make-rootfs</span><br><span class="line">sudo alpine-make-rootfs root</span><br></pre></td></tr></table></figure><p>可选参数:</p><ul><li>–branch alpine的版本，默认为最新稳定版本</li><li>–mirror-uri 软件源网址，可选择国内镜像站加快下载速度</li><li>–no-cleanup 不清理rootfs</li><li>–packages 要安装的软件包</li><li>–temp-dir 临时文件存放目录</li><li>–timezone 设定rootfs的时区。</li></ul><p>例:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo alpine-make-rootfs --branch v3.18 --packages &#x27;nano openssh&#x27; --timezone Asia/Shanghai root</span><br></pre></td></tr></table></figure><p>默认参数安装的rootfs大小为2M左右。</p><p>为了让它能作为 initramfs 被 kernel 启动，需要在根目录下放一个 init 文件，在 init 文件中写上启动过程（文件系统挂载、执行 &#x2F;sbin&#x2F;init等）。由于alpine默认使用busybox而不是coreutils，所以需要修改&#x2F;init下的脚本:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">mount -t proc -o nodev,noexec,nosuid proc /proc</span><br><span class="line">mount -t sysfs -o nodev,noexec,nosuid sysfs /sys</span><br><span class="line">ln -sf /proc/mounts /etc/mtab</span><br><span class="line">mount -t tmpfs -o size=64k,mode=0755 tmpfs /dev</span><br><span class="line">[ -e /dev/console ] || mknod -m 0600 /dev/console c 5 1</span><br><span class="line">[ -e /dev/null ] || mknod /dev/null c 1 3</span><br><span class="line">mkdir -p /dev/pts</span><br><span class="line">mount -t devpts -o noexec,nosuid,gid=5,mode=0620 devpts /dev/pts</span><br><span class="line">mount -t tmpfs -o &quot;noexec,nosuid,size=10%,mode=0755&quot; tmpfs /run</span><br><span class="line">echo &quot;Loading modules...&quot;</span><br><span class="line"># hotplug with mdev</span><br><span class="line">echo /bin/mdev &gt; /proc/sys/kernel/hotplug</span><br><span class="line">mdev -s</span><br><span class="line"># coldplug: load devices supporting modules</span><br><span class="line">find /sys/devices -name modalias | xargs -r cat | xargs -r modprobe -qa</span><br><span class="line"># extra modules</span><br><span class="line">[ -f /etc/modules ] &amp;&amp; cat /etc/modules | grep -v &quot;^[[:blank:]]#&quot; |\</span><br><span class="line">    xargs -r modprobe -qa</span><br><span class="line">exec /sbin/init</span><br></pre></td></tr></table></figure><p>当 GRUB 载入 kernel 和 initramfs 后，kernel 会把 initramfs 在内存中展开，然后执行其根目录下的 init ，也就是上面的脚本。以上的脚本会执行 mount 工作，准备好目录结构，然后执行 &#x2F;sbin&#x2F;init 转换入 ubuntu 的初始化过程（system-v init ，upstart ， systemd，用 udev 自动创建设备文件等）。</p><p>busybox 的 init 需要一个 inittab 文件描述初始化过程 :</p><ul><li>&#x2F;etc&#x2F;inittab<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">::sysinit:/etc/init.d/rcS</span><br><span class="line">::ctrlaltdel:/sbin/reboot</span><br><span class="line">::shutdown:/sbin/swapoff -a</span><br><span class="line">::shutdown:/bin/umount -a -r</span><br><span class="line">::restart:/sbin/init</span><br><span class="line">tty1::respawn:/bin/sh</span><br><span class="line">tty2::askfirst:/bin/sh</span><br><span class="line">tty3::askfirst:/bin/sh</span><br><span class="line">tty4::askfirst:/bin/sh</span><br></pre></td></tr></table></figure>然后加入linux kernel modules到rootfs:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">touch mini/etc/init.d/rcS</span><br><span class="line">chmod +x mini/etc/init.d/rcS</span><br><span class="line"></span><br><span class="line">mkdir tmp</span><br><span class="line">apk fetch linux-lts</span><br><span class="line">tar -zxf linux-lts-*.apk -C tmp</span><br><span class="line">cp -r tmp/lib/modules/ root/lib</span><br><span class="line">sudo chroot mini depmod</span><br></pre></td></tr></table></figure>最后，打包rootfs:<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(cd root; sudo find . | sudo cpio -o -H newc | sudo gzip -9 &gt; ../initramfs.gz)</span><br></pre></td></tr></table></figure></li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
-      
-    
-    
-    
-    
-    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
-    
-    <category term="alpine" scheme="https://dpkg123.github.io/tags/alpine/"/>
-    
-    <category term="initramfs" scheme="https://dpkg123.github.io/tags/initramfs/"/>
-    
-  </entry>
   
   <entry>
     <title>Android boot.img 文件的解包、修改与重打包小记</title>
@@ -60,33 +34,9 @@
     
     
     
-    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
-    
     <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
-  </entry>
-  
-  <entry>
-    <title>hugo从入门到放弃</title>
-    <link href="https://dpkg123.github.io/2023/12/19/hugo%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/"/>
-    <id>https://dpkg123.github.io/2023/12/19/hugo%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/</id>
-    <published>2023-12-19T13:19:13.000Z</published>
-    <updated>2023-12-19T13:19:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><blockquote><p>注:这是一篇尚未完成的文章。</p></blockquote><h2 id="Hugo官网介绍"><a href="#Hugo官网介绍" class="headerlink" title="Hugo官网介绍"></a>Hugo官网介绍</h2><blockquote><p>Hugo是由Go语言实现的静态网站生成器。简单、易用、高效、易扩展、快速部署。</p></blockquote><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><ul><li>Alpine Linux v3.18 x86_64</li><li>hugo v0.120.4</li></ul><h2 id="安装hugo"><a href="#安装hugo" class="headerlink" title="安装hugo"></a>安装hugo</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apk add hugo</span><br></pre></td></tr></table></figure><p>验证hugo是否安装成功</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hugo version</span><br></pre></td></tr></table></figure><p>输出结果:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">localhost:~$ hugo version</span><br><span class="line">hugo v0.120.4+extended linux/x86_64 BuildDate=unknown</span><br></pre></td></tr></table></figure><h2 id="生成站点"><a href="#生成站点" class="headerlink" title="生成站点"></a>生成站点</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p blog-hugo</span><br><span class="line">hugo new site ./blog-hugo</span><br></pre></td></tr></table></figure><h2 id="新建文章"><a href="#新建文章" class="headerlink" title="新建文章"></a>新建文章</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hugo new post/test.md</span><br></pre></td></tr></table></figure><p>输出结果:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">localhost:~/blog-hugo$ hugo new posts/test.md</span><br><span class="line">Content &quot;/home/user/blog-hugo/content/posts/test.md&quot; created</span><br></pre></td></tr></table></figure><p>生成的文章在conent&#x2F;posts目录。</p><p>查看生成的<code>post/test.md</code>:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">+++</span><br><span class="line"><span class="built_in">date</span>: <span class="string">&quot;2023-12-19T13:31:33+08:00&quot;</span></span><br><span class="line">title: <span class="string">&quot;test&quot;</span></span><br><span class="line">draft = <span class="literal">true</span></span><br><span class="line">+++</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>注: 内容是 <code>Markdown</code> 格式的，+++ 之间的内容是 <a href="https://github.com/toml-lang/toml">TOML</a> 格式的，根据你的喜好，你可以换成 <a href="http://www.yaml.org/">YAML 格式</a>（使用 — 标记）或者 JSON 格式。</p><p>如果文章已经编辑完毕，需要去掉文章中的<code>draft = true</code>字样。</p><h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a>安装主题</h2><p>hugo默认是没有主题的。需要手动下载安装到themes目录。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/birdgg/hugo-theme-shoka themes/shoka --depth=1</span><br></pre></td></tr></table></figure><h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hugo server --theme=shoka --buildDrafts</span><br></pre></td></tr></table></figure><p>输出结果:</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">localhost:~/blog-hugo$ hugo server</span><br><span class="line">Watching <span class="keyword">for</span> changes <span class="keyword">in</span> /home/user/blog-hugo/&#123;archetypes,assets,content,data,i18n,layouts,static&#125;</span><br><span class="line">Watching <span class="keyword">for</span> config changes <span class="keyword">in</span> /home/user/blog-hugo/hugo.toml</span><br><span class="line">Start building sites …</span><br><span class="line">hugo v0.120.4+extended linux/x86_64 BuildDate=unknown</span><br><span class="line"></span><br><span class="line">WARN  found no layout file <span class="keyword">for</span> <span class="string">&quot;html&quot;</span> <span class="keyword">for</span> kind <span class="string">&quot;page&quot;</span>: You should create a template file <span class="built_in">which</span> matches Hugo Layouts Lookup Rules <span class="keyword">for</span> this combination.</span><br><span class="line">WARN  found no layout file <span class="keyword">for</span> <span class="string">&quot;html&quot;</span> <span class="keyword">for</span> kind <span class="string">&quot;taxonomy&quot;</span>: You should create a template file <span class="built_in">which</span> matches Hugo Layouts Lookup Rules <span class="keyword">for</span> this combination.</span><br><span class="line">WARN  found no layout file <span class="keyword">for</span> <span class="string">&quot;html&quot;</span> <span class="keyword">for</span> kind <span class="string">&quot;home&quot;</span>: You should create a template file <span class="built_in">which</span> matches Hugo Layouts Lookup Rules <span class="keyword">for</span> this combination.</span><br><span class="line"></span><br><span class="line">                   | EN</span><br><span class="line">-------------------+-----</span><br><span class="line">  Pages            |  3</span><br><span class="line">  Paginator pages  |  0</span><br><span class="line">  Non-page files   |  0</span><br><span class="line">  Static files     |  0</span><br><span class="line">  Processed images |  0</span><br><span class="line">  Aliases          |  0</span><br><span class="line">  Sitemaps         |  1</span><br><span class="line">  Cleaned          |  0</span><br><span class="line"></span><br><span class="line">Built <span class="keyword">in</span> 54 ms</span><br><span class="line">Environment: <span class="string">&quot;development&quot;</span></span><br><span class="line">Serving pages from memory</span><br><span class="line">Running <span class="keyword">in</span> Fast Render Mode. For full rebuilds on change: hugo server --disableFastRender</span><br><span class="line">Web Server is available at http://localhost:1313/ (<span class="built_in">bind</span> address 127.0.0.1)</span><br><span class="line">Press Ctrl+C to stop</span><br></pre></td></tr></table></figure><p>浏览器打开: <a href="http://localhost:1313/">http://localhost:1313</a></p><h2 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h2><p>需要创建xxx.github.io仓库(xxx为github用户名)</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hugo --theme=shoka --baseUrl=<span class="string">&quot;http://xxx.github.io/&quot;</span></span><br><span class="line"><span class="built_in">cd</span> public</span><br><span class="line">git init</span><br><span class="line">git remote add origin https://github.com/xxx/xxx.github.io.git</span><br><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">&quot;Initial Commit&quot;</span></span><br><span class="line">git push -u origin </span><br></pre></td></tr></table></figure><h2 id="修改站点信息"><a href="#修改站点信息" class="headerlink" title="修改站点信息"></a>修改站点信息</h2><p>修改config.toml</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">baseURL = <span class="string">&quot;https://xxx.github.io/&quot;</span></span><br><span class="line">title = <span class="string">&quot;Test Blog&quot;</span></span><br><span class="line">theme = <span class="string">&quot;shoka&quot;</span></span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
-      
-    
-    
-    
-    
-    <category term="hugo" scheme="https://dpkg123.github.io/tags/hugo/"/>
-    
-    <category term="博客" scheme="https://dpkg123.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
     
   </entry>
   
@@ -105,9 +55,9 @@
     
     
     
-    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
-    
     <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
+    
+    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
     
     <category term="twrp" scheme="https://dpkg123.github.io/tags/twrp/"/>
     
@@ -133,13 +83,13 @@
     
     
     
-    <category term="3DS" scheme="https://dpkg123.github.io/tags/3DS/"/>
-    
     <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
     
-    <category term="buildroot" scheme="https://dpkg123.github.io/tags/buildroot/"/>
-    
     <category term="kernel" scheme="https://dpkg123.github.io/tags/kernel/"/>
+    
+    <category term="3DS" scheme="https://dpkg123.github.io/tags/3DS/"/>
+    
+    <category term="buildroot" scheme="https://dpkg123.github.io/tags/buildroot/"/>
     
   </entry>
   
@@ -233,9 +183,9 @@
     
     
     
-    <category term="kernel" scheme="https://dpkg123.github.io/tags/kernel/"/>
-    
     <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
+    
+    <category term="kernel" scheme="https://dpkg123.github.io/tags/kernel/"/>
     
     <category term="android kernel" scheme="https://dpkg123.github.io/tags/android-kernel/"/>
     
@@ -311,9 +261,9 @@
     
     
     
-    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
-    
     <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
+    
+    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
     
     <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
     
@@ -443,9 +393,9 @@
     
     
     
-    <category term="dtb" scheme="https://dpkg123.github.io/tags/dtb/"/>
-    
     <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
+    
+    <category term="dtb" scheme="https://dpkg123.github.io/tags/dtb/"/>
     
   </entry>
   
@@ -523,11 +473,61 @@
     
     <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
     
+    <category term="shell" scheme="https://dpkg123.github.io/tags/shell/"/>
+    
     <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
+    
+    <category term="fastboot" scheme="https://dpkg123.github.io/tags/fastboot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>简单写一个shell刷机脚本</title>
+    <link href="https://dpkg123.github.io/2023/04/29/%E7%AE%80%E5%8D%95%E5%86%99%E4%B8%80%E4%B8%AAshell%E5%88%B7%E6%9C%BA%E8%84%9A%E6%9C%AC/"/>
+    <id>https://dpkg123.github.io/2023/04/29/%E7%AE%80%E5%8D%95%E5%86%99%E4%B8%80%E4%B8%AAshell%E5%88%B7%E6%9C%BA%E8%84%9A%E6%9C%AC/</id>
+    <published>2023-04-29T14:26:36.000Z</published>
+    <updated>2023-04-29T14:26:36.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>相比各种编程语言，linux shell脚本具有容易上手，运行速度快，轻量，跨架构运行，便于编写和测试等优点。如果想做的项目比较简单，或者你是没有编程经验的新手，那选择shell脚本应该会比较合适。<br>学会linux shell能做什么？可以完成大部分刷机操作的自动化，写各种一键工具等等。<br>linux shell简介<br>Shell是一个命令解释器，它解释由用户输入的命令并且把它们送到内核。不仅如此，Shell有自己的编程语言用于对命令的编辑，它允许用户编写由shell命令组成的程序。Shell编程语言具有普通编程语言的很多特点，比如它也有循环结构和分支控制结构等，用这种编程语言编写的Shell程序与其他应用程序具有同样的效果。<br>shell脚本是指后缀为.sh或其他后缀的脚本文件。新建一个txt文本文件并重命名为xxx.sh，就是创建了一个shell脚本。在shell脚本里，每一行字符就是一条命令，脚本开始运行后会从上到下逐行执行。shell脚本实际上就是文本，可以用任何文本编辑器编辑。</p><h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><p>确定一个目标是写shell脚本的第一步。本教程将带领大家完成一个最简单的fastboot刷入boot脚本。<br>命令简介<br>本教程用到的命令如下：</p><ul><li>echo :显示文字</li><li>sleep :延迟多少时间后执行下一条指令</li><li>fastboot flash xxx xxx.img:调用&#x2F;usr&#x2F;bin&#x2F;fastboot刷入xxx.img</li><li>if+else :如果表达式为真则表达if语句内的语句代码，否则表达else内的语句代码。</li><li>exit: 退出脚本</li></ul><h1 id="实操"><a href="#实操" class="headerlink" title="实操"></a>实操</h1><p>这里以debian 12和nano文本编辑器为例，其他操作系统仅供参考<br>新建一个文本文件并重命名为flash.sh<br>可以使用touch命令创建或者使用文本编辑器创建</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">touch</span> flash.sh</span><br></pre></td></tr></table></figure><p>或</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ nano flash.sh</span><br></pre></td></tr></table></figure><p>然后将要刷入的boot.img也放到同一个文件夹中。然后编辑flash.sh(如果使用文本编辑器创建的话会直接跳转到编辑界面)<br>然后在脚本第一行写</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br></pre></td></tr></table></figure><p>第一行的内容指定了shell脚本解释器的路径，而且这个指定路径只能放在文件的第一行。第一行写错或者不写时，系统会有一个默认的解释器进行解释。<br>然后输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> 准备刷入boot</span><br></pre></td></tr></table></figure><p>由于在linux shell上实现windows bat那样按任意键继续是比较困难的，这里使用sleep命令<br>输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">sleep</span> 5s</span><br></pre></td></tr></table></figure><p>这里的5s指的是在执行sleep命令多少时间后执行下一个命令<br>然后输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/lib/android-sdk/platform-tools/fastboot flash boot boot.img</span><br></pre></td></tr></table></figure><p>这里是调用<code>/usr/lib/android-sdk/platform-tools/fastboot</code>完成刷入boot.img的操作，其中&#x2F;usr&#x2F;lib&#x2F;android-sdk&#x2F;platform-tools&#x2F;fastboot是fastboot程序所在的位置，而&#x2F;usr&#x2F;bin&#x2F;fastboot定向到&#x2F;usr&#x2F;lib&#x2F;android-sdk&#x2F;platform-tools&#x2F;fastboot。当然直接写<code>fastboot</code>或者<code>/usr/bin/fastboot</code>也是可以的。<br>刷入完成后，最后再加上</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span> 0</span><br></pre></td></tr></table></figure><p>exit 0的意思是正常退出程序，当然写exit也行。不加的话，如果脚本后面没有内容的话也会自动退出。<br>当然如果你要把这个脚本放在别的机器上用的话可能会出现</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">找不到命令 “fastboot”，但可以通过以下软件包安装它：</span><br><span class="line">apt install fastboot</span><br><span class="line">请联系您的管理员。</span><br></pre></td></tr></table></figure><p>当然我这里是装了<code>command not found</code>软件包，如果不装的话就会出现</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastboot:未找到命令</span><br></pre></td></tr></table></figure><p>原因是机器上没有<code>/usr/bin/fastboot</code><br>你也可以在文件夹里添加fastboot程序，只不过需要将fastboot程序设置为可执行权限并将脚本修改成</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./fastboot flash boot boot.img</span><br></pre></td></tr></table></figure><p>可以使用</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> 755 fastboot</span><br><span class="line"><span class="built_in">chmod</span> +x fastboot</span><br></pre></td></tr></table></figure><p>增加可执行权限<br>不过软件仓库里有我为什么还要附带<br>可以在脚本前面加上</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install fastboot -y</span><br></pre></td></tr></table></figure><p>这里的 -y是确认安装fastboot软件包的意思。<br>如果不加-y的话,apt就会询问是否安装fastboot软件包<br>这里的sudo意思是用已认证的用户以root用户的身份执行命令，如果不加sudo的话apt会提示</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dpkg: 错误: 所请求的操作需要超级用户权限</span><br><span class="line">错误：GDBus.Error:org.freedesktop.DBus.Error.Spawn.PermissionsInvalid: The permission of the setuid helper is not correct</span><br><span class="line">E: Sub-process /usr/bin/dpkg returned an error code (2)</span><br></pre></td></tr></table></figure><p>实际上apt是dpkg的前端而dpkg中的部分操作(安装，卸载，配置软件包等)是需要root权限的<br>如果你没有刷新软件仓库的话可能会提示</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">正在读取软件包列表... 完成</span><br><span class="line">正在分析软件包的依赖关系树... 完成</span><br><span class="line">正在读取状态信息... 完成</span><br><span class="line">E: 无法定位软件包 fastboot</span><br></pre></td></tr></table></figure><p>所以需要在sudo apt install fastboot -y前面加上</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure><p>这个命令的意思是刷新软件源的意思，apt的索引文件存放于<code>/var/lib/apt/lists</code></p><p>当然，这样的话无论你是否安装了fastboot软件包都会执行一遍sudo apt update<br>然后再执行一遍sudo apt install fastboot -y<br>为了避免这种情况的发生，我们需要检测是否安装fastboot软件包，如果安装了，则执行下一步操作。<br>这里使用if命令<br>if后面可以接选项，文件路径，也可以接命令<br>这里演示两种写法<br>一种是通过判断&#x2F;usr&#x2F;bin&#x2F;fastboot是否存在然后执行下一步操作</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ -d /usr/bin/fastboot ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> </span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install fastboot -y</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="built_in">echo</span> 准备刷入boot</span><br><span class="line">...</span><br></pre></td></tr></table></figure><p>另一种是通过dpkg –list fastboot 来判断fastboot软件包是否安装,但是这样做的话无论是否安装fastboot软件包，都会显示dpkg的输出结果。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> dpkg --list fastboot</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> </span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt install fastboot -y</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="built_in">echo</span> 准备刷入boot</span><br><span class="line">...</span><br></pre></td></tr></table></figure><p>这里的语法意思是如果安装了fastboot就直接进行下一步操作，反之先刷新软件源列表，安装fastboot软件包，再执行下一步操作。</p><p>这样一个简单的刷入boot的脚本就完成了。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
     
     <category term="shell" scheme="https://dpkg123.github.io/tags/shell/"/>
     
-    <category term="fastboot" scheme="https://dpkg123.github.io/tags/fastboot/"/>
+    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PostmarketOS移植常见问题</title>
+    <link href="https://dpkg123.github.io/2023/04/25/PostmarketOS%E7%A7%BB%E6%A4%8D%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
+    <id>https://dpkg123.github.io/2023/04/25/PostmarketOS%E7%A7%BB%E6%A4%8D%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</id>
+    <published>2023-04-24T21:30:12.000Z</published>
+    <updated>2023-04-24T21:30:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>这篇文章简单介绍下我移植k20pro-PostmarketOS出现的问题以及解决方法<br>移植教程可以参考<a href="https://ivonblog.com/posts/xperia5-ii-postmarketos-porting/">这篇文章</a><br>注:以下问题需要执行<code>pmbootstrap log</code>才能找到，或者在pmbootstrap的工作目录里的<code>log.txt</code>里找到<br>建议编译内核前先删除pmbootstrap的工作目录里的<code>log.txt</code></p><h1 id="问题1-xxx-patch无法打补丁"><a href="#问题1-xxx-patch无法打补丁" class="headerlink" title="问题1: xxx patch无法打补丁"></a>问题1: xxx patch无法打补丁</h1><p>这个问题出现在执行<code>pmbootstrap kconfig edit</code>时<br>解决办法:<br>在<code>linux-xiaomi-raphael/APKBUILD</code>中删除所有.patch字样</p><h1 id="问题2-asm-x2F-type-h-no-such-file-or-directory"><a href="#问题2-asm-x2F-type-h-no-such-file-or-directory" class="headerlink" title="问题2: asm&#x2F;type.h :no such file or directory"></a>问题2: asm&#x2F;type.h :no such file or directory</h1><p>这个问题出现在执行<code>pmbootstrap build linux-xiaomi-raphael</code>时<br>解决办法:<br>执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ pmbootstrap <span class="built_in">chroot</span></span><br><span class="line">$ apk add linux-headers </span><br><span class="line"><span class="comment">#注:第二条命令需要在第一条命令执行成功后再执行</span></span><br></pre></td></tr></table></figure><h1 id="问题3-gzip-cpio-command-not-found"><a href="#问题3-gzip-cpio-command-not-found" class="headerlink" title="问题3: gzip(cpio) command not found"></a>问题3: gzip(cpio) command not found</h1><p>同上<br>解决办法:<br>将上面的<code>linux-headers</code>换成gzip(cpio)</p><h1 id="问题4-c语言错误"><a href="#问题4-c语言错误" class="headerlink" title="问题4 c语言错误"></a>问题4 c语言错误</h1><p>同上<br>解决办法:<br>如果你是c语言大佬，可以试试修复<br>否则尝逝更换编译器为<code>clang</code><br>在<code>linux-xiaomi-raphael/APKBUILD</code>中添加以下字段</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CC=&quot;clang&quot;</span><br><span class="line">HOSTCC=&quot;clang&quot;</span><br></pre></td></tr></table></figure><p>或者使用gcc6&#x2F;gcc4<br>在<code>linux-xiaomi-raphael/APKBUILD</code>中添加以下字段</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Compiler: GCC 6 (doesn&#x27;t boot when compiled with newer versions)</span><br><span class="line">if [ &quot;$&#123;CC:0:5&#125;&quot; != &quot;gcc6-&quot; ]; then</span><br><span class="line">CC=&quot;gcc6-$CC&quot;</span><br><span class="line">HOSTCC=&quot;gcc6-gcc&quot;</span><br><span class="line">CROSS_COMPILE=&quot;gcc6-$CROSS_COMPILE&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure><p>如果要使用gcc4,请将上面字段的6改成4</p><p>如果还是不行的话，建议更换一个问题较少的内核<del>这里着重点名小米，官方内核就是一坨shit</del></p><h1 id="问题5-Permission-denied"><a href="#问题5-Permission-denied" class="headerlink" title="问题5: Permission denied"></a>问题5: Permission denied</h1><p>这个问题可能出现在执行<code>pmbootstrap build linux-xiaomi-raphael</code>或者<code>pmbootstrap install</code>的时候<br>解决办法:<br>换个目录并将目录权限设置成<code>755</code></p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">chmod</span> 755 $(pmbootstrap_work_dir)</span><br></pre></td></tr></table></figure><h1 id="问题6-xxx-h-no-such-file-or-directory"><a href="#问题6-xxx-h-no-such-file-or-directory" class="headerlink" title="问题6: xxx.h no such file or directory"></a>问题6: xxx.h no such file or directory</h1><p>这个问题出现在执行<code>pmbootstrap build linux-xiaomi-raphael</code>时，且问题多出自与小米官方内核<del>雷军，金凡！</del><br>解决办法:<br>使用find命令找到缺失的文件然后将文件复制到报错的文件的目录中</p><h1 id="问题7-x2F-include-x2F-linux-x2F-compiler-gcc-h-2-2-error-error-“Please-don’t-include-lt-linux-x2F-compiler-gcc-h-gt-directly-include-lt-linux-x2F-compiler-h-gt-instead-”"><a href="#问题7-x2F-include-x2F-linux-x2F-compiler-gcc-h-2-2-error-error-“Please-don’t-include-lt-linux-x2F-compiler-gcc-h-gt-directly-include-lt-linux-x2F-compiler-h-gt-instead-”" class="headerlink" title="问题7:..&#x2F;include&#x2F;linux&#x2F;compiler-gcc.h:2:2: error: #error “Please don’t include &lt;linux&#x2F;compiler-gcc.h&gt; directly, include &lt;linux&#x2F;compiler.h&gt; instead.”"></a>问题7:..&#x2F;include&#x2F;linux&#x2F;compiler-gcc.h:2:2: error: #error “Please don’t include &lt;linux&#x2F;compiler-gcc.h&gt; directly, include &lt;linux&#x2F;compiler.h&gt; instead.”</h1><p>同上<br>解决办法:<br>将<code>APKBUILD</code>中的</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">prepare() &#123;</span><br><span class="line">default_prepare</span><br><span class="line">. downstreamkernel_prepare</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>换成</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">prepare() &#123;</span><br><span class="line">default_prepare</span><br><span class="line">REPLACE_GCCH=0</span><br><span class="line">. downstreamkernel_prepare</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="PostmarketOS" scheme="https://dpkg123.github.io/tags/PostmarketOS/"/>
+    
+    <category term="ROM移植" scheme="https://dpkg123.github.io/tags/ROM%E7%A7%BB%E6%A4%8D/"/>
     
   </entry>
   

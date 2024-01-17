@@ -254,6 +254,95 @@ This
 
 
   
+    <article id="post-OPPO Reno6 ColorOS13.1内核源码编译记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/01/15/OPPO%20Reno6%20ColorOS13.1%E5%86%85%E6%A0%B8%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E8%AE%B0%E5%BD%95/">OPPO Reno6 ColorOS13.1内核源码编译记录</a>
+    </h1>
+  
+
+        
+        <a href="/2024/01/15/OPPO%20Reno6%20ColorOS13.1%E5%86%85%E6%A0%B8%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E8%AE%B0%E5%BD%95/" class="archive-article-date">
+  	<time datetime="2024-01-15T15:03:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-01-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+          前几天看到 OPPO 的 mt6877 源码放出了 Reno6 ColorOS13.1 分支。遂拉下来编译。
+Config首先需要知道 Reno6 ColorOS13.1 的内核用的是什么配置。
+保险起见还是应该直接拿本机的 config 
+          <br>
+          <a class="article-more-a" href="/2024/01/15/OPPO%20Reno6%20ColorOS13.1%E5%86%85%E6%A0%B8%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E8%AE%B0%E5%BD%95/#more">more >></a>
+        
+      
+
+
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Kernel</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OPPO</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2024/01/15/OPPO%20Reno6%20ColorOS13.1%E5%86%85%E6%A0%B8%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E8%AE%B0%E5%BD%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Android boot.img 文件的解包、修改与重打包小记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -973,98 +1062,6 @@ gki时期这里指gki2.0时期。gki1.0不在讨论范围内
 
 
   
-    <article id="post-linux解压payload-bin和转换system-new-dat-br" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/06/18/linux%E8%A7%A3%E5%8E%8Bpayload-bin%E5%92%8C%E8%BD%AC%E6%8D%A2system-new-dat-br/">linux解压payload.bin和转换system.new.dat.br</a>
-    </h1>
-  
-
-        
-        <a href="/2023/06/18/linux%E8%A7%A3%E5%8E%8Bpayload-bin%E5%92%8C%E8%BD%AC%E6%8D%A2system-new-dat-br/" class="archive-article-date">
-  	<time datetime="2023-06-18T13:53:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-          前排提示:
-本图文基于debian12操作，其他操作系统仅供参考。
-通用依赖: git python3
-
-解包system.new.dat.br理论上vendor.new.dat.br也可以这样做安装brotli
-123sudo apt i
-          <br>
-          <a class="article-more-a" href="/2023/06/18/linux%E8%A7%A3%E5%8E%8Bpayload-bin%E5%92%8C%E8%BD%AC%E6%8D%A2system-new-dat-br/#more">more >></a>
-        
-      
-
-
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">刷机</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/06/18/linux%E8%A7%A3%E5%8E%8Bpayload-bin%E5%92%8C%E8%BD%AC%E6%8D%A2system-new-dat-br/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1230,31 +1227,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">android</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">makefile</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">PostmarketOS</a>
+                <a href="javascript:void(0)" class="js-tag color3">android</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ROM移植</a>
+                <a href="javascript:void(0)" class="js-tag color3">Android</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">miui</a>
+                <a href="javascript:void(0)" class="js-tag color2">Kernel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">coloros</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">手机</a>
+                <a href="javascript:void(0)" class="js-tag color5">OPPO</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1274,11 +1263,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">9008</a>
+                <a href="javascript:void(0)" class="js-tag color3">PostmarketOS</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
+                <a href="javascript:void(0)" class="js-tag color1">ROM移植</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">刷机工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1286,11 +1283,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">twrp</a>
+                <a href="javascript:void(0)" class="js-tag color5">miui</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">build</a>
+                <a href="javascript:void(0)" class="js-tag color3">coloros</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">手机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1302,15 +1303,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">归档</a>
+                <a href="javascript:void(0)" class="js-tag color5">twrp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">番剧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">别当欧尼酱了</a>
+                <a href="javascript:void(0)" class="js-tag color1">build</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1326,7 +1323,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网页搭建</a>
+                <a href="javascript:void(0)" class="js-tag color5">9008</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1334,11 +1335,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">android kernel</a>
+                <a href="javascript:void(0)" class="js-tag color5">网页搭建</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gki</a>
+                <a href="javascript:void(0)" class="js-tag color3">归档</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">番剧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">别当欧尼酱了</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1354,11 +1363,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vps</a>
+                <a href="javascript:void(0)" class="js-tag color5">android kernel</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+                <a href="javascript:void(0)" class="js-tag color4">gki</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vps</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1375,14 +1388,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">内核编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Kernel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">刷机工具</a>
               </li>
             
             <div class="clearfix"></div>

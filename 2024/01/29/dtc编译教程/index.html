@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://dpkg123.github.io">
-  <title>暂停更新博客通知 | dpkg123的博客</title>
+  <title>dtc编译教程 | dpkg123的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hi guys! Due to academic factors, I have to temporarily stop updating the blog.  I also ask for your understanding. This will run until June 30th next year.  There may be some blog post updates along">
+  <meta name="description" content="警告:本文章是给 arm64 linux 准备的。  安装依赖直接从 lineageOS 依赖抄一份就行了。 除此之外还要安装以下东西:  bison pkg-config libyaml-dev  下载源码1wget https:&#x2F;&#x2F;android.googlesource.com&#x2F;platform&#x2F;external&#x2F;dtc&#x2F;archive&#x2F;refs&#x2F;heads&#x2F;android11-relea">
 <meta property="og:type" content="article">
-<meta property="og:title" content="暂停更新博客通知">
-<meta property="og:url" content="https://dpkg123.github.io/2023/08/08/%E6%9A%82%E5%81%9C%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E9%80%9A%E7%9F%A5/index.html">
+<meta property="og:title" content="dtc编译教程">
+<meta property="og:url" content="https://dpkg123.github.io/2024/01/29/dtc%E7%BC%96%E8%AF%91%E6%95%99%E7%A8%8B/index.html">
 <meta property="og:site_name" content="dpkg123的博客">
-<meta property="og:description" content="Hi guys! Due to academic factors, I have to temporarily stop updating the blog.  I also ask for your understanding. This will run until June 30th next year.  There may be some blog post updates along">
+<meta property="og:description" content="警告:本文章是给 arm64 linux 准备的。  安装依赖直接从 lineageOS 依赖抄一份就行了。 除此之外还要安装以下东西:  bison pkg-config libyaml-dev  下载源码1wget https:&#x2F;&#x2F;android.googlesource.com&#x2F;platform&#x2F;external&#x2F;dtc&#x2F;archive&#x2F;refs&#x2F;heads&#x2F;android11-relea">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-08-08T14:11:26.000Z">
-<meta property="article:modified_time" content="2023-08-08T14:11:26.000Z">
+<meta property="article:published_time" content="2024-01-29T15:26:53.000Z">
+<meta property="article:modified_time" content="2024-01-29T15:26:53.000Z">
 <meta property="article:author" content="dpkg123">
-<meta property="article:tag" content="杂谈">
+<meta property="article:tag" content="linux">
+<meta property="article:tag" content="android">
+<meta property="article:tag" content="dtc">
+<meta property="article:tag" content="dtb">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="dpkg123的博客" type="application/atom+xml">
@@ -171,32 +174,50 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-暂停更新博客通知" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-dtc编译教程" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      暂停更新博客通知
+      dtc编译教程
     </h1>
   
 
         
-        <a href="/2023/08/08/%E6%9A%82%E5%81%9C%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E9%80%9A%E7%9F%A5/" class="archive-article-date">
-  	<time datetime="2023-08-08T14:11:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-08-08</time>
+        <a href="/2024/01/29/dtc%E7%BC%96%E8%AF%91%E6%95%99%E7%A8%8B/" class="archive-article-date">
+  	<time datetime="2024-01-29T15:26:53.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-01-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Hi guys!</p>
-<p>Due to academic factors, I have to temporarily stop updating the blog.  I also ask for your understanding.</p>
-<p>This will run until June 30th next year.  There may be some blog post updates along the way.</p>
-<p>Those who have exchanged links, please do not remove the links during the suspension of my blog. Thank you.</p>
-<p>dpkg123</p>
-<p>Written on August 8</p>
+        <blockquote>
+<p>警告:本文章是给 arm64 linux 准备的。</p>
+</blockquote>
+<h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><p>直接从 lineageOS 依赖抄一份就行了。</p>
+<p>除此之外还要安装以下东西:</p>
+<ul>
+<li>bison</li>
+<li>pkg-config</li>
+<li>libyaml-dev</li>
+</ul>
+<h2 id="下载源码"><a href="#下载源码" class="headerlink" title="下载源码"></a>下载源码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://android.googlesource.com/platform/external/dtc/archive/refs/heads/android11-release.tar.gz -o dtc.tar.gz</span><br></pre></td></tr></table></figure>
+<p>如果要下载其他版本就把 android11 改成 android[版本号] 就行。最低为 android10.</p>
+<h2 id="解压"><a href="#解压" class="headerlink" title="解压"></a>解压</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xzf dtc.tar.gz </span><br></pre></td></tr></table></figure>
+
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>然后直接编译即可。编译后会生成 dtc 文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make dtc -j8</span><br></pre></td></tr></table></figure>
+<h2 id="debug"><a href="#debug" class="headerlink" title="debug"></a>debug</h2><p>这里阐述下遇到的问题:</p>
+<h3 id="make-没有规则可制作目标“dtc-parser-h”，由“dtc-lexer-lex-o”-需求。-停止。"><a href="#make-没有规则可制作目标“dtc-parser-h”，由“dtc-lexer-lex-o”-需求。-停止。" class="headerlink" title="make: *** 没有规则可制作目标“dtc-parser.h”，由“dtc-lexer.lex.o” 需求。 停止。"></a>make: *** 没有规则可制作目标“dtc-parser.h”，由“dtc-lexer.lex.o” 需求。 停止。</h3><figure class="highlight bash"><figcaption><span>logcat</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">         BISON dtc-parser.tab.c</span><br><span class="line">dtc-parser.y: 警告: 3 项偏移/归约冲突 [-Wconflicts-sr]</span><br><span class="line">dtc-parser.y: note: rerun with option <span class="string">&#x27;-Wcounterexamples&#x27;</span> to generate conflict counterexamples</span><br><span class="line">         LEX dtc-lexer.lex.c</span><br><span class="line">         DEP treesource.c</span><br><span class="line">         DEP livetree.c</span><br><span class="line">         DEP fstree.c</span><br><span class="line">         DEP flattree.c</span><br><span class="line">         DEP dtc.c</span><br><span class="line">         DEP data.c</span><br><span class="line">         DEP checks.c</span><br><span class="line">         DEP convert-dtsv0-lexer.lex.c</span><br><span class="line">         DEP dtc-parser.tab.c</span><br><span class="line">         DEP dtc-lexer.lex.c</span><br><span class="line">         CC srcpos.o</span><br><span class="line">         CC util.o</span><br><span class="line">         CC convert-dtsv0-lexer.lex.o</span><br><span class="line">         CC dtc.o</span><br><span class="line">         CC checks.o</span><br><span class="line">         CC data.o</span><br><span class="line">         CC flattree.o</span><br><span class="line">         CC fstree.o</span><br><span class="line">         CC livetree.o</span><br><span class="line">         CC treesource.o</span><br><span class="line">make: *** 没有规则可制作目标“dtc-parser.h”，由“dtc-lexer.lex.o” 需求。 停止。</span><br><span class="line">make: *** 正在等待未完成的任务....</span><br></pre></td></tr></table></figure>
+<p>解决方法: 手动执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bison -d dtc-parser.y -o dtc-parser.h</span><br></pre></td></tr></table></figure>
+<p>然后有可能遇到以下错误:</p>
+<figure class="highlight bash"><figcaption><span>logcat</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">         DEP dtc-parser.tab.c</span><br><span class="line">         DEP dtc-lexer.lex.c</span><br><span class="line">         CC dtc-lexer.lex.o</span><br><span class="line">         CC dtc-parser.tab.o</span><br><span class="line">         LD dtc</span><br><span class="line">/bin/ld: dtc-parser.tab.o:/home/user/rootfs/android10/dtc-parser.tab.c:1086: multiple definition of `yylloc<span class="string">&#x27;; dtc-lexer.lex.o:/home/user/rootfs/android10/dtc-lexer.l:41: first defined here</span></span><br><span class="line"><span class="string">collect2: 笨蛋！ld 返回 1</span></span><br><span class="line"><span class="string">make: *** [Makefile:312：dtc] 错误 1</span></span><br></pre></td></tr></table></figure>
+<p>解决办法: 删掉 dtc-parser.tab.c 第1086行。<br>曾经也试过将 <code>YYLTYPE yylloc</code> 改成 <code>extern YYLTYPE yylloc</code> ，但是会出现以下问题:</p>
+<figure class="highlight bash"><figcaption><span>logcat</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">         DEP dtc-parser.tab.c</span><br><span class="line">         CC dtc-parser.tab.o</span><br><span class="line">dtc-parser.tab.c:1086:16: 笨蛋！对‘yylloc’冗余的重声明 [-Werror=redundant-decls]</span><br><span class="line"> 1086 | extern YYLTYPE yylloc</span><br><span class="line">      |                ^~~~~~</span><br><span class="line">In file included from dtc-parser.tab.c:112:</span><br><span class="line">dtc-parser.tab.h:131:16: 才...才不会告诉你...：‘yylloc’的前一个声明</span><br><span class="line">  131 | extern YYLTYPE yylloc;</span><br><span class="line">      |                ^~~~~~</span><br><span class="line">cc1：所有的警告都被当作是错误</span><br><span class="line">make: *** [Makefile:316：dtc-parser.tab.o] 错误 1</span><br></pre></td></tr></table></figure>
 
       
 
@@ -223,18 +244,25 @@
     </div>
     <div class="article-info article-info-index">
       
-        <div class="article-pop-out tagcloud">
-          <i class="icon-tuding"></i>
-          <a class="article-tag-list-link color3">置顶</a>
-        </div>
-      
       
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">杂谈</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">dtc</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">dtb</a>
         		</li>
       		
 		</ul>
@@ -290,7 +318,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://dpkg123.github.io/2023/08/08/%E6%9A%82%E5%81%9C%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E9%80%9A%E7%9F%A5/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://dpkg123.github.io/2024/01/29/dtc%E7%BC%96%E8%AF%91%E6%95%99%E7%A8%8B/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -304,18 +332,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/10/06/3DS%E6%8A%98%E8%85%BElinux%E5%B0%8F%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          3DS折腾linux小记
-        
-      </div>
-    </a>
   
-  
-    <a href="/2023/08/05/Makefile%E5%85%A5%E9%97%A8/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Makefile入门</div>
+    <a href="/2024/01/15/OPPO%20Reno6%20ColorOS13.1%E5%86%85%E6%A0%B8%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E8%AE%B0%E5%BD%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">OPPO Reno6 ColorOS13.1内核源码编译记录</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -342,7 +361,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    No Such File Or Directory
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="toc-number">1.</span> <span class="toc-text">安装依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E6%BA%90%E7%A0%81"><span class="toc-number">2.</span> <span class="toc-text">下载源码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E5%8E%8B"><span class="toc-number">3.</span> <span class="toc-text">解压</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91"><span class="toc-number">4.</span> <span class="toc-text">编译</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#debug"><span class="toc-number">5.</span> <span class="toc-text">debug</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#make-%E6%B2%A1%E6%9C%89%E8%A7%84%E5%88%99%E5%8F%AF%E5%88%B6%E4%BD%9C%E7%9B%AE%E6%A0%87%E2%80%9Cdtc-parser-h%E2%80%9D%EF%BC%8C%E7%94%B1%E2%80%9Cdtc-lexer-lex-o%E2%80%9D-%E9%9C%80%E6%B1%82%E3%80%82-%E5%81%9C%E6%AD%A2%E3%80%82"><span class="toc-number">5.1.</span> <span class="toc-text">make: *** 没有规则可制作目标“dtc-parser.h”，由“dtc-lexer.lex.o” 需求。 停止。</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>

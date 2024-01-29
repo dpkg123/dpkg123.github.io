@@ -307,6 +307,25 @@ SHA1: 088c718ba063fc3bc91dcb7557fa9a0c2bd87afa
 MD5sum: d61ffd0b748ebd0728a5f8e50a7e10b1
 Description: All your games in one place
 
+Package: gb-studio
+Version: 3.1.0
+Architecture: amd64
+Depends: libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, kde-cli-tools | kde-runtime | trash-cli | libglib2.0-bin | gvfs-bin
+Recommends: pulseaudio | libasound2
+Suggests: gir1.2-gnomekeyring-1.0, libgnome-keyring0, lsb-release
+Installed-Size: 229301
+Maintainer: GB Studio
+Homepage: https://www.gbstudio.dev
+Priority: optional
+Section: utils
+Filename: pool/main/g/gb-studio/gb-studio_3.1.0_amd64.deb
+Size: 61038856
+SHA256: f5c251eb400aeb13f882ed51c9db5900ba843599ece0528bddf8a15c0a7cafdd
+SHA1: 6aa2e670333c9c525320286921436ffa66d507a7
+MD5sum: 2393cec93202acf4d65a662ab5a62fdf
+Description: Visual retro game maker
+ Visual retro game maker
+
 Package: go-for-it
 Version: 1.8.5-1~opt11
 Architecture: amd64
@@ -395,6 +414,26 @@ SHA1: b085354c775e3d8323384c4d801d60aff77cb628
 MD5sum: 58657e784047c956bba1a670239b3f1b
 Description: 
   一个免费的音乐查找助手
+
+Package: ms-365-electron
+Version: 1.1.0
+License: MIT
+Vendor: Agampreet Singh <agam778@zohomail.in>
+Architecture: amd64
+Maintainer: Agampreet Singh <agam778@zohomail.in>
+Installed-Size: 298412
+Depends: libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0
+Recommends: libappindicator3-1
+Homepage: https://github.com/agam778/MS-365-Electron#readme
+Priority: optional
+Section: default
+Filename: pool/main/m/ms-365-electron/ms-365-electron_1.1.0_amd64.deb
+Size: 86273262
+SHA256: ad65b252f8578b43add7da91c93fc5004802b98d22c747d100a11f9e22579879
+SHA1: 9a784cba6ea57860ef42b5033e1089ffa659c71f
+MD5sum: 4e49a56f1797cc678c9f0e5b15a2026a
+Description: 
+  Unofficial Microsoft 365 Web Desktop Wrapper made with Electron
 
 Package: netease-cloud-music
 Version: 1.2.1

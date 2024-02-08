@@ -687,22 +687,22 @@ Description: A Vim-inspired note-taking application for Markdown.
  edit experience.
 
 Package: xmcl
-Version: 0.39.14-715
+Version: 0.39.17-723
 License: MIT
 Vendor: ci010 <cijhn@hotmail.com>
 Architecture: arm64
 Maintainer: ci010 <cijhn@hotmail.com>
-Installed-Size: 284835
+Installed-Size: 284890
 Depends: libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0
 Recommends: libappindicator3-1
 Homepage: https://github.com/voxelum/x-minecraft-launcher#readme
 Priority: optional
 Section: default
-Filename: pool/main/x/xmcl/xmcl_0.39.14-715_arm64.deb
-Size: 74434738
-SHA256: 9fc83521e74c772522fa748788ffb1ba65ca55dd2dfaba044275ec015430d871
-SHA1: a3dcca4e1a2a0f44d2a77e4e3b4d94fdc6de3352
-MD5sum: ff1bf07c557a6a54d0388b617a96e4cd
+Filename: pool/main/x/xmcl/xmcl_0.39.17-723_arm64.deb
+Size: 74529618
+SHA256: 682035bc9f68d56d6da8cb8aa6b84582db02cc8e0251b667cd3937b330f2157a
+SHA1: 9d55fd2a479209cd70ad57519545906bb9e68c5e
+MD5sum: 318dd1f600e3bccefe7a1861cce0e77a
 Description: 
   A great minecraft launcher in the future
 

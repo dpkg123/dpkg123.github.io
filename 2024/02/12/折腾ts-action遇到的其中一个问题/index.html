@@ -6,14 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://dpkg123.github.io">
-  <title>Archives: 1970 | dpkg123的博客</title>
+  <title>折腾ts action遇到的其中一个问题 | dpkg123的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="dpkg123的博客">
-<meta property="og:url" content="https://dpkg123.github.io/archives/1970/index.html">
+  <meta name="description" content="问题这是一个简单的ts示例: TypeScript1234567891011121314151617181920212223import os from &quot;os&quot;;import * as core from &quot;@actions&#x2F;core&quot;;import * as io from &quot;@actions&#x2F;io&quot;;import * as exec">
+<meta property="og:type" content="article">
+<meta property="og:title" content="折腾ts action遇到的其中一个问题">
+<meta property="og:url" content="https://dpkg123.github.io/2024/02/12/%E6%8A%98%E8%85%BEts-action%E9%81%87%E5%88%B0%E7%9A%84%E5%85%B6%E4%B8%AD%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="dpkg123的博客">
+<meta property="og:description" content="问题这是一个简单的ts示例: TypeScript1234567891011121314151617181920212223import os from &quot;os&quot;;import * as core from &quot;@actions&#x2F;core&quot;;import * as io from &quot;@actions&#x2F;io&quot;;import * as exec">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-02-11T22:01:08.000Z">
+<meta property="article:modified_time" content="2024-02-11T22:01:08.000Z">
 <meta property="article:author" content="dpkg123">
+<meta property="article:tag" content="TypeScript">
+<meta property="article:tag" content="Github Actions">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="dpkg123的博客" type="application/atom+xml">
@@ -166,49 +172,244 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-折腾ts-action遇到的其中一个问题" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/1970" class="archive-year">1970</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/1970/01/01/hello-world/" class="archive-article-date">
-  	<time datetime="1970-01-01T00:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>1970-01-01</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/1970/01/01/hello-world/">Hello World</a>
+    <h1 class="article-title" itemprop="name">
+      折腾ts action遇到的其中一个问题
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2024/02/12/%E6%8A%98%E8%85%BEts-action%E9%81%87%E5%88%B0%E7%9A%84%E5%85%B6%E4%B8%AD%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2024-02-11T22:01:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-02-11</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>这是一个简单的ts示例:</p>
+<figure class="highlight bash"><figcaption><span>TypeScript</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import os from <span class="string">&quot;os&quot;</span>;</span><br><span class="line">import * as core from <span class="string">&quot;@actions/core&quot;</span>;</span><br><span class="line">import * as io from <span class="string">&quot;@actions/io&quot;</span>;</span><br><span class="line">import * as <span class="built_in">exec</span> from <span class="string">&quot;@actions/exec&quot;</span>;</span><br><span class="line"></span><br><span class="line">async <span class="keyword">function</span> post(): Promise&lt;void&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (await io.which(<span class="string">&quot;<span class="variable">$HOME</span>/gcc-64/bin&quot;</span>)) &#123;</span><br><span class="line">        await exec.exec(<span class="string">&quot;HOME/gcc-64/bin/aarch64-linux-android-as --version&quot;</span>);</span><br><span class="line">        <span class="built_in">return</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (await io.which(<span class="string">&quot;<span class="variable">$HOME</span>/clang/bin/clang&quot;</span>)) &#123;</span><br><span class="line">        await exec.exec(<span class="string">&quot;<span class="variable">$HOME</span>/clang/bin/clang --version&quot;</span>);</span><br><span class="line">        <span class="built_in">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">(async () =&gt; &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">        await post();</span><br><span class="line">    &#125; catch (error) &#123;</span><br><span class="line">        console.log(<span class="string">&quot;Failed to run post step.&quot;</span>);</span><br><span class="line">        <span class="built_in">return</span> 1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
 
+<p>请分析当编译成cjs时运行node index.js时当$HOME&#x2F;clang和$HOME&#x2F;gcc-64都不存在时是否会报错。</p>
+<h3 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h3><p>答案:不会。</p>
+<p>假设<code>io.which</code>方法正常工作，如果两个路径<code>$HOME/gcc-64/bin</code>和<code>$HOME/clang/bin</code>都不存在，则<code>io.which</code>返回的是<code>undefined</code>或者<code>false</code>，因此两个条件判断都不满足，函数将直接结束执行，并不会执行<code>await exec.exec(...)</code>语句，也就不会抛出错误。</p>
+<p>在这种情况下，如果<code>io.which</code>方法和<code>exec.exec</code>方法实现都是正确的，只有在尝试执行不存在的路径时才会报错。但代码中并没有提供发生错误时的处理，只是在最外层的自调用匿名函数中捕获异常，并打印“Failed to run post step.”。如果异常未被内部<code>try-catch</code>正确处理，确实会导致运行时报错。</p>
+<p>因此，如果其他部分实现正确，环境不存在导致的错误会被内部逻辑处理，不会向用户抛出异常。</p>
+<p>解决方法:<br>将</p>
+<figure class="highlight bash"><figcaption><span>TypeScript</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(<span class="string">&quot;Failed to run post step.&quot;</span>);</span><br><span class="line">        <span class="built_in">return</span> 1;</span><br></pre></td></tr></table></figure>
+<p>改成</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;Failed to run post step.&quot;</span>);</span><br><span class="line">        process.<span class="title function_">exit</span>(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+
+      
+
+
+       
+         <div class="essayending">
+           <div>
+            <div style="text-align:center;color: #ccc;font-size:22px;">
+            <br/>
+            <br/>
+ -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+            <br/>
+            <br/>
+             <br/>
+             <br/>
+            </div>
+           </div>
+         </div>
+         
+
+  
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">TypeScript</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Github Actions</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://dpkg123.github.io/2024/02/12/%E6%8A%98%E8%85%BEts-action%E9%81%87%E5%88%B0%E7%9A%84%E5%85%B6%E4%B8%AD%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2024/01/29/dtc%E7%BC%96%E8%AF%91%E6%95%99%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">dtc编译教程</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E7%AD%94"><span class="toc-number">2.</span> <span class="toc-text">解答</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
+  
+
+  
+    <script src='//unpkg.com/@waline/client@v2/dist/waline.js'></script>
+<link href='//unpkg.com/@waline/client@v2/dist/waline.css' rel='stylesheet' />
+
+<div id="waline"></div>
+<script>
+	// 中文默认
+	const locale = {
+	  nick: ' 昵称: ',
+	  nickError: '昵称不能少于3个字符',
+	  mail: '邮箱: ',
+	  mailError: '请填写正确的邮件地址',
+	  link: '网址: ',
+	  placeholder: ' 客官留个言吧(◕ˇ∀ˇ◕)',
+	  sofa: '评论区空空荡荡，客官快来评论吧~',
+	  submit: '提交',
+	  reply: '回复',
+	  cancelReply: '取消回复',
+	  comment: '评论',
+	  more: '加载更多...',
+	  preview: '预览',
+	  emoji: '表情',
+	  uploadImage: '上传图片',
+	  seconds: '秒前',
+	  minutes: '分钟前',
+	  hours: '小时前',
+	  days: '天前',
+	  now: '刚刚',
+	  uploading: '正在上传',
+	  login: '登录',
+	  logout: '退出',
+	  admin: '博主',
+	  word: '字',
+	  wordHint: '评论字数应在 $0 到 $1 字之间！\n当前字数：$2',
+	};
+
+	Waline.init({
+	  el: '#waline',
+	  serverURL: 'https://6-liart.vercel.app/',
+	  locale,
+	  // 设置 emoji 为微博与哔哩哔哩
+	  emoji: [
+		'https://unpkg.com/@waline/emojis@1.1.0/weibo',
+		'https://unpkg.com/@waline/emojis@1.1.0/bilibili',
+	  ],
+	  meta: ['nick', 'mail', 'link'],  //评论者相关属性，默认['nick', 'mail', 'link'],
+	  requiredMeta: ['nick'], //设置评论者属性必填项，默认[]（即匿名）
+	});
+</script>
     
+
+  
+
+  
 
 
           </div>
@@ -283,8 +484,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,

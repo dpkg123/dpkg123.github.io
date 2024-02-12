@@ -6,7 +6,7 @@
   <link href="https://dpkg123.github.io/atom.xml" rel="self"/>
   
   <link href="https://dpkg123.github.io/"/>
-  <updated>2024-01-29T15:26:53.000Z</updated>
+  <updated>2024-02-11T22:01:08.000Z</updated>
   <id>https://dpkg123.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>折腾ts action遇到的其中一个问题</title>
+    <link href="https://dpkg123.github.io/2024/02/12/%E6%8A%98%E8%85%BEts-action%E9%81%87%E5%88%B0%E7%9A%84%E5%85%B6%E4%B8%AD%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/"/>
+    <id>https://dpkg123.github.io/2024/02/12/%E6%8A%98%E8%85%BEts-action%E9%81%87%E5%88%B0%E7%9A%84%E5%85%B6%E4%B8%AD%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/</id>
+    <published>2024-02-11T22:01:08.000Z</published>
+    <updated>2024-02-11T22:01:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>这是一个简单的ts示例:</p><figure class="highlight bash"><figcaption><span>TypeScript</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">import os from <span class="string">&quot;os&quot;</span>;</span><br><span class="line">import * as core from <span class="string">&quot;@actions/core&quot;</span>;</span><br><span class="line">import * as io from <span class="string">&quot;@actions/io&quot;</span>;</span><br><span class="line">import * as <span class="built_in">exec</span> from <span class="string">&quot;@actions/exec&quot;</span>;</span><br><span class="line"></span><br><span class="line">async <span class="keyword">function</span> post(): Promise&lt;void&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (await io.which(<span class="string">&quot;<span class="variable">$HOME</span>/gcc-64/bin&quot;</span>)) &#123;</span><br><span class="line">        await exec.exec(<span class="string">&quot;HOME/gcc-64/bin/aarch64-linux-android-as --version&quot;</span>);</span><br><span class="line">        <span class="built_in">return</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (await io.which(<span class="string">&quot;<span class="variable">$HOME</span>/clang/bin/clang&quot;</span>)) &#123;</span><br><span class="line">        await exec.exec(<span class="string">&quot;<span class="variable">$HOME</span>/clang/bin/clang --version&quot;</span>);</span><br><span class="line">        <span class="built_in">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">(async () =&gt; &#123;</span><br><span class="line">    try &#123;</span><br><span class="line">        await post();</span><br><span class="line">    &#125; catch (error) &#123;</span><br><span class="line">        console.log(<span class="string">&quot;Failed to run post step.&quot;</span>);</span><br><span class="line">        <span class="built_in">return</span> 1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure><p>请分析当编译成cjs时运行node index.js时当$HOME&#x2F;clang和$HOME&#x2F;gcc-64都不存在时是否会报错。</p><h3 id="解答"><a href="#解答" class="headerlink" title="解答"></a>解答</h3><p>答案:不会。</p><p>假设<code>io.which</code>方法正常工作，如果两个路径<code>$HOME/gcc-64/bin</code>和<code>$HOME/clang/bin</code>都不存在，则<code>io.which</code>返回的是<code>undefined</code>或者<code>false</code>，因此两个条件判断都不满足，函数将直接结束执行，并不会执行<code>await exec.exec(...)</code>语句，也就不会抛出错误。</p><p>在这种情况下，如果<code>io.which</code>方法和<code>exec.exec</code>方法实现都是正确的，只有在尝试执行不存在的路径时才会报错。但代码中并没有提供发生错误时的处理，只是在最外层的自调用匿名函数中捕获异常，并打印“Failed to run post step.”。如果异常未被内部<code>try-catch</code>正确处理，确实会导致运行时报错。</p><p>因此，如果其他部分实现正确，环境不存在导致的错误会被内部逻辑处理，不会向用户抛出异常。</p><p>解决方法:<br>将</p><figure class="highlight bash"><figcaption><span>TypeScript</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(<span class="string">&quot;Failed to run post step.&quot;</span>);</span><br><span class="line">        <span class="built_in">return</span> 1;</span><br></pre></td></tr></table></figure><p>改成</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;Failed to run post step.&quot;</span>);</span><br><span class="line">        process.<span class="title function_">exit</span>(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="TypeScript" scheme="https://dpkg123.github.io/tags/TypeScript/"/>
+    
+    <category term="Github Actions" scheme="https://dpkg123.github.io/tags/Github-Actions/"/>
+    
+  </entry>
   
   <entry>
     <title>dtc编译教程</title>
@@ -34,9 +58,9 @@
     
     
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
-    
     <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
     <category term="dtc" scheme="https://dpkg123.github.io/tags/dtc/"/>
     
@@ -62,9 +86,9 @@
     
     
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
-    
     <category term="kernel" scheme="https://dpkg123.github.io/tags/kernel/"/>
+    
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
     <category term="OPPO" scheme="https://dpkg123.github.io/tags/OPPO/"/>
     
@@ -88,9 +112,9 @@
     
     
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
-    
     <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
   </entry>
   
@@ -109,9 +133,9 @@
     
     
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
-    
     <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
     <category term="twrp" scheme="https://dpkg123.github.io/tags/twrp/"/>
     
@@ -137,13 +161,13 @@
     
     
     
-    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
-    
-    <category term="kernel" scheme="https://dpkg123.github.io/tags/kernel/"/>
-    
     <category term="3DS" scheme="https://dpkg123.github.io/tags/3DS/"/>
     
+    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
     <category term="buildroot" scheme="https://dpkg123.github.io/tags/buildroot/"/>
+    
+    <category term="kernel" scheme="https://dpkg123.github.io/tags/kernel/"/>
     
   </entry>
   
@@ -237,9 +261,9 @@
     
     
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
-    
     <category term="kernel" scheme="https://dpkg123.github.io/tags/kernel/"/>
+    
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
     <category term="android kernel" scheme="https://dpkg123.github.io/tags/android-kernel/"/>
     
@@ -315,9 +339,9 @@
     
     
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
-    
     <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
     <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
     
@@ -504,34 +528,6 @@
     <category term="shell" scheme="https://dpkg123.github.io/tags/shell/"/>
     
     <category term="刷机工具" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA%E5%B7%A5%E5%85%B7/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>简单写一个shell刷机脚本之进阶篇</title>
-    <link href="https://dpkg123.github.io/2023/04/29/%E7%AE%80%E5%8D%95%E5%86%99%E4%B8%80%E4%B8%AAshell%E5%88%B7%E6%9C%BA%E8%84%9A%E6%9C%AC%E4%B9%8B%E8%BF%9B%E9%98%B6%E7%AF%87/"/>
-    <id>https://dpkg123.github.io/2023/04/29/%E7%AE%80%E5%8D%95%E5%86%99%E4%B8%80%E4%B8%AAshell%E5%88%B7%E6%9C%BA%E8%84%9A%E6%9C%AC%E4%B9%8B%E8%BF%9B%E9%98%B6%E7%AF%87/</id>
-    <published>2023-04-29T14:42:10.000Z</published>
-    <updated>2023-04-29T14:42:10.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="https://dpkg123.github.io/2023/04/29/%E7%AE%80%E5%8D%95%E5%86%99%E4%B8%80%E4%B8%AAshell%E5%88%B7%E6%9C%BA%E8%84%9A%E6%9C%AC/">上一篇文章</a>我们简单写了一个shell刷机脚本，这期我们要在上一期文章的基础上添加更多的操作</p><h1 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h1><ul><li>创建两个选择，一个是刷入magisk-boot镜像，另一个是还原官方镜像</li><li>实现在开机状态下自动进入fastboot模式，在fastboot模式下自动执行指令</li><li>如果没解锁fastboot将提示无法刷写<br>注:为了方便，将会用<code>fastboot</code>取代<code>/usr/lib/android-sdk/platform-tools/fastboot</code></li></ul><h1 id="使用的命令"><a href="#使用的命令" class="headerlink" title="使用的命令"></a>使用的命令</h1><p>命令太多就暂时不写了</p><h1 id="实操"><a href="#实操" class="headerlink" title="实操"></a>实操</h1><p>首先要确保magisk镜像叫<code>magisk-boot.img</code>，官方boot镜像叫<code>offical-boot.img</code><br>首先输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> 这是一个简单的刷机脚本</span><br></pre></td></tr></table></figure><p>为了美观可以在前面输入<code>clear或者reset</code>来清理屏幕<br>Tips:reset不是重启系统的命令,<code>reboot才是</code>，而且reboot命令需要root权限<br>然后输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PS3=<span class="string">&#x27;选择一项: &#x27;</span></span><br></pre></td></tr></table></figure><p>这里设置PS3变量。 这是<code>select语句</code>在从我们的多选菜单中进行选择时使用的提示。<br>接下来创建预定选项列表。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">options=(<span class="string">&quot;刷入magisk boot&quot;</span> <span class="string">&quot;还原官方boot&quot;</span> <span class="string">&quot;退出&quot;</span>)</span><br></pre></td></tr></table></figure><p>接下来，我们开始创建菜单的选择构造。 在这一行中，我们告诉select选择从options数组创建菜单。 我们还将在$menu变量中设置用户选择。 select语句的语法类似于for循环，这就是为什么您在末尾看到do语句的原因。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select menu <span class="keyword">in</span> <span class="string">&quot;<span class="variable">$&#123;options[@]&#125;</span>&quot;</span>; <span class="keyword">do</span></span><br></pre></td></tr></table></figure><p>使用case语句创建更多可靠的选项<br>case语句使您可以有选择地执行与第一个匹配模式相对应的命令。 例如，如果我们从多项选择菜单中选择第一项，它将执行与该单词相对应的命令列表。</p><p>在case语句中，我们有开头节。 这告诉案例搜索与$menu变量的值匹配的选项。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="variable">$menu</span> <span class="keyword">in</span></span><br></pre></td></tr></table></figure><p>然后这里添加选项一的子句。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;刷入magisk boot&quot;</span>)</span><br><span class="line">            <span class="built_in">echo</span> <span class="comment">#这里的命令一会再回过头来修改</span></span><br><span class="line">            ;;</span><br></pre></td></tr></table></figure><p>这里的命令一会再回过头来修改，<br>执行完毕后，如果想直接退出脚本，可以在后面敲一行回车后输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">break</span></span><br></pre></td></tr></table></figure><p>然后如法炮制地添加第二三条选项即可。<br>tips:第三项是退出选项，只需要将echo和后面的换成<code>exit 0</code>即可。</p><p>如果输入了除了1,2,3以外的数字或字母将可能会导致脚本运行错误，这时候需要输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*) <span class="built_in">echo</span> <span class="string">&quot;未知选项 <span class="variable">$REPLY</span>&quot;</span>;;</span><br></pre></td></tr></table></figure><p>来告诉这是无效的输入<br>在所有子句之后，我们以esac结束case语句，<code>而esac是反写的的。 这类似于以fi结束if语句</code>。输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure><p>最后一行关闭用do打开的select语句。输入</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure><p>到这时候，一个基本的选择页面就完成了。接下来我们回过头来修改之前选项里的内容<br>上期图文的脚本中我们只写了一个fastboot flash boot.img来刷写boot，虽然但是，改需要手动从开机页面重启到fastboot模式，很不方便。<br>于是可以使用if语句判断手机是否进入fastboot模式</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> fastboot devices</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">adb reboot bootloader</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">fastboot flash boot magisk-boot.img</span><br><span class="line">fastboot reboot</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure><p>当然如果想告诉用户刷入失败的原因的话可以整一个if嵌套循环。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">adb devices</span><br><span class="line"><span class="keyword">if</span> [ $? -ne 0 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">adb reboot bootloader</span><br><span class="line"><span class="built_in">echo</span> 即将刷入boot</span><br><span class="line"><span class="built_in">sleep</span> 5s</span><br><span class="line">fastboot flash magisk-boot.img</span><br><span class="line"><span class="keyword">if</span> [ $? -ne 0 ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">fastboot reboot</span><br><span class="line"><span class="built_in">exit</span> 0</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> 刷入失败，请确保手机已解锁bootloader</span><br><span class="line"><span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"><span class="built_in">echo</span> 请确保手机已经开启usb调试且允许这台计算机进行调试</span><br><span class="line"><span class="built_in">exit</span> 1</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure><p>这里的<code>if [ $? -ne 0 ]</code>是用来判断上一条命令是否执行成功<br><code>exit 1</code>的意思是非正常退出，与<code>exit 0</code>相反<br>Tips:if嵌套循环分开执行也是可以的。<br>if嵌套循环如果写错了就会产生这样的杯具</p><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">flash.sh: 行 17: 未预期的记号 &quot;fi&quot; 附近有语法错误</span><br><span class="line">flash.sh: 行 17: `fi&#x27;</span><br></pre></td></tr></table></figure><p>还原官方boot同理，将<code>magisk-boot.img</code>字段替换成<code>offical-boot.img</code>即可</p><p>当然，为了防止<code>adb :command not found</code>出现，也可以在脚本上加入adb检测，只要将上篇文章的<code>sudo apt install fastboot -y</code>换成<br><code>sudo apt install adb -y</code>即可<br>当然有些系统的adb不叫这个，例如termux上的adb软件包叫<code>android-tools</code></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
-      
-    
-    
-    
-    
-    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
-    
-    <category term="shell" scheme="https://dpkg123.github.io/tags/shell/"/>
-    
-    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
-    
-    <category term="fastboot" scheme="https://dpkg123.github.io/tags/fastboot/"/>
     
   </entry>
   

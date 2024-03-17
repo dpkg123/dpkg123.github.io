@@ -434,6 +434,34 @@ MD5sum: b5cf21f88ebaceed9ba6b844750bab69
 Description: markdown notes manager
  Markdown notes manager for elementary os.
 
+Package: nscde
+Version: 2.3-3
+Architecture: arm64
+Maintainer: Hegel3DReloaded <nscde@protonmail.com>
+Installed-Size: 60602
+Depends: libc6, fvwm | fvwm3, ksh93 | ksh, stalonetray, xsettingsd, imagemagick, x11-xserver-utils, x11-utils, cpp, xterm, python3, python3-xdg, python3-yaml, python3-psutil, python3-pyqt5, xdotool, xdg-utils, gettext, fonts-dejavu-core, groff-base, groff
+Recommends: xclip, xscreensaver, dex, gtk2-engines-pixbuf, dunst, qt5-gtk2-platformtheme, qt5-gtk-platformtheme
+Suggests: rofi, gkrellm, gkrellm-xkb, gkrelltop, qt5ct, picom
+Multi-Arch: foreign
+Homepage: https://github.com/NsCDE
+Priority: optional
+Section: x11
+Filename: pool/main/n/nscde/nscde_2.3-3_arm64.deb
+Size: 25721464
+SHA256: 50017a4b914a26424943bdb3820369fbb343166a3fbfce389f7b050784547489
+SHA1: 9e16222789d2a4cf5a0d50a794f6d904f14282a9
+MD5sum: bc8372e4f867bf688832c1bfe4ebf7dc
+Description: Not so Common Desktop Environment
+ NsCDE is a retro but powerful UNIX desktop environment which resembles
+ CDE look (and partially feel) but with a more powerful and flexible
+ framework beneath-the-surface, more suited for 21st century unix-like
+ and Linux systems and user requirements than original CDE.
+ .
+ NsCDE can be considered as a heavyweight FVWM theme on steroids, but
+ combined with a couple other free software components and custom FVWM
+ applications and a lot of configuration, NsCDE can be considered a
+ lightweight hybrid desktop environment.
+
 Package: pi-apps
 Version: 1.02
 Architecture: arm64

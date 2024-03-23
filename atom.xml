@@ -6,7 +6,7 @@
   <link href="https://dpkg123.github.io/atom.xml" rel="self"/>
   
   <link href="https://dpkg123.github.io/"/>
-  <updated>2024-02-11T22:01:08.000Z</updated>
+  <updated>2024-03-22T19:48:45.000Z</updated>
   <id>https://dpkg123.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>本地搭建第三方alpine repo</title>
+    <link href="https://dpkg123.github.io/2024/03/23/%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BA%E7%AC%AC%E4%B8%89%E6%96%B9alpine-repo/"/>
+    <id>https://dpkg123.github.io/2024/03/23/%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BA%E7%AC%AC%E4%B8%89%E6%96%B9alpine-repo/</id>
+    <published>2024-03-22T19:48:45.000Z</published>
+    <updated>2024-03-22T19:48:45.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>警告: 本文章可能会出现部分没说清楚的地方，欢迎补充。</p><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><ul><li>一个 alpine 容器</li><li>一双手</li></ul><h2 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apk add abuild</span><br></pre></td></tr></table></figure><h2 id="编写-APKBUILD"><a href="#编写-APKBUILD" class="headerlink" title="编写 APKBUILD"></a>编写 APKBUILD</h2><p>一个简单的 APKBUILD 示例:</p><figure class="highlight bash"><figcaption><span>APKBUILD</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Maintainer: username &lt;username@mail.com&gt;</span></span><br><span class="line">pkgname=project</span><br><span class="line">pkgver=x.x.x</span><br><span class="line">pkgrel=x</span><br><span class="line">pkgdesc=<span class="string">&quot;&quot;</span></span><br><span class="line">url=<span class="string">&quot;https://github.com/username/project&quot;</span></span><br><span class="line"><span class="built_in">arch</span>=<span class="string">&quot;aarch64&quot;</span></span><br><span class="line">_carch=<span class="string">&quot;arm64&quot;</span></span><br><span class="line">license=<span class="string">&quot;Apache-2.0&quot;</span></span><br><span class="line">makedepends=<span class="string">&quot;</span></span><br><span class="line"><span class="string">        bash</span></span><br><span class="line"><span class="string">        go</span></span><br><span class="line"><span class="string">        ...</span></span><br><span class="line"><span class="string">&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Source</span></span><br><span class="line"><span class="built_in">source</span>=<span class="string">&quot;</span></span><br><span class="line"><span class="string">        v0.56.0.tar.gz::https://github.com/username/project/archive/refs/tags/v0.56.0.tar.gz&quot;</span></span><br><span class="line"></span><br><span class="line">builddir=<span class="string">&quot;<span class="variable">$srcdir</span>/<span class="variable">$pkgname</span>-<span class="variable">$pkgver</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">prepare</span></span>() &#123;</span><br><span class="line">        ./configure --prefix=<span class="string">&quot;<span class="variable">$pkgdir</span>&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">build</span></span>() &#123;</span><br><span class="line">        make</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">package</span></span>() &#123;</span><br><span class="line">make install</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">sha512sums=<span class="string">&quot;</span></span><br><span class="line"><span class="string">&quot;</span></span><br></pre></td></tr></table></figure><p>一些常见的选项解释:</p><ul><li>pkgname 软件包名称</li><li>pkgver 软件包版本</li><li>pkgrel 软件的附加版本，例如这里的 <code>lzip (1.24.1-r0)</code>:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">user@localhost ~/a/s/frp (main)&gt; sudo apk add abuild</span><br><span class="line">fetch https://mirrors.bfsu.edu.cn/alpine/edge/main/aarch64/APKINDEX.tar.gz</span><br><span class="line">fetch https://mirrors.bfsu.edu.cn/alpine/edge/community/aarch64/APKINDEX.tar.gz</span><br><span class="line">(1/9) Installing attr (2.5.2-r0)</span><br><span class="line">(2/9) Installing libcap-getcap (2.69-r1)</span><br><span class="line">(3/9) Installing fakeroot (1.33-r0)</span><br><span class="line">(4/9) Installing lzip (1.24.1-r0)</span><br><span class="line">(5/9) Installing openssl (3.2.1-r0)</span><br><span class="line">(6/9) Installing patch (2.7.6-r10)</span><br><span class="line">(7/9) Installing pkgconf (2.1.1-r0)</span><br><span class="line">(8/9) Installing abuild (3.12.0-r5)</span><br><span class="line">Executing abuild-3.12.0-r5.pre-install</span><br><span class="line">(9/9) Installing abuild-sudo (3.12.0-r5)</span><br><span class="line">Executing busybox-1.36.1-r19.trigger</span><br><span class="line">OK: 164 MiB <span class="keyword">in</span> 103 packages</span><br></pre></td></tr></table></figure></li><li>pkgdesc 软件包描述</li><li>url 项目网址，可以贴github项目</li><li>arch 目标架构，可以通过查看<a href="https://mirrors.tuna.tsinghua.edu.cn/alpine/latest-stable/community/">软件源</a>得知</li><li>license 软件许可</li><li>makedepends 构建所需依赖</li><li>source 软件源码获取，只支持.tar.gz格式，例如:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span>=<span class="string">&quot;</span></span><br><span class="line"><span class="string">        xxx.tar.gz::&lt;源码下载url&gt;&quot;</span></span><br></pre></td></tr></table></figure></li><li>builddir 编译软件包的目录，例如如果要在xxx文件夹下编译就写xxx</li><li>prepare函数 可以填写在编译前的一些前置依赖构建，例如<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">prepare</span></span>() &#123;</span><br><span class="line">go mod download</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>这样就可以在准备阶段下载go软件包</li><li>build函数 一般填写编译指令，例如 make</li><li>install函数 一般填写安装指令，例如 make install</li><li>sh512sums 使用 abuild checksum自动填充:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">user@localhost ~/a/s/frp (main)&gt; abuild checksum</span><br><span class="line">&gt;&gt;&gt; frp: Fetching v0.56.0.tar.gz::https://github.com/fatedier/frp/archive/refs/tags/v0.56.0.tar.gz</span><br><span class="line">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</span><br><span class="line">                                 Dload  Upload   Total   Spent    Left  Speed</span><br><span class="line">  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0</span><br><span class="line">100 1054k    0 1054k    0     0   467k      0 --:--:--  0:00:02 --:--:-- 1291k</span><br><span class="line">&gt;&gt;&gt; frp: Updating the sha512sums <span class="keyword">in</span> /home/user/alpine-software-repos/source/frp/APKBUILD...</span><br></pre></td></tr></table></figure></li></ul><p>当然也可以编写例如post-install脚本来在安装后进行一些初始化功能。</p><h3 id="一些常见变量的解释"><a href="#一些常见变量的解释" class="headerlink" title="一些常见变量的解释"></a>一些常见变量的解释</h3><ul><li>$srcdir 一般为自动设定</li><li>$pkgname APKBUILD 中设定的软件包名</li><li>$pkgver APKBUILD 中设定的软件包版本</li></ul><h2 id="构建"><a href="#构建" class="headerlink" title="构建"></a>构建</h2><p>执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">abuild -r</span><br></pre></td></tr></table></figure><p>构建的软件包在用户文件夹下的package文件夹<br>下面是一个详细的构建流程，以构建frp为例:</p><figure class="highlight bash"><figcaption><span>logcat</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br></pre></td><td class="code"><pre><span class="line">user@localhost ~/a/s/frp (main)&gt; sudo abuild -r -f -F</span><br><span class="line">&gt;&gt;&gt; frp: Building <span class="built_in">source</span>/frp 0.56.0-r0 (using abuild 3.12.0-r5) started Sat, 23 Mar 2024 23:38:40 +0800</span><br><span class="line">&gt;&gt;&gt; frp: Checking sanity of /home/user/alpine-software-repos/source/frp/APKBUILD...</span><br><span class="line">&gt;&gt;&gt; frp: Analyzing dependencies...</span><br><span class="line">&gt;&gt;&gt; frp: Installing <span class="keyword">for</span> build: build-base bash go wget</span><br><span class="line">WARNING: opening /root/packages//source: No such file or directory</span><br><span class="line">(1/18) Installing jansson (2.14-r4)</span><br><span class="line">(2/18) Installing zstd-libs (1.5.5-r9)</span><br><span class="line">(3/18) Installing binutils (2.42-r0)</span><br><span class="line">(4/18) Installing libgomp (13.2.1_git20240309-r0)</span><br><span class="line">(5/18) Installing libatomic (13.2.1_git20240309-r0)</span><br><span class="line">(6/18) Installing gmp (6.3.0-r0)</span><br><span class="line">(7/18) Installing isl26 (0.26-r1)</span><br><span class="line">(8/18) Installing mpfr4 (4.2.1-r0)</span><br><span class="line">(9/18) Installing mpc1 (1.3.1-r1)</span><br><span class="line">(10/18) Installing gcc (13.2.1_git20240309-r0)</span><br><span class="line">(11/18) Installing libstdc++-dev (13.2.1_git20240309-r0)</span><br><span class="line">(12/18) Installing musl-dev (1.2.5-r0)</span><br><span class="line">(13/18) Installing g++ (13.2.1_git20240309-r0)</span><br><span class="line">(14/18) Installing fortify-headers (1.1-r3)</span><br><span class="line">(15/18) Installing build-base (0.5-r3)</span><br><span class="line">(16/18) Installing binutils-gold (2.42-r0)</span><br><span class="line">(17/18) Installing go (1.22.1-r1)</span><br><span class="line">(18/18) Installing .makedepends-frp (20240323.153842)</span><br><span class="line">Executing busybox-1.36.1-r19.trigger</span><br><span class="line">OK: 542 MiB <span class="keyword">in</span> 121 packages</span><br><span class="line">&gt;&gt;&gt; frp: Cleaning up srcdir</span><br><span class="line">&gt;&gt;&gt; frp: Cleaning up pkgdir</span><br><span class="line">&gt;&gt;&gt; frp: Cleaning up tmpdir</span><br><span class="line">&gt;&gt;&gt; frp: Fetching v0.56.0.tar.gz::https://github.com/fatedier/frp/archive/refs/tags/v0.56.0.tar.gz</span><br><span class="line">&gt;&gt;&gt; frp: Fetching v0.56.0.tar.gz::https://github.com/fatedier/frp/archive/refs/tags/v0.56.0.tar.gz</span><br><span class="line">&gt;&gt;&gt; frp: Checking sha512sums...</span><br><span class="line">v0.56.0.tar.gz: OK</span><br><span class="line">&gt;&gt;&gt; frp: Unpacking /var/cache/distfiles/v0.56.0.tar.gz...</span><br><span class="line">go <span class="built_in">fmt</span> ./...</span><br><span class="line"><span class="built_in">env</span> CGO_ENABLED=0 go build -trimpath -ldflags <span class="string">&quot;-s -w&quot;</span> -tags frps -o bin/frps ./cmd/frps</span><br><span class="line">go version go1.22.1 linux/arm64</span><br><span class="line"><span class="built_in">env</span> CGO_ENABLED=0 go build -trimpath -ldflags <span class="string">&quot;-s -w&quot;</span> -tags frpc -o bin/frpc ./cmd/frpc</span><br><span class="line">&gt;&gt;&gt; WARNING: frp: APKBUILD does not run any tests!</span><br><span class="line">    Alpine policy will soon require that packages have any relevant testsuites run during the build process.</span><br><span class="line">    To fix, either define a check() <span class="keyword">function</span>, or <span class="built_in">declare</span> !check <span class="keyword">in</span> <span class="variable">$options</span> to indicate the package does not have a testsuite.</span><br><span class="line"><span class="built_in">mkdir</span>: created directory <span class="string">&#x27;/home/user/alpine-software-repos/source/frp/pkg/frp/etc&#x27;</span></span><br><span class="line"><span class="built_in">mkdir</span>: created directory <span class="string">&#x27;/home/user/alpine-software-repos/source/frp/pkg/frp/etc/frp&#x27;</span></span><br><span class="line">--2024-03-23 23:39:49--  https://github.com/fatedier/frp/raw/dev/conf/frpc_full_example.toml</span><br><span class="line">Resolving github.com (github.com)... 28.0.0.144</span><br><span class="line">Connecting to github.com (github.com)|28.0.0.144|:443... connected.</span><br><span class="line">HTTP request sent, awaiting response... 302 Found</span><br><span class="line">Location: https://raw.githubusercontent.com/fatedier/frp/dev/conf/frpc_full_example.toml [following]</span><br><span class="line">--2024-03-23 23:39:52--  https://raw.githubusercontent.com/fatedier/frp/dev/conf/frpc_full_example.toml</span><br><span class="line">Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 28.0.2.190</span><br><span class="line">Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|28.0.2.190|:443... connected.</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: 12411 (12K) [text/plain]</span><br><span class="line">Saving to: <span class="string">&#x27;/home/user/alpine-software-repos/source/frp/pkg/frp/etc/frp/frpc.toml&#x27;</span></span><br><span class="line"></span><br><span class="line">/home/user/alpine-r 100%[===============================&gt;]  12.12K  --.-KB/s    <span class="keyword">in</span> 0.002s</span><br><span class="line"></span><br><span class="line">2024-03-23 23:39:54 (7.84 MB/s) - <span class="string">&#x27;/home/user/alpine-software-repos/source/frp/pkg/frp/etc/frp/frpc.toml&#x27;</span> saved [12411/12411]</span><br><span class="line"></span><br><span class="line">--2024-03-23 23:39:54--  https://github.com/fatedier/frp/raw/dev/conf/frps_full_example.toml</span><br><span class="line">Resolving github.com (github.com)... 28.0.0.144</span><br><span class="line">Connecting to github.com (github.com)|28.0.0.144|:443... connected.</span><br><span class="line">HTTP request sent, awaiting response... 302 Found</span><br><span class="line">Location: https://raw.githubusercontent.com/fatedier/frp/dev/conf/frps_full_example.toml [following]</span><br><span class="line">--2024-03-23 23:39:58--  https://raw.githubusercontent.com/fatedier/frp/dev/conf/frps_full_example.toml</span><br><span class="line">Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 28.0.2.190</span><br><span class="line">Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|28.0.2.190|:443... connected.</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: 6162 (6.0K) [text/plain]</span><br><span class="line">Saving to: <span class="string">&#x27;/home/user/alpine-software-repos/source/frp/pkg/frp/etc/frp/frps.toml&#x27;</span></span><br><span class="line"></span><br><span class="line">/home/user/alpine-r 100%[===============================&gt;]   6.02K  --.-KB/s    <span class="keyword">in</span> 0.001s</span><br><span class="line"></span><br><span class="line">2024-03-23 23:40:01 (7.36 MB/s) - <span class="string">&#x27;/home/user/alpine-software-repos/source/frp/pkg/frp/etc/frp/frps.toml&#x27;</span> saved [6162/6162]</span><br><span class="line"></span><br><span class="line">&gt;&gt;&gt; frp: Running postcheck <span class="keyword">for</span> frp</span><br><span class="line">&gt;&gt;&gt; frp: Preparing package frp...</span><br><span class="line">&gt;&gt;&gt; frp: Stripping binaries</span><br><span class="line">&gt;&gt;&gt; frp: Scanning shared objects</span><br><span class="line">&gt;&gt;&gt; frp: Tracing dependencies...</span><br><span class="line">&gt;&gt;&gt; frp: Package size: 31.8 MB</span><br><span class="line">&gt;&gt;&gt; frp: Compressing data...</span><br><span class="line">&gt;&gt;&gt; frp: Create checksum...</span><br><span class="line">&gt;&gt;&gt; frp: Create frp-0.56.0-r0.apk</span><br><span class="line">&gt;&gt;&gt; frp: Build complete at Sat, 23 Mar 2024 23:40:08 +0800 elapsed time 0h 1m 28s</span><br><span class="line">&gt;&gt;&gt; frp: Cleaning up srcdir</span><br><span class="line">&gt;&gt;&gt; frp: Cleaning up pkgdir</span><br><span class="line">&gt;&gt;&gt; frp: Uninstalling dependencies...</span><br><span class="line">(1/18) Purging .makedepends-frp (20240323.153842)</span><br><span class="line">(2/18) Purging build-base (0.5-r3)</span><br><span class="line">(3/18) Purging g++ (13.2.1_git20240309-r0)</span><br><span class="line">(4/18) Purging libstdc++-dev (13.2.1_git20240309-r0)</span><br><span class="line">(5/18) Purging gcc (13.2.1_git20240309-r0)</span><br><span class="line">(6/18) Purging binutils (2.42-r0)</span><br><span class="line">(7/18) Purging libatomic (13.2.1_git20240309-r0)</span><br><span class="line">(8/18) Purging libgomp (13.2.1_git20240309-r0)</span><br><span class="line">(9/18) Purging fortify-headers (1.1-r3)</span><br><span class="line">(10/18) Purging go (1.22.1-r1)</span><br><span class="line">(11/18) Purging binutils-gold (2.42-r0)</span><br><span class="line">(12/18) Purging isl26 (0.26-r1)</span><br><span class="line">(13/18) Purging jansson (2.14-r4)</span><br><span class="line">(14/18) Purging mpc1 (1.3.1-r1)</span><br><span class="line">(15/18) Purging mpfr4 (4.2.1-r0)</span><br><span class="line">(16/18) Purging musl-dev (1.2.5-r0)</span><br><span class="line">(17/18) Purging zstd-libs (1.5.5-r9)</span><br><span class="line">(18/18) Purging gmp (6.3.0-r0)</span><br><span class="line">Executing busybox-1.36.1-r19.trigger</span><br><span class="line">OK: 164 MiB <span class="keyword">in</span> 103 packages</span><br><span class="line">&gt;&gt;&gt; frp: Updating the <span class="built_in">source</span>/aarch64 repository index...</span><br><span class="line">&gt;&gt;&gt; frp: Signing the index...</span><br></pre></td></tr></table></figure><h2 id="搭建软件源"><a href="#搭建软件源" class="headerlink" title="搭建软件源"></a>搭建软件源</h2><p>创建文件夹</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">mkdir</span> -p /var/www/root/alpine</span><br></pre></td></tr></table></figure><p>初始化新的APK仓库</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apk index -o APKINDEX.tar.gz /var/www/root/alpine/*.apk</span><br></pre></td></tr></table></figure><p>开启nginx</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
+    <category term="alpine" scheme="https://dpkg123.github.io/tags/alpine/"/>
+    
+    <category term="软件源" scheme="https://dpkg123.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%BA%90/"/>
+    
+  </entry>
   
   <entry>
     <title>折腾ts action遇到的其中一个问题</title>
@@ -58,9 +84,9 @@
     
     
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
-    
     <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
     <category term="dtc" scheme="https://dpkg123.github.io/tags/dtc/"/>
     
@@ -86,9 +112,9 @@
     
     
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
-    
     <category term="kernel" scheme="https://dpkg123.github.io/tags/kernel/"/>
+    
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
     <category term="OPPO" scheme="https://dpkg123.github.io/tags/OPPO/"/>
     
@@ -112,9 +138,9 @@
     
     
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
-    
     <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
   </entry>
   
@@ -133,9 +159,9 @@
     
     
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
-    
     <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
     <category term="twrp" scheme="https://dpkg123.github.io/tags/twrp/"/>
     
@@ -161,9 +187,9 @@
     
     
     
-    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
-    
     <category term="3DS" scheme="https://dpkg123.github.io/tags/3DS/"/>
+    
+    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
     
     <category term="buildroot" scheme="https://dpkg123.github.io/tags/buildroot/"/>
     
@@ -261,9 +287,9 @@
     
     
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
-    
     <category term="kernel" scheme="https://dpkg123.github.io/tags/kernel/"/>
+    
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
     <category term="android kernel" scheme="https://dpkg123.github.io/tags/android-kernel/"/>
     
@@ -339,9 +365,9 @@
     
     
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
-    
     <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
     <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
     
@@ -502,32 +528,6 @@
     <category term="coloros" scheme="https://dpkg123.github.io/tags/coloros/"/>
     
     <category term="手机" scheme="https://dpkg123.github.io/tags/%E6%89%8B%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>linux刷机工具箱</title>
-    <link href="https://dpkg123.github.io/2023/04/29/linux%E5%88%B7%E6%9C%BA%E5%B7%A5%E5%85%B7%E7%AE%B1/"/>
-    <id>https://dpkg123.github.io/2023/04/29/linux%E5%88%B7%E6%9C%BA%E5%B7%A5%E5%85%B7%E7%AE%B1/</id>
-    <published>2023-04-29T14:52:37.000Z</published>
-    <updated>2023-04-29T14:52:37.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>写了个linux刷机工具箱，基于linux shell脚本<br>更新地址<a href="https://github.com/dabao1955/flash-tool-linux">https://github.com/dabao1955/flash-tool-linux</a><br>安装<br>执行</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install aria2 -y</span><br><span class="line">aria2c https://raw.githubusercontent.com/dabao1955/flash-tool-linux/eula/setup.sh | bash</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
-      
-    
-    
-    
-    
-    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
-    
-    <category term="shell" scheme="https://dpkg123.github.io/tags/shell/"/>
-    
-    <category term="刷机工具" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   

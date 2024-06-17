@@ -303,19 +303,19 @@ MD5sum: 2199f0de919c3e4c441ba34ee4300210
 Description: Build cross platform desktop apps with web technologies
 
 Package: fantascene-dynamic-wallpaper
-Version: 1.6.1-1
+Version: 1.7.2-1
 Architecture: arm64
 Maintainer: liuminghang <liuminghang0821@gmail.com>
-Installed-Size: 7391
-Depends: libc6 (>= 2.17), libgcc1 (>= 1:3.0), libgl1, libglib2.0-0 (>= 2.35.8), libmpv1 (>= 0.9.0), libqt5concurrent5 (>= 5.0.2), libqt5core5a (>= 5.10.0), libqt5dbus5 (>= 5.5.0), libqt5gui5 (>= 5.10.0), libqt5network5 (>= 5.0.2), libqt5positioning5 (>= 5.6.0), libqt5printsupport5 (>= 5.0.2), libqt5qml5 (>= 5.0.2), libqt5quick5 (>= 5.0.2), libqt5sql5 (>= 5.0.2), libqt5webchannel5 (>= 5.6.1), libqt5webengine5 (>= 5.7.1), libqt5webenginecore5 (>= 5.7.1), libqt5webenginewidgets5 (>= 5.7.1), libqt5widgets5 (>= 5.11.0~rc1), libqt5x11extras5 (>= 5.6.0), libstdc++6 (>= 7), libx11-6, libxcb-ewmh2 (>= 0.4.1), libxcb1, libxext6, libxrender1
+Installed-Size: 7412
+Depends: libc6 (>= 2.34), libgcc-s1 (>= 3.0), libglib2.0-0 (>= 2.35.8), libmpv2 (>= 0.29), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.14.1), libqt5gui5 (>= 5.10.0) | libqt5gui5-gles (>= 5.10.0), libqt5sql5 (>= 5.0.2), libqt5webenginewidgets5 (>= 5.14.1), libqt5widgets5 (>= 5.11.0~rc1), libqt5x11extras5 (>= 5.6.0), libstdc++6 (>= 11), libx11-6, libxcb-ewmh2 (>= 0.4.1), libxcb1, libxext6
 Homepage: http://github.com/dependon/fantascene-dynamic-wallpaper
 Priority: optional
 Section: utils
-Filename: pool/main/f/fantascene-dynamic-wallpaper/fantascene-dynamic-wallpaper_1.6.1-1_arm64.deb
-Size: 6643568
-SHA256: 30b3d43c4618aff8373451fb4e66220bb30199798a87a133659805557c0d87d0
-SHA1: 14a4d10de31803b7b4a000984fbb3e1d70b0f3b3
-MD5sum: d095337873ff31a2a95764c6910aea10
+Filename: pool/main/f/fantascene-dynamic-wallpaper/fantascene-dynamic-wallpaper_1.7.2-1_arm64.deb
+Size: 6641568
+SHA256: bb4295e4b0d81ff19aa4e7fecbaa23868e5f8d64e7ba319608d138d0d8605c31
+SHA1: bdae8e217965fde7ae76001e4dd764c469e9423f
+MD5sum: e66f721db96a9f4645e57809fe62e914
 Description: video wallpaper for fantascene.
 
 Package: givemelyrics
@@ -715,22 +715,22 @@ Description: A Vim-inspired note-taking application for Markdown.
  edit experience.
 
 Package: xmcl
-Version: 0.44.0-786
+Version: 0.44.8-839
 License: MIT
 Vendor: ci010 <cijhn@hotmail.com>
 Architecture: arm64
 Maintainer: ci010 <cijhn@hotmail.com>
-Installed-Size: 284883
+Installed-Size: 290986
 Depends: libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0
 Recommends: libappindicator3-1
 Homepage: https://github.com/voxelum/x-minecraft-launcher#readme
 Priority: optional
 Section: default
-Filename: pool/main/x/xmcl/xmcl_0.44.0-786_arm64.deb
-Size: 74746108
-SHA256: f42077af7a1eb838b4d552477b37e15a0067d88bd867c6c18b7f7d953106d246
-SHA1: d01556119e22a8c1384c0b589762751ed53b7769
-MD5sum: 74c8b737cf80672c338de4bc5e924026
+Filename: pool/main/x/xmcl/xmcl_0.44.8-839_arm64.deb
+Size: 75745982
+SHA256: 6ee43dba9841a67cfce41461af5af0dadd9b52172529aa3d7724dadeba8381f9
+SHA1: 89243dd2daf51070c3d198eb28e0d45ca5b296b2
+MD5sum: 037d52314345a0e0cbf4530f8f309543
 Description: 
   A great minecraft launcher in the future
 
@@ -783,22 +783,22 @@ Description: Xournal++ - Open source hand note-taking program
   - Plugins using Lua scripting
 
 Package: yesplaymusic
-Version: 0.4.5
+Version: 0.4.8
 License: unknown
 Vendor: qier222 <qier222@outlook.com>
 Architecture: arm64
 Maintainer: qier222 <qier222@outlook.com>
-Installed-Size: 238678
+Installed-Size: 308863
 Depends: libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0
 Recommends: libappindicator3-1
 Homepage: https://github.com/qier222/YesPlayMusic
 Priority: optional
 Section: default
-Filename: pool/main/y/yesplaymusic/yesplaymusic_0.4.5_arm64.deb
-Size: 63063128
-SHA256: e8c66b009197b8427d1cc5237b7a694f3dab75a072770a1028193a69ff35a53d
-SHA1: 8540bfee11703071064a528767eb4ece059e02eb
-MD5sum: b260e5ca11c56a241662f4d7cc682682
+Filename: pool/main/y/yesplaymusic/yesplaymusic_0.4.8_arm64.deb
+Size: 75438746
+SHA256: 3cfd1aa726d2391aa578e068825760215d6d619a9aa3c919e3be26b80103a5dd
+SHA1: 30b51a64f54cf82891441796692fac711fbbfddf
+MD5sum: 4ef40cce49be3ccf926cab8757454195
 Description: 
   A third party music player for Netease Music
 

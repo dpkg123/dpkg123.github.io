@@ -154,19 +154,19 @@ Description: Box86 lets you run x86 Linux programs (such as games) on non-x86 Li
  Box86 lets you run x86 Linux programs (such as games) on non-x86 Linux systems, like ARM (host system needs to be 32bit little-endian)
 
 Package: fantascene-dynamic-wallpaper
-Version: 1.6.1-1
+Version: 1.7.2-1
 Architecture: armhf
 Maintainer: liuminghang <liuminghang0821@gmail.com>
-Installed-Size: 7175
-Depends: libc6 (>= 2.4), libgcc1 (>= 1:3.5), libgles2, libglib2.0-0 (>= 2.35.8), libmpv1 (>= 0.9.0), libqt5concurrent5 (>= 5.0.2), libqt5core5a (>= 5.10.0), libqt5dbus5 (>= 5.5.0), libqt5gui5 (>= 5.10.0), libqt5network5 (>= 5.0.2), libqt5positioning5 (>= 5.6.0), libqt5printsupport5 (>= 5.0.2), libqt5qml5 (>= 5.0.2), libqt5quick5 (>= 5.0.2), libqt5sql5 (>= 5.0.2), libqt5webchannel5 (>= 5.6.1), libqt5webengine5 (>= 5.7.1), libqt5webenginecore5 (>= 5.7.1), libqt5webenginewidgets5 (>= 5.7.1), libqt5widgets5 (>= 5.11.0~rc1), libqt5x11extras5 (>= 5.6.0), libstdc++6 (>= 7), libx11-6, libxcb-ewmh2 (>= 0.4.1), libxcb1, libxext6, libxrender1
+Installed-Size: 7163
+Depends: libc6 (>= 2.34), libgcc-s1 (>= 3.5), libglib2.0-0 (>= 2.35.8), libmpv2 (>= 0.29), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.14.1), libqt5gui5 (>= 5.10.0) | libqt5gui5-gles (>= 5.10.0), libqt5sql5 (>= 5.0.2), libqt5webenginewidgets5 (>= 5.14.1), libqt5widgets5 (>= 5.11.0~rc1), libqt5x11extras5 (>= 5.6.0), libstdc++6 (>= 11), libx11-6, libxcb-ewmh2 (>= 0.4.1), libxcb1, libxext6
 Homepage: http://github.com/dependon/fantascene-dynamic-wallpaper
 Priority: optional
 Section: utils
-Filename: pool/main/f/fantascene-dynamic-wallpaper/fantascene-dynamic-wallpaper_1.6.1-1_armhf.deb
-Size: 6631524
-SHA256: 4df3ba4a0b0020dd2a898089f5a9cc531f15a54b536d43d97bfd8c7b5b67f815
-SHA1: 1c0b99211dc978d80ee59289f300451670ba530b
-MD5sum: 2f81572548df13e92837875beeeece88
+Filename: pool/main/f/fantascene-dynamic-wallpaper/fantascene-dynamic-wallpaper_1.7.2-1_armhf.deb
+Size: 6629264
+SHA256: c3eb1826ffc178950249e3f6c06b98207d24ca7ad5b7722aecfdf18af3a67d55
+SHA1: b8128f1a487db75367508c92c899e00ff0491e3e
+MD5sum: a90cb2717a7b300dd81934c27b9a9d43
 Description: video wallpaper for fantascene.
 
 Package: qemu-laucher

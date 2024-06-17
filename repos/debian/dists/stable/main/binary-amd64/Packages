@@ -275,19 +275,19 @@ Description: Personal budget manager
   * Import transactions from QIF files
 
 Package: fantascene-dynamic-wallpaper
-Version: 1.6.1-1
+Version: 1.7.2-1
 Architecture: amd64
 Maintainer: liuminghang <liuminghang0821@gmail.com>
-Installed-Size: 7393
-Depends: libc6 (>= 2.14), libgcc1 (>= 1:3.0), libgl1, libglib2.0-0 (>= 2.35.8), libmpv1 (>= 0.9.0), libqt5concurrent5 (>= 5.0.2), libqt5core5a (>= 5.11.0~rc1), libqt5dbus5 (>= 5.5.0), libqt5gui5 (>= 5.10.0), libqt5network5 (>= 5.0.2), libqt5positioning5 (>= 5.6.0), libqt5printsupport5 (>= 5.0.2), libqt5qml5 (>= 5.0.2), libqt5quick5 (>= 5.0.2), libqt5sql5 (>= 5.0.2), libqt5webchannel5 (>= 5.6.1), libqt5webengine5 (>= 5.7.1), libqt5webenginecore5 (>= 5.7.1), libqt5webenginewidgets5 (>= 5.7.1), libqt5widgets5 (>= 5.11.0~rc1), libqt5x11extras5 (>= 5.6.0), libstdc++6 (>= 7), libx11-6, libxcb-ewmh2 (>= 0.4.1), libxcb1, libxext6, libxrender1
+Installed-Size: 7370
+Depends: libc6 (>= 2.34), libgcc-s1 (>= 3.0), libglib2.0-0 (>= 2.35.8), libmpv2 (>= 0.29), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.14.1), libqt5gui5 (>= 5.10.0) | libqt5gui5-gles (>= 5.10.0), libqt5sql5 (>= 5.0.2), libqt5webenginewidgets5 (>= 5.14.1), libqt5widgets5 (>= 5.11.0~rc1), libqt5x11extras5 (>= 5.6.0), libstdc++6 (>= 11), libx11-6, libxcb-ewmh2 (>= 0.4.1), libxcb1, libxext6
 Homepage: http://github.com/dependon/fantascene-dynamic-wallpaper
 Priority: optional
 Section: utils
-Filename: pool/main/f/fantascene-dynamic-wallpaper/fantascene-dynamic-wallpaper_1.6.1-1_amd64.deb
-Size: 6661440
-SHA256: 8d9eed95206378d1823f2934453403d196386f1a764e1a96839bda751a244804
-SHA1: a6a4bef92afebb11cc2e3989ff1776e1ec6f9286
-MD5sum: 4d990c9dfd01bde539f670fcffdb9ea8
+Filename: pool/main/f/fantascene-dynamic-wallpaper/fantascene-dynamic-wallpaper_1.7.2-1_amd64.deb
+Size: 6654800
+SHA256: a595bc5cedaba69ecbc0639480cb22e9df5b183585f667b9fb5740ad7c8bee10
+SHA1: 97f66ba169c20c1dd3fc80f66e28ead2a01fb175
+MD5sum: 2509bb30b433d830759eb264f7a522a8
 Description: video wallpaper for fantascene.
 
 Package: gamehub
@@ -308,21 +308,21 @@ MD5sum: d61ffd0b748ebd0728a5f8e50a7e10b1
 Description: All your games in one place
 
 Package: gb-studio
-Version: 3.2.0
+Version: 3.2.1
 Architecture: amd64
 Depends: libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, kde-cli-tools | kde-runtime | trash-cli | libglib2.0-bin | gvfs-bin
 Recommends: pulseaudio | libasound2
 Suggests: gir1.2-gnomekeyring-1.0, libgnome-keyring0, lsb-release
-Installed-Size: 234305
+Installed-Size: 233521
 Maintainer: GB Studio
 Homepage: https://www.gbstudio.dev
 Priority: optional
 Section: utils
-Filename: pool/main/g/gb-studio/gb-studio_3.2.0_amd64.deb
-Size: 62708456
-SHA256: 9dc04fd9a86e1fe96f0d501217a7b91c8d8644cf0920fb44a2a759596d9d1fcd
-SHA1: 39097d11493c546222fffa734e60c18861b8a40f
-MD5sum: b7faaae2c3197d990f1c57efcb5c73aa
+Filename: pool/main/g/gb-studio/gb-studio_3.2.1_amd64.deb
+Size: 62779408
+SHA256: 20c27d0b8c1c43f952e949bf42e77d539874ca6121181a25d5b7f3402175e166
+SHA1: c896432a17dc87f34636284ffbc384de70e51428
+MD5sum: 0327923d280a26a05d2d928087b632f9
 Description: Visual retro game maker
  Visual retro game maker
 
@@ -852,22 +852,22 @@ MD5sum: 412e96ceb45a167b156b7641d29a139f
 Description: RAD tool for wxWidgets GUI design.
 
 Package: xmcl
-Version: 0.44.0-786
+Version: 0.44.8-839
 License: MIT
 Vendor: ci010 <cijhn@hotmail.com>
 Architecture: amd64
 Maintainer: ci010 <cijhn@hotmail.com>
-Installed-Size: 278146
+Installed-Size: 284375
 Depends: libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0
 Recommends: libappindicator3-1
 Homepage: https://github.com/voxelum/x-minecraft-launcher#readme
 Priority: optional
 Section: default
-Filename: pool/main/x/xmcl/xmcl_0.44.0-786_amd64.deb
-Size: 78892518
-SHA256: d68ad07bd10a36f468376be544e0144e6509eb43396d7ca6d4f73748690cc79b
-SHA1: 0cb8231d62f4da27c88e17b1a7cff0e484f14571
-MD5sum: ee066c97b3ab586733907a65f9f9e908
+Filename: pool/main/x/xmcl/xmcl_0.44.8-839_amd64.deb
+Size: 80401614
+SHA256: 6c4fe1283e65136515961c999d10b264587c1300cd72961ba3f6a4d9534d7ee1
+SHA1: 17ff75a6f412f53f246b252e4fb5857beabe7e29
+MD5sum: 0c03f9d4f423a84610d2c3d468ec8d2a
 Description: 
   A great minecraft launcher in the future
 
@@ -920,22 +920,22 @@ Description: Xournal++ - Open source hand note-taking program
   - Plugins using Lua scripting
 
 Package: yesplaymusic
-Version: 0.4.5
+Version: 0.4.8
 License: unknown
 Vendor: qier222 <qier222@outlook.com>
 Architecture: amd64
 Maintainer: qier222 <qier222@outlook.com>
-Installed-Size: 223780
+Installed-Size: 293965
 Depends: libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0
 Recommends: libappindicator3-1
 Homepage: https://github.com/qier222/YesPlayMusic
 Priority: optional
 Section: default
-Filename: pool/main/y/yesplaymusic/yesplaymusic_0.4.5_amd64.deb
-Size: 65803812
-SHA256: 8a0776333223c0348e2cfd178b699226710f1967a776080f0bf3304c3083ba2d
-SHA1: bb5086f0263264e5abad12c1d9e9d5ec0d3edd41
-MD5sum: 2775f83546bfe5b390c6bad0a8d59adf
+Filename: pool/main/y/yesplaymusic/yesplaymusic_0.4.8_amd64.deb
+Size: 78542138
+SHA256: 8935a2fad64651053b27599c98c76559748aa581b2e263007aaf4237d7e19d9f
+SHA1: 0b04a12a35d96a5de4bee2cf1c480d5bd1528035
+MD5sum: 8f51f19eaedc8ea121aca47d2472869d
 Description: 
   A third party music player for Netease Music
 

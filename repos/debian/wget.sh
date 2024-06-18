@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -eu
 # 使用 GitHub API 获取最新发行版的信息
 RELEASE=$(curl -s -H "Authorization: token $TOKEN" https://api.github.com/repos/"$OWNER"/"$REPO"/releases/latest)
 

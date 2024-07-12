@@ -1,0 +1,189 @@
+Determining if the CL_VERSION_3_0 exist failed with the following output:
+Change Dir: /home/user/debian/supergfxctl/fastfetch-2.15.0+dfsg/out/CMakeFiles/CMakeScratch/TryCompile-pCDOkK
+
+Run Build Command(s):/bin/ninja cmTC_8d6ce && [1/2] Building C object CMakeFiles/cmTC_8d6ce.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_8d6ce.dir/CheckSymbolExists.c.o 
+/bin/cc   -Wall -Wextra -Wconversion       -std=gnu11 -o CMakeFiles/cmTC_8d6ce.dir/CheckSymbolExists.c.o -c /home/user/debian/supergfxctl/fastfetch-2.15.0+dfsg/out/CMakeFiles/CMakeScratch/TryCompile-pCDOkK/CheckSymbolExists.c
+/home/user/debian/supergfxctl/fastfetch-2.15.0+dfsg/out/CMakeFiles/CMakeScratch/TryCompile-pCDOkK/CheckSymbolExists.c:2:10: 寄了：OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h：没有那个文件或目录
+    2 | #include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+编译中断，好耶！
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef CL_VERSION_3_0
+  return ((int*)(&CL_VERSION_3_0))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the CL_VERSION_2_2 exist failed with the following output:
+Change Dir: /home/user/debian/supergfxctl/fastfetch-2.15.0+dfsg/out/CMakeFiles/CMakeScratch/TryCompile-T4B6Hz
+
+Run Build Command(s):/bin/ninja cmTC_1729d && [1/2] Building C object CMakeFiles/cmTC_1729d.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_1729d.dir/CheckSymbolExists.c.o 
+/bin/cc   -Wall -Wextra -Wconversion       -std=gnu11 -o CMakeFiles/cmTC_1729d.dir/CheckSymbolExists.c.o -c /home/user/debian/supergfxctl/fastfetch-2.15.0+dfsg/out/CMakeFiles/CMakeScratch/TryCompile-T4B6Hz/CheckSymbolExists.c
+/home/user/debian/supergfxctl/fastfetch-2.15.0+dfsg/out/CMakeFiles/CMakeScratch/TryCompile-T4B6Hz/CheckSymbolExists.c:2:10: 寄了：OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h：没有那个文件或目录
+    2 | #include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+编译中断，好耶！
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef CL_VERSION_2_2
+  return ((int*)(&CL_VERSION_2_2))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the CL_VERSION_2_1 exist failed with the following output:
+Change Dir: /home/user/debian/supergfxctl/fastfetch-2.15.0+dfsg/out/CMakeFiles/CMakeScratch/TryCompile-xLePPQ
+
+Run Build Command(s):/bin/ninja cmTC_62fa6 && [1/2] Building C object CMakeFiles/cmTC_62fa6.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_62fa6.dir/CheckSymbolExists.c.o 
+/bin/cc   -Wall -Wextra -Wconversion       -std=gnu11 -o CMakeFiles/cmTC_62fa6.dir/CheckSymbolExists.c.o -c /home/user/debian/supergfxctl/fastfetch-2.15.0+dfsg/out/CMakeFiles/CMakeScratch/TryCompile-xLePPQ/CheckSymbolExists.c
+/home/user/debian/supergfxctl/fastfetch-2.15.0+dfsg/out/CMakeFiles/CMakeScratch/TryCompile-xLePPQ/CheckSymbolExists.c:2:10: 寄了：OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h：没有那个文件或目录
+    2 | #include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+编译中断，好耶！
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef CL_VERSION_2_1
+  return ((int*)(&CL_VERSION_2_1))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the CL_VERSION_2_0 exist failed with the following output:
+Change Dir: /home/user/debian/supergfxctl/fastfetch-2.15.0+dfsg/out/CMakeFiles/CMakeScratch/TryCompile-UCDUV4
+
+Run Build Command(s):/bin/ninja cmTC_e246e && [1/2] Building C object CMakeFiles/cmTC_e246e.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_e246e.dir/CheckSymbolExists.c.o 
+/bin/cc   -Wall -Wextra -Wconversion       -std=gnu11 -o CMakeFiles/cmTC_e246e.dir/CheckSymbolExists.c.o -c /home/user/debian/supergfxctl/fastfetch-2.15.0+dfsg/out/CMakeFiles/CMakeScratch/TryCompile-UCDUV4/CheckSymbolExists.c
+/home/user/debian/supergfxctl/fastfetch-2.15.0+dfsg/out/CMakeFiles/CMakeScratch/TryCompile-UCDUV4/CheckSymbolExists.c:2:10: 寄了：OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h：没有那个文件或目录
+    2 | #include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+编译中断，好耶！
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef CL_VERSION_2_0
+  return ((int*)(&CL_VERSION_2_0))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the CL_VERSION_1_2 exist failed with the following output:
+Change Dir: /home/user/debian/supergfxctl/fastfetch-2.15.0+dfsg/out/CMakeFiles/CMakeScratch/TryCompile-Iob5bO
+
+Run Build Command(s):/bin/ninja cmTC_e1b22 && [1/2] Building C object CMakeFiles/cmTC_e1b22.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_e1b22.dir/CheckSymbolExists.c.o 
+/bin/cc   -Wall -Wextra -Wconversion       -std=gnu11 -o CMakeFiles/cmTC_e1b22.dir/CheckSymbolExists.c.o -c /home/user/debian/supergfxctl/fastfetch-2.15.0+dfsg/out/CMakeFiles/CMakeScratch/TryCompile-Iob5bO/CheckSymbolExists.c
+/home/user/debian/supergfxctl/fastfetch-2.15.0+dfsg/out/CMakeFiles/CMakeScratch/TryCompile-Iob5bO/CheckSymbolExists.c:2:10: 寄了：OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h：没有那个文件或目录
+    2 | #include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+编译中断，好耶！
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef CL_VERSION_1_2
+  return ((int*)(&CL_VERSION_1_2))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the CL_VERSION_1_1 exist failed with the following output:
+Change Dir: /home/user/debian/supergfxctl/fastfetch-2.15.0+dfsg/out/CMakeFiles/CMakeScratch/TryCompile-RztQzc
+
+Run Build Command(s):/bin/ninja cmTC_0e1b3 && [1/2] Building C object CMakeFiles/cmTC_0e1b3.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_0e1b3.dir/CheckSymbolExists.c.o 
+/bin/cc   -Wall -Wextra -Wconversion       -std=gnu11 -o CMakeFiles/cmTC_0e1b3.dir/CheckSymbolExists.c.o -c /home/user/debian/supergfxctl/fastfetch-2.15.0+dfsg/out/CMakeFiles/CMakeScratch/TryCompile-RztQzc/CheckSymbolExists.c
+/home/user/debian/supergfxctl/fastfetch-2.15.0+dfsg/out/CMakeFiles/CMakeScratch/TryCompile-RztQzc/CheckSymbolExists.c:2:10: 寄了：OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h：没有那个文件或目录
+    2 | #include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+编译中断，好耶！
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef CL_VERSION_1_1
+  return ((int*)(&CL_VERSION_1_1))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the CL_VERSION_1_0 exist failed with the following output:
+Change Dir: /home/user/debian/supergfxctl/fastfetch-2.15.0+dfsg/out/CMakeFiles/CMakeScratch/TryCompile-oHBX30
+
+Run Build Command(s):/bin/ninja cmTC_e6022 && [1/2] Building C object CMakeFiles/cmTC_e6022.dir/CheckSymbolExists.c.o
+FAILED: CMakeFiles/cmTC_e6022.dir/CheckSymbolExists.c.o 
+/bin/cc   -Wall -Wextra -Wconversion       -std=gnu11 -o CMakeFiles/cmTC_e6022.dir/CheckSymbolExists.c.o -c /home/user/debian/supergfxctl/fastfetch-2.15.0+dfsg/out/CMakeFiles/CMakeScratch/TryCompile-oHBX30/CheckSymbolExists.c
+/home/user/debian/supergfxctl/fastfetch-2.15.0+dfsg/out/CMakeFiles/CMakeScratch/TryCompile-oHBX30/CheckSymbolExists.c:2:10: 寄了：OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h：没有那个文件或目录
+    2 | #include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+编译中断，好耶！
+ninja: build stopped: subcommand failed.
+
+
+File CheckSymbolExists.c:
+/* */
+#include <OpenCL_INCLUDE_DIR-NOTFOUND/CL/cl.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef CL_VERSION_1_0
+  return ((int*)(&CL_VERSION_1_0))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}

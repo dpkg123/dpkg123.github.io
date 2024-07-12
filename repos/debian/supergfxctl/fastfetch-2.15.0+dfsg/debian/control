@@ -1,0 +1,47 @@
+Source: fastfetch
+Section: utils
+Priority: optional
+Maintainer: Hiago De Franco <hiagofranco@gmail.com>
+Uploaders: Carlos Henrique Lima Melara <charlesmelara@riseup.net>,
+           Maytham Alsudany <maytha8thedev@gmail.com>,
+Rules-Requires-Root: no
+Build-Depends:
+ cmake,
+ debhelper-compat (= 13),
+ directx-headers-dev,
+ libchafa-dev,
+ libdbus-1-dev,
+ libdconf-dev,
+ libddcutil-dev,
+ libdrm-dev,
+ libegl-dev,
+ libglx-dev,
+ libmagickcore-dev,
+ libnm-dev,
+ libosmesa6-dev,
+ libpulse-dev,
+ librpm-dev,
+ libsqlite3-dev,
+ libvulkan-dev,
+ libwayland-dev,
+ libxcb-randr0-dev,
+ libxfconf-0-dev,
+ libxrandr-dev,
+ libyyjson-dev,
+ ocl-icd-opencl-dev,
+ pkgconf,
+Standards-Version: 4.7.0
+Homepage: https://github.com/fastfetch-cli/fastfetch
+Vcs-Browser: https://salsa.debian.org/debian/fastfetch
+Vcs-Git: https://salsa.debian.org/debian/fastfetch.git
+
+Package: fastfetch
+Architecture: any
+Multi-Arch: foreign
+Depends:
+ ${shlibs:Depends},
+ ${misc:Depends},
+Description: neofetch-like tool for fetching system information
+ Fastfetch is a neofetch-like tool for fetching system information and
+ displaying them in a pretty way. It is written mainly in C, with
+ performance and customizability in mind.

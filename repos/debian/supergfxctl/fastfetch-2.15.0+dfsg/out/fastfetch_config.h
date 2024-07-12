@@ -1,0 +1,25 @@
+#pragma once
+
+#ifndef FASTFETCH_INDLUDED_fastfetch_config_h_in
+#define FASTFETCH_INDLUDED_fastfetch_config_h_in
+
+#define FASTFETCH_PROJECT_NAME "fastfetch"
+#define FASTFETCH_PROJECT_VERSION "2.15.0"
+#define FASTFETCH_PROJECT_VERSION_MAJOR 2
+#define FASTFETCH_PROJECT_VERSION_MINOR 15
+#define FASTFETCH_PROJECT_VERSION_PATCH 0
+#define FASTFETCH_PROJECT_VERSION_TWEAK ""
+#define FASTFETCH_PROJECT_VERSION_TWEAK_NUM 0
+#define FASTFETCH_PROJECT_CMAKE_BUILD_TYPE "RelWithDebInfo"
+#define FASTFETCH_PROJECT_HOMEPAGE_URL "https://github.com/fastfetch-cli/fastfetch"
+#define FASTFETCH_PROJECT_DESCRIPTION "Fast neofetch-like system information tool"
+#define FASTFETCH_PROJECT_LICENSE "MIT license"
+
+#define FASTFETCH_TARGET_DIR_ROOT ""
+#define FASTFETCH_TARGET_DIR_USR "/usr"
+#define FASTFETCH_TARGET_DIR_HOME "/home"
+#define FASTFETCH_TARGET_DIR_ETC "/etc"
+
+#define FASTFETCH_TARGET_DIR_INSTALL_SYSCONF "/etc"
+
+#endif // FASTFETCH_INDLUDED_fastfetch_config_h_in

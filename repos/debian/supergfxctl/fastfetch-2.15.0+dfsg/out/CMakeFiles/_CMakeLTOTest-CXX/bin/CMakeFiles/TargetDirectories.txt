@@ -1,4 +1,0 @@
-/home/user/debian/supergfxctl/fastfetch-2.15.0+dfsg/out/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/foo.dir
-/home/user/debian/supergfxctl/fastfetch-2.15.0+dfsg/out/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/boo.dir
-/home/user/debian/supergfxctl/fastfetch-2.15.0+dfsg/out/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/edit_cache.dir
-/home/user/debian/supergfxctl/fastfetch-2.15.0+dfsg/out/CMakeFiles/_CMakeLTOTest-CXX/bin/CMakeFiles/rebuild_cache.dir

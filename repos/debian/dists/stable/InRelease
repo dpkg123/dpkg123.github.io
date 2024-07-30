@@ -2,7 +2,7 @@
 Hash: SHA512
 
 Codename: stable
-Date: Tue, 23 Jul 2024 06:35:18 UTC
+Date: Tue, 30 Jul 2024 07:23:38 UTC
 Architectures: arm64 amd64 armhf loongarch64
 Components: main contrib non-free
 Description: test
@@ -12,8 +12,8 @@ MD5Sum:
  31bc79f901958f8c14c708f9a92c0dd1 54 main/binary-arm64/Release
  d41d8cd98f00b204e9800998ecf8427e 0 main/debian-installer/binary-arm64/Packages
  7029066c27ac6f5ef18d660d5741979a 20 main/debian-installer/binary-arm64/Packages.gz
- b91f7bb0799e3a5db3719d88b1117af6 40986 main/binary-amd64/Packages
- 2309add3b8ed7beaa6db7c7380622651 14869 main/binary-amd64/Packages.gz
+ 8e1f204b25f701174f1cee051a44e8f5 40986 main/binary-amd64/Packages
+ 8a1503057ae54bffa98073042f008e6e 14863 main/binary-amd64/Packages.gz
  d65aaea658f9d09a8eb39e9525cda351 54 main/binary-amd64/Release
  d41d8cd98f00b204e9800998ecf8427e 0 main/debian-installer/binary-amd64/Packages
  7029066c27ac6f5ef18d660d5741979a 20 main/debian-installer/binary-amd64/Packages.gz
@@ -57,8 +57,8 @@ SHA1:
  9f0dcbaf836c3eb1c07db972ea92a255b1a04eb1 54 main/binary-arm64/Release
  da39a3ee5e6b4b0d3255bfef95601890afd80709 0 main/debian-installer/binary-arm64/Packages
  46c6643f07aa7f6bfe7118de926b86defc5087c4 20 main/debian-installer/binary-arm64/Packages.gz
- 0e215c39a7841f1096378806923980f1ba305325 40986 main/binary-amd64/Packages
- 8b9325a0df38231e673181b63a32ec8f654323a9 14869 main/binary-amd64/Packages.gz
+ cdad61cd2889b2cb2ff571ceaf781f6f98ab885c 40986 main/binary-amd64/Packages
+ 4d4e509d42720b4b4433142bfe9e531e583aacb8 14863 main/binary-amd64/Packages.gz
  26e46f3ddb545d47201cf5b51f204eac84721e74 54 main/binary-amd64/Release
  da39a3ee5e6b4b0d3255bfef95601890afd80709 0 main/debian-installer/binary-amd64/Packages
  46c6643f07aa7f6bfe7118de926b86defc5087c4 20 main/debian-installer/binary-amd64/Packages.gz
@@ -102,8 +102,8 @@ SHA256:
  d00f64baab8ad7bd9d35801920ed8dbd6bcaded6f3c6fc7868a65a42ba679577 54 main/binary-arm64/Release
  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 main/debian-installer/binary-arm64/Packages
  59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 main/debian-installer/binary-arm64/Packages.gz
- e181eaa5326bf207f637ea2026f2fe0d7bc23563e034402e3e4704e6c581cf80 40986 main/binary-amd64/Packages
- 6b6bbf1e67a13fc3c9d3054ee84cf66d42a9e919bf58acdbf2c3104455ee2ce2 14869 main/binary-amd64/Packages.gz
+ f20ab4bad4050a9876796f0a29d7e47986c6dd6ffa517a41dfc899d5baf1aae3 40986 main/binary-amd64/Packages
+ 8cc9d319fa8e360b63702a943e0b9364d43c6d57d7bd0a59234d7f7eda6e79de 14863 main/binary-amd64/Packages.gz
  50ab84494dd734ae389b26268853293589fee6851b8009b47934f151806c6583 54 main/binary-amd64/Release
  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 main/debian-installer/binary-amd64/Packages
  59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 main/debian-installer/binary-amd64/Packages.gz
@@ -143,17 +143,17 @@ SHA256:
  5cd6ae28d63ec108c9003b6f788222b3134ae810ab80f8b3ddfc50c0b4920d84 64 non-free/binary-loongarch64/Release
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEQkEc9727ziV57Ixrmceyo8mMlp4FAmafTy4ACgkQmceyo8mM
-lp74cQ//YH0TJo5m/pLF7bEK0EhOvMiLnJnxv2kXbHjb8RTEiuRB+nBwaN1R8ws5
-S++X1aw/cj5paGz+hmnJsaBArKDQc83b3UlsozoTO0TNOJaXZaupwWuMfVUJ1R91
-btcQIqpWfAIZv3BjV38UOJ5mX1Y9+dTPDl9HU+wpmvvFUffK0oDDvZyKgWhly07W
-XwP3gEBXYYWYrfx8Slolq/8KRipn/dDF0vhWytfhX2Nf0uTaI74A/69hjl/viUWB
-QetES8kK9ETqEtf24bK7APzlMp6WUBcUrkQXycOw2OWSIRBkmaBMIlfON7ytb6MS
-h2WlFz60mSoAoZ5BAAC+ZR4tMMxuyKSsfEgbDpVU2IASnqMOT1dobLF/iSqL4TF7
-Isj8ix1geQq83hahze/TYUuiZdal/VNarnv2XXAi+VKXog3fyKOPgSkuofakzygs
-pxo+VVZXZo61C3QMtabAC5xqUnAmsFkkR46V0lu/2nip+Ht3jyESb/G6YOEzu/me
-4Q6pN4438+Yh9O1w+JJLSkSjBfSv91lbxVJHUKp693cSAqeBuq4flHerIozZgecL
-nF5uSicjs8JNO1THMHikhggWSyB6xqKmdq7rzwjHTdRlj/dHDKTME0VOm50pEROk
-ihrZjOKqZzpQ+g7v9FF2XdXuBdzLbj86FoFJujiPnVgb01iaXtI=
-=q5JO
+iQIzBAEBCgAdFiEEQkEc9727ziV57Ixrmceyo8mMlp4FAmaolP8ACgkQmceyo8mM
+lp626RAAxHUQCmDoJbrP9J9aDqIARueZM2IaTdR2C7LC2V/HSTxbnbHqalB7kTQr
+H9EoDQwXLdbsFqemdObreBVfCa8VAnRNu6XJE6L+gnReAgdEpaUsKNlwPwVcpAFb
+fOMnWLtCouOnnIwzDwbvjSDDKnEnFMZzXKBHR5tJ9AKyXmaOO8iaO1TKB8p3DsS5
+RCSekF+h+mIwbOIxl5X4C4KurpEE9hv2AEaceifXH8IQsxR29FLtkxIqwqPEYyFx
+eVQC0+4KmLv+PypfTNqzmb+Q1Sb/T6Ml3QTJqGTVrhVsvc1ctT9LwGUDOilu9e3S
+cDsVN0bVxcitgUId5kF7GD14LftToHX4fVAM99CcQtt1Omd8BdPO078sjpS2+IO0
+R9mPawdJVxHDESf+RxpFNB8xQgbnhXu0zxKevbrPnA75RoZ6iNlqtqLXWn3OTqh8
+LusN2YcNkSGNKFzFOQNmv2WC4I9juFdfxtH5FMtTlZH9VscJM5OLfztrkugnQnrM
+YhRdw69olUALwwAQYchM/F5j/lbDB6xfQY9FG6aCDmw3j2DWJ/pqexmiZfrlT1+U
+aYfJdo7NLUxscdRrGAb6CPyz3ORioeaReMd4ZiqjGaqmwRMBOSZaRIvJU5oL+oeA
+mTCKAtsBBxKT1lbF2zTNztDSROUkaHZwe1dQq943Ag49z06x6kY=
+=G9qE
 -----END PGP SIGNATURE-----

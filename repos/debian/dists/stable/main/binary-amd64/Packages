@@ -852,22 +852,22 @@ MD5sum: 412e96ceb45a167b156b7641d29a139f
 Description: RAD tool for wxWidgets GUI design.
 
 Package: xmcl
-Version: 0.44.17-904
+Version: 0.45.2-919
 License: MIT
 Vendor: ci010 <cijhn@hotmail.com>
 Architecture: amd64
 Maintainer: ci010 <cijhn@hotmail.com>
-Installed-Size: 285260
+Installed-Size: 285378
 Depends: libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0
 Recommends: libappindicator3-1
 Homepage: https://github.com/voxelum/x-minecraft-launcher#readme
 Priority: optional
 Section: default
-Filename: pool/main/x/xmcl/xmcl_0.44.17-904_amd64.deb
-Size: 79898696
-SHA256: 09b739e0c86a752af928fb001af34cd6e27a51ed3dc3d9e0c2108f3a5e2bfeff
-SHA1: aaba7484c900d09453f796c8f2c7e83b16746d46
-MD5sum: 8e7157bad013166a5f0d4f311dfae2db
+Filename: pool/main/x/xmcl/xmcl_0.45.2-919_amd64.deb
+Size: 79928702
+SHA256: b6845aa98cb682493cbc4c4bc9fa04a43673474023d9cbc7a3934dd0ba24218e
+SHA1: fecfd8a62a14216c68ba97860fd626265da0cc0d
+MD5sum: 5302bbda4dbddde286a0e586110a04de
 Description: 
   A great minecraft launcher in the future
 

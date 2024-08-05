@@ -6,7 +6,7 @@
   <link href="https://dpkg123.github.io/atom.xml" rel="self"/>
   
   <link href="https://dpkg123.github.io/"/>
-  <updated>2024-03-22T19:48:45.000Z</updated>
+  <updated>2024-08-05T15:22:26.000Z</updated>
   <id>https://dpkg123.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GKI内核的手机运行lxc教学</title>
+    <link href="https://dpkg123.github.io/2024/08/05/GKI%E5%86%85%E6%A0%B8%E7%9A%84%E6%89%8B%E6%9C%BA%E8%BF%90%E8%A1%8Clxc%E6%95%99%E5%AD%A6/"/>
+    <id>https://dpkg123.github.io/2024/08/05/GKI%E5%86%85%E6%A0%B8%E7%9A%84%E6%89%8B%E6%9C%BA%E8%BF%90%E8%A1%8Clxc%E6%95%99%E5%AD%A6/</id>
+    <published>2024-08-05T15:22:26.000Z</published>
+    <updated>2024-08-05T15:22:26.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>咕咕咕</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="Android" scheme="https://dpkg123.github.io/tags/Android/"/>
+    
+    <category term="Linux" scheme="https://dpkg123.github.io/tags/Linux/"/>
+    
+    <category term="lxc" scheme="https://dpkg123.github.io/tags/lxc/"/>
+    
+  </entry>
   
   <entry>
     <title>本地搭建第三方alpine repo</title>
@@ -500,34 +526,6 @@
     <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
     <category term="dtb" scheme="https://dpkg123.github.io/tags/dtb/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>coloros和miui</title>
-    <link href="https://dpkg123.github.io/2023/05/01/coloros%E5%92%8Cmiui/"/>
-    <id>https://dpkg123.github.io/2023/05/01/coloros%E5%92%8Cmiui/</id>
-    <published>2023-04-30T22:16:11.000Z</published>
-    <updated>2023-04-30T22:16:11.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>别拿MIUI比ColorOS了，两个系统不在一条赛道上，一个功能强一个稳定。MIUI是强大，但是这几年的表现真的不太令人满意，旗舰机只有两年保质期而且全程一堆Bug，MIUI12画的大饼到现在都没填完，优化系统靠一代一代砍模糊砍动画。COS功能上是不如MIUI，但是稳定流畅程度上MIUI真的没法比，845开始三年大版本更新，2023开始四年大版本更新。<br>至于小米两个855的12.5我的评价是完全的答辩，动画全程掉帧，模糊也砍得不少，停在了最糟糕的一个版本，现在10系停更也算是吓人一跳。MIUI很强大也很适合玩机人群，但是就MIUI目前的表现而言这个系统放到5k+的旗舰上显然不太合格，对于大多数不太喜欢捣鼓系统追求稳定流畅的人来说还是ColorOS更好</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
-      
-    
-    
-    
-    
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
-    
-    <category term="miui" scheme="https://dpkg123.github.io/tags/miui/"/>
-    
-    <category term="coloros" scheme="https://dpkg123.github.io/tags/coloros/"/>
-    
-    <category term="手机" scheme="https://dpkg123.github.io/tags/%E6%89%8B%E6%9C%BA/"/>
     
   </entry>
   

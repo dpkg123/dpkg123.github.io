@@ -34,11 +34,13 @@
     
     
     
-    <category term="Android" scheme="https://dpkg123.github.io/tags/Android/"/>
+    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
     
-    <category term="Linux" scheme="https://dpkg123.github.io/tags/Linux/"/>
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
     <category term="lxc" scheme="https://dpkg123.github.io/tags/lxc/"/>
+    
+    <category term="root" scheme="https://dpkg123.github.io/tags/root/"/>
     
   </entry>
   

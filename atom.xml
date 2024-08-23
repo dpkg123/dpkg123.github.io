@@ -34,9 +34,9 @@
     
     
     
-    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
-    
     <category term="PostmarketOS" scheme="https://dpkg123.github.io/tags/PostmarketOS/"/>
+    
+    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
     
     <category term="手机" scheme="https://dpkg123.github.io/tags/%E6%89%8B%E6%9C%BA/"/>
     
@@ -64,15 +64,15 @@
     
     
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
-    
     <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
     
-    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
     <category term="PostmarketOS" scheme="https://dpkg123.github.io/tags/PostmarketOS/"/>
     
     <category term="ROM移植" scheme="https://dpkg123.github.io/tags/ROM%E7%A7%BB%E6%A4%8D/"/>
+    
+    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
     
   </entry>
   
@@ -144,9 +144,9 @@
     
     
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
-    
     <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
     <category term="dtc" scheme="https://dpkg123.github.io/tags/dtc/"/>
     
@@ -172,9 +172,9 @@
     
     
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
-    
     <category term="kernel" scheme="https://dpkg123.github.io/tags/kernel/"/>
+    
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
     <category term="OPPO" scheme="https://dpkg123.github.io/tags/OPPO/"/>
     
@@ -198,9 +198,9 @@
     
     
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
-    
     <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
   </entry>
   
@@ -219,9 +219,9 @@
     
     
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
-    
     <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
     <category term="twrp" scheme="https://dpkg123.github.io/tags/twrp/"/>
     
@@ -247,13 +247,13 @@
     
     
     
-    <category term="kernel" scheme="https://dpkg123.github.io/tags/kernel/"/>
+    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
     
     <category term="3DS" scheme="https://dpkg123.github.io/tags/3DS/"/>
     
-    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
-    
     <category term="buildroot" scheme="https://dpkg123.github.io/tags/buildroot/"/>
+    
+    <category term="kernel" scheme="https://dpkg123.github.io/tags/kernel/"/>
     
   </entry>
   
@@ -323,9 +323,9 @@
     
     <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
     
-    <category term="9008" scheme="https://dpkg123.github.io/tags/9008/"/>
-    
     <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
+    
+    <category term="9008" scheme="https://dpkg123.github.io/tags/9008/"/>
     
   </entry>
   
@@ -347,9 +347,9 @@
     
     
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
-    
     <category term="kernel" scheme="https://dpkg123.github.io/tags/kernel/"/>
+    
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
     <category term="android kernel" scheme="https://dpkg123.github.io/tags/android-kernel/"/>
     
@@ -425,9 +425,9 @@
     
     
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
-    
     <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
     <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
     

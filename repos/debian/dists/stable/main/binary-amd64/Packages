@@ -308,21 +308,21 @@ MD5sum: d61ffd0b748ebd0728a5f8e50a7e10b1
 Description: All your games in one place
 
 Package: gb-studio
-Version: 4.0.2
+Version: 4.1.3
 Architecture: amd64
 Depends: libgtk-3-0, libnotify4, libnss3, libxtst6, xdg-utils, libatspi2.0-0, libdrm2, libgbm1, libxcb-dri3-0, kde-cli-tools | kde-runtime | trash-cli | libglib2.0-bin | gvfs-bin
 Recommends: pulseaudio | libasound2
 Suggests: gir1.2-gnomekeyring-1.0, libgnome-keyring0, lsb-release
-Installed-Size: 268377
+Installed-Size: 267652
 Maintainer: GB Studio
 Homepage: https://www.gbstudio.dev
 Priority: optional
 Section: utils
-Filename: pool/main/g/gb-studio/gb-studio_4.0.2_amd64.deb
-Size: 83419694
-SHA256: 4e7886f883153cb79c36dc28ebd12df429ac03e6af26cbea007333192a68bfac
-SHA1: 1870a9476d6a324c9fe3dc4e603074e22ab6317b
-MD5sum: 619e0abb4791189f3b8cb9662b2cc962
+Filename: pool/main/g/gb-studio/gb-studio_4.1.3_amd64.deb
+Size: 83431516
+SHA256: a019f1026aab6941d1a4ced86e3811ed4606ba5b825ac47e2ed8ad8ef1400e99
+SHA1: 73c1407fff607177fab6aaa1f558ee30441f5bd8
+MD5sum: b44b8380068dc6ec742543646e880fd3
 Description: Visual retro game maker
  Visual retro game maker
 
@@ -852,22 +852,22 @@ MD5sum: 412e96ceb45a167b156b7641d29a139f
 Description: RAD tool for wxWidgets GUI design.
 
 Package: xmcl
-Version: 0.45.2-919
+Version: 0.47.10-1002
 License: MIT
 Vendor: ci010 <cijhn@hotmail.com>
 Architecture: amd64
 Maintainer: ci010 <cijhn@hotmail.com>
-Installed-Size: 285378
+Installed-Size: 285479
 Depends: libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0
 Recommends: libappindicator3-1
 Homepage: https://github.com/voxelum/x-minecraft-launcher#readme
 Priority: optional
 Section: default
-Filename: pool/main/x/xmcl/xmcl_0.45.2-919_amd64.deb
-Size: 79928702
-SHA256: b6845aa98cb682493cbc4c4bc9fa04a43673474023d9cbc7a3934dd0ba24218e
-SHA1: fecfd8a62a14216c68ba97860fd626265da0cc0d
-MD5sum: 5302bbda4dbddde286a0e586110a04de
+Filename: pool/main/x/xmcl/xmcl_0.47.10-1002_amd64.deb
+Size: 79919390
+SHA256: 9374217574cee1283baed43d440fb5d1a8835d5d9415686a08b69043d0ba4b84
+SHA1: 5f0c6268d0e3996066679a3b08de88c07041f754
+MD5sum: 7dd3a0ca5aea063738bfe8d5810b88ea
 Description: 
   A great minecraft launcher in the future
 

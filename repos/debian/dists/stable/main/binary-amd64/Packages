@@ -156,6 +156,22 @@ MD5sum: 2b9d75b82f1c52a2176a859a5de22663
 Description: eBook Reader
  A simple and focussed eBook reader
 
+Package: browsh
+Version: 1.8.2
+Architecture: amd64
+Maintainer: Thomas Buckley-Houston <tom@tombh.co.uk>
+Installed-Size: 7568
+Depends: firefox | firefox-esr
+Homepage: https://www.brow.sh
+Priority: optional
+Section: 
+Filename: pool/main/b/browsh/browsh_1.8.2_amd64.deb
+Size: 3711462
+SHA256: 9333a32ce4adf3d5436e599c1ec7b4375d862e9d72cb93f600f586111775416b
+SHA1: da0d25d534dbcf9ee2ba303b7b35d6a28f856324
+MD5sum: c08248430e7bd473d7d6cd5393294e1c
+Description: The modern, text-based browser
+
 Package: chord
 Version: 0.2.40-1~opt11
 Architecture: amd64

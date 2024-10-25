@@ -153,6 +153,22 @@ MD5sum: f0dccfaeebf9e950aeeda79d34b2ab75
 Description: Box86 lets you run x86 Linux programs (such as games) on non-x86 Linux systems, like ARM (host system needs to be 32bit little-endian)
  Box86 lets you run x86 Linux programs (such as games) on non-x86 Linux systems, like ARM (host system needs to be 32bit little-endian)
 
+Package: browsh
+Version: 1.8.2
+Architecture: armhf
+Maintainer: Thomas Buckley-Houston <tom@tombh.co.uk>
+Installed-Size: 7296
+Depends: firefox | firefox-esr
+Homepage: https://www.brow.sh
+Priority: optional
+Section: 
+Filename: pool/main/b/browsh/browsh_1.8.2_armhf.deb
+Size: 3551352
+SHA256: 46bb529e989eb0ac232eab9d85d8456d582128b4d2b833dbeffc14c20a196c05
+SHA1: 6b3cb1b07df294f9d81a1f586c9821ea65cad42b
+MD5sum: 71520a729e0ed200e1ce31d83ea57903
+Description: The modern, text-based browser
+
 Package: fantascene-dynamic-wallpaper
 Version: 1.7.2-1
 Architecture: armhf

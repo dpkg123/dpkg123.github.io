@@ -238,6 +238,22 @@ MD5sum: cc3be50e341118e9473b40efb8639798
 Description: Box64 lets you run x86_64 Linux programs (such as games) on non-x86_64 Linux systems, like ARM (host system needs to be 64bit little-endian)
  Box64 lets you run x86_64 Linux programs (such as games) on non-x86_64 Linux systems, like ARM (host system needs to be 64bit little-endian)
 
+Package: browsh
+Version: 1.8.2
+Architecture: arm64
+Maintainer: Thomas Buckley-Houston <tom@tombh.co.uk>
+Installed-Size: 7360
+Depends: firefox | firefox-esr
+Homepage: https://www.brow.sh
+Priority: optional
+Section: 
+Filename: pool/main/b/browsh/browsh_1.8.2_arm64.deb
+Size: 3500112
+SHA256: 086ecc93cb0238a8f390128443a2d66a3a3be302f4a1b3bb9942f3d2c162273a
+SHA1: abce5eaae8f828f307af6f9ccc1caafe0bfb67d8
+MD5sum: 06ba0edf395a79d596d676e0a20f8ac1
+Description: The modern, text-based browser
+
 Package: ciano
 Version: 0.2.4-1~opt11
 Architecture: arm64

@@ -798,6 +798,35 @@ Description: Xournal++ - Open source hand note-taking program
   - Multi language support (over 20 languages supported)
   - Plugins using Lua scripting
 
+Package: yarn
+Version: 1.22.22-1
+Recommends: nodejs
+Conflicts: nodejs (<< 4.0.0), cmdtest
+Architecture: all
+Installed-Size: 5304
+Maintainer: Yarn Developers <yarn@dan.cx>
+Homepage: https://yarnpkg.com/
+Priority: optional
+Section: devel
+Filename: pool/main/y/yarn/yarn_1.22.22-1_all.deb
+Size: 896308
+SHA256: bdd227d3fead0510a1a75620ffa7369f61f50711505efa9dc371e14dca04e33e
+SHA1: a3073de43242748721a5e7caf157cb928c9c1329
+MD5sum: cf063bf7859c42360a0e50427931c640
+Description: Fast, reliable, and secure dependency management.
+ Yarn: Fast, reliable, and secure dependency management.
+ .
+ Fast: Yarn caches every package it downloads so it never needs to again. It
+ also parallelizes operations to maximize resource utilization so install times
+ are faster than ever.
+ .
+ Reliable: Using a detailed, but concise, lockfile format, and a deterministic
+ algorithm for installs, Yarn is able to guarantee that an install that worked
+ on one system will work exactly the same way on any other system.
+ .
+ Secure: Yarn uses checksums to verify the integrity of every installed package
+ before its code is executed.
+
 Package: yesplaymusic
 Version: 0.4.8
 License: unknown

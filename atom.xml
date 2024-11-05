@@ -23,7 +23,7 @@
     <published>2024-11-05T22:35:27.000Z</published>
     <updated>2024-11-05T22:35:27.000Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="USB-不工作"><a href="#USB-不工作" class="headerlink" title="USB 不工作"></a>USB 不工作</h2><p>准确来说是 adb 不工作</p><p>解决办法: 写入下列内容到 <code>recovery/root/init.recovery.usb.rc</code>:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">on property:sys.usb.config=mtp,adb</span><br><span class="line">    start adbd</span><br><span class="line"></span><br><span class="line">on property:sys.usb.ffs.ready=1 &amp;&amp; property:sys.usb.config=mtp,adb</span><br><span class="line">    write /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration &quot;mtp_adb&quot;</span><br><span class="line">    rm /config/usb_gadget/g1/configs/b.1/f1</span><br><span class="line">    rm /config/usb_gadget/g1/configs/b.1/f2</span><br><span class="line">    rm /config/usb_gadget/g1/configs/b.1/f3</span><br><span class="line">    rm /config/usb_gadget/g1/configs/b.1/f4</span><br><span class="line">    rm /config/usb_gadget/g1/configs/b.1/f5</span><br><span class="line">    write /config/usb_gadget/g1/idVendor 0x18d1</span><br><span class="line">    write /config/usb_gadget/g1/idProduct 0x2d08</span><br><span class="line">    symlink /config/usb_gadget/g1/functions/mtp.gs0 /config/usb_gadget/g1/configs/b.1/f1</span><br><span class="line">    symlink /config/usb_gadget/g1/functions/ffs.adb /config/usb_gadget/g1/configs/b.1/f2</span><br><span class="line">    write /config/usb_gadget/g1/UDC $&#123;sys.usb.controller&#125;</span><br><span class="line">    setprop sys.usb.state $&#123;sys.usb.config&#125;</span><br></pre></td></tr></table></figure><p>此外还需要打开原厂 init.rc 修正 usb 设备的 id，需要将&#x2F;sys&#x2F;class&#x2F;android_usb&#x2F;android0&#x2F;idVendor和write &#x2F;sys&#x2F;class&#x2F;android_usb&#x2F;android0&#x2F;idProduct后面的 id 分别替换到&#x2F;config&#x2F;usb_gadget&#x2F;g1&#x2F;idVendor和&#x2F;config&#x2F;usb_gadget&#x2F;g1&#x2F;idProduct.</p><h2 id="修复屏幕显示"><a href="#修复屏幕显示" class="headerlink" title="修复屏幕显示"></a>修复屏幕显示</h2><p>添加以下内容在 BoardConfig.mk:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TW_Y_OFFSET := 106 #导航栏向上</span><br><span class="line">TW_H_OFFSET := -106 #界面整体向下</span><br></pre></td></tr></table></figure><h2 id="修复-cpu-温度"><a href="#修复-cpu-温度" class="headerlink" title="修复 cpu 温度"></a>修复 cpu 温度</h2><p>使用cp_master节点来读取温度:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TW_CUSTOM_CPU_TEMP_PATH := &quot;/sys/class/thermal/thermal_zone54/temp&quot;</span><br></pre></td></tr></table></figure><h2 id="修复解密"><a href="#修复解密" class="headerlink" title="修复解密"></a>修复解密</h2><p>咕咕咕</p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="USB-不工作"><a href="#USB-不工作" class="headerlink" title="USB 不工作"></a>USB 不工作</h2><p>准确来说是 adb 不工作</p><p>解决办法: 写入下列内容到 <code>recovery/root/init.recovery.usb.rc</code>:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">on property:sys.usb.config=mtp,adb</span><br><span class="line">    start adbd</span><br><span class="line"></span><br><span class="line">on property:sys.usb.ffs.ready=1 &amp;&amp; property:sys.usb.config=mtp,adb</span><br><span class="line">    write /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration &quot;mtp_adb&quot;</span><br><span class="line">    rm /config/usb_gadget/g1/configs/b.1/f1</span><br><span class="line">    rm /config/usb_gadget/g1/configs/b.1/f2</span><br><span class="line">    rm /config/usb_gadget/g1/configs/b.1/f3</span><br><span class="line">    rm /config/usb_gadget/g1/configs/b.1/f4</span><br><span class="line">    rm /config/usb_gadget/g1/configs/b.1/f5</span><br><span class="line">    write /config/usb_gadget/g1/idVendor 0x18d1</span><br><span class="line">    write /config/usb_gadget/g1/idProduct 0x2d08</span><br><span class="line">    symlink /config/usb_gadget/g1/functions/mtp.gs0 /config/usb_gadget/g1/configs/b.1/f1</span><br><span class="line">    symlink /config/usb_gadget/g1/functions/ffs.adb /config/usb_gadget/g1/configs/b.1/f2</span><br><span class="line">    write /config/usb_gadget/g1/UDC $&#123;sys.usb.controller&#125;</span><br><span class="line">    setprop sys.usb.state $&#123;sys.usb.config&#125;</span><br></pre></td></tr></table></figure><p>此外还需要打开原厂 init.rc 修正 usb 设备的 id，需要将&#x2F;sys&#x2F;class&#x2F;android_usb&#x2F;android0&#x2F;idVendor和write &#x2F;sys&#x2F;class&#x2F;android_usb&#x2F;android0&#x2F;idProduct后面的 id 分别替换到&#x2F;config&#x2F;usb_gadget&#x2F;g1&#x2F;idVendor和&#x2F;config&#x2F;usb_gadget&#x2F;g1&#x2F;idProduct.</p><h2 id="修复屏幕显示"><a href="#修复屏幕显示" class="headerlink" title="修复屏幕显示"></a>修复屏幕显示</h2><p>添加以下内容在 BoardConfig.mk:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TW_Y_OFFSET := 106 #导航栏向上</span><br><span class="line">TW_H_OFFSET := -106 #界面整体向下</span><br></pre></td></tr></table></figure><h2 id="修复-cpu-温度"><a href="#修复-cpu-温度" class="headerlink" title="修复 cpu 温度"></a>修复 cpu 温度</h2><p>使用cp_master节点来读取温度:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TW_CUSTOM_CPU_TEMP_PATH := &quot;/sys/class/thermal/thermal_zone54/temp&quot;</span><br></pre></td></tr></table></figure><h2 id="修复解密"><a href="#修复解密" class="headerlink" title="修复解密"></a>修复解密</h2><p>高通: <a href="https://anclark.github.io/2019/01/08/Android_Adapting_Guide/%E8%AE%A9TWRP%E6%94%AF%E6%8C%81%E8%A7%A3%E5%AF%86%E9%AB%98%E9%80%9Adata%E5%88%86%E5%8C%BA/">https://anclark.github.io/2019/01/08/Android_Adapting_Guide/让TWRP支持解密高通data分区/</a></p><p>联发科: <a href="https://blog.mocn.top/posts/67fc599b/">https://blog.mocn.top/posts/67fc599b/</a></p><p>海思: 不知道，没接触过</p>]]></content>
     
     
       
@@ -60,11 +60,11 @@
     
     
     
-    <category term="PostmarketOS" scheme="https://dpkg123.github.io/tags/PostmarketOS/"/>
+    <category term="手机" scheme="https://dpkg123.github.io/tags/%E6%89%8B%E6%9C%BA/"/>
     
     <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
     
-    <category term="手机" scheme="https://dpkg123.github.io/tags/%E6%89%8B%E6%9C%BA/"/>
+    <category term="PostmarketOS" scheme="https://dpkg123.github.io/tags/PostmarketOS/"/>
     
     <category term="GitHub" scheme="https://dpkg123.github.io/tags/GitHub/"/>
     
@@ -92,13 +92,13 @@
     
     <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
     
-    <category term="PostmarketOS" scheme="https://dpkg123.github.io/tags/PostmarketOS/"/>
-    
-    <category term="ROM移植" scheme="https://dpkg123.github.io/tags/ROM%E7%A7%BB%E6%A4%8D/"/>
-    
     <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
     <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
+    
+    <category term="PostmarketOS" scheme="https://dpkg123.github.io/tags/PostmarketOS/"/>
+    
+    <category term="ROM移植" scheme="https://dpkg123.github.io/tags/ROM%E7%A7%BB%E6%A4%8D/"/>
     
   </entry>
   
@@ -174,9 +174,9 @@
     
     <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
-    <category term="dtc" scheme="https://dpkg123.github.io/tags/dtc/"/>
-    
     <category term="dtb" scheme="https://dpkg123.github.io/tags/dtb/"/>
+    
+    <category term="dtc" scheme="https://dpkg123.github.io/tags/dtc/"/>
     
   </entry>
   
@@ -273,9 +273,9 @@
     
     
     
-    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
-    
     <category term="3DS" scheme="https://dpkg123.github.io/tags/3DS/"/>
+    
+    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
     
     <category term="buildroot" scheme="https://dpkg123.github.io/tags/buildroot/"/>
     

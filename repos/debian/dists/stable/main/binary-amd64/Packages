@@ -572,6 +572,23 @@ Description: Recite English words
  .
  Home Page: http://reciteword.sourceforge.net
 
+Package: ruri
+Version: 3.8-1
+Architecture: amd64
+Maintainer: Moe-hacker <admin@crack.moe>
+Installed-Size: 197
+Depends: libc6 (>= 2.34), libcap2 (>= 1:2.10), libseccomp2 (>= 0.0.0~20120605)
+Homepage: https://github.com/Moe-hacker/ruri
+Priority: optional
+Section: admin
+Filename: pool/main/r/ruri/ruri_3.8-1_amd64.deb
+Size: 65832
+SHA256: e971bd94f587957a4e2c50daeed524b2c137b2e7474f4ce64b4c187dd5b3803f
+SHA1: a6643ecb334991e09a97db01efde4267e4ebe13a
+MD5sum: 0ff9c72586fd4ec6cd26d33d387831c8
+Description: Lightweight, User-friendly Linux-container Implementation
+ ruri is a tiny linux container implementation.
+
 Package: sogoupinyin
 Version: 4.2.1.145
 Architecture: amd64

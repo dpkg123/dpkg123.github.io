@@ -6,7 +6,7 @@
   <link href="https://dpkg123.github.io/atom.xml" rel="self"/>
   
   <link href="https://dpkg123.github.io/"/>
-  <updated>2024-11-05T22:35:27.000Z</updated>
+  <updated>2024-12-09T00:28:54.000Z</updated>
   <id>https://dpkg123.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>安卓内核编译速通</title>
+    <link href="https://dpkg123.github.io/2024/12/09/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91%E9%80%9F%E9%80%9A/"/>
+    <id>https://dpkg123.github.io/2024/12/09/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91%E9%80%9F%E9%80%9A/</id>
+    <published>2024-12-09T00:28:54.000Z</published>
+    <updated>2024-12-09T00:28:54.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>灵感来源:前几天捣鼓k9的内核偶然想到的</p><p>注:本人小白一枚，如有错误请指出</p><p>注:本文为速通文章，存在奇技淫巧，这些奇技淫巧可能会导致编译出来的内核刷入后开不开机或功耗增大等副作用</p><p>注:请确保手机已经root</p><h1 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1.准备工作"></a>1.准备工作</h1><p>准备一个linux环境，实体机或虚拟机都行</p><h1 id="2-安装依赖"><a href="#2-安装依赖" class="headerlink" title="2.安装依赖"></a>2.安装依赖</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install clang lld bison flex make python2.7 binutils binutils-aarch64-linux-gnu binutils-arm-linux-gnueabihf git -y</span><br></pre></td></tr></table></figure><p>解释:</p><ul><li>clang: c编译器，google从某一个安卓版本起使用魔改clang编译安卓内核，但是这是速通所以就不去谷歌拉巨大编译链了</li><li>lld: 连接器，跟clang一起隶属于llvm项目，是llvm的前端</li><li>bison,flex: 语法分析器，flex将.lex文件翻译成.c文件，bison将.y文件翻译成.y和.h文件:</li><li>make: 一个自动化编译工具，通过解析makefile描述的文件和规则执行编译操作</li><li>python2.7: 用于执行scripts里的mkdtboimg.py生成dtbo.img，如果软件源里没有可以用python3版本的mkdtboimg.py替代</li><li>binutils:一个编译工具集合，提供例如as,ar等一系列工具，例如头图的 AR built-in.a.但是一般安装的是本机架构的binutils，对于交叉编译来说语言安装对应架构的binutils</li></ul><h2 id="3-获取源码"><a href="#3-获取源码" class="headerlink" title="3.获取源码"></a>3.获取源码</h2><p>一般在github搜索就能找到，例如:</p><p>kernel_xiaomi(小米)_sm8250(手机对应的soc代号，可以百度，例如骁龙855,860对应sm8150,骁龙845对应sdm845,骁龙835对应msm8998)</p><h2 id="4-确认手机配置文件"><a href="#4-确认手机配置文件" class="headerlink" title="4.确认手机配置文件"></a>4.确认手机配置文件</h2><p>手机有root的话直接提取&#x2F;proc&#x2F;config.gz然后解压gz文件就能获取本机配置文件扔在内核源码根目录下的arch&#x2F;arm64&#x2F;configs&#x2F;xxx_defconfig就可以了</p><h2 id="5-克隆源码"><a href="#5-克隆源码" class="headerlink" title="5.克隆源码:"></a>5.克隆源码:</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone 内核源码网址 --depth=1</span><br></pre></td></tr></table></figure><p>内核编译一般情况下只需要拉取一层的git提交记录就可以了。如果要多拉基层就把1改成对应的数字</p><h2 id="6-编译"><a href="#6-编译" class="headerlink" title="6.编译"></a>6.编译</h2><p>在源码根目录下执行</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- CROSS_COMPILE_ARM32=arm-linux-gnuabeihf- CC=clang LD=ld.lld HOSTCC=clang HOSTLD=ld.lld O=out KCFLAGS+=-Wno-error xxx_defconfig all</span><br></pre></td></tr></table></figure><p>解释:</p><ul><li><p>make: 执行构建指令</p></li><li><p>ARCH&#x3D;arm64: 编译内核架构为arm64</p></li><li><p>CROSS_COMPILE: 指定交叉编译器，由于是速通使用默认binutils就可以，默认是64位，ARM32是32位</p></li><li><p>CC&#x3D;clang: 内核编译器为clang</p></li><li><p>LD&#x3D;ld.lld: 内核链接器为lld</p></li><li><p>HOSTCC&#x3D;clang: 使用本机编译器为clang，上图中的conf和dtc都是通过本机编译器而不是内核编译器来编译的</p></li><li><p>HOSTLD&#x3D;ld.lld: 使用本机编译器为ld.lld</p></li><li><p>O&#x3D;out: 构建目录为out</p></li><li><p>KCFLAGS+&#x3D;-Wno-error: 在KCFLAGS里追加-Wno-error参数，绝大多数编译内核导致的错误通常都是因为kbuild默认启用了-Werror参数导致，魔改编译器习以为常的代码在原汁原味编译器上会被视为警告，而-Werror参数是默认所有警告都被当做是错误:</p></li></ul><p>然后就可以在arch&#x2F;arm64&#x2F;boot下找到Image开头的内核文件了。</p><p>如果还是遇到-Werror&#x3D;xxx的错误呢？</p><p>那就编辑根目录下的Makefile，删除所有带有werror的字样，然后重新编译。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+    <category term="Android" scheme="https://dpkg123.github.io/tags/Android/"/>
+    
+    <category term="内核" scheme="https://dpkg123.github.io/tags/%E5%86%85%E6%A0%B8/"/>
+    
+    <category term="编译" scheme="https://dpkg123.github.io/tags/%E7%BC%96%E8%AF%91/"/>
+    
+    <category term="奇技淫巧" scheme="https://dpkg123.github.io/tags/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
+    
+  </entry>
   
   <entry>
     <title>twrp设备树修复</title>
@@ -198,9 +226,9 @@
     
     
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
-    
     <category term="kernel" scheme="https://dpkg123.github.io/tags/kernel/"/>
+    
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
     <category term="OPPO" scheme="https://dpkg123.github.io/tags/OPPO/"/>
     
@@ -273,13 +301,13 @@
     
     
     
-    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
-    
-    <category term="kernel" scheme="https://dpkg123.github.io/tags/kernel/"/>
-    
     <category term="3DS" scheme="https://dpkg123.github.io/tags/3DS/"/>
     
+    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    
     <category term="buildroot" scheme="https://dpkg123.github.io/tags/buildroot/"/>
+    
+    <category term="kernel" scheme="https://dpkg123.github.io/tags/kernel/"/>
     
   </entry>
   
@@ -373,9 +401,9 @@
     
     
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
-    
     <category term="kernel" scheme="https://dpkg123.github.io/tags/kernel/"/>
+    
+    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
     <category term="android kernel" scheme="https://dpkg123.github.io/tags/android-kernel/"/>
     
@@ -514,32 +542,6 @@
     <category term="内核编译" scheme="https://dpkg123.github.io/tags/%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91/"/>
     
     <category term="Kernel" scheme="https://dpkg123.github.io/tags/Kernel/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>别当欧尼酱了12集归档</title>
-    <link href="https://dpkg123.github.io/2023/05/02/%E5%88%AB%E5%BD%93%E6%AC%A7%E5%B0%BC%E9%85%B1%E4%BA%8612%E9%9B%86%E5%BD%92%E6%A1%A3/"/>
-    <id>https://dpkg123.github.io/2023/05/02/%E5%88%AB%E5%BD%93%E6%AC%A7%E5%B0%BC%E9%85%B1%E4%BA%8612%E9%9B%86%E5%BD%92%E6%A1%A3/</id>
-    <published>2023-05-02T14:34:19.000Z</published>
-    <updated>2023-05-02T14:34:19.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="https://qw5d-my.sharepoint.com/:v:/g/personal/test1_qw5d_onmicrosoft_com/ETpiQymApU9JmUm4aCa5osgBH8PN8fu7jxGWqAyke1C_8A?e=BmxClr">第1集</a><br><a href="https://qw5d-my.sharepoint.com/:v:/g/personal/test1_qw5d_onmicrosoft_com/EQffyuYemcVNq7zPmyM0lwoBD2NMi1DWW0upHJ8J2AXmRQ?e=v9cfi3">第2集</a><br><a href="https://qw5d-my.sharepoint.com/:v:/g/personal/test1_qw5d_onmicrosoft_com/EWziRns7ZhlIsfEhOgl8MeUBSFtNr9MdpxvpfTT1KgObEA?e=f58QId">第3集</a><br><a href="https://qw5d-my.sharepoint.com/:v:/g/personal/test1_qw5d_onmicrosoft_com/EfYV7sDay6FGvJUrK-Itm5gBC0FTQFTRr1cC9h_SyiQaOw?e=ayAUNH">第4集</a><br><a href="https://qw5d-my.sharepoint.com/:v:/g/personal/test1_qw5d_onmicrosoft_com/EW71n8N3egNHuuz87Utuw84BX0f5RttirpaRxEB4iZ-j6w?e=AICiFo">第5集</a><br><a href="https://qw5d-my.sharepoint.com/:v:/g/personal/test1_qw5d_onmicrosoft_com/EUiJN19jigxMun6eX3yEYT4B3L-GiQ276UBvpAuYUjqfEg?e=O7N1Tu">第6集</a><br><a href="https://qw5d-my.sharepoint.com/:v:/g/personal/test1_qw5d_onmicrosoft_com/ES-wtYuBGdpGmmSDzEHp68IBQrrNBft0hDsIyvkG3A7BFA?e=eytA8x">第7集</a><br><a href="https://qw5d-my.sharepoint.com/:v:/g/personal/test1_qw5d_onmicrosoft_com/EcdL12mjv9JMtRVRYHGcCN0Be8a4g1iJdz5Y6BjRX3BbWw?e=vgZMaE">第8集</a><br><a href="https://qw5d-my.sharepoint.com/:v:/g/personal/test1_qw5d_onmicrosoft_com/EazD3eW7hohGo1mqZWWZl_sBUZefZl7sXK4jNh4rGkxYSg?e=oTiyu7">第9集</a><br><a href="https://qw5d-my.sharepoint.com/:v:/g/personal/test1_qw5d_onmicrosoft_com/EbgngaE7uJpDqeLkRoe20voB6K_lE6_SeePiVXsRtJQoLg?e=vfeax7">第10集</a><br><a href="https://qw5d-my.sharepoint.com/:v:/g/personal/test1_qw5d_onmicrosoft_com/EQuzaYvQHwBPukcbDPSoabcBy5FK_TQ8ZGQn0zZ7hupqCg?e=osLzQJ">第11集</a><br><a href="https://qw5d-my.sharepoint.com/:v:/g/personal/test1_qw5d_onmicrosoft_com/EbgngaE7uJpDqeLkRoe20voB6K_lE6_SeePiVXsRtJQoLg?e=vfeax7">第12集</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
-      
-    
-    
-    
-    
-    <category term="归档" scheme="https://dpkg123.github.io/tags/%E5%BD%92%E6%A1%A3/"/>
-    
-    <category term="番剧" scheme="https://dpkg123.github.io/tags/%E7%95%AA%E5%89%A7/"/>
-    
-    <category term="别当欧尼酱了" scheme="https://dpkg123.github.io/tags/%E5%88%AB%E5%BD%93%E6%AC%A7%E5%B0%BC%E9%85%B1%E4%BA%86/"/>
     
   </entry>
   

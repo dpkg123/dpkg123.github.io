@@ -510,6 +510,23 @@ Description: Easily to lauch qemu.
 Essential: no
 Pre-Depends: qemu-system
 
+Package: ruri
+Version: 3.8-1
+Architecture: arm64
+Maintainer: Moe-hacker <admin@crack.moe>
+Installed-Size: 213
+Depends: libc6 (>= 2.34), libcap2 (>= 1:2.10), libseccomp2 (>= 0.0.0~20120605)
+Homepage: https://github.com/Moe-hacker/ruri
+Priority: optional
+Section: admin
+Filename: pool/main/r/ruri/ruri_3.8-1_arm64.deb
+Size: 58672
+SHA256: 0bd2ecd9b9c9e82693cbeecabfb008fb47bd31e09897a8f2434d42274b87dc16
+SHA1: 38238fd08c90ef58d24a5e832f0e24a759b620e4
+MD5sum: 54707c8c5cd459a1430167f49f5e9941
+Description: Lightweight, User-friendly Linux-container Implementation
+ ruri is a tiny linux container implementation.
+
 Package: sogoupinyin
 Version: 4.2.1.145
 Architecture: arm64

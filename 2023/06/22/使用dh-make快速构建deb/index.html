@@ -225,21 +225,28 @@
 <h1 id="修改文件"><a href="#修改文件" class="headerlink" title="修改文件"></a>修改文件</h1><p>主要修改以下几个文件:</p>
 <ul>
 <li>postinst<br>可以用作者配置好的，如果没有可以不用填写</li>
-<li>changelog<br>参考以下格式: <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ruri (9.0) unstable; urgency=low</span><br><span class="line"></span><br><span class="line">  * Initial release.</span><br><span class="line"></span><br><span class="line"> -- Moe-hacker &lt;Moe-hacker@outlook.com&gt;  Mon, 19 Jun 2023 16:32:34 +0800</span><br></pre></td></tr></table></figure></li>
+<li>changelog<br>参考以下格式:</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ruri (9.0) unstable; urgency=low</span><br><span class="line"></span><br><span class="line">  * Initial release.</span><br><span class="line"></span><br><span class="line"> -- Moe-hacker &lt;Moe-hacker@outlook.com&gt;  Mon, 19 Jun 2023 16:32:34 +0800</span><br></pre></td></tr></table></figure>
+<ul>
 <li>copyright</li>
 </ul>
 <p>一般不用修改。如果要往里添加的话参考</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Files: src/riru</span><br><span class="line">Copyright: 2023 Moe-hacker &lt;moe-hacker@outlook.com&gt;</span><br><span class="line"></span><br><span class="line">License: Apache-2.0</span><br></pre></td></tr></table></figure>
 <ul>
 <li>compat<br>一般为9,构建的时候可能会出现警告，调成10即可。</li>
-<li>rules<br>参考<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/make -f</span><br><span class="line">include /usr/share/dpkg/default.mk</span><br><span class="line"></span><br><span class="line">%:</span><br><span class="line">	dh $@ --parallel</span><br><span class="line"></span><br><span class="line">override_dh_auto_configure:</span><br><span class="line">	dh_auto_configure -- DEFINES+=&quot;VERSION=$(DEB_VERSION_UPSTREAM)&quot;</span><br></pre></td></tr></table></figure></li>
+<li>rules<br>参考</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/make -f</span><br><span class="line">include /usr/share/dpkg/default.mk</span><br><span class="line"></span><br><span class="line">%:</span><br><span class="line">	dh $@ --parallel</span><br><span class="line"></span><br><span class="line">override_dh_auto_configure:</span><br><span class="line">	dh_auto_configure -- DEFINES+=&quot;VERSION=$(DEB_VERSION_UPSTREAM)&quot;</span><br></pre></td></tr></table></figure>
+<ul>
 <li>ruri.install</li>
 </ul>
 <p>默认是没有这个文件的，需要手动创建。<br>建议先make一下。看看编译后生成的文件到底在哪。<br>ruri编译后默认生成到根目录<br>就可以写</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruri /usr/bin</span><br></pre></td></tr></table></figure>
 <ul>
-<li>control<br>主要修改以下内容<br>Maintainer: 换成你自己的名字+你自己的邮箱，邮箱可以不填<br>Homepage: 项目主页<br>Depends: 所需要的依赖<br>Build-Depends: 编译所需要的依赖<br>Description: 描述<br>参考<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ource: ruri</span><br><span class="line">Priority: optional</span><br><span class="line">Maintainer: Moe-hacker &lt;Moe-hacker@outlook.com&gt;</span><br><span class="line">Build-Depends: debhelper-compat (= 13) ,clang ,build-essential ,libcap-dev</span><br><span class="line">Standards-Version: 4.6.0</span><br><span class="line">Homepage: https://github.com/Moe-hacker/ruri</span><br><span class="line">Rules-Requires-Root: no</span><br><span class="line"></span><br><span class="line">Package: ruri</span><br><span class="line">Architecture: any</span><br><span class="line">Depends: xz-utils</span><br><span class="line">Description: chroot/unshare Linux containers</span><br><span class="line"> simple &amp; secure</span><br></pre></td></tr></table></figure></li>
+<li>control<br>主要修改以下内容<br>Maintainer: 换成你自己的名字+你自己的邮箱，邮箱可以不填<br>Homepage: 项目主页<br>Depends: 所需要的依赖<br>Build-Depends: 编译所需要的依赖<br>Description: 描述<br>参考</li>
 </ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ource: ruri</span><br><span class="line">Priority: optional</span><br><span class="line">Maintainer: Moe-hacker &lt;Moe-hacker@outlook.com&gt;</span><br><span class="line">Build-Depends: debhelper-compat (= 13) ,clang ,build-essential ,libcap-dev</span><br><span class="line">Standards-Version: 4.6.0</span><br><span class="line">Homepage: https://github.com/Moe-hacker/ruri</span><br><span class="line">Rules-Requires-Root: no</span><br><span class="line"></span><br><span class="line">Package: ruri</span><br><span class="line">Architecture: any</span><br><span class="line">Depends: xz-utils</span><br><span class="line">Description: chroot/unshare Linux containers</span><br><span class="line"> simple &amp; secure</span><br></pre></td></tr></table></figure>
 <h1 id="打包deb"><a href="#打包deb" class="headerlink" title="打包deb"></a>打包deb</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dpkg-buildpackage -b -us -uc</span><br></pre></td></tr></table></figure>
 
       
@@ -465,7 +472,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2024 dpkg123
+    		&copy; 2025 dpkg123
 			
 			<br>
 			<span id="sitetime"> Loading ...</span>
@@ -624,6 +631,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OPPO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">PostmarketOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ROM移植</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">miui</a>
               </li>
              
@@ -644,27 +667,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">PostmarketOS</a>
+                <a href="javascript:void(0)" class="js-tag color4">二次元</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ROM移植</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
+                <a href="javascript:void(0)" class="js-tag color5">9008</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -673,18 +680,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">刷机工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">9008</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二次元</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">debian</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -700,23 +695,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">build</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">debian</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">GitHub</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ci</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网页加速</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">归档</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">番剧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">别当欧尼酱了</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">OPPO</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -732,15 +735,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">TypeScript</a>
+                <a href="javascript:void(0)" class="js-tag color3">归档</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Github Actions</a>
+                <a href="javascript:void(0)" class="js-tag color3">番剧</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网页搭建</a>
+                <a href="javascript:void(0)" class="js-tag color2">别当欧尼酱了</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -760,15 +763,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网页搭建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">build</a>
+                <a href="javascript:void(0)" class="js-tag color2">alpine</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vps</a>
+                <a href="javascript:void(0)" class="js-tag color4">软件源</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -792,11 +799,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">GitHub</a>
+                <a href="javascript:void(0)" class="js-tag color1">TypeScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ci</a>
+                <a href="javascript:void(0)" class="js-tag color5">Github Actions</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vps</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -820,11 +831,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">alpine</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">软件源</a>
+                <a href="javascript:void(0)" class="js-tag color1">web前端</a>
               </li>
             
             <div class="clearfix"></div>

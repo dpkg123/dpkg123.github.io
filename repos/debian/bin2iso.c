@@ -111,7 +111,8 @@ typedef struct track
    unsigned long size; /* track size in bytes */
 } tTrack;
 
-buffered_fread(unsigned char *array, unsigned int size) {
+//buffered_fread(unsigned char *array, unsigned int size) {
+int buffered_fread(unsigned char *array, unsigned int size) {
    unsigned int i;
    
    if(INBUF_WIDX == 0) {    

@@ -206,20 +206,31 @@
 <ul>
 <li>pkgname 软件包名称</li>
 <li>pkgver 软件包版本</li>
-<li>pkgrel 软件的附加版本，例如这里的 <code>lzip (1.24.1-r0)</code>:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">user@localhost ~/a/s/frp (main)&gt; sudo apk add abuild</span><br><span class="line">fetch https://mirrors.bfsu.edu.cn/alpine/edge/main/aarch64/APKINDEX.tar.gz</span><br><span class="line">fetch https://mirrors.bfsu.edu.cn/alpine/edge/community/aarch64/APKINDEX.tar.gz</span><br><span class="line">(1/9) Installing attr (2.5.2-r0)</span><br><span class="line">(2/9) Installing libcap-getcap (2.69-r1)</span><br><span class="line">(3/9) Installing fakeroot (1.33-r0)</span><br><span class="line">(4/9) Installing lzip (1.24.1-r0)</span><br><span class="line">(5/9) Installing openssl (3.2.1-r0)</span><br><span class="line">(6/9) Installing patch (2.7.6-r10)</span><br><span class="line">(7/9) Installing pkgconf (2.1.1-r0)</span><br><span class="line">(8/9) Installing abuild (3.12.0-r5)</span><br><span class="line">Executing abuild-3.12.0-r5.pre-install</span><br><span class="line">(9/9) Installing abuild-sudo (3.12.0-r5)</span><br><span class="line">Executing busybox-1.36.1-r19.trigger</span><br><span class="line">OK: 164 MiB <span class="keyword">in</span> 103 packages</span><br></pre></td></tr></table></figure></li>
+<li>pkgrel 软件的附加版本，例如这里的 <code>lzip (1.24.1-r0)</code>:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">user@localhost ~/a/s/frp (main)&gt; sudo apk add abuild</span><br><span class="line">fetch https://mirrors.bfsu.edu.cn/alpine/edge/main/aarch64/APKINDEX.tar.gz</span><br><span class="line">fetch https://mirrors.bfsu.edu.cn/alpine/edge/community/aarch64/APKINDEX.tar.gz</span><br><span class="line">(1/9) Installing attr (2.5.2-r0)</span><br><span class="line">(2/9) Installing libcap-getcap (2.69-r1)</span><br><span class="line">(3/9) Installing fakeroot (1.33-r0)</span><br><span class="line">(4/9) Installing lzip (1.24.1-r0)</span><br><span class="line">(5/9) Installing openssl (3.2.1-r0)</span><br><span class="line">(6/9) Installing patch (2.7.6-r10)</span><br><span class="line">(7/9) Installing pkgconf (2.1.1-r0)</span><br><span class="line">(8/9) Installing abuild (3.12.0-r5)</span><br><span class="line">Executing abuild-3.12.0-r5.pre-install</span><br><span class="line">(9/9) Installing abuild-sudo (3.12.0-r5)</span><br><span class="line">Executing busybox-1.36.1-r19.trigger</span><br><span class="line">OK: 164 MiB <span class="keyword">in</span> 103 packages</span><br></pre></td></tr></table></figure>
+<ul>
 <li>pkgdesc 软件包描述</li>
 <li>url 项目网址，可以贴github项目</li>
 <li>arch 目标架构，可以通过查看<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/alpine/latest-stable/community/">软件源</a>得知</li>
 <li>license 软件许可</li>
 <li>makedepends 构建所需依赖</li>
-<li>source 软件源码获取，只支持.tar.gz格式，例如:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span>=<span class="string">&quot;</span></span><br><span class="line"><span class="string">        xxx.tar.gz::&lt;源码下载url&gt;&quot;</span></span><br></pre></td></tr></table></figure></li>
+<li>source 软件源码获取，只支持.tar.gz格式，例如:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span>=<span class="string">&quot;</span></span><br><span class="line"><span class="string">        xxx.tar.gz::&lt;源码下载url&gt;&quot;</span></span><br></pre></td></tr></table></figure>
+<ul>
 <li>builddir 编译软件包的目录，例如如果要在xxx文件夹下编译就写xxx</li>
-<li>prepare函数 可以填写在编译前的一些前置依赖构建，例如<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">prepare</span></span>() &#123;</span><br><span class="line">	go mod download</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-这样就可以在准备阶段下载go软件包</li>
+<li>prepare函数 可以填写在编译前的一些前置依赖构建，例如</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">prepare</span></span>() &#123;</span><br><span class="line">	go mod download</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样就可以在准备阶段下载go软件包</p>
+<ul>
 <li>build函数 一般填写编译指令，例如 make</li>
 <li>install函数 一般填写安装指令，例如 make install</li>
-<li>sh512sums 使用 abuild checksum自动填充:<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">user@localhost ~/a/s/frp (main)&gt; abuild checksum</span><br><span class="line">&gt;&gt;&gt; frp: Fetching v0.56.0.tar.gz::https://github.com/fatedier/frp/archive/refs/tags/v0.56.0.tar.gz</span><br><span class="line">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</span><br><span class="line">                                 Dload  Upload   Total   Spent    Left  Speed</span><br><span class="line">  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0</span><br><span class="line">100 1054k    0 1054k    0     0   467k      0 --:--:--  0:00:02 --:--:-- 1291k</span><br><span class="line">&gt;&gt;&gt; frp: Updating the sha512sums <span class="keyword">in</span> /home/user/alpine-software-repos/source/frp/APKBUILD...</span><br></pre></td></tr></table></figure></li>
+<li>sh512sums 使用 abuild checksum自动填充:</li>
 </ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">user@localhost ~/a/s/frp (main)&gt; abuild checksum</span><br><span class="line">&gt;&gt;&gt; frp: Fetching v0.56.0.tar.gz::https://github.com/fatedier/frp/archive/refs/tags/v0.56.0.tar.gz</span><br><span class="line">  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current</span><br><span class="line">                                 Dload  Upload   Total   Spent    Left  Speed</span><br><span class="line">  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0</span><br><span class="line">100 1054k    0 1054k    0     0   467k      0 --:--:--  0:00:02 --:--:-- 1291k</span><br><span class="line">&gt;&gt;&gt; frp: Updating the sha512sums <span class="keyword">in</span> /home/user/alpine-software-repos/source/frp/APKBUILD...</span><br></pre></td></tr></table></figure>
+
 <p>当然也可以编写例如post-install脚本来在安装后进行一些初始化功能。</p>
 <h3 id="一些常见变量的解释"><a href="#一些常见变量的解释" class="headerlink" title="一些常见变量的解释"></a>一些常见变量的解释</h3><ul>
 <li>$srcdir 一般为自动设定</li>
@@ -465,7 +476,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2024 dpkg123
+    		&copy; 2025 dpkg123
 			
 			<br>
 			<span id="sitetime"> Loading ...</span>
@@ -624,6 +635,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OPPO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">PostmarketOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ROM移植</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">miui</a>
               </li>
              
@@ -644,27 +671,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">PostmarketOS</a>
+                <a href="javascript:void(0)" class="js-tag color4">二次元</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ROM移植</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
+                <a href="javascript:void(0)" class="js-tag color5">9008</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -673,18 +684,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">刷机工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">9008</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二次元</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">debian</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -700,23 +699,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">build</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">debian</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">GitHub</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">ci</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">网页加速</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">归档</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">番剧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">别当欧尼酱了</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">OPPO</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -732,15 +739,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">TypeScript</a>
+                <a href="javascript:void(0)" class="js-tag color3">归档</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Github Actions</a>
+                <a href="javascript:void(0)" class="js-tag color3">番剧</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网页搭建</a>
+                <a href="javascript:void(0)" class="js-tag color2">别当欧尼酱了</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -760,15 +767,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网页搭建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">build</a>
+                <a href="javascript:void(0)" class="js-tag color2">alpine</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vps</a>
+                <a href="javascript:void(0)" class="js-tag color4">软件源</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -792,11 +803,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">GitHub</a>
+                <a href="javascript:void(0)" class="js-tag color1">TypeScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">ci</a>
+                <a href="javascript:void(0)" class="js-tag color5">Github Actions</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vps</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -820,11 +835,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">alpine</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">软件源</a>
+                <a href="javascript:void(0)" class="js-tag color1">web前端</a>
               </li>
             
             <div class="clearfix"></div>

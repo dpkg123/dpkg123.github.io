@@ -1,0 +1,1003 @@
+Package: apostrophe
+Version: 2.6.3-1~opt11
+Architecture: amd64
+Maintainer: coslyk <cos.lyk@gmail.com>
+Installed-Size: 3358
+Depends: dconf-gsettings-backend | gsettings-backend, python3-regex, python3-levenshtein, python3-enchant, python3-gi, python3-cairo, python3-pypandoc, gir1.2-webkit2-4.0, gir1.2-gspell-1, gir1.2-handy-1, gettext
+Recommends: texlive, texlie-latex-extra, libjs-mathjax
+Homepage: https://gitlab.gnome.org/somas/apostrophe
+Priority: optional
+Section: text
+Filename: pool/main/a/apostrophe/apostrophe_2.6.3-1~opt11_amd64.deb
+Size: 2562860
+SHA256: 0e7ed0f664b5bfd9252432c995f2c6cc88647e63d4fe734a9cd5e8df245a14f6
+SHA1: 52c5cb527a01386e08b124ebf9b5a03f1484583a
+MD5sum: 8e3cb55f7a8b251d181b2f5a7b4ba943
+Description: A distraction free Markdown editor for GNU/Linux made with GTK+.
+
+Package: app.web.163.mail
+Version: 1.0.0
+Architecture: all
+Maintainer: kylin <kylin@kylinos.cn>
+Installed-Size: 21
+Priority: optional
+Section: universe/admin
+Filename: pool/main/a/app.web.163.mail/app.web.163.mail_1.0.0_all.deb
+Size: 10244
+SHA256: 85e68e1be8113af978ae038addc7cfda94c4ac51bba2130202bbd3c501144f00
+SHA1: 0aa720440b263cae317852f8b1906365a194b573
+MD5sum: 927ad3fb3598c0736f1507b7bf3055ce
+Description: app.web.163.mail
+
+Package: app.web.163.music
+Version: 1.0.0
+Architecture: all
+Maintainer: kylin <kylin@kylinos.cn>
+Installed-Size: 35
+Priority: optional
+Section: universe/admin
+Filename: pool/main/a/app.web.163.music/app.web.163.music_1.0.0_all.deb
+Size: 24548
+SHA256: fc2b46a12b1ffc14568bd9c4cd7de1e1a78eb2bd50726f33848e706a1377bbb9
+SHA1: 634373f3fd7257b3e11532bcfaf003b086022d04
+MD5sum: 42d468258b1928c5bcbb3b06727e5e24
+Description: app.web.163.music
+
+Package: app.web.baidu.map
+Version: 1.0.0
+Architecture: all
+Maintainer: kylin <kylin@kylinos.cn>
+Installed-Size: 23
+Priority: optional
+Section: universe/admin
+Filename: pool/main/a/app.web.baidu.map/app.web.baidu.map_1.0.0_all.deb
+Size: 11576
+SHA256: acbe2d0a9c48ac40d6bc9f13c6738765923083ae33245f59e2fb9cf16c284f80
+SHA1: c831ab09c2eb39c8aaa384f0b009fcbb7f2ffbd6
+MD5sum: 6ff5fb4180428edf43b427a6cd05953a
+Description: app.web.baidu.map
+
+Package: app.web.kugou
+Version: 1.0.0
+Architecture: all
+Maintainer: kylin <kylin@kylinos.cn>
+Installed-Size: 36
+Priority: optional
+Section: universe/admin
+Filename: pool/main/a/app.web.kugou/app.web.kugou_1.0.0_all.deb
+Size: 25930
+SHA256: 99c94138209c1e196ca8335dbeaf4c56e94d28f96df585f4b251e6fef4c94945
+SHA1: e859ec7793a99884ac4b4bd949abc7111397068d
+MD5sum: 318f1de49b6a2f2dc13a6b23ac74181b
+Description: app.web.kugou
+
+Package: app.web.youdao.dict
+Version: 1.0.0
+Architecture: all
+Maintainer: kylin <kylin@kylinos.cn>
+Installed-Size: 33
+Priority: optional
+Section: universe/admin
+Filename: pool/main/a/app.web.youdao.dict/app.web.youdao.dict_1.0.0_all.deb
+Size: 22434
+SHA256: a39bb74651bbc84797d2c603b2ac757f3c2c75542467eadb0875ba06dc7e2f10
+SHA1: 9208372aed2076fe88869a5e1939248028fc158a
+MD5sum: 565fa98b5f3bd7011558d5ac6726c9aa
+Description: app.web.youdao.dict
+
+Package: appeditor
+Version: 1.1.3-1~opt11
+Architecture: amd64
+Maintainer: YK Liu <cos.lyk@gmail.com>
+Installed-Size: 602
+Depends: dconf-gsettings-backend | gsettings-backend, libc6 (>= 2.4), libcairo2 (>= 1.2.4), libgee-0.8-2 (>= 0.8.3), libglib2.0-0 (>= 2.43.92), libgranite5 (>= 5.4.0), libgtk-3-0 (>= 3.17.9), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0)
+Priority: optional
+Section: utils
+Filename: pool/main/a/appeditor/appeditor_1.1.3-1~opt11_amd64.deb
+Size: 86356
+SHA256: 19cf75cfc399d455e9385168987854731202003f769bb7feeba3c672f762bbec
+SHA1: 49fe3fc116702c7a75d678a23d601ba89cf9e84d
+MD5sum: 29481a1bf432422e0d475338d1a70575
+Description: Edit application menu
+ AppEditor allows you to edit application entries in the application menu. Some of it's features include:
+ .
+  * Hide and show applications from the application menu
+  * Create new application entries
+  * Change application's display name, icon and more
+
+Package: baidunetdisk
+Version: 4.17.7
+License: https://pan.baidu.com/disk/duty/
+Vendor: lidan06 <lidan06@baidu.com>
+Architecture: amd64
+Maintainer: lidan06 <lidan06@baidu.com>
+Installed-Size: 371533
+Depends: libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0
+Recommends: libappindicator3-1
+Homepage: https://pan.baidu.com/
+Priority: optional
+Section: default
+Filename: pool/main/b/baidunetdisk/baidunetdisk_4.17.7_amd64.deb
+Size: 103967440
+SHA256: 50ec18f05626a13f57ef034630416d481682bc1018539f33397d5c71bc653b3d
+SHA1: 2611c99adbc0c6e447c3da036ab92c3944e3ca84
+MD5sum: 44ca8795d5844fadf038442ec565bb51
+Description: 
+  百度网盘
+
+Package: bingle
+Version: 0.1-1~opt11
+Architecture: amd64
+Maintainer: YK Liu <cos.lyk@gmail.com>
+Installed-Size: 106
+Depends: libc6 (>= 2.4), libcairo2 (>= 1.2.4), libgdk-pixbuf-2.0-0 (>= 2.25.2), libglib2.0-0 (>= 2.43.92), libgtk-3-0 (>= 3.11.5), libjson-glib-1.0-0 (>= 1.5.2), libsoup2.4-1 (>= 2.41.90)
+Priority: optional
+Section: net
+Filename: pool/main/b/bingle/bingle_0.1-1~opt11_amd64.deb
+Size: 34376
+SHA256: ad4597e7c1c76bd4ffb24ab7ac0b630ceeaeb014f4c8bc571d1faf9cf4a047fd
+SHA1: 9063895fd25c0164e1e4339655e03d693df32e8b
+MD5sum: 2c8f3aee02f17de3caccad42847807d0
+Description: Download and manage wallpapers from Bing.
+
+Package: bookworm
+Version: 1.1.2-1~opt11
+Architecture: amd64
+Maintainer: Siddhartha Das <bablu.boy@gmail.com>
+Installed-Size: 3705
+Depends: dconf-gsettings-backend | gsettings-backend, libc6 (>= 2.14), libgdk-pixbuf-2.0-0 (>= 2.25.2), libgee-0.8-2 (>= 0.8.3), libglib2.0-0 (>= 2.43.92), libgranite5 (>= 0.5), libgtk-3-0 (>= 3.17.9), libpango-1.0-0 (>= 1.14.0), libpoppler-glib8 (>= 0.22.1), libsoup2.4-1 (>= 2.4.0), libsqlite3-0 (>= 3.5.9), libwebkit2gtk-4.0-37 (>= 2.17.3), libxml2 (>= 2.7.4), unzip, poppler-utils, unar, html2text, python2, curl, appstream
+Priority: extra
+Section: text
+Filename: pool/main/b/bookworm/bookworm_1.1.2-1~opt11_amd64.deb
+Size: 1559132
+SHA256: 7676f9e787959d81dfed01d15177c67fdcd59c9648b49cf95a248d0752d36bee
+SHA1: 81d808c711889f282e354ef0012bd5a85116f04c
+MD5sum: 2b9d75b82f1c52a2176a859a5de22663
+Description: eBook Reader
+ A simple and focussed eBook reader
+
+Package: browsh
+Version: 1.8.2
+Architecture: amd64
+Maintainer: Thomas Buckley-Houston <tom@tombh.co.uk>
+Installed-Size: 7568
+Depends: firefox | firefox-esr
+Homepage: https://www.brow.sh
+Priority: optional
+Section: 
+Filename: pool/main/b/browsh/browsh_1.8.2_amd64.deb
+Size: 3711462
+SHA256: 9333a32ce4adf3d5436e599c1ec7b4375d862e9d72cb93f600f586111775416b
+SHA1: da0d25d534dbcf9ee2ba303b7b35d6a28f856324
+MD5sum: c08248430e7bd473d7d6cd5393294e1c
+Description: The modern, text-based browser
+
+Package: chord
+Version: 0.2.40-1~opt11
+Architecture: amd64
+Maintainer: coslyk <cos.lyk@gmail.com>
+Installed-Size: 32776
+Depends: libc6 (>= 2.14), libstdc++6 (>= 5.2), electron
+Homepage: https://github.com/PeterDing/chord
+Priority: extra
+Section: sound
+Filename: pool/main/c/chord/chord_0.2.40-1~opt11_amd64.deb
+Size: 5136012
+SHA256: a8852da9669282ee53f0a0ede2ad5372d2e748d87fb72f9346b7207111540432
+SHA1: 8c8d9c9009f0f05211cbbd6d87ccb88a992d2af8
+MD5sum: 0fec5cb46debbf9a6735761781823a3f
+Description: A Modern Music Player supporting multiple music websites.
+
+Package: ciano
+Version: 0.2.4-1~opt11
+Architecture: amd64
+Maintainer: YK Liu <cos.lyk@gmail.com>
+Installed-Size: 514
+Depends: dconf-gsettings-backend | gsettings-backend, libc6 (>= 2.4), libgee-0.8-2 (>= 0.8.3), libglib2.0-0 (>= 2.43.92), libgranite5 (>= 0.2.0), libgtk-3-0 (>= 3.16.2), libpango-1.0-0 (>= 1.14.0), ffmpeg, imagemagick
+Priority: optional
+Section: video
+Filename: pool/main/c/ciano/ciano_0.2.4-1~opt11_amd64.deb
+Size: 110612
+SHA256: cf4ff5c8689a34bf1fcba522a302c2f48852bd544cec1c0790429e8df926163e
+SHA1: 80ac8c1aa24776370aa5fef2f4e817bc662577de
+MD5sum: 5c6b5f4a7b637a530b1069ee41b48f7a
+Description: A multimedia file converter focused on simplicity.
+
+Package: colorpicker
+Version: 1.1.5-1~opt11
+Architecture: amd64
+Maintainer: Ronny Dobra <ronnydobra@arcor.de>
+Installed-Size: 199
+Depends: dconf-gsettings-backend | gsettings-backend, libc6 (>= 2.4), libcairo2 (>= 1.2.4), libgdk-pixbuf-2.0-0 (>= 2.22.0), libgee-0.8-2 (>= 0.8.3), libglib2.0-0 (>= 2.37.3), libgranite5 (>= 0.2.0), libgtk-3-0 (>= 3.21.4)
+Priority: extra
+Section: x11
+Filename: pool/main/c/colorpicker/colorpicker_1.1.5-1~opt11_amd64.deb
+Size: 29020
+SHA256: 9afef7793c959ef742f907a631abc0f2c59a56ae1bf1cdfe5de03bcb3c3aeb9a
+SHA1: 18abbdb5e0ff943c567c12fc3ca892186bd20a15
+MD5sum: 8828a4573d488b4d057140022d12826d
+Description: An intuitive Color Picker
+ The most intuitive Color Picker to speed up your workflow
+
+Package: draw.io
+Version: 21.2.8-1~opt11
+Architecture: amd64
+Maintainer: coslyk <cos.lyk@gmail.com>
+Installed-Size: 189417
+Depends: electron
+Homepage: https://github.com/jgraph/drawio-desktop
+Priority: extra
+Section: graphics
+Filename: pool/main/d/draw.io/draw.io_21.2.8-1~opt11_amd64.deb
+Size: 49526196
+SHA256: 42439bd384184d27931a7518b240eb36ddb1d81a55d61d78b38958400ccb2458
+SHA1: 35318e9031f6888006e05a16d5a399ccd6d1397d
+MD5sum: deb56af7be13e679625cbe98fe5d605c
+Description: drawio-desktop is a draw.io desktop app based on Electron.
+
+Package: eddy
+Version: 1.3.2-1~opt11
+Architecture: amd64
+Maintainer: Adam Bienkowski <donadigos159@gmail.com>
+Installed-Size: 1169
+Pre-Depends: dpkg (>= 1.15.6)
+Depends: dconf-gsettings-backend | gsettings-backend, libc6 (>= 2.4), libcairo2 (>= 1.2.4), libgee-0.8-2 (>= 0.8.3), libglib2.0-0 (>= 2.43.92), libgranite5 (>= 5.4.0), libgtk-3-0 (>= 3.21.4), libpackagekit-glib2-18 (>= 1.1.0), libzeitgeist-2.0-0 (>= 0.9.9)
+Priority: optional
+Section: utils
+Filename: pool/main/e/eddy/eddy_1.3.2-1~opt11_amd64.deb
+Size: 78928
+SHA256: 15e12dfb8a21d05d35d9fdfb8a58171c97c8a0f4e6719f89d0d49b6669bf57c9
+SHA1: 61f857d080048f0b418d802dd0a900fb5b379bb8
+MD5sum: e815a268df271517450190d53df7b40d
+Description: Eddy
+ Simple debian package installer
+
+Package: electron
+Version: 22.3.3-1~opt11
+Architecture: amd64
+Maintainer: coslyk <cos.lyk@gmail.com>
+Installed-Size: 223754
+Depends: libasound2 (>= 1.0.17), libatk-bridge2.0-0 (>= 2.5.3), libatk1.0-0 (>= 2.2.0), libatspi2.0-0 (>= 2.9.90), libc6 (>= 2.17), libcairo2 (>= 1.6.0), libcups2 (>= 1.7.0), libdbus-1-3 (>= 1.9.14), libdrm2 (>= 2.4.60), libexpat1 (>= 2.0.1), libgbm1 (>= 17.1.0~rc2), libgcc-s1 (>= 3.0), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.9.10), libnspr4 (>= 2:4.9-2~), libnss3 (>= 2:3.22), libpango-1.0-0 (>= 1.14.0), libx11-6 (>= 2:1.4.99.1), libxcb1 (>= 1.9.2), libxcomposite1 (>= 1:0.4.5), libxdamage1 (>= 1:1.1), libxext6, libxfixes3, libxkbcommon0 (>= 0.5.0), libxrandr2
+Homepage: https://github.com/electron/electron
+Priority: extra
+Section: devel
+Filename: pool/main/e/electron/electron_22.3.3-1~opt11_amd64.deb
+Size: 67569596
+SHA256: cf540657747800566c944fecc3cf8aafbd93839d7d76269ee608cb840edcbda1
+SHA1: 8aeaf4af0fb33e1a5e235ee0dc0203cfe0d9a22a
+MD5sum: 27f6e7296d4b2664873d1264ed521aab
+Description: Build cross platform desktop apps with web technologies
+
+Package: envelope
+Version: 0.0.4-1~opt11
+Architecture: amd64
+Maintainer: coslyk <cos.lyk@gmail.com>
+Installed-Size: 507
+Pre-Depends: dpkg (>= 1.15.6)
+Depends: dconf-gsettings-backend | gsettings-backend, libc6 (>= 2.4), libgee-0.8-2 (>= 0.8.3), libglib2.0-0 (>= 2.37.3), libgranite5 (>= 0.4.1), libgtk-3-0 (>= 3.16.2), libsqlite3-0 (>= 3.5.9)
+Priority: optional
+Section: utils
+Filename: pool/main/e/envelope/envelope_0.0.4-1~opt11_amd64.deb
+Size: 159020
+SHA256: 8ffdcd075f44e68a2b13592a683295feb9067c78390ba5e7c391a5c466e7144d
+SHA1: 114bd3b02bee106c58508c0adced39b16bac20ac
+MD5sum: 26977c5d443f82453a948bdf48c4e892
+Description: Personal budget manager
+ Envelope helps you maintain your personal budget by using the tried-and-true envelope system.
+ Designate spending categories (envelopes) and distribute your monthly income into them.
+ Configure accounts where you record all your transactions, then assign each of them to a category.
+ .
+  * Envelope system budget workflow
+  * Import transactions from QIF files
+
+Package: fantascene-dynamic-wallpaper
+Version: 1.7.2-1
+Architecture: amd64
+Maintainer: liuminghang <liuminghang0821@gmail.com>
+Installed-Size: 7370
+Depends: libc6 (>= 2.34), libgcc-s1 (>= 3.0), libglib2.0-0 (>= 2.35.8), libmpv2 (>= 0.29), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.14.1), libqt5gui5 (>= 5.10.0) | libqt5gui5-gles (>= 5.10.0), libqt5sql5 (>= 5.0.2), libqt5webenginewidgets5 (>= 5.14.1), libqt5widgets5 (>= 5.11.0~rc1), libqt5x11extras5 (>= 5.6.0), libstdc++6 (>= 11), libx11-6, libxcb-ewmh2 (>= 0.4.1), libxcb1, libxext6
+Homepage: http://github.com/dependon/fantascene-dynamic-wallpaper
+Priority: optional
+Section: utils
+Filename: pool/main/f/fantascene-dynamic-wallpaper/fantascene-dynamic-wallpaper_1.7.2-1_amd64.deb
+Size: 6654800
+SHA256: a595bc5cedaba69ecbc0639480cb22e9df5b183585f667b9fb5740ad7c8bee10
+SHA1: 97f66ba169c20c1dd3fc80f66e28ead2a01fb175
+MD5sum: 2509bb30b433d830759eb264f7a522a8
+Description: video wallpaper for fantascene.
+
+Package: gamehub
+Version: 0.16.3-2-master-1~opt11
+Architecture: amd64
+Maintainer: tkashkin <tkashkin@gmail.com>
+Installed-Size: 2680
+Depends: dconf-gsettings-backend | gsettings-backend, libc6 (>= 2.4), libcairo2 (>= 1.2.4), libgdk-pixbuf-2.0-0 (>= 2.22.0), libgee-0.8-2 (>= 0.8.3), libglib2.0-0 (>= 2.61.2), libgtk-3-0 (>= 3.22.29), libjson-glib-1.0-0 (>= 1.5.2), libmanette-0.2-0 (>= 0.1.2), libpolkit-gobject-1-0 (>= 0.99), libsoup2.4-1 (>= 2.41.90), libsqlite3-0 (>= 3.5.9), libwebkit2gtk-4.0-37 (>= 2.19.2), libx11-6, libxml2 (>= 2.7.4), libxtst6, zlib1g (>= 1:1.1.4)
+Recommends: file-roller, innoextract, wine, dosbox
+Suggests: steam
+Priority: optional
+Section: games
+Filename: pool/main/g/gamehub/gamehub_0.16.3-2-master-1~opt11_amd64.deb
+Size: 632820
+SHA256: 3a9901958a162520c9f3ffa5f2df5f27250906ee1fdb062fd9df5c830bbdcc4a
+SHA1: 088c718ba063fc3bc91dcb7557fa9a0c2bd87afa
+MD5sum: d61ffd0b748ebd0728a5f8e50a7e10b1
+Description: All your games in one place
+
+Package: gb-studio
+Version: 4.1.3
+Architecture: amd64
+Depends: libgtk-3-0, libnotify4, libnss3, libxtst6, xdg-utils, libatspi2.0-0, libdrm2, libgbm1, libxcb-dri3-0, kde-cli-tools | kde-runtime | trash-cli | libglib2.0-bin | gvfs-bin
+Recommends: pulseaudio | libasound2
+Suggests: gir1.2-gnomekeyring-1.0, libgnome-keyring0, lsb-release
+Installed-Size: 267652
+Maintainer: GB Studio
+Homepage: https://www.gbstudio.dev
+Priority: optional
+Section: utils
+Filename: pool/main/g/gb-studio/gb-studio_4.1.3_amd64.deb
+Size: 83431516
+SHA256: a019f1026aab6941d1a4ced86e3811ed4606ba5b825ac47e2ed8ad8ef1400e99
+SHA1: 73c1407fff607177fab6aaa1f558ee30441f5bd8
+MD5sum: b44b8380068dc6ec742543646e880fd3
+Description: Visual retro game maker
+ Visual retro game maker
+
+Package: go-for-it
+Version: 1.8.5-1~opt11
+Architecture: amd64
+Maintainer: Jonathan Moerman <jonathanmoerman@gmail.com>
+Installed-Size: 1833
+Depends: dconf-gsettings-backend | gsettings-backend, libc6 (>= 2.14), libcairo2 (>= 1.2.4), libglib2.0-0 (>= 2.39.4), libgtk-3-0 (>= 3.21.5), libnotify4 (>= 0.7.0)
+Priority: extra
+Section: x11
+Filename: pool/main/g/go-for-it/go-for-it_1.8.5-1~opt11_amd64.deb
+Size: 236624
+SHA256: a81ba9644fc26001d3d0a27589c00c6922c8c331fb337c104d2c45832f2e2e5c
+SHA1: 779fb28cfba88acfa399d8e499100bd123241cdf
+MD5sum: 05960563198adaf0676b3203b5fdc439
+Description: A stylish to-do list with built-in productivity timer.
+ Go For It! keeps track of your tasks and assists you in processing them
+ subsequently. The timer avoids distraction, by keeping your focus on the
+ recent task, while reminding you to take short breaks on a regular base.
+
+Package: iease-music
+Version: 1.3.4
+License: MIT
+Vendor: trazyn <var.darling@gmail.com>
+Architecture: amd64
+Maintainer: trazyn <var.darling@gmail.com>
+Installed-Size: 268685
+Depends: gconf2, gconf-service, libnotify4, libappindicator1, libxtst6, libnss3, libxss1
+Homepage: https://github.com/trazyn/ieaseMusic#readme
+Priority: extra
+Section: default
+Filename: pool/main/i/iease-music/iease-music_1.3.4_amd64.deb
+Size: 58063536
+SHA256: 4d61d38ed3c70ea4a4d7ace53b1f19232309b1157208e04180fcecaa036f5e7b
+SHA1: b46afba81555b3095b0d57e16ef6f466574d97d1
+MD5sum: 5fe7b91c9793031732a7bfd21b593206
+Description: 
+  网易云音乐第三方 ✨
+
+Package: linuxqq
+Version: 2.0.0-b2
+Architecture: amd64
+Installed-Size: 35452
+Maintainer: Tencent <support@tencent.com>
+Recommends: tint2
+Homepage: https://im.qq.com/linuxqq
+Priority: optional
+Section: Internet
+Filename: pool/main/l/linuxqq/linuxqq_2.0.0-b2_amd64.deb
+Size: 12411676
+SHA256: a8032d7477d2b9023f05fdb8bce05abe4dec44c7f8339d7016f15de5c334de51
+SHA1: 355fce53e9c32db45056842e8803b08b88d9bcdc
+MD5sum: cb692bbf6edfdabb5a777ca2df3517a7
+Description: 腾讯QQ Linux版本。
+
+Package: listen1
+Version: 2.28.0-1~opt11
+Architecture: amd64
+Maintainer: coslyk <cos.lyk@gmail.com>
+Installed-Size: 7954
+Depends: electron
+Homepage: https://github.com/listen1/listen1_desktop
+Priority: extra
+Section: sound
+Filename: pool/main/l/listen1/listen1_2.28.0-1~opt11_amd64.deb
+Size: 1489988
+SHA256: d96fda516f1913b9fefcc3c690ddfe78675414e157dd3eb138c6db0b6c8d7675
+SHA1: 819e6f31cfd2c74f994d521c77b4d6c0b37496d7
+MD5sum: 95a44d609a3dea94b70494dec18cea19
+Description: One for all free music in China.
+
+Package: lx-music-desktop
+Version: 1.22.3
+License: Apache-2.0
+Vendor: lyswhut <lyswhut@qq.com>
+Architecture: amd64
+Maintainer: lyswhut <lyswhut@qq.com>
+Installed-Size: 230327
+Depends: libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0
+Recommends: libappindicator3-1
+Homepage: https://github.com/lyswhut/lx-music-desktop#readme
+Priority: optional
+Section: default
+Filename: pool/main/l/lx-music-desktop/lx-music-desktop_1.22.3_amd64.deb
+Size: 64632060
+SHA256: 0e98768a34b6b53c04fd1af041850f863fdd8e144a69bc62a6063b7bd7b3a184
+SHA1: b085354c775e3d8323384c4d801d60aff77cb628
+MD5sum: 58657e784047c956bba1a670239b3f1b
+Description: 
+  一个免费的音乐查找助手
+
+Package: ms-365-electron
+Version: 2.0.0
+License: MIT
+Vendor: Agampreet Singh <agam778@zohomail.in>
+Architecture: amd64
+Maintainer: Agampreet Singh <agam778@zohomail.in>
+Installed-Size: 300855
+Depends: libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0
+Recommends: libappindicator3-1
+Homepage: https://github.com/agam778/MS-365-Electron#readme
+Priority: optional
+Section: default
+Filename: pool/main/m/ms-365-electron/ms-365-electron_2.0.0_amd64.deb
+Size: 87038558
+SHA256: 1fc20d9655bd990dc89d6013384939a81e259eda2a036148c16027dc422ee07b
+SHA1: 2b2f93b5c9b44a7ef9971d677ca6bcd8d19a8b25
+MD5sum: d44facb42de50fe4f4493b46375b3ac1
+Description: 
+  Unofficial Microsoft 365 Web Desktop Wrapper made with Electron
+
+Package: netease-cloud-music
+Version: 1.2.1
+Architecture: amd64
+Maintainer: zccrs <zhangjide@deepin.com>
+Installed-Size: 364366
+Homepage: https://www.deepin.org
+Priority: optional
+Section: sound
+Filename: pool/main/n/netease-cloud-music/netease-cloud-music_1.2.1_amd64.deb
+Size: 104501260
+SHA256: 1ee9f02842e6c2c8c79c48b2e932074f9c213a8eb4238e5e63f20438562fecbb
+SHA1: f649a556c2e95cf3731ce598ce6368df1dfa9ae3
+MD5sum: 1f47c7dc3d9ce46da8099e539ee8a74d
+Description: Netease cloud music player.
+ Netease cloud music player.
+
+Package: netron
+Version: 6.8.8-1~opt11
+Architecture: amd64
+Maintainer: coslyk <cos.lyk@gmail.com>
+Installed-Size: 20286
+Depends: electron
+Homepage: https://github.com/lutzroeder/netron
+Priority: extra
+Section: devel
+Filename: pool/main/n/netron/netron_6.8.8-1~opt11_amd64.deb
+Size: 1935328
+SHA256: 008c6cfe00c5737d9df4cc8a52bab67c345fe392fda921c2455e080a360e7324
+SHA1: 7b96cd22d16df7475e4b8f6773a8e98bab6bc29d
+MD5sum: 7b00e9fd58788462496c93f6639aff80
+Description: Visualizer for neural network, deep learning and machine learning models.
+
+Package: nscde
+Version: 2.3-3
+Architecture: amd64
+Maintainer: Hegel3DReloaded <nscde@protonmail.com>
+Installed-Size: 60619
+Depends: libc6, fvwm | fvwm3, ksh93 | ksh, stalonetray, xsettingsd, imagemagick, x11-xserver-utils, x11-utils, cpp, xterm, python3, python3-xdg, python3-yaml, python3-psutil, python3-pyqt5, xdotool, xdg-utils, gettext, fonts-dejavu-core, groff-base, groff
+Recommends: xclip, xscreensaver, dex, gtk2-engines-pixbuf, dunst, qt5-gtk2-platformtheme, qt5-gtk-platformtheme
+Suggests: rofi, gkrellm, gkrellm-xkb, gkrelltop, qt5ct, picom
+Multi-Arch: foreign
+Homepage: https://github.com/NsCDE
+Priority: optional
+Section: x11
+Filename: pool/main/n/nscde/nscde_2.3-3_amd64.deb
+Size: 25717356
+SHA256: f1372ac8b4c892fab3cd1fb129388429361e96a185feb7b90a6c9876a64779fe
+SHA1: 51f40e985666ba571251ea22cc02577075c06624
+MD5sum: b9b3946728d64359c098cf3bed4307f9
+Description: Not so Common Desktop Environment
+ NsCDE is a retro but powerful UNIX desktop environment which resembles
+ CDE look (and partially feel) but with a more powerful and flexible
+ framework beneath-the-surface, more suited for 21st century unix-like
+ and Linux systems and user requirements than original CDE.
+ .
+ NsCDE can be considered as a heavyweight FVWM theme on steroids, but
+ combined with a couple other free software components and custom FVWM
+ applications and a lot of configuration, NsCDE can be considered a
+ lightweight hybrid desktop environment.
+
+Package: qemu-laucher
+Architecture: all
+Installed-Size: 332
+Maintainer: ernel <3234252572@qq.com>
+Version: 0.1beta
+Priority: optional
+Section: custom
+Filename: pool/main/q/qemu-laucher/qemu-laucher_0.1beta_all.deb
+Size: 1468
+SHA256: f66fe20606bd3f3695c52425e518263dead07dfb1416c4cf60d117b98408d22e
+SHA1: 8d4ccadb13d0370f805818410b5ba4017ff1a7d3
+MD5sum: ced5fa12ecb5bdbdf1db83eed1a03335
+Description: Easily to lauch qemu.
+Essential: no
+Pre-Depends: qemu-system
+
+Package: qqmusic
+Version: 1.1.5
+License: CC0-1.0
+Vendor: TME <TencentQQMusic@tencent.com>
+Architecture: amd64
+Maintainer: TME <TencentQQMusic@tencent.com>
+Installed-Size: 234566
+Depends: libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libappindicator3-1, libsecret-1-0
+Homepage: http://y.qq.com
+Priority: extra
+Section: default
+Filename: pool/main/q/qqmusic/qqmusic_1.1.5_amd64.deb
+Size: 77742406
+SHA256: c13b4ef344bca38fc47950af07368de31b48dfe9928538cd1e9ab8d5ec5f3fe8
+SHA1: 534ab539fbab28bf11ed567ad53423a7177ef812
+MD5sum: 20cfb8d1375d3bfa1f7eec2100e59454
+Description: qqmusic for linux
+  Tencent QQMusic
+
+Package: reciteword
+Version: 0.8.7-1
+Architecture: amd64
+Maintainer: Hu Zheng <huzheng001@gmail.com>
+Installed-Size: 35755
+Depends: libatk1.0-0 (>= 1.12.4), libc6 (>= 2.2.5), libcairo2 (>= 1.2.4), libespeak1 (>= 1.48.04+dfsg), libfontconfig1 (>= 2.12.6), libfreetype6 (>= 2.2.1), libgcc1 (>= 1:3.0), libgdk-pixbuf2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.35.9), libgtk2.0-0 (>= 2.24.0), libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libpangoft2-1.0-0 (>= 1.14.0), libstdc++6 (>= 5.2)
+Homepage: http://reciteword.sourceforge.net
+Priority: optional
+Section: utils
+Filename: pool/main/r/reciteword/reciteword_0.8.7-1_amd64.deb
+Size: 13465476
+SHA256: 946000aee494d6d1099bee496ead36ae91e42f167c47e1affa0c5b43a377ea52
+SHA1: 2e51b2447ecf4af453b1a95ac0b267ef341c4bab
+MD5sum: 4d5ac8d2a20a53eeca27901bfd622d66
+Description: Recite English words
+ Reciteword is a education software to help people to study English, reciting
+ english words. It have very beautiful interface, make reciting word being
+ a interesting things.
+ .
+ This package don't contain the WyabdcRealPeopleTTS files,
+ you need to install them separately. For more information about how to
+ install WyabdcRealPeopleTTS files, please read
+ /usr/share/doc/reciteword/README.Debian.
+ .
+ Home Page: http://reciteword.sourceforge.net
+
+Package: ruri
+Version: 3.8-1
+Architecture: amd64
+Maintainer: Moe-hacker <admin@crack.moe>
+Installed-Size: 197
+Depends: libc6 (>= 2.34), libcap2 (>= 1:2.10), libseccomp2 (>= 0.0.0~20120605)
+Homepage: https://github.com/Moe-hacker/ruri
+Priority: optional
+Section: admin
+Filename: pool/main/r/ruri/ruri_3.8-1_amd64.deb
+Size: 65832
+SHA256: e971bd94f587957a4e2c50daeed524b2c137b2e7474f4ce64b4c187dd5b3803f
+SHA1: a6643ecb334991e09a97db01efde4267e4ebe13a
+MD5sum: 0ff9c72586fd4ec6cd26d33d387831c8
+Description: Lightweight, User-friendly Linux-container Implementation
+ ruri is a tiny linux container implementation.
+
+Package: sogoupinyin
+Version: 4.2.1.145
+Architecture: amd64
+Maintainer: Sogou IME Team <LinuxImeDev@sogou-inc.com>
+Installed-Size: 266474
+Depends: fcitx (>= 1:4.2.8), fcitx-frontend-gtk2, fcitx-frontend-gtk3, fcitx-frontend-qt5, fcitx-module-x11, libxtst6, im-config, lsb-release
+Recommends: fonts-droid | fonts-droid-fallback
+Breaks: fcitx-ui-qimpanel
+Homepage: http://pinyin.sogou.com/linux
+Priority: optional
+Section: utils
+Filename: pool/main/s/sogoupinyin/sogoupinyin_4.2.1.145_amd64.deb
+Size: 93711610
+SHA256: 3111af17a6abddd80b856aa9c1f579a137d69f3d735ead936ddb6e5f08b59f3b
+SHA1: ee5953327bf184188a351afbe3bf49408c2eda64
+MD5sum: 1da9f84523346150c74a250b494c8b1f
+Description: Business Sogou Input Method
+ Based on web search engine technology, Sogou Pinyin input method is
+ the next-generation input method designed for Internet users. As it
+ is backed with search engine technology, user input method can be
+ extremely fast, and it is much more advanced than other input method
+ engines in terms of the volume of the vocabulary database and its
+ accuracy. Sogou input method is the most popular input methods in
+ China, and Sogou promises it will always be free of charge.
+
+Package: spark-store
+Version: 4.2.6.4
+Architecture: amd64
+Maintainer: shenmo <shenmo@spark-app.store>
+Installed-Size: 1148
+Depends: libc6 (>= 2.14), libdtkcore5 (>= 5.4), libdtkgui5 (>= 5.4), libdtkwidget5 (>= 5.4), libgcc1 (>= 1:3.0), libgl1, libqt5concurrent5 (>= 5.0.2), libqt5core5a (>= 5.11.0~rc1), libqt5dbus5 (>= 5.5.0), libqt5gui5 (>= 5.10.0), libqt5network5 (>= 5.0.2), libqt5positioning5 (>= 5.6.0), libqt5printsupport5 (>= 5.0.2), libqt5qml5 (>= 5.0.2), libqt5quick5 (>= 5.0.2), libqt5svg5 (>= 5.6.0~beta), libqt5webchannel5 (>= 5.6.1), libqt5webenginecore5 (>= 5.7.1), libqt5webenginewidgets5 (>= 5.7.1), libqt5widgets5 (>= 5.11.0~rc1), libstdc++6 (>= 5.2), qtwayland5, curl, openssl, dde-qt5integration, aria2, gnupg, zenity, policykit-1, libnotify-bin, desktop-file-utils
+Homepage: https://www.spark-app.store/
+Priority: optional
+Section: utils
+Filename: pool/main/s/spark-store/spark-store_4.2.6.4_amd64.deb
+Size: 603284
+SHA256: 9f1db588a8e8f71310f61b9c1a1c44162b38753a64cf530d5664fd35a2c856d7
+SHA1: ea6aa2d2cf270f6846d4445d0676ce7d3ace0b5f
+MD5sum: 8812f4a968444467341da3314739a96c
+Description: Spark Store
+ A community powered app store, based on DTK.
+
+Package: spark-store-console
+Version: 4.2.6.4
+Architecture: all
+Maintainer: shenmo <shenmo@spark-app.store>
+Installed-Size: 1187
+Depends: wget,aria2, zenity, policykit-1, libnotify-bin, python3, desktop-file-utils
+Provides: spark-store(=4.2.6.2)
+Conflicts: spark-store
+Replaces: spark-store(=4.2.6.2)
+Homepage: https://www.spark-app.store/
+Priority: optional
+Section: utils
+Filename: pool/main/s/spark-store-console/spark-store-console_4.2.6.4_all.deb
+Size: 57564
+SHA256: d6196ff167164061562e99753064be22f3ae17b5f990bf3259ca92f74755b38c
+SHA1: e1850c639e8de46c5ee81ccad6b392933ebcc262
+MD5sum: fc115c900c97acf6d9233b349e38dec7
+Description: Spark Store
+ A community powered app store, based on DTK.
+
+Package: spectator
+Version: 0.6.3-1~opt11
+Architecture: amd64
+Maintainer: Marvin Ahlgrimm <marv.ahlgrimm@gmail.com>
+Installed-Size: 1303
+Depends: dconf-gsettings-backend | gsettings-backend, libc6 (>= 2.14), libcairo2 (>= 1.2.4), libduktape205 (>= 2.0.3), libgee-0.8-2 (>= 0.8.3), libglib2.0-0 (>= 2.51.2), libgranite5 (>= 0.5), libgtk-3-0 (>= 3.22.29), libgtksourceview-4-0 (>= 2.91.4), libhandy-1-0 (>= 0.82.0), libjson-glib-1.0-0 (>= 1.5.2), libpango-1.0-0 (>= 1.14.0), libsoup2.4-1 (>= 2.41.90), libsqlite3-0 (>= 3.5.9), libwebkit2gtk-4.0-37 (>= 2.15.3), libxml2 (>= 2.7.4)
+Priority: extra
+Section: x11
+Filename: pool/main/s/spectator/spectator_0.6.3-1~opt11_amd64.deb
+Size: 175896
+SHA256: 4b1c4495830fd13402d91efb0c0feda1dc2352636adfb9c138ab5d90b7667f92
+SHA1: b0b3ec8c27e4df33982f55a17954f7f7070033df
+MD5sum: d3689b2e1ecde4300d6fad736de04898
+Description: Spectator
+ Application to check endpoints
+
+Package: sunloginclient
+Version: 10.1.1.28779
+Maintainer: Oray <dev@oray.com>
+Installed-Size: 38100
+Architecture: amd64
+Depends: libncurses5 
+Recommends:
+HomePage:https://www.oray.com
+Priority: extra
+Section: Internet
+Filename: pool/main/s/sunloginclient/sunloginclient_10.1.1.28779_amd64.deb
+Size: 1351206
+SHA256: 923a8bfdb1194ee50d8c6dd7b51a0f16ab34b3414c768f5ffa2b49d80874eed5
+SHA1: 1970f263b5a8c2dbdbe7e5b175f66b632047f548
+MD5sum: fc0112b8429fd7202c5e15b9b55d6bc0
+Description: SunloginClient-10.1.1.28779 (Beta) for Linux
+ Sunlogin Remote Control is a software that supports remote control of mobile
+ devices, Windows, Mac, Linux and other systems. It is the best choice for IT
+ technology, game players, designers and other people with remote management
+ needs. By using Sunlogin, you can control other computers or mobile phones
+ anytime, anywhere. You can make things feasible, including remote high-risk
+ operations, remote power on/off, download files, AFK, and so on. Download
+ Sunlogin and explore more exciting features!
+
+Package: tenvideo-universal
+Version: 1.0.10
+License: CC0-1.0
+Vendor: 腾讯视频 <video@tencent.com>
+Architecture: amd64
+Maintainer: 腾讯视频 <video@tencent.com>
+Installed-Size: 180922
+Depends: libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libappindicator3-1, libsecret-1-0
+Homepage: https://github.com/electron/electron-quick-start#readme
+Priority: extra
+Section: AudioVideo
+Filename: pool/main/t/tenvideo-universal/tenvideo-universal_1.0.10_amd64.deb
+Size: 50632316
+SHA256: d890f867c92e3620950764896c4dd54ef0f552c79d55998458d4bf046ae2452a
+SHA1: 86f294107fb14064a329950b21d5c720c856630b
+MD5sum: 60a6457f0322055dff54f54e7efa8062
+Description: 
+  腾讯视频通用版
+
+Package: textadept
+Version: 11.1-1~opt11
+Architecture: amd64
+Maintainer: coslyk <cos.lyk@gmail.com>
+Installed-Size: 12197
+Depends: libatk1.0-0 (>= 1.12.4), libc6 (>= 2.29), libcairo2 (>= 1.8.0), libgcc-s1 (>= 3.0), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.37.3), libgtk-3-0 (>= 3.21.5), libncursesw6 (>= 6), libpango-1.0-0 (>= 1.18.0), libpangocairo-1.0-0 (>= 1.14.0), libstdc++6 (>= 9), libtinfo6 (>= 6)
+Homepage: https://foicica.com/textadept/
+Priority: optional
+Section: text
+Filename: pool/main/t/textadept/textadept_11.1-1~opt11_amd64.deb
+Size: 3826768
+SHA256: 3bb07eaea804e84ebc6fb003bace368d3c464f5f90ef2593fa1bbbf57f69398d
+SHA1: 5d0b938515bc035f26567546e55f8e4e929a923b
+MD5sum: 7726ef80281a2e1fdf326a14c8717961
+Description: A fast, minimalist, and remarkably extensible cross-platform text editor
+
+Package: tmoe-linux-tool
+Version: 1.4989.50.2
+Architecture: all
+Installed-Size: 8600
+Maintainer: 2moe <tmoe@noreply.github.com>
+Pre-Depends: aria2 (>= 1.30.0), binutils (>= 2.28-5), coreutils (>= 8.26-3), curl (>= 7.52.1-5), findutils (>= 4.6.0), git (>= 1:2.11.0-3), lsof (>= 4.89), micro (>= 2.0.6-2), nano (>= 2.7.4-1), proot (>= 5.1.0), procps (>= 2:3.3.12), sudo (>= 1.8.19p1-2.1), tar (>= 1.29b-1.1),  util-linux (>= 2.29.2-1), whiptail (>= 0.52.19), xz-utils (>= 5.2.2), zstd (>= 1.1.2),eatmydata,aptitude,catimg,fontconfig,nano,wget
+Priority: optional
+Section: admin
+Filename: pool/main/t/tmoe-linux-tool/tmoe-linux-tool_1.4989.50.2_all.deb
+Size: 701514
+SHA256: 213b1b8dc00d6bf4e568a95c4f7418f3176db77444e1521d843dbce7cd7a8453
+SHA1: 63fd423e13885b2acb4a74466d4197144c06b9d4
+MD5sum: 73cf1d3e03eae1520bfb6364f5744a99
+Description: TMOE, More Optional Environments
+  extended description over several lines
+
+Package: trelby
+Version: 2.2.0-1~opt11
+Architecture: all
+Maintainer: Anil Gulecha <anil.verve@gmail.com>
+Installed-Size: 1984
+Depends: python-wxgtk3.0, python-crypto, python-lxml
+Homepage: http://www.trelby.org/
+Priority: extra
+Section: python
+Filename: pool/main/t/trelby/trelby_2.2.0-1~opt11_all.deb
+Size: 1394156
+SHA256: 06323057c929841f4b4bf387e0423dfc73854f89aaf4035def8c81fc8069a0cc
+SHA1: 04ccc5d8160059c55889f3341556e1c5f76cd7f5
+MD5sum: bfdd269db49f5f02c0492973ff7421ae
+Description: Feature-rich screenwriting program
+ Trelby is a simple, powerful, full-featured, multi-platform program for
+ writing movie screenplays. It is simple, fast and elegantly laid out to
+ make screenwriting simple, and it is infinitely configurable.
+ .
+ Features:
+ .
+  * Screenplay editor: Enforces correct script format and pagination,
+    auto-completion, and spell checking.
+  * Multiplatform: Behaves identically on all platforms, generating the exact
+    same output.
+  * Choice of view: Multiple views, including draft view, WYSIWYG mode,
+    and fullscreen to suit your writing style.
+  * Name database: Character name database containing over 200,000 names
+    from various countries.
+  * Reporting: Scene/location/character/dialogue reports.
+  * Compare: Ability to compare scripts, so you know what changed between
+    versions.
+  * Import: Screenplay formatted text, Final Draft XML (.fdx)
+     and Celtx (.celtx).
+  * Export: PDF, formatted text, HTML, RTF, Final Draft XML (.fdx).
+  * PDF: Built-in, highly configurable PDF generator. Supports embedding your
+    chosen font. Also supports generating PDFs with custom watermarks,
+    to help track shared files.
+  * Free software: Licensed under the GPL, Trelby welcomes developers and
+    screenwriters to contribute in making it more useful.
+
+Package: typora
+Version: 1.6.6-1
+Architecture: amd64
+Recommends: lsb-release
+Suggests: pandoc
+Installed-Size: 312383
+Maintainer: typora<hi@typora.io>
+Homepage: http://typora.io
+Priority: optional
+Section: editors
+Filename: pool/main/t/typora/typora_1.6.6-1_amd64.deb
+Size: 88570012
+SHA256: efb982826b1138b85fb8e98e3b29760b9520d8d7ea12f703fa4300dda88042d0
+SHA1: 25bdcc4958d15eaa3d7ccb94f01716cfc02c1c9a
+MD5sum: e9107ce52672c2c46ea898987c3d4421
+Description: a minimal Markdown reading & writing app. Change Log: (https://typora.io/releases/all)
+ Markdown Editor
+
+Package: vala-language-server
+Version: 0.48.7-1~opt11
+Architecture: amd64
+Maintainer: Yikun Liu <cos.lyk@gmail.com>
+Installed-Size: 966
+Pre-Depends: dpkg (>= 1.15.6)
+Depends: libc6 (>= 2.4), libgee-0.8-2 (>= 0.20.0), libglib2.0-0 (>= 2.61.2), libjson-glib-1.0-0 (>= 1.5.2), libjsonrpc-glib-1.0-1 (>= 3.27.90), libvala-0.48-0 (>= 0.48.4), ffmpeg
+Priority: optional
+Section: devel
+Filename: pool/main/v/vala-language-server/vala-language-server_0.48.7-1~opt11_amd64.deb
+Size: 282480
+SHA256: 698a6ab272202341d56645ffd8a2f2714b04448e4b073bc5019c3b4b9bc6b5f5
+SHA1: a64b008004ac451e6b91a3c700c16ae50b4468e9
+MD5sum: fe4cbf937c4cad3618148f62bf2e591d
+Description: Code Intelligence for Vala & Genie.
+
+Package: vgrive
+Version: 1.6.1-1~opt11
+Architecture: amd64
+Maintainer: Eduard Berloso Clarà <eduard.bc.95@gmail.com>
+Installed-Size: 1777
+Depends: dconf-gsettings-backend | gsettings-backend, libc6 (>= 2.4), libgdk-pixbuf-2.0-0 (>= 2.22.0), libgee-0.8-2 (>= 0.8.3), libglib2.0-0 (>= 2.39.4), libgranite5 (>= 5.1.0), libgtk-3-0 (>= 3.21.4), libjson-glib-1.0-0 (>= 1.5.2), libsoup2.4-1 (>= 2.41.90)
+Priority: extra
+Section: x11
+Filename: pool/main/v/vgrive/vgrive_1.6.1-1~opt11_amd64.deb
+Size: 107500
+SHA256: 14e774c8e074c63a3750af9840751402ed979ad989024fa530b48e56e1f66dc6
+SHA1: c31853ca57db986be6394ba7c483fdecc2d29cff
+MD5sum: 31bb8413c4f3384087581d2ce9b3d7c0
+Description: VGrive is a client (back-end and front-end) for Google Drive made in vala.
+ Automaticlly detects changes in local and remote files and sync them.
+
+Package: vidbox
+Version: 0.2-1~opt11
+Architecture: amd64
+Maintainer: Yikun Liu <cos.lyk@gmail.com>
+Installed-Size: 458
+Pre-Depends: dpkg (>= 1.15.6)
+Depends: dconf-gsettings-backend | gsettings-backend, libc6 (>= 2.14), libcairo2 (>= 1.2.4), libepoxy0 (>= 1.0), libgdk-pixbuf-2.0-0 (>= 2.25.2), libglib2.0-0 (>= 2.43.92), libgtk-3-0 (>= 3.16.2), libjson-glib-1.0-0 (>= 1.5.2), libmpv1 (>= 0.29), ffmpeg
+Priority: optional
+Section: utils
+Filename: pool/main/v/vidbox/vidbox_0.2-1~opt11_amd64.deb
+Size: 62412
+SHA256: 06fe429c430f24da560707e6ad73cd79e92c773f8ccf337236b0d9cdfd096f01
+SHA1: 7c2bda70906f76ceaef6438170fb75b942f035d1
+MD5sum: b900edf7d6a1e2a020ab9838b8ed16fd
+Description: A tiny video toolbox
+ VidBox is a tiny but useful tool that allows you to split, merge videos and so on.
+
+Package: vnote
+Version: 3.16.0-1~opt11
+Architecture: amd64
+Maintainer: Le Tan <tamlokveer@gmail.com>
+Installed-Size: 13814
+Depends: libc6 (>= 2.14), libgcc-s1 (>= 3.0), libqt5core5a (>= 5.15.1), libqt5gui5 (>= 5.12.2) | libqt5gui5-gles (>= 5.12.2), libqt5network5 (>= 5.8.0), libqt5printsupport5 (>= 5.0.2), libqt5sql5 (>= 5.0.2), libqt5svg5 (>= 5.6.0~beta), libqt5webchannel5 (>= 5.6.1), libqt5webenginewidgets5 (>= 5.14.1), libqt5widgets5 (>= 5.14.1), libqt5x11extras5 (>= 5.6.0), libstdc++6 (>= 5.2), libx11-6
+Homepage: https://tamlok.github.io/vnote
+Priority: optional
+Section: editors
+Filename: pool/main/v/vnote/vnote_3.16.0-1~opt11_amd64.deb
+Size: 6553148
+SHA256: 0f2ed58fc3907caea6ebbc822753ebc8de13a37b1b9873ad7a62aa10e11eb4f0
+SHA1: b9c932735c1832c4d44801df6bdc0be19eef3e9f
+MD5sum: 42aa327315c29a3ca613e44fb2c63274
+Description: A Vim-inspired note-taking application for Markdown.
+ VNote is a cross-platform, free note-taking application, designed especially
+ for Markdown. VNote provides both simple note management and pleasant Markdown
+ edit experience.
+
+Package: wxformbuilder
+Version: 3.10.1-1~opt11
+Architecture: amd64
+Maintainer: YK Liu <cos.lyk@gmail.com>
+Installed-Size: 7297
+Depends: libc6 (>= 2.14), libgcc-s1 (>= 3.0), libstdc++6 (>= 9), libwxbase3.0-0v5 (>= 3.0.5.1+dfsg), libwxgtk-media3.0-gtk3-0v5 (>= 3.0.5.1+dfsg), libwxgtk3.0-gtk3-0v5 (>= 3.0.5.1+dfsg)
+Priority: optional
+Section: devel
+Filename: pool/main/w/wxformbuilder/wxformbuilder_3.10.1-1~opt11_amd64.deb
+Size: 1564316
+SHA256: cc5c2aa94eb2e15b7213a697e32f941a7340dd2dafeba1c885240e58e2d2d5b7
+SHA1: 9e923f32a796dcddd9029cea580d3c62d6ac505f
+MD5sum: 412e96ceb45a167b156b7641d29a139f
+Description: RAD tool for wxWidgets GUI design.
+
+Package: xmcl
+Version: 0.47.10-1002
+License: MIT
+Vendor: ci010 <cijhn@hotmail.com>
+Architecture: amd64
+Maintainer: ci010 <cijhn@hotmail.com>
+Installed-Size: 285479
+Depends: libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0
+Recommends: libappindicator3-1
+Homepage: https://github.com/voxelum/x-minecraft-launcher#readme
+Priority: optional
+Section: default
+Filename: pool/main/x/xmcl/xmcl_0.47.10-1002_amd64.deb
+Size: 79919390
+SHA256: 9374217574cee1283baed43d440fb5d1a8835d5d9415686a08b69043d0ba4b84
+SHA1: 5f0c6268d0e3996066679a3b08de88c07041f754
+MD5sum: 7dd3a0ca5aea063738bfe8d5810b88ea
+Description: 
+  A great minecraft launcher in the future
+
+Package: xournalpp
+Version: 1.1.3-1~opt11
+Architecture: amd64
+Maintainer: Andreas Butti <andreasbutti@gmail.com>
+Installed-Size: 5702
+Depends: libc6 (>= 2.29), libcairo2 (>= 1.15.8), libgcc-s1 (>= 3.0), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0 (>= 2.39.90), libgtk-3-0 (>= 3.21.4), liblua5.3-0, libpango-1.0-0 (>= 1.14.0), libpangocairo-1.0-0 (>= 1.14.0), libpoppler-glib8 (>= 0.41.0), libportaudio2 (>= 19+svn20101113), libportaudiocpp0 (>= 12), librsvg2-2 (>= 2.40), libsndfile1 (>= 1.0.25), libstdc++6 (>= 9), libx11-6, libxi6 (>= 2:1.2.0), libxml2 (>= 2.7.4), libzip4 (>= 1.0), zlib1g (>= 1:1.1.4), libzip4 (>= 1.0.1) | libzip5
+Recommends: lua-lgi
+Suggests: texlive-base, texlive-latex-extra
+Homepage: https://github.com/xournalpp/xournalpp/
+Priority: optional
+Section: misc
+Filename: pool/main/x/xournalpp/xournalpp_1.1.3-1~opt11_amd64.deb
+Size: 1211232
+SHA256: 8c4f9293dd7021673a1ca6ad390fb1438b26e7b74df5cf67eef0789f1e6af549
+SHA1: 37ac36d5cb64c62c7bb53da3370f00f3a49727be
+MD5sum: 417d853ed38b2422a8c9c6a7b6cbadbd
+Description: Xournal++ - Open source hand note-taking program
+ Xournal++ is a hand note taking software written in C++ with the target of
+ flexibility, functionality and speed. Stroke recognizer and other parts are
+ based on Xournal Code, which you can find at sourceforge.
+ It supports Linux (e.g. Ubuntu, Debian, Arch, SUSE), macOS and Windows 10.
+ Supports pen input from devices such as Wacom Tablets.
+ .
+ Xournal++ features:
+ .
+  - Supports pressure senstive styluses and digital pen tables (e.g. Wacom, Huion, XP Pen, etc. tablets)
+  - Paper backgrounds for notetaking, scratch paper, or whiteboarding
+  - Annotate on top of PDFs
+  - Export to a variety of formats including SVG, PNG and PDF, both from the GUI and command line
+  - Different drawing tools (e.g.pen, highlighter) and stroke styles (e.g. solid, dotted)
+  - Shape drawing (line, arrow, circle, rectangle, spline)
+  - Fill shape functionality
+  - Shape resizing and rotation
+  - Rotation and grid snapping for precise alignment of objects
+  - Input stabilization for smoother writing/drawing
+  - Text tool for adding text in different fonts, colors and sizes
+  - Enhanced support for image insertion
+  - Eraser with multiple configurations
+  - LaTeX support (requires a working LaTeX installation) with customizeable template
+  - Sidebar with Page Previews with advanced page sorting, PDF Bookmarks and Layers (can be individually hidden/edited)
+  - Allows maping different tools/colors etc. to stylus/mouse buttons
+  - Customizeable toolbar with multiple configurations, e.g. to optimize toolbar for portrait/landscape
+  - Page Template definitions
+  - Bug reporting, autosave, and auto backup tools
+  - Audio recording and playback alongside with handwritten notes
+  - Multi language support (over 20 languages supported)
+  - Plugins using Lua scripting
+
+Package: yarn
+Version: 1.22.22-1
+Recommends: nodejs
+Conflicts: nodejs (<< 4.0.0), cmdtest
+Architecture: all
+Installed-Size: 5304
+Maintainer: Yarn Developers <yarn@dan.cx>
+Homepage: https://yarnpkg.com/
+Priority: optional
+Section: devel
+Filename: pool/main/y/yarn/yarn_1.22.22-1_all.deb
+Size: 896308
+SHA256: bdd227d3fead0510a1a75620ffa7369f61f50711505efa9dc371e14dca04e33e
+SHA1: a3073de43242748721a5e7caf157cb928c9c1329
+MD5sum: cf063bf7859c42360a0e50427931c640
+Description: Fast, reliable, and secure dependency management.
+ Yarn: Fast, reliable, and secure dependency management.
+ .
+ Fast: Yarn caches every package it downloads so it never needs to again. It
+ also parallelizes operations to maximize resource utilization so install times
+ are faster than ever.
+ .
+ Reliable: Using a detailed, but concise, lockfile format, and a deterministic
+ algorithm for installs, Yarn is able to guarantee that an install that worked
+ on one system will work exactly the same way on any other system.
+ .
+ Secure: Yarn uses checksums to verify the integrity of every installed package
+ before its code is executed.
+
+Package: yesplaymusic
+Version: 0.4.8
+License: unknown
+Vendor: qier222 <qier222@outlook.com>
+Architecture: amd64
+Maintainer: qier222 <qier222@outlook.com>
+Installed-Size: 293965
+Depends: libgtk-3-0, libnotify4, libnss3, libxss1, libxtst6, xdg-utils, libatspi2.0-0, libuuid1, libsecret-1-0
+Recommends: libappindicator3-1
+Homepage: https://github.com/qier222/YesPlayMusic
+Priority: optional
+Section: default
+Filename: pool/main/y/yesplaymusic/yesplaymusic_0.4.8_amd64.deb
+Size: 78542138
+SHA256: 8935a2fad64651053b27599c98c76559748aa581b2e263007aaf4237d7e19d9f
+SHA1: 0b04a12a35d96a5de4bee2cf1c480d5bd1528035
+MD5sum: 8f51f19eaedc8ea121aca47d2472869d
+Description: 
+  A third party music player for Netease Music
+

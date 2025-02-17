@@ -11,6 +11,15 @@ var shell = require('..');
 var MIN_NODE_VERSION = 8;
 var MAX_NODE_VERSION = 22;
 
+// Ideally this map should be empty, however we can pin node releases to
+// specific versions if necessary to workaround bugs. See
+// https://github.com/shelljs/shelljs/issues/1180.
+var pinnedNodeVersions = {
+  // Format:
+  // majorVersionInt: 'full.node.version',
+  22: '22.9.0',
+};
+
 function checkReadme(minNodeVersion) {
   var start = '<!-- start minVersion -->';
   var stop = '<!-- stop minVersion -->';
@@ -45,7 +54,10 @@ function assertDeepEquals(arr1, arr2, msg) {
 
 function range(start, stop) {
   var ret = [];
-  for (var i = start; i <= stop; i++) {
+  for (var i = start; i <= stop; i += 2) {
+    if (i % 2 !== 0) {
+      console.warn('Warning: testing a non-LTS nodejs release: ' + i);
+    }
     ret.push(i);
   }
   return ret;
@@ -53,6 +65,9 @@ function range(start, stop) {
 
 function checkGithubActions(minNodeVersion, maxNodeVersion, githubActionsYaml) {
   var expectedVersions = range(minNodeVersion, maxNodeVersion);
+  expectedVersions = expectedVersions.map(function (majorVersion) {
+    return pinnedNodeVersions[majorVersion] || majorVersion;
+  });
   var msg = 'Check GitHub Actions node_js versions';
   assertDeepEquals(githubActionsYaml.jobs.test.strategy.matrix['node-version'],
       expectedVersions, msg);
@@ -69,7 +84,7 @@ try {
   var githubActionsYaml = yaml.load(shell.cat(githubActionsFileName));
   checkGithubActions(MIN_NODE_VERSION, MAX_NODE_VERSION, githubActionsYaml);
 
-  console.log('All files look good (this project supports v'
+  console.log('All files look good (this project supports LTS releases v'
       + MIN_NODE_VERSION + '-v' + MAX_NODE_VERSION + ')!');
 } catch (e) {
   console.error('Please check the files which declare our Node version');

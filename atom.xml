@@ -184,9 +184,9 @@
     
     <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
     
-    <category term="dtc" scheme="https://dpkg123.github.io/tags/dtc/"/>
-    
     <category term="dtb" scheme="https://dpkg123.github.io/tags/dtb/"/>
+    
+    <category term="dtc" scheme="https://dpkg123.github.io/tags/dtc/"/>
     
   </entry>
   

@@ -3,11 +3,11 @@
   <title>dpkg123的博客</title>
   
   <subtitle>Test Page</subtitle>
-  <link href="https://dpkg123.github.io/atom.xml" rel="self"/>
+  <link href="https://dpkg123.netlify.app/atom.xml" rel="self"/>
   
-  <link href="https://dpkg123.github.io/"/>
+  <link href="https://dpkg123.netlify.app/"/>
   <updated>2025-02-13T09:55:21.000Z</updated>
-  <id>https://dpkg123.github.io/</id>
+  <id>https://dpkg123.netlify.app/</id>
   
   <author>
     <name>dpkg123</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>安卓内核编译速通</title>
-    <link href="https://dpkg123.github.io/2025/02/13/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91%E9%80%9F%E9%80%9A/"/>
-    <id>https://dpkg123.github.io/2025/02/13/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91%E9%80%9F%E9%80%9A/</id>
+    <link href="https://dpkg123.netlify.app/2025/02/13/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91%E9%80%9F%E9%80%9A/"/>
+    <id>https://dpkg123.netlify.app/2025/02/13/%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91%E9%80%9F%E9%80%9A/</id>
     <published>2025-02-13T09:55:21.000Z</published>
     <updated>2025-02-13T09:55:21.000Z</updated>
     
@@ -34,24 +34,24 @@
     
     
     
-    <category term="Android" scheme="https://dpkg123.github.io/tags/Android/"/>
+    <category term="Android" scheme="https://dpkg123.netlify.app/tags/Android/"/>
     
-    <category term="内核" scheme="https://dpkg123.github.io/tags/%E5%86%85%E6%A0%B8/"/>
+    <category term="内核" scheme="https://dpkg123.netlify.app/tags/%E5%86%85%E6%A0%B8/"/>
     
-    <category term="编译" scheme="https://dpkg123.github.io/tags/%E7%BC%96%E8%AF%91/"/>
+    <category term="编译" scheme="https://dpkg123.netlify.app/tags/%E7%BC%96%E8%AF%91/"/>
     
-    <category term="速通" scheme="https://dpkg123.github.io/tags/%E9%80%9F%E9%80%9A/"/>
+    <category term="速通" scheme="https://dpkg123.netlify.app/tags/%E9%80%9F%E9%80%9A/"/>
     
-    <category term="教程" scheme="https://dpkg123.github.io/tags/%E6%95%99%E7%A8%8B/"/>
+    <category term="教程" scheme="https://dpkg123.netlify.app/tags/%E6%95%99%E7%A8%8B/"/>
     
-    <category term="奇技淫巧" scheme="https://dpkg123.github.io/tags/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
+    <category term="奇技淫巧" scheme="https://dpkg123.netlify.app/tags/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
     
   </entry>
   
   <entry>
     <title>使用github工作流全自动构建postmarketos刷机包</title>
-    <link href="https://dpkg123.github.io/2025/02/13/%E4%BD%BF%E7%94%A8github%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%85%A8%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BApostmarketos%E5%88%B7%E6%9C%BA%E5%8C%85/"/>
-    <id>https://dpkg123.github.io/2025/02/13/%E4%BD%BF%E7%94%A8github%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%85%A8%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BApostmarketos%E5%88%B7%E6%9C%BA%E5%8C%85/</id>
+    <link href="https://dpkg123.netlify.app/2025/02/13/%E4%BD%BF%E7%94%A8github%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%85%A8%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BApostmarketos%E5%88%B7%E6%9C%BA%E5%8C%85/"/>
+    <id>https://dpkg123.netlify.app/2025/02/13/%E4%BD%BF%E7%94%A8github%E5%B7%A5%E4%BD%9C%E6%B5%81%E5%85%A8%E8%87%AA%E5%8A%A8%E6%9E%84%E5%BB%BApostmarketos%E5%88%B7%E6%9C%BA%E5%8C%85/</id>
     <published>2025-02-13T09:45:38.000Z</published>
     <updated>2025-02-13T09:45:38.000Z</updated>
     
@@ -66,26 +66,26 @@
     
     
     
-    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
+    <category term="刷机" scheme="https://dpkg123.netlify.app/tags/%E5%88%B7%E6%9C%BA/"/>
     
-    <category term="手机" scheme="https://dpkg123.github.io/tags/%E6%89%8B%E6%9C%BA/"/>
+    <category term="手机" scheme="https://dpkg123.netlify.app/tags/%E6%89%8B%E6%9C%BA/"/>
     
-    <category term="Android" scheme="https://dpkg123.github.io/tags/Android/"/>
+    <category term="Android" scheme="https://dpkg123.netlify.app/tags/Android/"/>
     
-    <category term="Root" scheme="https://dpkg123.github.io/tags/Root/"/>
+    <category term="Root" scheme="https://dpkg123.netlify.app/tags/Root/"/>
     
-    <category term="Github" scheme="https://dpkg123.github.io/tags/Github/"/>
+    <category term="Github" scheme="https://dpkg123.netlify.app/tags/Github/"/>
     
-    <category term="CI" scheme="https://dpkg123.github.io/tags/CI/"/>
+    <category term="CI" scheme="https://dpkg123.netlify.app/tags/CI/"/>
     
-    <category term="Linux" scheme="https://dpkg123.github.io/tags/Linux/"/>
+    <category term="Linux" scheme="https://dpkg123.netlify.app/tags/Linux/"/>
     
   </entry>
   
   <entry>
     <title>PostmarketOS移植常见问题</title>
-    <link href="https://dpkg123.github.io/2024/08/12/PostmarketOS%E7%A7%BB%E6%A4%8D%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
-    <id>https://dpkg123.github.io/2024/08/12/PostmarketOS%E7%A7%BB%E6%A4%8D%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</id>
+    <link href="https://dpkg123.netlify.app/2024/08/12/PostmarketOS%E7%A7%BB%E6%A4%8D%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
+    <id>https://dpkg123.netlify.app/2024/08/12/PostmarketOS%E7%A7%BB%E6%A4%8D%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</id>
     <published>2024-08-12T10:10:55.000Z</published>
     <updated>2024-08-12T10:10:55.000Z</updated>
     
@@ -100,22 +100,22 @@
     
     
     
-    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    <category term="linux" scheme="https://dpkg123.netlify.app/tags/linux/"/>
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
+    <category term="PostmarketOS" scheme="https://dpkg123.netlify.app/tags/PostmarketOS/"/>
     
-    <category term="PostmarketOS" scheme="https://dpkg123.github.io/tags/PostmarketOS/"/>
+    <category term="ROM移植" scheme="https://dpkg123.netlify.app/tags/ROM%E7%A7%BB%E6%A4%8D/"/>
     
-    <category term="ROM移植" scheme="https://dpkg123.github.io/tags/ROM%E7%A7%BB%E6%A4%8D/"/>
+    <category term="android" scheme="https://dpkg123.netlify.app/tags/android/"/>
     
-    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
+    <category term="刷机" scheme="https://dpkg123.netlify.app/tags/%E5%88%B7%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>本地搭建第三方alpine repo</title>
-    <link href="https://dpkg123.github.io/2024/03/23/%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BA%E7%AC%AC%E4%B8%89%E6%96%B9alpine-repo/"/>
-    <id>https://dpkg123.github.io/2024/03/23/%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BA%E7%AC%AC%E4%B8%89%E6%96%B9alpine-repo/</id>
+    <link href="https://dpkg123.netlify.app/2024/03/23/%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BA%E7%AC%AC%E4%B8%89%E6%96%B9alpine-repo/"/>
+    <id>https://dpkg123.netlify.app/2024/03/23/%E6%9C%AC%E5%9C%B0%E6%90%AD%E5%BB%BA%E7%AC%AC%E4%B8%89%E6%96%B9alpine-repo/</id>
     <published>2024-03-22T19:48:45.000Z</published>
     <updated>2024-03-22T19:48:45.000Z</updated>
     
@@ -130,18 +130,18 @@
     
     
     
-    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    <category term="linux" scheme="https://dpkg123.netlify.app/tags/linux/"/>
     
-    <category term="alpine" scheme="https://dpkg123.github.io/tags/alpine/"/>
+    <category term="alpine" scheme="https://dpkg123.netlify.app/tags/alpine/"/>
     
-    <category term="软件源" scheme="https://dpkg123.github.io/tags/%E8%BD%AF%E4%BB%B6%E6%BA%90/"/>
+    <category term="软件源" scheme="https://dpkg123.netlify.app/tags/%E8%BD%AF%E4%BB%B6%E6%BA%90/"/>
     
   </entry>
   
   <entry>
     <title>折腾ts action遇到的其中一个问题</title>
-    <link href="https://dpkg123.github.io/2024/02/12/%E6%8A%98%E8%85%BEts-action%E9%81%87%E5%88%B0%E7%9A%84%E5%85%B6%E4%B8%AD%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/"/>
-    <id>https://dpkg123.github.io/2024/02/12/%E6%8A%98%E8%85%BEts-action%E9%81%87%E5%88%B0%E7%9A%84%E5%85%B6%E4%B8%AD%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/</id>
+    <link href="https://dpkg123.netlify.app/2024/02/12/%E6%8A%98%E8%85%BEts-action%E9%81%87%E5%88%B0%E7%9A%84%E5%85%B6%E4%B8%AD%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/"/>
+    <id>https://dpkg123.netlify.app/2024/02/12/%E6%8A%98%E8%85%BEts-action%E9%81%87%E5%88%B0%E7%9A%84%E5%85%B6%E4%B8%AD%E4%B8%80%E4%B8%AA%E9%97%AE%E9%A2%98/</id>
     <published>2024-02-11T22:01:08.000Z</published>
     <updated>2024-02-11T22:01:08.000Z</updated>
     
@@ -156,16 +156,16 @@
     
     
     
-    <category term="TypeScript" scheme="https://dpkg123.github.io/tags/TypeScript/"/>
+    <category term="TypeScript" scheme="https://dpkg123.netlify.app/tags/TypeScript/"/>
     
-    <category term="Github Actions" scheme="https://dpkg123.github.io/tags/Github-Actions/"/>
+    <category term="Github Actions" scheme="https://dpkg123.netlify.app/tags/Github-Actions/"/>
     
   </entry>
   
   <entry>
     <title>dtc编译教程</title>
-    <link href="https://dpkg123.github.io/2024/01/29/dtc%E7%BC%96%E8%AF%91%E6%95%99%E7%A8%8B/"/>
-    <id>https://dpkg123.github.io/2024/01/29/dtc%E7%BC%96%E8%AF%91%E6%95%99%E7%A8%8B/</id>
+    <link href="https://dpkg123.netlify.app/2024/01/29/dtc%E7%BC%96%E8%AF%91%E6%95%99%E7%A8%8B/"/>
+    <id>https://dpkg123.netlify.app/2024/01/29/dtc%E7%BC%96%E8%AF%91%E6%95%99%E7%A8%8B/</id>
     <published>2024-01-29T15:26:53.000Z</published>
     <updated>2024-01-29T15:26:53.000Z</updated>
     
@@ -180,20 +180,20 @@
     
     
     
-    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    <category term="linux" scheme="https://dpkg123.netlify.app/tags/linux/"/>
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
+    <category term="android" scheme="https://dpkg123.netlify.app/tags/android/"/>
     
-    <category term="dtb" scheme="https://dpkg123.github.io/tags/dtb/"/>
+    <category term="dtc" scheme="https://dpkg123.netlify.app/tags/dtc/"/>
     
-    <category term="dtc" scheme="https://dpkg123.github.io/tags/dtc/"/>
+    <category term="dtb" scheme="https://dpkg123.netlify.app/tags/dtb/"/>
     
   </entry>
   
   <entry>
     <title>OPPO Reno6 ColorOS13.1内核源码编译记录</title>
-    <link href="https://dpkg123.github.io/2024/01/15/OPPO%20Reno6%20ColorOS13.1%E5%86%85%E6%A0%B8%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E8%AE%B0%E5%BD%95/"/>
-    <id>https://dpkg123.github.io/2024/01/15/OPPO%20Reno6%20ColorOS13.1%E5%86%85%E6%A0%B8%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E8%AE%B0%E5%BD%95/</id>
+    <link href="https://dpkg123.netlify.app/2024/01/15/OPPO%20Reno6%20ColorOS13.1%E5%86%85%E6%A0%B8%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E8%AE%B0%E5%BD%95/"/>
+    <id>https://dpkg123.netlify.app/2024/01/15/OPPO%20Reno6%20ColorOS13.1%E5%86%85%E6%A0%B8%E6%BA%90%E7%A0%81%E7%BC%96%E8%AF%91%E8%AE%B0%E5%BD%95/</id>
     <published>2024-01-15T15:03:25.000Z</published>
     <updated>2024-01-15T15:03:25.000Z</updated>
     
@@ -208,18 +208,18 @@
     
     
     
-    <category term="kernel" scheme="https://dpkg123.github.io/tags/kernel/"/>
+    <category term="kernel" scheme="https://dpkg123.netlify.app/tags/kernel/"/>
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
+    <category term="android" scheme="https://dpkg123.netlify.app/tags/android/"/>
     
-    <category term="OPPO" scheme="https://dpkg123.github.io/tags/OPPO/"/>
+    <category term="OPPO" scheme="https://dpkg123.netlify.app/tags/OPPO/"/>
     
   </entry>
   
   <entry>
     <title>Android boot.img 文件的解包、修改与重打包小记</title>
-    <link href="https://dpkg123.github.io/2023/12/24/Android%20boot.img%20%E6%96%87%E4%BB%B6%E7%9A%84%E8%A7%A3%E5%8C%85%E3%80%81%E4%BF%AE%E6%94%B9%E4%B8%8E%E9%87%8D%E6%89%93%E5%8C%85%E5%B0%8F%E8%AE%B0/"/>
-    <id>https://dpkg123.github.io/2023/12/24/Android%20boot.img%20%E6%96%87%E4%BB%B6%E7%9A%84%E8%A7%A3%E5%8C%85%E3%80%81%E4%BF%AE%E6%94%B9%E4%B8%8E%E9%87%8D%E6%89%93%E5%8C%85%E5%B0%8F%E8%AE%B0/</id>
+    <link href="https://dpkg123.netlify.app/2023/12/24/Android%20boot.img%20%E6%96%87%E4%BB%B6%E7%9A%84%E8%A7%A3%E5%8C%85%E3%80%81%E4%BF%AE%E6%94%B9%E4%B8%8E%E9%87%8D%E6%89%93%E5%8C%85%E5%B0%8F%E8%AE%B0/"/>
+    <id>https://dpkg123.netlify.app/2023/12/24/Android%20boot.img%20%E6%96%87%E4%BB%B6%E7%9A%84%E8%A7%A3%E5%8C%85%E3%80%81%E4%BF%AE%E6%94%B9%E4%B8%8E%E9%87%8D%E6%89%93%E5%8C%85%E5%B0%8F%E8%AE%B0/</id>
     <published>2023-12-24T12:01:05.000Z</published>
     <updated>2023-12-24T12:01:05.000Z</updated>
     
@@ -234,16 +234,16 @@
     
     
     
-    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    <category term="linux" scheme="https://dpkg123.netlify.app/tags/linux/"/>
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
+    <category term="android" scheme="https://dpkg123.netlify.app/tags/android/"/>
     
   </entry>
   
   <entry>
     <title>twrp设备树从入门到放弃</title>
-    <link href="https://dpkg123.github.io/2023/12/10/twrp%E8%AE%BE%E5%A4%87%E6%A0%91%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/"/>
-    <id>https://dpkg123.github.io/2023/12/10/twrp%E8%AE%BE%E5%A4%87%E6%A0%91%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/</id>
+    <link href="https://dpkg123.netlify.app/2023/12/10/twrp%E8%AE%BE%E5%A4%87%E6%A0%91%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/"/>
+    <id>https://dpkg123.netlify.app/2023/12/10/twrp%E8%AE%BE%E5%A4%87%E6%A0%91%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/</id>
     <published>2023-12-10T10:41:08.000Z</published>
     <updated>2023-12-10T10:41:08.000Z</updated>
     
@@ -255,20 +255,20 @@
     
     
     
-    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    <category term="linux" scheme="https://dpkg123.netlify.app/tags/linux/"/>
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
+    <category term="android" scheme="https://dpkg123.netlify.app/tags/android/"/>
     
-    <category term="twrp" scheme="https://dpkg123.github.io/tags/twrp/"/>
+    <category term="twrp" scheme="https://dpkg123.netlify.app/tags/twrp/"/>
     
-    <category term="build" scheme="https://dpkg123.github.io/tags/build/"/>
+    <category term="build" scheme="https://dpkg123.netlify.app/tags/build/"/>
     
   </entry>
   
   <entry>
     <title>3DS折腾linux小记</title>
-    <link href="https://dpkg123.github.io/2023/10/06/3DS%E6%8A%98%E8%85%BElinux%E5%B0%8F%E8%AE%B0/"/>
-    <id>https://dpkg123.github.io/2023/10/06/3DS%E6%8A%98%E8%85%BElinux%E5%B0%8F%E8%AE%B0/</id>
+    <link href="https://dpkg123.netlify.app/2023/10/06/3DS%E6%8A%98%E8%85%BElinux%E5%B0%8F%E8%AE%B0/"/>
+    <id>https://dpkg123.netlify.app/2023/10/06/3DS%E6%8A%98%E8%85%BElinux%E5%B0%8F%E8%AE%B0/</id>
     <published>2023-10-06T13:24:53.000Z</published>
     <updated>2023-10-06T13:24:53.000Z</updated>
     
@@ -283,20 +283,20 @@
     
     
     
-    <category term="3DS" scheme="https://dpkg123.github.io/tags/3DS/"/>
+    <category term="3DS" scheme="https://dpkg123.netlify.app/tags/3DS/"/>
     
-    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    <category term="linux" scheme="https://dpkg123.netlify.app/tags/linux/"/>
     
-    <category term="buildroot" scheme="https://dpkg123.github.io/tags/buildroot/"/>
+    <category term="buildroot" scheme="https://dpkg123.netlify.app/tags/buildroot/"/>
     
-    <category term="kernel" scheme="https://dpkg123.github.io/tags/kernel/"/>
+    <category term="kernel" scheme="https://dpkg123.netlify.app/tags/kernel/"/>
     
   </entry>
   
   <entry>
     <title>暂停更新博客通知</title>
-    <link href="https://dpkg123.github.io/2023/08/08/%E6%9A%82%E5%81%9C%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E9%80%9A%E7%9F%A5/"/>
-    <id>https://dpkg123.github.io/2023/08/08/%E6%9A%82%E5%81%9C%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E9%80%9A%E7%9F%A5/</id>
+    <link href="https://dpkg123.netlify.app/2023/08/08/%E6%9A%82%E5%81%9C%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E9%80%9A%E7%9F%A5/"/>
+    <id>https://dpkg123.netlify.app/2023/08/08/%E6%9A%82%E5%81%9C%E6%9B%B4%E6%96%B0%E5%8D%9A%E5%AE%A2%E9%80%9A%E7%9F%A5/</id>
     <published>2023-08-08T14:11:26.000Z</published>
     <updated>2023-08-08T14:11:26.000Z</updated>
     
@@ -311,14 +311,14 @@
     
     
     
-    <category term="杂谈" scheme="https://dpkg123.github.io/tags/%E6%9D%82%E8%B0%88/"/>
+    <category term="杂谈" scheme="https://dpkg123.netlify.app/tags/%E6%9D%82%E8%B0%88/"/>
     
   </entry>
   
   <entry>
     <title>Makefile入门</title>
-    <link href="https://dpkg123.github.io/2023/08/05/Makefile%E5%85%A5%E9%97%A8/"/>
-    <id>https://dpkg123.github.io/2023/08/05/Makefile%E5%85%A5%E9%97%A8/</id>
+    <link href="https://dpkg123.netlify.app/2023/08/05/Makefile%E5%85%A5%E9%97%A8/"/>
+    <id>https://dpkg123.netlify.app/2023/08/05/Makefile%E5%85%A5%E9%97%A8/</id>
     <published>2023-08-04T16:56:05.000Z</published>
     <updated>2023-08-04T16:56:05.000Z</updated>
     
@@ -333,16 +333,16 @@
     
     
     
-    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    <category term="linux" scheme="https://dpkg123.netlify.app/tags/linux/"/>
     
-    <category term="makefile" scheme="https://dpkg123.github.io/tags/makefile/"/>
+    <category term="makefile" scheme="https://dpkg123.netlify.app/tags/makefile/"/>
     
   </entry>
   
   <entry>
     <title>linux电脑给手机进行9008刷机</title>
-    <link href="https://dpkg123.github.io/2023/07/28/linux%E7%94%B5%E8%84%91%E7%BB%99%E6%89%8B%E6%9C%BA%E8%BF%9B%E8%A1%8C9008%E5%88%B7%E6%9C%BA/"/>
-    <id>https://dpkg123.github.io/2023/07/28/linux%E7%94%B5%E8%84%91%E7%BB%99%E6%89%8B%E6%9C%BA%E8%BF%9B%E8%A1%8C9008%E5%88%B7%E6%9C%BA/</id>
+    <link href="https://dpkg123.netlify.app/2023/07/28/linux%E7%94%B5%E8%84%91%E7%BB%99%E6%89%8B%E6%9C%BA%E8%BF%9B%E8%A1%8C9008%E5%88%B7%E6%9C%BA/"/>
+    <id>https://dpkg123.netlify.app/2023/07/28/linux%E7%94%B5%E8%84%91%E7%BB%99%E6%89%8B%E6%9C%BA%E8%BF%9B%E8%A1%8C9008%E5%88%B7%E6%9C%BA/</id>
     <published>2023-07-28T11:30:41.000Z</published>
     <updated>2023-07-28T11:30:41.000Z</updated>
     
@@ -357,18 +357,18 @@
     
     
     
-    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    <category term="linux" scheme="https://dpkg123.netlify.app/tags/linux/"/>
     
-    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
+    <category term="刷机" scheme="https://dpkg123.netlify.app/tags/%E5%88%B7%E6%9C%BA/"/>
     
-    <category term="9008" scheme="https://dpkg123.github.io/tags/9008/"/>
+    <category term="9008" scheme="https://dpkg123.netlify.app/tags/9008/"/>
     
   </entry>
   
   <entry>
     <title>浅谈安卓内核的碎片化</title>
-    <link href="https://dpkg123.github.io/2023/07/20/%E6%B5%85%E8%B0%88%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8%E7%9A%84%E7%A2%8E%E7%89%87%E5%8C%96/"/>
-    <id>https://dpkg123.github.io/2023/07/20/%E6%B5%85%E8%B0%88%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8%E7%9A%84%E7%A2%8E%E7%89%87%E5%8C%96/</id>
+    <link href="https://dpkg123.netlify.app/2023/07/20/%E6%B5%85%E8%B0%88%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8%E7%9A%84%E7%A2%8E%E7%89%87%E5%8C%96/"/>
+    <id>https://dpkg123.netlify.app/2023/07/20/%E6%B5%85%E8%B0%88%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8%E7%9A%84%E7%A2%8E%E7%89%87%E5%8C%96/</id>
     <published>2023-07-19T22:51:37.000Z</published>
     <updated>2023-07-19T22:51:37.000Z</updated>
     
@@ -383,20 +383,20 @@
     
     
     
-    <category term="kernel" scheme="https://dpkg123.github.io/tags/kernel/"/>
+    <category term="kernel" scheme="https://dpkg123.netlify.app/tags/kernel/"/>
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
+    <category term="android" scheme="https://dpkg123.netlify.app/tags/android/"/>
     
-    <category term="android kernel" scheme="https://dpkg123.github.io/tags/android-kernel/"/>
+    <category term="android kernel" scheme="https://dpkg123.netlify.app/tags/android-kernel/"/>
     
-    <category term="gki" scheme="https://dpkg123.github.io/tags/gki/"/>
+    <category term="gki" scheme="https://dpkg123.netlify.app/tags/gki/"/>
     
   </entry>
   
   <entry>
     <title>哔哩哔哩危险地带部分补档</title>
-    <link href="https://dpkg123.github.io/2023/06/29/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E5%8D%B1%E9%99%A9%E5%9C%B0%E5%B8%A6%E9%83%A8%E5%88%86%E8%A1%A5%E6%A1%A3/"/>
-    <id>https://dpkg123.github.io/2023/06/29/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E5%8D%B1%E9%99%A9%E5%9C%B0%E5%B8%A6%E9%83%A8%E5%88%86%E8%A1%A5%E6%A1%A3/</id>
+    <link href="https://dpkg123.netlify.app/2023/06/29/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E5%8D%B1%E9%99%A9%E5%9C%B0%E5%B8%A6%E9%83%A8%E5%88%86%E8%A1%A5%E6%A1%A3/"/>
+    <id>https://dpkg123.netlify.app/2023/06/29/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E5%8D%B1%E9%99%A9%E5%9C%B0%E5%B8%A6%E9%83%A8%E5%88%86%E8%A1%A5%E6%A1%A3/</id>
     <published>2023-06-28T20:09:52.000Z</published>
     <updated>2023-06-28T20:09:52.000Z</updated>
     
@@ -411,18 +411,18 @@
     
     
     
-    <category term="哔哩哔哩" scheme="https://dpkg123.github.io/tags/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9/"/>
+    <category term="哔哩哔哩" scheme="https://dpkg123.netlify.app/tags/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9/"/>
     
-    <category term="av10492" scheme="https://dpkg123.github.io/tags/av10492/"/>
+    <category term="av10492" scheme="https://dpkg123.netlify.app/tags/av10492/"/>
     
-    <category term="猎奇" scheme="https://dpkg123.github.io/tags/%E7%8C%8E%E5%A5%87/"/>
+    <category term="猎奇" scheme="https://dpkg123.netlify.app/tags/%E7%8C%8E%E5%A5%87/"/>
     
   </entry>
   
   <entry>
     <title>使用dh_make快速构建deb</title>
-    <link href="https://dpkg123.github.io/2023/06/22/%E4%BD%BF%E7%94%A8dh-make%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BAdeb/"/>
-    <id>https://dpkg123.github.io/2023/06/22/%E4%BD%BF%E7%94%A8dh-make%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BAdeb/</id>
+    <link href="https://dpkg123.netlify.app/2023/06/22/%E4%BD%BF%E7%94%A8dh-make%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BAdeb/"/>
+    <id>https://dpkg123.netlify.app/2023/06/22/%E4%BD%BF%E7%94%A8dh-make%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BAdeb/</id>
     <published>2023-06-22T13:34:29.000Z</published>
     <updated>2023-06-22T13:34:29.000Z</updated>
     
@@ -437,16 +437,16 @@
     
     
     
-    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    <category term="linux" scheme="https://dpkg123.netlify.app/tags/linux/"/>
     
-    <category term="debian" scheme="https://dpkg123.github.io/tags/debian/"/>
+    <category term="debian" scheme="https://dpkg123.netlify.app/tags/debian/"/>
     
   </entry>
   
   <entry>
     <title>linux解压payload.bin和转换system.new.dat.br</title>
-    <link href="https://dpkg123.github.io/2023/06/18/linux%E8%A7%A3%E5%8E%8Bpayload-bin%E5%92%8C%E8%BD%AC%E6%8D%A2system-new-dat-br/"/>
-    <id>https://dpkg123.github.io/2023/06/18/linux%E8%A7%A3%E5%8E%8Bpayload-bin%E5%92%8C%E8%BD%AC%E6%8D%A2system-new-dat-br/</id>
+    <link href="https://dpkg123.netlify.app/2023/06/18/linux%E8%A7%A3%E5%8E%8Bpayload-bin%E5%92%8C%E8%BD%AC%E6%8D%A2system-new-dat-br/"/>
+    <id>https://dpkg123.netlify.app/2023/06/18/linux%E8%A7%A3%E5%8E%8Bpayload-bin%E5%92%8C%E8%BD%AC%E6%8D%A2system-new-dat-br/</id>
     <published>2023-06-18T13:53:07.000Z</published>
     <updated>2023-06-18T13:53:07.000Z</updated>
     
@@ -461,18 +461,18 @@
     
     
     
-    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    <category term="linux" scheme="https://dpkg123.netlify.app/tags/linux/"/>
     
-    <category term="android" scheme="https://dpkg123.github.io/tags/android/"/>
+    <category term="android" scheme="https://dpkg123.netlify.app/tags/android/"/>
     
-    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
+    <category term="刷机" scheme="https://dpkg123.netlify.app/tags/%E5%88%B7%E6%9C%BA/"/>
     
   </entry>
   
   <entry>
     <title>浅谈联发科设备玩机的可能性</title>
-    <link href="https://dpkg123.github.io/2023/05/15/%E6%B5%85%E8%B0%88%E8%81%94%E5%8F%91%E7%A7%91%E8%AE%BE%E5%A4%87%E7%8E%A9%E6%9C%BA%E7%9A%84%E5%8F%AF%E8%83%BD%E6%80%A7/"/>
-    <id>https://dpkg123.github.io/2023/05/15/%E6%B5%85%E8%B0%88%E8%81%94%E5%8F%91%E7%A7%91%E8%AE%BE%E5%A4%87%E7%8E%A9%E6%9C%BA%E7%9A%84%E5%8F%AF%E8%83%BD%E6%80%A7/</id>
+    <link href="https://dpkg123.netlify.app/2023/05/15/%E6%B5%85%E8%B0%88%E8%81%94%E5%8F%91%E7%A7%91%E8%AE%BE%E5%A4%87%E7%8E%A9%E6%9C%BA%E7%9A%84%E5%8F%AF%E8%83%BD%E6%80%A7/"/>
+    <id>https://dpkg123.netlify.app/2023/05/15/%E6%B5%85%E8%B0%88%E8%81%94%E5%8F%91%E7%A7%91%E8%AE%BE%E5%A4%87%E7%8E%A9%E6%9C%BA%E7%9A%84%E5%8F%AF%E8%83%BD%E6%80%A7/</id>
     <published>2023-05-15T14:18:39.000Z</published>
     <updated>2023-05-15T14:18:39.000Z</updated>
     
@@ -487,20 +487,20 @@
     
     
     
-    <category term="刷机" scheme="https://dpkg123.github.io/tags/%E5%88%B7%E6%9C%BA/"/>
+    <category term="刷机" scheme="https://dpkg123.netlify.app/tags/%E5%88%B7%E6%9C%BA/"/>
     
-    <category term="联发科" scheme="https://dpkg123.github.io/tags/%E8%81%94%E5%8F%91%E7%A7%91/"/>
+    <category term="联发科" scheme="https://dpkg123.netlify.app/tags/%E8%81%94%E5%8F%91%E7%A7%91/"/>
     
-    <category term="KernelSU" scheme="https://dpkg123.github.io/tags/KernelSU/"/>
+    <category term="KernelSU" scheme="https://dpkg123.netlify.app/tags/KernelSU/"/>
     
-    <category term="kvm" scheme="https://dpkg123.github.io/tags/kvm/"/>
+    <category term="kvm" scheme="https://dpkg123.netlify.app/tags/kvm/"/>
     
   </entry>
   
   <entry>
     <title>给OPPO Reno6移植kernelSU</title>
-    <link href="https://dpkg123.github.io/2023/05/11/%E7%BB%99OPPO-Reno6%E7%A7%BB%E6%A4%8DkernelSU/"/>
-    <id>https://dpkg123.github.io/2023/05/11/%E7%BB%99OPPO-Reno6%E7%A7%BB%E6%A4%8DkernelSU/</id>
+    <link href="https://dpkg123.netlify.app/2023/05/11/%E7%BB%99OPPO-Reno6%E7%A7%BB%E6%A4%8DkernelSU/"/>
+    <id>https://dpkg123.netlify.app/2023/05/11/%E7%BB%99OPPO-Reno6%E7%A7%BB%E6%A4%8DkernelSU/</id>
     <published>2023-05-10T20:14:10.000Z</published>
     <updated>2023-05-10T20:14:10.000Z</updated>
     
@@ -515,22 +515,22 @@
     
     
     
-    <category term="linux" scheme="https://dpkg123.github.io/tags/linux/"/>
+    <category term="linux" scheme="https://dpkg123.netlify.app/tags/linux/"/>
     
-    <category term="kernelSU" scheme="https://dpkg123.github.io/tags/kernelSU/"/>
+    <category term="kernelSU" scheme="https://dpkg123.netlify.app/tags/kernelSU/"/>
     
-    <category term="移植" scheme="https://dpkg123.github.io/tags/%E7%A7%BB%E6%A4%8D/"/>
+    <category term="移植" scheme="https://dpkg123.netlify.app/tags/%E7%A7%BB%E6%A4%8D/"/>
     
-    <category term="内核编译" scheme="https://dpkg123.github.io/tags/%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91/"/>
+    <category term="内核编译" scheme="https://dpkg123.netlify.app/tags/%E5%86%85%E6%A0%B8%E7%BC%96%E8%AF%91/"/>
     
-    <category term="Kernel" scheme="https://dpkg123.github.io/tags/Kernel/"/>
+    <category term="Kernel" scheme="https://dpkg123.netlify.app/tags/Kernel/"/>
     
   </entry>
   
   <entry>
     <title>别当欧尼酱了12集归档</title>
-    <link href="https://dpkg123.github.io/2023/05/02/%E5%88%AB%E5%BD%93%E6%AC%A7%E5%B0%BC%E9%85%B1%E4%BA%8612%E9%9B%86%E5%BD%92%E6%A1%A3/"/>
-    <id>https://dpkg123.github.io/2023/05/02/%E5%88%AB%E5%BD%93%E6%AC%A7%E5%B0%BC%E9%85%B1%E4%BA%8612%E9%9B%86%E5%BD%92%E6%A1%A3/</id>
+    <link href="https://dpkg123.netlify.app/2023/05/02/%E5%88%AB%E5%BD%93%E6%AC%A7%E5%B0%BC%E9%85%B1%E4%BA%8612%E9%9B%86%E5%BD%92%E6%A1%A3/"/>
+    <id>https://dpkg123.netlify.app/2023/05/02/%E5%88%AB%E5%BD%93%E6%AC%A7%E5%B0%BC%E9%85%B1%E4%BA%8612%E9%9B%86%E5%BD%92%E6%A1%A3/</id>
     <published>2023-05-02T14:34:19.000Z</published>
     <updated>2023-05-02T14:34:19.000Z</updated>
     
@@ -545,11 +545,11 @@
     
     
     
-    <category term="归档" scheme="https://dpkg123.github.io/tags/%E5%BD%92%E6%A1%A3/"/>
+    <category term="归档" scheme="https://dpkg123.netlify.app/tags/%E5%BD%92%E6%A1%A3/"/>
     
-    <category term="番剧" scheme="https://dpkg123.github.io/tags/%E7%95%AA%E5%89%A7/"/>
+    <category term="番剧" scheme="https://dpkg123.netlify.app/tags/%E7%95%AA%E5%89%A7/"/>
     
-    <category term="别当欧尼酱了" scheme="https://dpkg123.github.io/tags/%E5%88%AB%E5%BD%93%E6%AC%A7%E5%B0%BC%E9%85%B1%E4%BA%86/"/>
+    <category term="别当欧尼酱了" scheme="https://dpkg123.netlify.app/tags/%E5%88%AB%E5%BD%93%E6%AC%A7%E5%B0%BC%E9%85%B1%E4%BA%86/"/>
     
   </entry>
   

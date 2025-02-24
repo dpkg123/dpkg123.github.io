@@ -5,24 +5,24 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="https://dpkg123.github.io">
+  <link rel="dns-prefetch" href="https://dpkg123.netlify.app">
   <title>浅谈联发科设备玩机的可能性 | dpkg123的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="先说结论:想玩机的，能买高通的就不要买联发科的，特别是蓝绿厂设备(你是不是歧视绿厂用户.jpg) 起因有一天，有一个人找到了我，希望能给他的reno6pro整一个带kernelSU和带kvm的内核(估计是受了红米note10pro能开kvm的启发)。我说，行。于是我编译了出来。然后我发现这机子没有twrp，于是就手动打包成了boot.img。第二天，这个人找到了我说刷完不开机，已经送售后寄修了。我">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浅谈联发科设备玩机的可能性">
-<meta property="og:url" content="https://dpkg123.github.io/2023/05/15/%E6%B5%85%E8%B0%88%E8%81%94%E5%8F%91%E7%A7%91%E8%AE%BE%E5%A4%87%E7%8E%A9%E6%9C%BA%E7%9A%84%E5%8F%AF%E8%83%BD%E6%80%A7/index.html">
+<meta property="og:url" content="https://dpkg123.netlify.app/2023/05/15/%E6%B5%85%E8%B0%88%E8%81%94%E5%8F%91%E7%A7%91%E8%AE%BE%E5%A4%87%E7%8E%A9%E6%9C%BA%E7%9A%84%E5%8F%AF%E8%83%BD%E6%80%A7/index.html">
 <meta property="og:site_name" content="dpkg123的博客">
 <meta property="og:description" content="先说结论:想玩机的，能买高通的就不要买联发科的，特别是蓝绿厂设备(你是不是歧视绿厂用户.jpg) 起因有一天，有一个人找到了我，希望能给他的reno6pro整一个带kernelSU和带kvm的内核(估计是受了红米note10pro能开kvm的启发)。我说，行。于是我编译了出来。然后我发现这机子没有twrp，于是就手动打包成了boot.img。第二天，这个人找到了我说刷完不开机，已经送售后寄修了。我">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://dpkg123.github.io/img/20230515/1.jpg">
-<meta property="og:image" content="https://dpkg123.github.io/img/20230515/2.jpg">
-<meta property="og:image" content="https://dpkg123.github.io/img/20230515/3.jpg">
-<meta property="og:image" content="https://dpkg123.github.io/img/20230515/4.jpg">
-<meta property="og:image" content="https://dpkg123.github.io/img/20230515/5.jpg">
-<meta property="og:image" content="https://dpkg123.github.io/img/20230515/6.jpg">
-<meta property="og:image" content="https://dpkg123.github.io/img/20230515/7.jpg">
-<meta property="og:image" content="https://dpkg123.github.io/img/20230515/8.jpg">
+<meta property="og:image" content="https://dpkg123.netlify.app/img/20230515/1.jpg">
+<meta property="og:image" content="https://dpkg123.netlify.app/img/20230515/2.jpg">
+<meta property="og:image" content="https://dpkg123.netlify.app/img/20230515/3.jpg">
+<meta property="og:image" content="https://dpkg123.netlify.app/img/20230515/4.jpg">
+<meta property="og:image" content="https://dpkg123.netlify.app/img/20230515/5.jpg">
+<meta property="og:image" content="https://dpkg123.netlify.app/img/20230515/6.jpg">
+<meta property="og:image" content="https://dpkg123.netlify.app/img/20230515/7.jpg">
+<meta property="og:image" content="https://dpkg123.netlify.app/img/20230515/8.jpg">
 <meta property="article:published_time" content="2023-05-15T14:18:39.000Z">
 <meta property="article:modified_time" content="2023-05-15T14:18:39.000Z">
 <meta property="article:author" content="dpkg123">
@@ -31,7 +31,7 @@
 <meta property="article:tag" content="KernelSU">
 <meta property="article:tag" content="kvm">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://dpkg123.github.io/img/20230515/1.jpg">
+<meta name="twitter:image" content="https://dpkg123.netlify.app/img/20230515/1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="dpkg123的博客" type="application/atom+xml">
   
@@ -305,7 +305,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://dpkg123.github.io/2023/05/15/%E6%B5%85%E8%B0%88%E8%81%94%E5%8F%91%E7%A7%91%E8%AE%BE%E5%A4%87%E7%8E%A9%E6%9C%BA%E7%9A%84%E5%8F%AF%E8%83%BD%E6%80%A7/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://dpkg123.netlify.app/2023/05/15/%E6%B5%85%E8%B0%88%E8%81%94%E5%8F%91%E7%A7%91%E8%AE%BE%E5%A4%87%E7%8E%A9%E6%9C%BA%E7%9A%84%E5%8F%AF%E8%83%BD%E6%80%A7/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -588,18 +588,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">makefile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">android</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">OPPO</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">PostmarketOS</a>
               </li>
              
@@ -608,35 +596,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">刷机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dtb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">web前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dtc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">shell</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">刷机工具</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -652,11 +616,39 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二次元</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">web前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">9008</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dtc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dtb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网页加速</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">twrp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">build</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -680,30 +672,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">debian</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">twrp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">build</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">归档</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">番剧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">别当欧尼酱了</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">哔哩哔哩</a>
               </li>
              
@@ -716,71 +684,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">debian</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">shell</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">刷机工具</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">TypeScript</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Github Actions</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网页搭建</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">alpine</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">软件源</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">android kernel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">gki</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">联发科</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">KernelSU</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">fastboot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kernelSU</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">移植</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">内核编译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Kernel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vps</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -804,7 +724,87 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网页加速</a>
+                <a href="javascript:void(0)" class="js-tag color5">网页搭建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">makefile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">android kernel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">gki</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OPPO</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">alpine</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">软件源</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">联发科</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">KernelSU</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kvm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kernelSU</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">移植</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">内核编译</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Kernel</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">fastboot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">二次元</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">归档</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">番剧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">别当欧尼酱了</a>
               </li>
             
             <div class="clearfix"></div>
@@ -872,10 +872,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             </li>
           
             <li class="search-li">
-              <a href="https://other-repos.dpkg123.site/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>自建第三方deb软件源</a>
-            </li>
-          
-            <li class="search-li">
               <a href="https://www.a9-9.top/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>Adminzhangの个人博客</a>
             </li>
           
@@ -904,7 +900,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             </li>
           
             <li class="search-li">
-              <a href="https://blog.artiga.top/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>artiga033</a>
+              <a href="https://blog.a33.su/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>artiga033</a>
             </li>
           
             <li class="search-li">
@@ -924,7 +920,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             </li>
           
             <li class="search-li">
-              <a href="https://nekoq.eu.org/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>湛蓝的调色板</a>
+              <a href="https://blog.nekoq.top/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>湛蓝的调色板</a>
             </li>
           
             <li class="search-li">

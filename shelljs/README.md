@@ -135,7 +135,7 @@ shell.echo('hello world');
 
 All commands run synchronously, unless otherwise stated.
 All commands accept standard bash globbing characters (`*`, `?`, etc.),
-compatible with the [node `glob` module](https://github.com/isaacs/node-glob).
+compatible with [`fast-glob`](https://www.npmjs.com/package/fast-glob).
 
 For less-commonly used commands and features, please check out our [wiki
 page](https://github.com/shelljs/shelljs/wiki).
@@ -200,6 +200,41 @@ Notable exceptions:
   so cross-platform compatibility should not be a concern there.
 
 Returns a [ShellString](#shellstringstr) indicating success or failure.
+
+
+### cmd(arg1[, arg2, ...] [, options])
+
+Available options:
+
++ `cwd: directoryPath`: change the current working directory only for this
+  cmd() invocation.
++ `maxBuffer: num`: Raise or decrease the default buffer size for
+  stdout/stderr.
++ `timeout`: Change the default timeout.
+
+Examples:
+
+```javascript
+var version = cmd('node', '--version').stdout;
+cmd('git', 'commit', '-am', `Add suport for node ${version}`);
+console.log(cmd('echo', '1st arg', '2nd arg', '3rd arg').stdout)
+console.log(cmd('echo', 'this handles ;, |, &, etc. as literal characters').stdout)
+```
+
+Executes the given command synchronously. This is intended as an easier
+alternative for [exec()](#execcommand--options--callback), with better
+security around globbing, comamnd injection, and variable expansion. This is
+guaranteed to only run one external command, and won't give special
+treatment for any shell characters (ex. this treats `|` as a literal
+character, not as a shell pipeline).
+This returns a [ShellString](#shellstringstr).
+
+By default, this performs globbing on all platforms, but you can disable
+this with `set('-f')`.
+
+This **does not** support asynchronous mode. If you need asynchronous
+command execution, check out [execa](https://www.npmjs.com/package/execa) or
+the node builtin `child_process.execFile()` instead.
 
 
 ### cp([options,] source [, source ...], dest)
@@ -794,7 +829,7 @@ Examples:
 
 ```javascript
 grep('foo', 'file1.txt', 'file2.txt').sed(/o/g, 'a').to('output.txt');
-echo('files with o\'s in the name:\n' + ls().grep('o'));
+echo("files with o's in the name:\n" + ls().grep('o'));
 cat('test.js').exec('node'); // pipe to exec() call
 ```
 
@@ -860,6 +895,9 @@ exec echo hello
 Support for this configuration option may be changed or removed in a future
 ShellJS release.
 
+**Breaking change**: ShellJS v0.8.x uses `node-glob`. Starting with ShellJS
+v0.9.x, `config.globOptions` is compatible with `fast-glob`.
+
 Example:
 
 ```javascript
@@ -868,7 +906,7 @@ config.globOptions = {nodir: true};
 
 `config.globOptions` changes how ShellJS expands glob (wildcard)
 expressions. See
-[node-glob](https://github.com/isaacs/node-glob?tab=readme-ov-file#options)
+[fast-glob](https://github.com/mrmlnc/fast-glob?tab=readme-ov-file#options-3)
 for available options. Be aware that modifying `config.globOptions` **may
 break ShellJS functionality.**
 
@@ -900,6 +938,6 @@ Reset `shell.config` to the defaults:
 
 ## Team
 
-| [![Nate Fischer](https://avatars.githubusercontent.com/u/5801521?s=130)](https://github.com/nfischer) | [![Brandon Freitag](https://avatars1.githubusercontent.com/u/5988055?v=3&s=130)](http://github.com/freitagbr) |
-|:---:|:---:|
-| [Nate Fischer](https://github.com/nfischer) | [Brandon Freitag](http://github.com/freitagbr) |
+| [![Nate Fischer](https://avatars.githubusercontent.com/u/5801521?s=130)](https://github.com/nfischer) |
+|:---:|
+| [Nate Fischer](https://github.com/nfischer) |

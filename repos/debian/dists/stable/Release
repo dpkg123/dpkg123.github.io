@@ -1,83 +1,83 @@
 Codename: stable
-Date: Thu, 26 Dec 2024 09:30:50 UTC
+Date: Sun, 23 Feb 2025 15:45:53 UTC
 Architectures: arm64 amd64 armhf loong64 loongarch64
 Components: main
 Description: test
 MD5Sum:
- c3a6796e0cee808fecb1d52833358118 38079 main/binary-arm64/Packages
- 7f7d8720c8de024ad30e72dfc6b0d9aa 13436 main/binary-arm64/Packages.gz
+ 6eb0a3aa5c65409b2677ad7cba8265d1 1567 main/binary-arm64/Packages
+ 693d389018575e7960cb8f4de0b00959 972 main/binary-arm64/Packages.gz
  31bc79f901958f8c14c708f9a92c0dd1 54 main/binary-arm64/Release
  d41d8cd98f00b204e9800998ecf8427e 0 main/debian-installer/binary-arm64/Packages
  7029066c27ac6f5ef18d660d5741979a 20 main/debian-installer/binary-arm64/Packages.gz
- 0171a3bc17583e32b043114436f47cb5 43189 main/binary-amd64/Packages
- 998500c82601d69e62babbe1716d0607 15801 main/binary-amd64/Packages.gz
+ f6e1c05831d9c369537adf1e1c364673 1567 main/binary-amd64/Packages
+ 8b0f2c1a323f983e113928f4eedaf46b 970 main/binary-amd64/Packages.gz
  d65aaea658f9d09a8eb39e9525cda351 54 main/binary-amd64/Release
  d41d8cd98f00b204e9800998ecf8427e 0 main/debian-installer/binary-amd64/Packages
  7029066c27ac6f5ef18d660d5741979a 20 main/debian-installer/binary-amd64/Packages.gz
- 523cdcd6f5fd963cee2cc1acb29fd25a 12374 main/binary-armhf/Packages
- 0d60249d19f13142d396ebebf3489291 4504 main/binary-armhf/Packages.gz
+ a8def05ce5cd4e31feb231818cfe341a 1567 main/binary-armhf/Packages
+ 6c2b41f47f55844499081226661a8347 975 main/binary-armhf/Packages.gz
  5e04d94ba6336be92a813827f49ee98a 54 main/binary-armhf/Release
  d41d8cd98f00b204e9800998ecf8427e 0 main/debian-installer/binary-armhf/Packages
  7029066c27ac6f5ef18d660d5741979a 20 main/debian-installer/binary-armhf/Packages.gz
- 299c5ddc4b09d178d280e45fae3a094d 7135 main/binary-loong64/Packages
- 45047603e6d288d172361b736466b547 3174 main/binary-loong64/Packages.gz
+ d41d8cd98f00b204e9800998ecf8427e 0 main/binary-loong64/Packages
+ 7029066c27ac6f5ef18d660d5741979a 20 main/binary-loong64/Packages.gz
  70a7048b92d1c90eec9f040529e888db 56 main/binary-loong64/Release
  d41d8cd98f00b204e9800998ecf8427e 0 main/debian-installer/binary-loong64/Packages
  7029066c27ac6f5ef18d660d5741979a 20 main/debian-installer/binary-loong64/Packages.gz
- 666c8633a995cabb1f77317ba4370988 8328 main/binary-loongarch64/Packages
- a1ff04d12b9b9d001e4aef7d73ee40a8 3708 main/binary-loongarch64/Packages.gz
+ d41d8cd98f00b204e9800998ecf8427e 0 main/binary-loongarch64/Packages
+ 7029066c27ac6f5ef18d660d5741979a 20 main/binary-loongarch64/Packages.gz
  485db954ba8a7a2b7935515723c51128 60 main/binary-loongarch64/Release
  d41d8cd98f00b204e9800998ecf8427e 0 main/debian-installer/binary-loongarch64/Packages
  7029066c27ac6f5ef18d660d5741979a 20 main/debian-installer/binary-loongarch64/Packages.gz
 SHA1:
- 80a7a37e665c2ed03eebfbccd1193631867541cd 38079 main/binary-arm64/Packages
- 74c3881661bd0c1c55c38144beb8647b57219b43 13436 main/binary-arm64/Packages.gz
+ 748281cff09017363c18691896a582ac38487728 1567 main/binary-arm64/Packages
+ 4ae38e3496c32f3ab2c806e8937f6cc3d1685f1c 972 main/binary-arm64/Packages.gz
  9f0dcbaf836c3eb1c07db972ea92a255b1a04eb1 54 main/binary-arm64/Release
  da39a3ee5e6b4b0d3255bfef95601890afd80709 0 main/debian-installer/binary-arm64/Packages
  46c6643f07aa7f6bfe7118de926b86defc5087c4 20 main/debian-installer/binary-arm64/Packages.gz
- 8f7fda9a58d99abb8c1712dfdb7f53517b978a4e 43189 main/binary-amd64/Packages
- cc28a7dbf47b555f1a8b7a452b81fa6a875c68a7 15801 main/binary-amd64/Packages.gz
+ 49450bcc843a37e58834d6f5e597b782242d13a0 1567 main/binary-amd64/Packages
+ 9b196b3dab0e2a10252beac36cb36057db711c95 970 main/binary-amd64/Packages.gz
  26e46f3ddb545d47201cf5b51f204eac84721e74 54 main/binary-amd64/Release
  da39a3ee5e6b4b0d3255bfef95601890afd80709 0 main/debian-installer/binary-amd64/Packages
  46c6643f07aa7f6bfe7118de926b86defc5087c4 20 main/debian-installer/binary-amd64/Packages.gz
- 0750b7907177836806a405bb7237a4f65507382c 12374 main/binary-armhf/Packages
- f786e3a9601c62d73fb9b6620ac621f19db7ac2b 4504 main/binary-armhf/Packages.gz
+ 5c27e63929acd2becce8ae16f65f4b79f4a27ad3 1567 main/binary-armhf/Packages
+ 1bf0546ffb10bedfe542fc19d719580456a5b40f 975 main/binary-armhf/Packages.gz
  5f4df61a9127119d8950f4aad73308d4df220248 54 main/binary-armhf/Release
  da39a3ee5e6b4b0d3255bfef95601890afd80709 0 main/debian-installer/binary-armhf/Packages
  46c6643f07aa7f6bfe7118de926b86defc5087c4 20 main/debian-installer/binary-armhf/Packages.gz
- 09df61e59e6aab7c6aa66a77ba372e973a59ab20 7135 main/binary-loong64/Packages
- 51808f285862edb0f4fc4f10d9f414c72f6064af 3174 main/binary-loong64/Packages.gz
+ da39a3ee5e6b4b0d3255bfef95601890afd80709 0 main/binary-loong64/Packages
+ 46c6643f07aa7f6bfe7118de926b86defc5087c4 20 main/binary-loong64/Packages.gz
  297b17b36dff4ddbb85c06d5caa5175400364419 56 main/binary-loong64/Release
  da39a3ee5e6b4b0d3255bfef95601890afd80709 0 main/debian-installer/binary-loong64/Packages
  46c6643f07aa7f6bfe7118de926b86defc5087c4 20 main/debian-installer/binary-loong64/Packages.gz
- b815619df3a0da207c4d96d67c6e715898e7f997 8328 main/binary-loongarch64/Packages
- 109d2b6239753d0ec418837e8593cdaf9b4865d0 3708 main/binary-loongarch64/Packages.gz
+ da39a3ee5e6b4b0d3255bfef95601890afd80709 0 main/binary-loongarch64/Packages
+ 46c6643f07aa7f6bfe7118de926b86defc5087c4 20 main/binary-loongarch64/Packages.gz
  4d29903054f413b0fbe2c19b60b1f6a377659ad3 60 main/binary-loongarch64/Release
  da39a3ee5e6b4b0d3255bfef95601890afd80709 0 main/debian-installer/binary-loongarch64/Packages
  46c6643f07aa7f6bfe7118de926b86defc5087c4 20 main/debian-installer/binary-loongarch64/Packages.gz
 SHA256:
- 9b62befd5958d5344fa23f56769099c2305885a391e91385847ee101c55a23e6 38079 main/binary-arm64/Packages
- a0accb9a6239cec41e08fa3279895ecf6606e9ff22ee1b66ea1ad1c15e1658c1 13436 main/binary-arm64/Packages.gz
+ 1b51af4f44437678e192690fc27d41ae3b0cccbad3f8e7c7ee8c46f63160d213 1567 main/binary-arm64/Packages
+ 6c41c7b1b56165d27f42fa08acce54b15daef1ba796db5e0afa9bcfb5bbd4b46 972 main/binary-arm64/Packages.gz
  d00f64baab8ad7bd9d35801920ed8dbd6bcaded6f3c6fc7868a65a42ba679577 54 main/binary-arm64/Release
  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 main/debian-installer/binary-arm64/Packages
  59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 main/debian-installer/binary-arm64/Packages.gz
- 4692905c4cadd872ad76432d307cfa30c94f5e57bc4c011ecbacc02bf607a704 43189 main/binary-amd64/Packages
- aa836fc6807f18eb4921276aa6cb72d4e3a61b7f8f22bef7631771059c7500e5 15801 main/binary-amd64/Packages.gz
+ 582acdc83724d2737585155ecdbf2ea472543d9d36fbc30ea43a9154681b5ed0 1567 main/binary-amd64/Packages
+ 9eef5d0774e4a06b0435823b0d7485a9db2cb390f4e63a54a3f9f684ae5e1d87 970 main/binary-amd64/Packages.gz
  50ab84494dd734ae389b26268853293589fee6851b8009b47934f151806c6583 54 main/binary-amd64/Release
  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 main/debian-installer/binary-amd64/Packages
  59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 main/debian-installer/binary-amd64/Packages.gz
- c1e8ae833394381531c473beded1eb4fbd193c4633558117ebccd265e94c5d87 12374 main/binary-armhf/Packages
- 15d2b02637f889d6ad394e9f9b17b939ba7a1eeca75da712d72aa5a1b358cb8c 4504 main/binary-armhf/Packages.gz
+ 701b435a9daad34898ed4cd4a907f6e1ae935f985bc7be0ee4da794a7c42f905 1567 main/binary-armhf/Packages
+ f70684a4e40ac1e974d9e350bd118841649fb619d85a3ba20bec239bafcb4c81 975 main/binary-armhf/Packages.gz
  c89f8425b0d944f2bc20fde3e4fd80648e11d70997f2f565d61eb0e87a67f0dc 54 main/binary-armhf/Release
  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 main/debian-installer/binary-armhf/Packages
  59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 main/debian-installer/binary-armhf/Packages.gz
- 1dec7b388591b8821f3acd97396d311f252a1e7727b16c229b850a8402729ea9 7135 main/binary-loong64/Packages
- 07cea1706580e5c517a85df6be5581c853b497553ec7d1c90b08ba5692a1ea0a 3174 main/binary-loong64/Packages.gz
+ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 main/binary-loong64/Packages
+ 59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 main/binary-loong64/Packages.gz
  0578bb863f8fbdfa8a3e91bf6fa6ce0d3dafab96c927d6b26bf51a2d07ba6ab6 56 main/binary-loong64/Release
  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 main/debian-installer/binary-loong64/Packages
  59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 main/debian-installer/binary-loong64/Packages.gz
- bf12652746f08537c04a73b54f08f540bb2b46f75a983f7597c476b4187195c3 8328 main/binary-loongarch64/Packages
- 343fb5f6ec132a16410a459a52b0f48e6a2073190149b454b90790abacf58287 3708 main/binary-loongarch64/Packages.gz
+ e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 main/binary-loongarch64/Packages
+ 59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 main/binary-loongarch64/Packages.gz
  73c9f49919d68288cb85baa18e1ee67777114651f13817c59fc91fba5de88a52 60 main/binary-loongarch64/Release
  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 main/debian-installer/binary-loongarch64/Packages
  59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 main/debian-installer/binary-loongarch64/Packages.gz

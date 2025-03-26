@@ -7,6 +7,7 @@
 //
 
 var common = require('./src/common');
+module.exports = common.shell;
 
 //@
 //@ All commands run synchronously, unless otherwise stated.
@@ -20,16 +21,45 @@ var common = require('./src/common');
 // Include the docs for all the default commands
 //@commands
 
-// Load all default commands
-require('./commands').forEach(function (command) {
-  require('./src/' + command);
-});
+// Load all default commands. We import these for their side effect of loading
+// using the plugin architecture via `common.register()`.
+require('./src/cat');
+require('./src/cd');
+require('./src/chmod');
+require('./src/cmd');
+require('./src/cp');
+require('./src/dirs');
+require('./src/echo');
+require('./src/exec');
+require('./src/exec-child'); // A hint to the bundler to keep exec-child.js
+require('./src/find');
+require('./src/grep');
+require('./src/head');
+require('./src/ln');
+require('./src/ls');
+require('./src/mkdir');
+require('./src/mv');
+require('./src/popd');
+require('./src/pushd');
+require('./src/pwd');
+require('./src/rm');
+require('./src/sed');
+require('./src/set');
+require('./src/sort');
+require('./src/tail');
+require('./src/tempdir');
+require('./src/test');
+require('./src/to');
+require('./src/toEnd');
+require('./src/touch');
+require('./src/uniq');
+require('./src/which');
 
 //@
 //@ ### exit(code)
 //@
 //@ Exits the current process with the given exit `code`.
-exports.exit = function exit(code) {
+module.exports.exit = function exit(code) {
   common.state.error = null;
   common.state.errorCode = 0;
   if (code) {
@@ -47,20 +77,20 @@ exports.exit = function exit(code) {
 };
 
 //@include ./src/error.js
-exports.error = require('./src/error');
+module.exports.error = require('./src/error');
 
 //@include ./src/errorCode.js
-exports.errorCode = require('./src/errorCode');
+module.exports.errorCode = require('./src/errorCode');
 
 //@include ./src/common.js
-exports.ShellString = common.ShellString;
+module.exports.ShellString = common.ShellString;
 
 //@
 //@ ### env['VAR_NAME']
 //@
 //@ Object containing environment variables (both getter and setter). Shortcut
 //@ to `process.env`.
-exports.env = process.env;
+module.exports.env = process.env;
 
 //@
 //@ ### Pipes
@@ -81,7 +111,7 @@ exports.env = process.env;
 //@ ## Configuration
 //@
 
-exports.config = common.config;
+module.exports.config = common.config;
 
 //@
 //@ ### config.silent

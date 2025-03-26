@@ -1,6 +1,6 @@
 {
   "name": "shelljs",
-  "version": "0.8.3",
+  "version": "0.9.2",
   "description": "Portable Unix shell commands for Node.js",
   "keywords": [
     "shelljs",
@@ -25,11 +25,16 @@
   "main": "./shell.js",
   "exports": {
     ".": "./shell.js",
+    "./global": "./global.js",
+    "./global.js": "./global.js",
     "./make": "./make.js",
-    "./make.js": "./make.js"
+    "./make.js": "./make.js",
+    "./package": "./package.json",
+    "./package.json": "./package.json",
+    "./plugin": "./plugin.js",
+    "./plugin.js": "./plugin.js"
   },
   "files": [
-    "commands.js",
     "global.js",
     "make.js",
     "plugin.js",
@@ -40,8 +45,8 @@
   "scripts": {
     "check-node-support": "node scripts/check-node-support",
     "posttest": "npm run lint",
-    "test": "ava test/*.js",
-    "test-with-coverage": "nyc --reporter=text --reporter=lcov ava test/*.js",
+    "test": "ava",
+    "test-with-coverage": "nyc --reporter=text --reporter=lcov ava",
     "gendocs": "node scripts/generate-docs",
     "lint": "eslint .",
     "after-travis": "travis-check-changes",
@@ -61,10 +66,17 @@
   },
   "ava": {
     "serial": true,
-    "powerAssert": false
+    "powerAssert": false,
+    "files": [
+      "test/*.js"
+    ],
+    "helpers": [
+      "test/resources/**",
+      "test/utils/**"
+    ]
   },
   "devDependencies": {
-    "ava": "^1.4.1",
+    "ava": "^2.4.0",
     "chalk": "^4.1.2",
     "coffee-script": "^1.12.7",
     "eslint": "^8.2.0",
@@ -73,9 +85,9 @@
     "js-yaml": "^4.1.0",
     "nyc": "^17.1.0",
     "shelljs-changelog": "^0.2.6",
-    "shelljs-release": "^0.5.2",
-    "shx": "^0.3.4",
-    "travis-check-changes": "^0.4.0"
+    "shelljs-release": "^0.5.3",
+    "shx": "^0.4.0",
+    "travis-check-changes": "^0.5.1"
   },
   "engines": {
     "node": ">=18"

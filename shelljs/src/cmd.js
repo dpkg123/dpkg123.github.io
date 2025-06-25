@@ -1,5 +1,5 @@
-var common = require('./common');
 var execa = require('execa');
+var common = require('./common');
 
 var DEFAULT_MAXBUFFER_SIZE = 20 * 1024 * 1024;
 var COMMAND_NOT_FOUND_ERROR_CODE = 127;
@@ -11,14 +11,22 @@ common.register('cmd', _cmd, {
   wrapOutput: true,
 });
 
-function commandNotFound(execaResult) {
+function isCommandNotFound(execaResult) {
   if (process.platform === 'win32') {
     var str = 'is not recognized as an internal or external command';
-    return execaResult.code && execaResult.stderr.includes(str);
-  } else {
-    return execaResult.code &&
-      execaResult.stdout === null && execaResult.stderr === null;
+    return execaResult.exitCode && execaResult.stderr.includes(str);
   }
+  return execaResult.failed && execaResult.code === 'ENOENT';
+}
+
+function isExecaInternalError(result) {
+  if (typeof result.stdout !== 'string') return true;
+  if (typeof result.stderr !== 'string') return true;
+  if (typeof result.exitCode !== 'number') return true;
+  if (result.exitCode === 0 && result.failed) return true;
+  // Otherwise assume this executed correctly. The command may still have exited
+  // with non-zero status, but that's not due to anything execa did.
+  return false;
 }
 
 //@
@@ -85,7 +93,7 @@ function _cmd(options, command, commandArgs, userOptions) {
   // by the user.
   var defaultOptions = {
     maxBuffer: DEFAULT_MAXBUFFER_SIZE,
-    stripEof: false, // Preserve trailing newlines for consistency with unix.
+    stripFinalNewline: false, // Preserve trailing newlines for consistency with unix.
     reject: false, // Use ShellJS's error handling system.
   };
 
@@ -103,16 +111,24 @@ function _cmd(options, command, commandArgs, userOptions) {
   var stdout;
   var stderr;
   var code;
-  if (commandNotFound(result)) {
+  if (isCommandNotFound(result)) {
     // This can happen if `command` is not an executable binary, or possibly
     // under other conditions.
     stdout = '';
     stderr = "'" + command + "': command not found";
     code = COMMAND_NOT_FOUND_ERROR_CODE;
+  } else if (isExecaInternalError(result)) {
+    // Catch-all: execa tried to run `command` but it encountered some error
+    // (ex. maxBuffer, timeout).
+    stdout = result.stdout || '';
+    stderr = result.stderr ||
+             `'${command}' encountered an error during execution`;
+    code = result.exitCode !== undefined && result.exitCode > 0 ? result.exitCode : 1;
   } else {
+    // Normal exit: execa was able to execute `command` and get a return value.
     stdout = result.stdout.toString();
     stderr = result.stderr.toString();
-    code = result.code;
+    code = result.exitCode;
   }
 
   // Pass `continue: true` so we can specify a value for stdout.

@@ -152,11 +152,11 @@
     
     <category term="android" scheme="https://dpkg123.netlify.app/tags/android/"/>
     
-    <category term="刷机" scheme="https://dpkg123.netlify.app/tags/%E5%88%B7%E6%9C%BA/"/>
-    
     <category term="PostmarketOS" scheme="https://dpkg123.netlify.app/tags/PostmarketOS/"/>
     
     <category term="ROM移植" scheme="https://dpkg123.netlify.app/tags/ROM%E7%A7%BB%E6%A4%8D/"/>
+    
+    <category term="刷机" scheme="https://dpkg123.netlify.app/tags/%E5%88%B7%E6%9C%BA/"/>
     
   </entry>
   
@@ -232,9 +232,9 @@
     
     <category term="android" scheme="https://dpkg123.netlify.app/tags/android/"/>
     
-    <category term="dtc" scheme="https://dpkg123.netlify.app/tags/dtc/"/>
-    
     <category term="dtb" scheme="https://dpkg123.netlify.app/tags/dtb/"/>
+    
+    <category term="dtc" scheme="https://dpkg123.netlify.app/tags/dtc/"/>
     
   </entry>
   
@@ -407,9 +407,9 @@
     
     <category term="linux" scheme="https://dpkg123.netlify.app/tags/linux/"/>
     
-    <category term="9008" scheme="https://dpkg123.netlify.app/tags/9008/"/>
-    
     <category term="刷机" scheme="https://dpkg123.netlify.app/tags/%E5%88%B7%E6%9C%BA/"/>
+    
+    <category term="9008" scheme="https://dpkg123.netlify.app/tags/9008/"/>
     
   </entry>
   

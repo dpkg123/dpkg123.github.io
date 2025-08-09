@@ -306,6 +306,20 @@ SHA1: 97f66ba169c20c1dd3fc80f66e28ead2a01fb175
 MD5sum: 2509bb30b433d830759eb264f7a522a8
 Description: video wallpaper for fantascene.
 
+Package: frp
+Version: 0.0.1
+Depends: daemon
+Architecture: amd64
+Maintainer: fatedier <https://github.com/fatedier/frp>
+Priority: optional
+Section: utils
+Filename: pool/main/f/frp/frp_0.0.1_amd64.deb
+Size: 11298966
+SHA256: 0ab7fcb3e15a3f5117333bba7870ffb51643e4b50f0dcdf5da689ab4e7d93fac
+SHA1: c364b74a7af318ae4e7ed25ba7d0823b4272cbab
+MD5sum: 20da996821accc32e299ed88dadbce03
+Description: A fast reverse proxy to help you expose a local server behind a NAT or firewall to the internet.
+
 Package: gamehub
 Version: 0.16.3-2-master-1~opt11
 Architecture: amd64

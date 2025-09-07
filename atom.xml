@@ -6,7 +6,7 @@
   <link href="https://dpkg123.netlify.app/atom.xml" rel="self"/>
   
   <link href="https://dpkg123.netlify.app/"/>
-  <updated>2025-06-25T15:24:06.000Z</updated>
+  <updated>2025-09-07T21:09:47.000Z</updated>
   <id>https://dpkg123.netlify.app/</id>
   
   <author>
@@ -15,6 +15,26 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>f2fs二三事</title>
+    <link href="https://dpkg123.netlify.app/2025/09/08/f2fs%E4%BA%8C%E4%B8%89%E4%BA%8B/"/>
+    <id>https://dpkg123.netlify.app/2025/09/08/f2fs%E4%BA%8C%E4%B8%89%E4%BA%8B/</id>
+    <published>2025-09-07T21:09:47.000Z</published>
+    <updated>2025-09-07T21:09:47.000Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    
+  </entry>
   
   <entry>
     <title>内核编译排错</title>
@@ -152,11 +172,11 @@
     
     <category term="android" scheme="https://dpkg123.netlify.app/tags/android/"/>
     
+    <category term="刷机" scheme="https://dpkg123.netlify.app/tags/%E5%88%B7%E6%9C%BA/"/>
+    
     <category term="PostmarketOS" scheme="https://dpkg123.netlify.app/tags/PostmarketOS/"/>
     
     <category term="ROM移植" scheme="https://dpkg123.netlify.app/tags/ROM%E7%A7%BB%E6%A4%8D/"/>
-    
-    <category term="刷机" scheme="https://dpkg123.netlify.app/tags/%E5%88%B7%E6%9C%BA/"/>
     
   </entry>
   
@@ -232,9 +252,9 @@
     
     <category term="android" scheme="https://dpkg123.netlify.app/tags/android/"/>
     
-    <category term="dtb" scheme="https://dpkg123.netlify.app/tags/dtb/"/>
-    
     <category term="dtc" scheme="https://dpkg123.netlify.app/tags/dtc/"/>
+    
+    <category term="dtb" scheme="https://dpkg123.netlify.app/tags/dtb/"/>
     
   </entry>
   
@@ -407,9 +427,9 @@
     
     <category term="linux" scheme="https://dpkg123.netlify.app/tags/linux/"/>
     
-    <category term="刷机" scheme="https://dpkg123.netlify.app/tags/%E5%88%B7%E6%9C%BA/"/>
-    
     <category term="9008" scheme="https://dpkg123.netlify.app/tags/9008/"/>
+    
+    <category term="刷机" scheme="https://dpkg123.netlify.app/tags/%E5%88%B7%E6%9C%BA/"/>
     
   </entry>
   
@@ -514,34 +534,6 @@
     <category term="android" scheme="https://dpkg123.netlify.app/tags/android/"/>
     
     <category term="刷机" scheme="https://dpkg123.netlify.app/tags/%E5%88%B7%E6%9C%BA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>浅谈联发科设备玩机的可能性</title>
-    <link href="https://dpkg123.netlify.app/2023/05/15/%E6%B5%85%E8%B0%88%E8%81%94%E5%8F%91%E7%A7%91%E8%AE%BE%E5%A4%87%E7%8E%A9%E6%9C%BA%E7%9A%84%E5%8F%AF%E8%83%BD%E6%80%A7/"/>
-    <id>https://dpkg123.netlify.app/2023/05/15/%E6%B5%85%E8%B0%88%E8%81%94%E5%8F%91%E7%A7%91%E8%AE%BE%E5%A4%87%E7%8E%A9%E6%9C%BA%E7%9A%84%E5%8F%AF%E8%83%BD%E6%80%A7/</id>
-    <published>2023-05-15T14:18:39.000Z</published>
-    <updated>2023-05-15T14:18:39.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="先说结论-想玩机的，能买高通的就不要买联发科的，特别是蓝绿厂设备"><a href="#先说结论-想玩机的，能买高通的就不要买联发科的，特别是蓝绿厂设备" class="headerlink" title="先说结论:想玩机的，能买高通的就不要买联发科的，特别是蓝绿厂设备"></a>先说结论:想玩机的，能买高通的就不要买联发科的，特别是蓝绿厂设备</h3><p><del>(你是不是歧视绿厂用户.jpg)</del></p><h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>有一天，有一个人找到了我，希望能给他的reno6pro整一个带kernelSU和带kvm的内核(估计是受了红米note10pro能开kvm的启发)。<br>我说，行。于是我编译了出来。<br>然后我发现这机子没有twrp，于是就手动打包成了boot.img。<br>第二天，这个人找到了我说刷完不开机，已经送售后寄修了。<br>我就想，不对啊，他发给我的config里的kprobes是来着的啊，总不能是源码出问题了吧。<br>然后<br><img src="/img/20230515/1.jpg" alt="1"><br>头一次见刷boot还要双清的<br><img src="/img/20230515/2.jpg" alt="2"><br><img src="/img/20230515/3.jpg" alt="3"><br>很离谱<br><img src="/img/20230515/4.jpg" alt="4"><br>深度测试到c11就无了<br><img src="/img/20230515/5.jpg" alt="5"><br><img src="/img/20230515/6.jpg" alt="6"><br><img src="/img/20230515/7.jpg" alt="7"><br><img src="/img/20230515/8.jpg" alt="8"><br>为了赚钱嘛</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
-      
-    
-    
-    
-    
-    <category term="刷机" scheme="https://dpkg123.netlify.app/tags/%E5%88%B7%E6%9C%BA/"/>
-    
-    <category term="联发科" scheme="https://dpkg123.netlify.app/tags/%E8%81%94%E5%8F%91%E7%A7%91/"/>
-    
-    <category term="KernelSU" scheme="https://dpkg123.netlify.app/tags/KernelSU/"/>
-    
-    <category term="kvm" scheme="https://dpkg123.netlify.app/tags/kvm/"/>
     
   </entry>
   

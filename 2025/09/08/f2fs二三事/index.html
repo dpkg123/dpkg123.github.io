@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://dpkg123.netlify.app">
-  <title>f2fs二三事 | dpkg123的博客</title>
+  <title>f2fs 二三事 | dpkg123的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="f2fs二三事">
+  <meta name="description" content="概述F2FS(Flash Friendly File System) 是三星在 2012 年设计，2016 年大规模普及的一种较为新颖且获得了 Linux 内核支持的一种文件系统。目的是为了更好支持 NAND 一类的闪存设备。这在嵌入式设备中尤为明显。 例如，在安卓设备中，F2FS 的读写性能普遍超过了为通用块设计、未对闪存深度优化的 ext4。这也是华为 mate9 “18 个月流畅不卡”的底气">
+<meta property="og:type" content="article">
+<meta property="og:title" content="f2fs 二三事">
 <meta property="og:url" content="https://dpkg123.netlify.app/2025/09/08/f2fs%E4%BA%8C%E4%B8%89%E4%BA%8B/index.html">
 <meta property="og:site_name" content="dpkg123的博客">
+<meta property="og:description" content="概述F2FS(Flash Friendly File System) 是三星在 2012 年设计，2016 年大规模普及的一种较为新颖且获得了 Linux 内核支持的一种文件系统。目的是为了更好支持 NAND 一类的闪存设备。这在嵌入式设备中尤为明显。 例如，在安卓设备中，F2FS 的读写性能普遍超过了为通用块设计、未对闪存深度优化的 ext4。这也是华为 mate9 “18 个月流畅不卡”的底气">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-09-07T21:09:47.000Z">
 <meta property="article:modified_time" content="2025-09-07T21:09:47.000Z">
 <meta property="article:author" content="dpkg123">
+<meta property="article:tag" content="f2fs">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="dpkg123的博客" type="application/atom+xml">
@@ -175,7 +178,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      f2fs二三事
+      f2fs 二三事
     </h1>
   
 
@@ -188,7 +191,30 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>F2FS(Flash Friendly File System) 是三星在 2012 年设计，2016 年大规模普及的一种较为新颖且获得了 Linux 内核支持的一种文件系统。目的是为了更好支持 NAND 一类的闪存设备。这在嵌入式设备中尤为明显。</p>
+<p>例如，在安卓设备中，F2FS 的读写性能普遍超过了为通用块设计、未对闪存深度优化的 ext4。这也是华为 mate9 “18 个月流畅不卡”的底气所在。原因是华为工程师基于 F2FS 进行了深度优化。</p>
+<h2 id="差异"><a href="#差异" class="headerlink" title="差异"></a>差异</h2><p>F2FS 相较于 ext4 的优缺点。</p>
+<ul>
+<li>更快的随机读写速度</li>
+<li>更长的闪存寿命 </li>
+<li>更低的碎片整理频率</li>
+<li>更小众，目前只有安卓设备在大规模推广</li>
+<li>更高的存储占用</li>
+<li>更大的大文件读取波动</li>
+</ul>
+<p>F2FS 相较于 BTRFS 的优缺点。</p>
+<ul>
+<li>更快的随机读写速度</li>
+<li>更长的闪存寿命 </li>
+<li>更低的系统开销</li>
+<li>更积极的 TRIM</li>
+<li>更少的功能</li>
+<li>更低的数据回复率</li>
+<li>更小众，目前只有安卓设备在大规模推广</li>
+<li>更大的大文件读取波动</li>
+</ul>
+<h2 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h2><p>WIP</p>
+
       
 
 
@@ -215,6 +241,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">f2fs</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -308,7 +345,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    No Such File Or Directory
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%AE%E5%BC%82"><span class="toc-number">2.</span> <span class="toc-text">差异</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%98%E5%8C%96"><span class="toc-number">3.</span> <span class="toc-text">优化</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -547,14 +584,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dtc</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">dtb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">miui</a>
               </li>
              
@@ -564,6 +593,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">手机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dtc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dtb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">f2fs</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -591,7 +632,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">9008</a>
+                <a href="javascript:void(0)" class="js-tag color3">PostmarketOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ROM移植</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -599,7 +644,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">9008</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">debian</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">twrp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">build</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -623,31 +680,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网页加速</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">twrp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">build</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">虚拟化 Android</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">哔哩哔哩</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">av10492</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">猎奇</a>
+                <a href="javascript:void(0)" class="js-tag color5">网页加速</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -671,6 +708,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">哔哩哔哩</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">av10492</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">猎奇</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">速通</a>
               </li>
              
@@ -683,15 +732,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网页搭建</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">TypeScript</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Github Actions</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网页搭建</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -707,11 +756,35 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">makefile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">android kernel</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">gki</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">联发科</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">KernelSU</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kvm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vps</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">fastboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -728,38 +801,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kernel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">fastboot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">PostmarketOS</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ROM移植</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vps</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">makefile</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">联发科</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">KernelSU</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kvm</a>
               </li>
             
             <div class="clearfix"></div>

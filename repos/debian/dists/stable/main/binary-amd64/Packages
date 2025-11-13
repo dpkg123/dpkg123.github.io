@@ -460,6 +460,27 @@ SHA1: 819e6f31cfd2c74f994d521c77b4d6c0b37496d7
 MD5sum: 95a44d609a3dea94b70494dec18cea19
 Description: One for all free music in China.
 
+Package: lutris
+Version: 0.5.20
+Architecture: all
+Maintainer: Mathieu Comandon <mathieucomandon@gmail.com>
+Installed-Size: 5681
+Depends: python3:any, python3-yaml, python3-lxml, python3-requests, python3-pil, python3-gi, python3-gi-cairo, python3-setproctitle, python3-magic, python3-distro, python3-dbus, gir1.2-gtk-3.0, gir1.2-webkit2-4.0 | gir1.2-webkit2-4.1, gir1.2-notify-0.7, psmisc, cabextract, unzip, p7zip, curl, fluid-soundfont-gs, x11-xserver-utils, mesa-utils, vulkan-tools
+Recommends: python3-evdev, python3-protobuf, gvfs-backends, libwine-development | libwine, winetricks, fluidsynth, gamescope, gamemode, xdg-desktop-portal, xdg-desktop-portal-gtk | xdg-desktop-portal-kde
+Homepage: https://lutris.net
+Priority: optional
+Section: games
+Filename: pool/main/l/lutris/lutris_0.5.20_all.deb
+Size: 1858838
+SHA256: 6de572e94044d6f1bd7a461dfdfb5bf66504006d8bf0a8a287cef9a1dff0a09e
+SHA1: 0c59e44fe23381bb8a35779ebecaeb0e8d2924d9
+MD5sum: 4d970d37b7af77de5c2a53442ad052fe
+Description: video game preservation platform
+ Lutris helps you install and play video games from all eras and from most
+ gaming systems. By leveraging and combining existing emulators, engine
+ re-implementations and compatibility layers, it gives you a central interface
+ to launch all your games.
+
 Package: lx-music-desktop
 Version: 1.22.3
 License: Apache-2.0
@@ -533,6 +554,24 @@ SHA1: f649a556c2e95cf3731ce598ce6368df1dfa9ae3
 MD5sum: 1f47c7dc3d9ce46da8099e539ee8a74d
 Description: Netease cloud music player.
  Netease cloud music player.
+
+Package: netease-cloud-music-gtk
+Version: 2.5.2+debiancn0~deb13u1
+Architecture: amd64
+Maintainer: Boyuan Yang <byang@debian.org>
+Installed-Size: 19713
+Depends: dconf-gsettings-backend | gsettings-backend, libadwaita-1-0 (>= 1.5~beta), libc6 (>= 2.39), libcairo-gobject2 (>= 1.10.0), libcairo2 (>= 1.2.4), libgcc-s1 (>= 4.2), libgdk-pixbuf-2.0-0 (>= 2.22.0), libglib2.0-0t64 (>= 2.54.0), libgraphene-1.0-0 (>= 1.5.4), libgstreamer-plugins-bad1.0-0 (>= 1.26.1), libgstreamer-plugins-base1.0-0 (>= 1.0.0), libgstreamer1.0-0 (>= 1.0.0), libgtk-4-1 (>= 4.0.0), libpango-1.0-0 (>= 1.14.0), libssl3t64 (>= 3.2.0), zlib1g (>= 1:1.1.4)
+Recommends: osdlyrics
+Homepage: https://github.com/gmg137/netease-cloud-music-gtk
+Priority: optional
+Section: sound
+Filename: pool/main/n/netease-cloud-music-gtk/netease-cloud-music-gtk_2.5.2+debiancn0~deb13u1_amd64.deb
+Size: 4108632
+SHA256: 1a6e782142c87429fc8d1a8a052fd2bfa6a3f08b900916f0dbc9b39192704f41
+SHA1: 23f2fbea80dfca330cba10fd0a4e244df0637701
+MD5sum: 3c85f0b660b18ab7fe1238968734cd9e
+Description: Netease Cloud Music player based on Rust and GTK
+ Rust/GTK-based Netease Cloud Music player.
 
 Package: netron
 Version: 6.8.8-1~opt11

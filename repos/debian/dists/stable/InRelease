@@ -2,7 +2,7 @@
 Hash: SHA512
 
 Codename: stable
-Date: Sat, 09 Aug 2025 08:18:44 UTC
+Date: Thu, 13 Nov 2025 10:50:02 UTC
 Architectures: arm64 amd64 armhf loong64 loongarch64
 Components: main
 Description: test
@@ -12,8 +12,8 @@ MD5Sum:
  31bc79f901958f8c14c708f9a92c0dd1 54 main/binary-arm64/Release
  d41d8cd98f00b204e9800998ecf8427e 0 main/debian-installer/binary-arm64/Packages
  7029066c27ac6f5ef18d660d5741979a 20 main/debian-installer/binary-arm64/Packages.gz
- f451a7b508ae0adf030fbc0c87ecaf46 45770 main/binary-amd64/Packages
- f6c4a265056567d46328d457c26e5ce6 16974 main/binary-amd64/Packages.gz
+ 175bebd69716df73bc73fc6a35d13de3 48178 main/binary-amd64/Packages
+ e576d665c145d1b68ee436e64b6b09a4 17814 main/binary-amd64/Packages.gz
  d65aaea658f9d09a8eb39e9525cda351 54 main/binary-amd64/Release
  d41d8cd98f00b204e9800998ecf8427e 0 main/debian-installer/binary-amd64/Packages
  7029066c27ac6f5ef18d660d5741979a 20 main/debian-installer/binary-amd64/Packages.gz
@@ -38,8 +38,8 @@ SHA1:
  9f0dcbaf836c3eb1c07db972ea92a255b1a04eb1 54 main/binary-arm64/Release
  da39a3ee5e6b4b0d3255bfef95601890afd80709 0 main/debian-installer/binary-arm64/Packages
  46c6643f07aa7f6bfe7118de926b86defc5087c4 20 main/debian-installer/binary-arm64/Packages.gz
- 172a0f040bd5faf08f3dd2c2ae770f5ae23889db 45770 main/binary-amd64/Packages
- 78c656e676ddb1af3eb6de00d2a8d44b9a3a7758 16974 main/binary-amd64/Packages.gz
+ 0d5a54c018cf0ab877fb91b6f9e3d4220036a20b 48178 main/binary-amd64/Packages
+ dc31b5fb6ab4e641ddbb79e7c0f2b868195de0f4 17814 main/binary-amd64/Packages.gz
  26e46f3ddb545d47201cf5b51f204eac84721e74 54 main/binary-amd64/Release
  da39a3ee5e6b4b0d3255bfef95601890afd80709 0 main/debian-installer/binary-amd64/Packages
  46c6643f07aa7f6bfe7118de926b86defc5087c4 20 main/debian-installer/binary-amd64/Packages.gz
@@ -64,8 +64,8 @@ SHA256:
  d00f64baab8ad7bd9d35801920ed8dbd6bcaded6f3c6fc7868a65a42ba679577 54 main/binary-arm64/Release
  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 main/debian-installer/binary-arm64/Packages
  59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 main/debian-installer/binary-arm64/Packages.gz
- 72d8cbcd2f31c6ff8da893d950fdebe3846d7e9cbe0e7c3c0037d56b0d64c631 45770 main/binary-amd64/Packages
- 6d90b8de32cfaa5469b1191a5df74f7c22c010e19e6e9eeb910b15e048a5c16c 16974 main/binary-amd64/Packages.gz
+ 604841e4cce73d9b0963bfb98b33be77edd9d11518465dd86937c2241eefe8bc 48178 main/binary-amd64/Packages
+ d111c444720b8395128765865bba4dd53edd7f0ce24289d939d56fb909a9d9cd 17814 main/binary-amd64/Packages.gz
  50ab84494dd734ae389b26268853293589fee6851b8009b47934f151806c6583 54 main/binary-amd64/Release
  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855 0 main/debian-installer/binary-amd64/Packages
  59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 main/debian-installer/binary-amd64/Packages.gz
@@ -86,17 +86,17 @@ SHA256:
  59869db34853933b239f1e2219cf7d431da006aa919635478511fabbfc8849d2 20 main/debian-installer/binary-loongarch64/Packages.gz
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEEQkEc9727ziV57Ixrmceyo8mMlp4FAmiXBGQACgkQmceyo8mM
-lp6G0xAAkopXXQU9KUtDJBgn6nPGkEWQTkgJBbTqfgqAK6+QXppCOHKd8zV/kI6N
-PCd4qu/sb6MA3qBZo3w/el8ln4cyq3dSLcCkWAgmc50wqz1ujtD+vJrRPrl7HrPO
-id+RbVO5gREmzBXoOcNqz3VvIQMWTaM+1/nvSdJpMalSbWEdWBtGnYkAI8M2BlZ4
-qoY3OVSlDGQdIm/vrs0RW9pBvRJYOLhlQnLaJEUeeMFWHf7CFalmqvkKJNFiBgye
-ZcpPSHMq9eq+PCnER1NIXVvjRN/Zja7CQKQB4mwSYV0LQnJMSht1UOfkoJCg8pf3
-Dhz9rEc7JxEAj6yeou+30yuXtPSQVpg/BJmzg9NW9vZOs4xsOK5vDJEvRKiK6ErG
-Ktpsw4UddomvHKiu+JyoWmQmMULdnp0c0HyXz+RxFZ+Ss3SmmozS8obDoI35Yg8c
-BdW7/pkLkdRq7+y4F/CdPR6vooQ9c4wuaoE6vVB8j8Q37TMBllH30rBD6JagA8kV
-AtkuO7Ctsj8tUTFE0SP1PkIVHG7b46w+MbEcVheVfQF0aN+QjEd6MF0rdjk6Ud6U
-oynPFaStDYvWc4rmkECUarg/AhX4H9HyBPXrxoTvQaG7Oe7TdbtxWtO1sswjyihf
-Jw75CkVn5k+kibqRNRf658lvhapweA96A/KnhGy0+Fk7cY7AyLo=
-=Mbgj
+iQIzBAEBCgAdFiEEQkEc9727ziV57Ixrmceyo8mMlp4FAmkVt+AACgkQmceyo8mM
+lp7tlw/+IXgBNaGTFdn8R31LbPOdqXf3M7FE0pABLt2c/dAyIAfJZ4bZVKiLJ+ad
+iokEIf7YgZs3dDo0PguZxJenJCtEVEI36+menl05liR2ffR6q6WrX+v+898vrkOL
+HEd3BfF/vFNun2HtNU4ykOmu8+puiGHha+R1Jh47ItYEeXxNhLqlo4e+DC3Hz20r
+ZgZPcwVD4Of/4ylFRYIBPEqZHZwwG2XqfAmYnz7KDdHR+ONIQ5C1X2e9ROAb7/3M
+R6L2IU8ZFbtkiQenHtBt3esy+8WEWttLw5G8uz68bQnVYyTLZ2UfoXM95Ps9WcHc
+ad9dgATIdnzv5o9Ql+dnO14jFcurdg6vXz2GdGEorZtvXnmJnOwgbjnHHh8O3zvO
+0tuxDkYA0GuynQkEm8uXJY2ipXNSjPMbmBxdaVRBo20krWlk5sVfKXRRoOGJR0M8
+L3AQUBrqHpEhDSsyecruzBllQurkf0OiFJFTsHW0rkcnTTR9KbUvHPVxTB8f4HE9
+mgAY5Lxo2jIam1290G9VSuFrRek0zPRmpNj3GF7af2ZEiovizDeS4VJiThzIgmRf
+lJCyeJwy8FSkJWr+OaEKSp61XMRzkxcbKQEz/lAvIVGSSeBbSUBz56dBVEHi4Rmq
+uU6qaZNLq0zsXfm8QxSRE8BNUX6+yZp0ETYOgTL6762EuleIBKY=
+=GHOS
 -----END PGP SIGNATURE-----

@@ -319,20 +319,23 @@ MD5sum: 2199f0de919c3e4c441ba34ee4300210
 Description: Build cross platform desktop apps with web technologies
 
 Package: fantascene-dynamic-wallpaper
-Version: 1.7.2-1
+Version: 2.0.5-1
 Architecture: arm64
 Maintainer: liuminghang <liuminghang0821@gmail.com>
-Installed-Size: 7412
-Depends: libc6 (>= 2.34), libgcc-s1 (>= 3.0), libglib2.0-0 (>= 2.35.8), libmpv2 (>= 0.29), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.14.1), libqt5gui5 (>= 5.10.0) | libqt5gui5-gles (>= 5.10.0), libqt5sql5 (>= 5.0.2), libqt5webenginewidgets5 (>= 5.14.1), libqt5widgets5 (>= 5.11.0~rc1), libqt5x11extras5 (>= 5.6.0), libstdc++6 (>= 11), libx11-6, libxcb-ewmh2 (>= 0.4.1), libxcb1, libxext6
+Installed-Size: 9927
+Depends: libc6 (>= 2.38), libgcc-s1 (>= 3.0), libglib2.0-0t64 (>= 2.36.0), libmpv2 (>= 0.29), libqt5charts5 (>= 5.7.1), libqt5core5t64 (>= 5.15.1), libqt5dbus5t64 (>= 5.14.1), libqt5gui5t64 (>= 5.8.0) | libqt5gui5-gles (>= 5.8.0), libqt5multimedia5 (>= 5.6.0~beta), libqt5multimediawidgets5 (>= 5.6.0~beta), libqt5network5t64 (>= 5.0.2), libqt5sql5t64 (>= 5.0.2), libqt5webenginewidgets5 (>= 5.14.1), libqt5widgets5t64 (>= 5.11.0~rc1), libstdc++6 (>= 14), libx11-6, libxcb-ewmh2 (>= 0.4.2), libxcb1, libxext6, wget, ffmpeg, aria2
+Breaks: fantascene-gxde (<< 1.9~)
+Replaces: fantascene-gxde (<< 1.9~)
+Provides: fantascene-gxde
 Homepage: http://github.com/dependon/fantascene-dynamic-wallpaper
 Priority: optional
 Section: utils
-Filename: pool/main/f/fantascene-dynamic-wallpaper/fantascene-dynamic-wallpaper_1.7.2-1_arm64.deb
-Size: 6641568
-SHA256: bb4295e4b0d81ff19aa4e7fecbaa23868e5f8d64e7ba319608d138d0d8605c31
-SHA1: bdae8e217965fde7ae76001e4dd764c469e9423f
-MD5sum: e66f721db96a9f4645e57809fe62e914
-Description: video wallpaper for fantascene.
+Filename: pool/main/f/fantascene-dynamic-wallpaper/fantascene-dynamic-wallpaper_2.0.5-1_arm64.deb
+Size: 6981872
+SHA256: cdf5a7987b7e9c52992ce91401c6d4c84e11d3bb2d020f3c15807d026911546f
+SHA1: cca5bfaa4ac38b788c95ee0c6c5b2385f3bef759
+MD5sum: c9f9bcc3cbe33210e87739200bf3e6fa
+Description: animated wallpaper for fantascene.
 
 Package: givemelyrics
 Version: 0.5.0-1~opt11
@@ -399,6 +402,27 @@ SHA256: a5d5b660beab4ee0bf5cab69b9768e6bb6c4f59a18bacf6a3bb30aacfbd908e7
 SHA1: 8360966371c500da8205a8b09543638d9fbb0a77
 MD5sum: 5bd895e954c16476cc575d2f45cb2741
 Description: 腾讯QQ Linux版本。
+
+Package: lutris
+Version: 0.5.20
+Architecture: all
+Maintainer: Mathieu Comandon <mathieucomandon@gmail.com>
+Installed-Size: 5681
+Depends: python3:any, python3-yaml, python3-lxml, python3-requests, python3-pil, python3-gi, python3-gi-cairo, python3-setproctitle, python3-magic, python3-distro, python3-dbus, gir1.2-gtk-3.0, gir1.2-webkit2-4.0 | gir1.2-webkit2-4.1, gir1.2-notify-0.7, psmisc, cabextract, unzip, p7zip, curl, fluid-soundfont-gs, x11-xserver-utils, mesa-utils, vulkan-tools
+Recommends: python3-evdev, python3-protobuf, gvfs-backends, libwine-development | libwine, winetricks, fluidsynth, gamescope, gamemode, xdg-desktop-portal, xdg-desktop-portal-gtk | xdg-desktop-portal-kde
+Homepage: https://lutris.net
+Priority: optional
+Section: games
+Filename: pool/main/l/lutris/lutris_0.5.20_all.deb
+Size: 1858838
+SHA256: 6de572e94044d6f1bd7a461dfdfb5bf66504006d8bf0a8a287cef9a1dff0a09e
+SHA1: 0c59e44fe23381bb8a35779ebecaeb0e8d2924d9
+MD5sum: 4d970d37b7af77de5c2a53442ad052fe
+Description: video game preservation platform
+ Lutris helps you install and play video games from all eras and from most
+ gaming systems. By leveraging and combining existing emulators, engine
+ re-implementations and compatibility layers, it gives you a central interface
+ to launch all your games.
 
 Package: lx-music-desktop
 Version: 1.22.3

@@ -291,20 +291,23 @@ Description: Personal budget manager
   * Import transactions from QIF files
 
 Package: fantascene-dynamic-wallpaper
-Version: 1.7.2-1
+Version: 2.0.5-1
 Architecture: amd64
 Maintainer: liuminghang <liuminghang0821@gmail.com>
-Installed-Size: 7370
-Depends: libc6 (>= 2.34), libgcc-s1 (>= 3.0), libglib2.0-0 (>= 2.35.8), libmpv2 (>= 0.29), libqt5core5a (>= 5.15.1), libqt5dbus5 (>= 5.14.1), libqt5gui5 (>= 5.10.0) | libqt5gui5-gles (>= 5.10.0), libqt5sql5 (>= 5.0.2), libqt5webenginewidgets5 (>= 5.14.1), libqt5widgets5 (>= 5.11.0~rc1), libqt5x11extras5 (>= 5.6.0), libstdc++6 (>= 11), libx11-6, libxcb-ewmh2 (>= 0.4.1), libxcb1, libxext6
+Installed-Size: 9841
+Depends: libc6 (>= 2.38), libgcc-s1 (>= 3.0), libglib2.0-0t64 (>= 2.36.0), libmpv2 (>= 0.29), libqt5charts5 (>= 5.7.1), libqt5core5t64 (>= 5.15.1), libqt5dbus5t64 (>= 5.14.1), libqt5gui5t64 (>= 5.8.0) | libqt5gui5-gles (>= 5.8.0), libqt5multimedia5 (>= 5.6.0~beta), libqt5multimediawidgets5 (>= 5.6.0~beta), libqt5network5t64 (>= 5.0.2), libqt5sql5t64 (>= 5.0.2), libqt5webenginewidgets5 (>= 5.14.1), libqt5widgets5t64 (>= 5.11.0~rc1), libstdc++6 (>= 14), libx11-6, libxcb-ewmh2 (>= 0.4.2), libxcb1, libxext6, wget, ffmpeg, aria2
+Breaks: fantascene-gxde (<< 1.9~)
+Replaces: fantascene-gxde (<< 1.9~)
+Provides: fantascene-gxde
 Homepage: http://github.com/dependon/fantascene-dynamic-wallpaper
 Priority: optional
 Section: utils
-Filename: pool/main/f/fantascene-dynamic-wallpaper/fantascene-dynamic-wallpaper_1.7.2-1_amd64.deb
-Size: 6654800
-SHA256: a595bc5cedaba69ecbc0639480cb22e9df5b183585f667b9fb5740ad7c8bee10
-SHA1: 97f66ba169c20c1dd3fc80f66e28ead2a01fb175
-MD5sum: 2509bb30b433d830759eb264f7a522a8
-Description: video wallpaper for fantascene.
+Filename: pool/main/f/fantascene-dynamic-wallpaper/fantascene-dynamic-wallpaper_2.0.5-1_amd64.deb
+Size: 7007740
+SHA256: ed133befbaa19fad507ffcd20e3728a14d2cc09835b12436a14396acdeb9fa18
+SHA1: 7fce2c6fc4aa934e50566caf6c7489e02d74ffc6
+MD5sum: 3b61895250e00863feeec186e3ad4654
+Description: animated wallpaper for fantascene.
 
 Package: frp
 Version: 0.0.1

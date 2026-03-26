@@ -38,7 +38,7 @@
 
   
 
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 8.1.1"></head>
 
 <!-- 雪花特效2 -->
 
@@ -413,7 +413,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#make%E5%91%BD%E4%BB%A4%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">make命令简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Makefile%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">Makefile基本语法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Makefile%E6%89%A9%E5%B1%95%E8%AF%AD%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">Makefile扩展语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Makefile%E6%89%8B%E5%8A%A8%E5%8F%98%E9%87%8F"><span class="toc-number">3.0.1.</span> <span class="toc-text">Makefile手动变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Makefile%E8%87%AA%E5%8A%A8%E5%8F%98%E9%87%8F"><span class="toc-number">3.0.2.</span> <span class="toc-text">Makefile自动变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Makefile%E6%A8%A1%E5%BC%8F%E8%A7%84%E5%88%99"><span class="toc-number">3.0.3.</span> <span class="toc-text">Makefile模式规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Makefile-%E7%9B%AE%E6%A0%87"><span class="toc-number">3.0.4.</span> <span class="toc-text">Makefile 目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Makefile%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">3.0.5.</span> <span class="toc-text">Makefile返回值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E8%BF%9B%E5%85%B6%E4%BB%96Makefile"><span class="toc-number">3.0.6.</span> <span class="toc-text">引进其他Makefile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Makefile%E5%88%A4%E6%96%AD"><span class="toc-number">3.0.7.</span> <span class="toc-text">Makefile判断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%84%E5%BD%95-%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84Makefile%E4%BE%8B%E5%AD%90"><span class="toc-number">3.0.8.</span> <span class="toc-text">附录:一个简单的Makefile例子</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#make%E5%91%BD%E4%BB%A4%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">make命令简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Makefile%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">Makefile基本语法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Makefile%E6%89%A9%E5%B1%95%E8%AF%AD%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">Makefile扩展语法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Makefile%E6%89%8B%E5%8A%A8%E5%8F%98%E9%87%8F"><span class="toc-number">3.1.</span> <span class="toc-text">Makefile手动变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Makefile%E8%87%AA%E5%8A%A8%E5%8F%98%E9%87%8F"><span class="toc-number">3.2.</span> <span class="toc-text">Makefile自动变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Makefile%E6%A8%A1%E5%BC%8F%E8%A7%84%E5%88%99"><span class="toc-number">3.3.</span> <span class="toc-text">Makefile模式规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Makefile-%E7%9B%AE%E6%A0%87"><span class="toc-number">3.4.</span> <span class="toc-text">Makefile 目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Makefile%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-number">3.5.</span> <span class="toc-text">Makefile返回值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E8%BF%9B%E5%85%B6%E4%BB%96Makefile"><span class="toc-number">3.6.</span> <span class="toc-text">引进其他Makefile</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Makefile%E5%88%A4%E6%96%AD"><span class="toc-number">3.7.</span> <span class="toc-text">Makefile判断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%99%84%E5%BD%95-%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84Makefile%E4%BE%8B%E5%AD%90"><span class="toc-number">3.8.</span> <span class="toc-text">附录:一个简单的Makefile例子</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -628,11 +628,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">3DS</a>
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">linux</a>
+                <a href="javascript:void(0)" class="js-tag color4">makefile</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">3DS</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -668,6 +672,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">f2fs</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">OPPO</a>
               </li>
              
@@ -684,7 +692,47 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">makefile</a>
+                <a href="javascript:void(0)" class="js-tag color5">9008</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">二次元</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">debian</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">PostmarketOS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">ROM移植</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网页加速</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">虚拟化 Android</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">归档</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">番剧</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">别当欧尼酱了</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -693,50 +741,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">刷机工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">二次元</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">刷机</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">9008</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">虚拟化 Android</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">debian</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网页加速</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">twrp</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">build</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">哔哩哔哩</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">av10492</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">猎奇</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -760,11 +764,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">内核</a>
+                <a href="javascript:void(0)" class="js-tag color5">哔哩哔哩</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">编译</a>
+                <a href="javascript:void(0)" class="js-tag color3">av10492</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">猎奇</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -784,15 +792,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">归档</a>
+                <a href="javascript:void(0)" class="js-tag color3">内核</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">番剧</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">别当欧尼酱了</a>
+                <a href="javascript:void(0)" class="js-tag color3">编译</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -808,15 +812,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">PostmarketOS</a>
+                <a href="javascript:void(0)" class="js-tag color1">TypeScript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">ROM移植</a>
+                <a href="javascript:void(0)" class="js-tag color5">Github Actions</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">f2fs</a>
+                <a href="javascript:void(0)" class="js-tag color5">twrp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">build</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网页搭建</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">vps</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -828,7 +848,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">vps</a>
+                <a href="javascript:void(0)" class="js-tag color4">联发科</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">KernelSU</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">kvm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -848,19 +876,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">联发科</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">KernelSU</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">kvm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网页搭建</a>
+                <a href="javascript:void(0)" class="js-tag color4">fastboot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -877,22 +893,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Kernel</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">TypeScript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Github Actions</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">fastboot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">杂谈</a>
               </li>
             
             <div class="clearfix"></div>

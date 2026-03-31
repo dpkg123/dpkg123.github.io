@@ -6,26 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://dpkg123.netlify.app">
-  <title>浅谈安卓内核的碎片化 | dpkg123的博客</title>
+  <title>为什么使用 TypeScript 写 Github Action 是愚蠢的 | dpkg123的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="如题所见，这篇文章浅谈一下安卓内核的碎片化。我编译过安卓内核我觉得我应该有话语权.jpg gki时期这里指gki2.0时期。gki1.0不在讨论范围内 什么是gki？谷歌官方对gki的介绍:  通用内核映像 (GKI) 项目通过统一核心内核并将 SoC 和板级支持从核心内核移至可加载模块中，解决了内核碎片化问题。GKI 内核为内核模块提供了稳定的内核模块接口 (KMI)，因此模块和内核可以独立进行">
+  <meta name="description" content="在阅读这篇文章前，我默认你具有一定的 TypeScript 编程水平和 Git 运用水平，请知悉。 Reusable Workflows 和 Shell截取自ray 的博客:  简单来说：Composite Actions 是复用多个步骤，例如设置运行时、安装依赖等；而 Reusable Workflows 则是复用整个工作流，包括触发条件、作业定义等（例如构建、测试、部署等）。  那么一句话来概">
 <meta property="og:type" content="article">
-<meta property="og:title" content="浅谈安卓内核的碎片化">
-<meta property="og:url" content="https://dpkg123.netlify.app/2023/07/20/%E6%B5%85%E8%B0%88%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8%E7%9A%84%E7%A2%8E%E7%89%87%E5%8C%96/index.html">
+<meta property="og:title" content="为什么使用 TypeScript 写 Github Action 是愚蠢的">
+<meta property="og:url" content="https://dpkg123.netlify.app/2026/03/30/main/index.html">
 <meta property="og:site_name" content="dpkg123的博客">
-<meta property="og:description" content="如题所见，这篇文章浅谈一下安卓内核的碎片化。我编译过安卓内核我觉得我应该有话语权.jpg gki时期这里指gki2.0时期。gki1.0不在讨论范围内 什么是gki？谷歌官方对gki的介绍:  通用内核映像 (GKI) 项目通过统一核心内核并将 SoC 和板级支持从核心内核移至可加载模块中，解决了内核碎片化问题。GKI 内核为内核模块提供了稳定的内核模块接口 (KMI)，因此模块和内核可以独立进行">
+<meta property="og:description" content="在阅读这篇文章前，我默认你具有一定的 TypeScript 编程水平和 Git 运用水平，请知悉。 Reusable Workflows 和 Shell截取自ray 的博客:  简单来说：Composite Actions 是复用多个步骤，例如设置运行时、安装依赖等；而 Reusable Workflows 则是复用整个工作流，包括触发条件、作业定义等（例如构建、测试、部署等）。  那么一句话来概">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://source.android.google.cn/static/docs/core/architecture/images/generic-kernel-image-architecture.png?hl=zh-cn">
-<meta property="og:image" content="https://source.android.google.cn/static/docs/core/architecture/images/generic-kernel-image-overview.png?hl=zh-cn">
-<meta property="article:published_time" content="2023-07-19T22:51:37.000Z">
-<meta property="article:modified_time" content="2023-07-19T22:51:37.000Z">
+<meta property="article:published_time" content="2026-03-29T23:34:35.000Z">
+<meta property="article:modified_time" content="2026-03-29T23:34:35.000Z">
 <meta property="article:author" content="dpkg123">
-<meta property="article:tag" content="android">
-<meta property="article:tag" content="android kernel">
-<meta property="article:tag" content="gki">
-<meta property="article:tag" content="kernel">
+<meta property="article:tag" content="Action">
+<meta property="article:tag" content="TypeScript">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://source.android.google.cn/static/docs/core/architecture/images/generic-kernel-image-architecture.png?hl=zh-cn">
   
     <link rel="alternative" href="/atom.xml" title="dpkg123的博客" type="application/atom+xml">
   
@@ -177,77 +172,61 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-浅谈安卓内核的碎片化" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-main" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      浅谈安卓内核的碎片化
+      为什么使用 TypeScript 写 Github Action 是愚蠢的
     </h1>
   
 
         
-        <a href="/2023/07/20/%E6%B5%85%E8%B0%88%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8%E7%9A%84%E7%A2%8E%E7%89%87%E5%8C%96/" class="archive-article-date">
-  	<time datetime="2023-07-19T22:51:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-19</time>
+        <a href="/2026/03/30/main/" class="archive-article-date">
+  	<time datetime="2026-03-29T23:34:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2026-03-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>如题所见，这篇文章浅谈一下安卓内核的碎片化。<br><del>我编译过安卓内核我觉得我应该有话语权.jpg</del></p>
-<h1 id="gki时期"><a href="#gki时期" class="headerlink" title="gki时期"></a>gki时期</h1><p>这里指gki2.0时期。gki1.0不在讨论范围内</p>
-<h3 id="什么是gki？"><a href="#什么是gki？" class="headerlink" title="什么是gki？"></a>什么是gki？</h3><p><a target="_blank" rel="noopener" href="https://source.android.google.cn/docs/core/architecture/kernel/generic-kernel-image?hl=zh-cn">谷歌官方对gki的介绍:</a></p>
+        <p>在阅读这篇文章前，我默认你具有一定的 TypeScript 编程水平和 Git 运用水平，请知悉。</p>
+<h2 id="Reusable-Workflows-和-Shell"><a href="#Reusable-Workflows-和-Shell" class="headerlink" title="Reusable Workflows 和 Shell"></a>Reusable Workflows 和 Shell</h2><p>截取自<a target="_blank" rel="noopener" href="https://blog.mk1.io/posts/2025/reusable-workflows#composite-actions-%E5%92%8C-reusable-workflows">ray 的博客</a>:</p>
 <blockquote>
-<p>通用内核映像 (GKI) 项目通过统一核心内核并将 SoC 和板级支持从核心内核移至可加载模块中，解决了内核碎片化问题。GKI 内核为内核模块提供了稳定的内核模块接口 (KMI)，因此模块和内核可以独立进行更新。</p>
+<p>简单来说：Composite Actions 是复用多个步骤，例如设置运行时、安装依赖等；而 Reusable Workflows 则是复用整个工作流，包括触发条件、作业定义等（例如构建、测试、部署等）。</p>
 </blockquote>
-<h3 id="GKI-2-0"><a href="#GKI-2-0" class="headerlink" title="GKI 2.0"></a>GKI 2.0</h3><blockquote>
-<p>搭载 Android S (2021) 平台版本且使用内核版本 v5.x（5.x 是 2020 年年底被选为 LTS 的内核版本）或更高版本的设备必须附带 GKI 内核。将提供已签名的启动映像，并通过 LTS 和重大问题修复定期对其进行更新。由于 KMI 将保持二进制稳定性，因此无需对供应商映像进行任何更改，即可安装这些启动映像。</p>
-</blockquote>
-<h3 id="gki的特性"><a href="#gki的特性" class="headerlink" title="gki的特性"></a>gki的特性</h3><ul>
-<li>基于 ACK 来源构建而成。</li>
-<li>是每个架构和每个 LTS 版本的单内核二进制文件以及关联的可加载模块（目前只有适用于 android11-5.4 和 android12-5.4 的 arm64）。</li>
-<li>已经过关联 ACK 支持的所有 Android 平台版本的测试。在 GKI 内核版本的生命周期内不会发生功能弃用。</li>
-<li>为给定 LTS 中的驱动程序提供了稳定版 KMI。</li>
-<li>不包含 SoC 专用代码或板卡专用代码。</li>
-</ul>
-<p><img src="https://source.android.google.cn/static/docs/core/architecture/images/generic-kernel-image-architecture.png?hl=zh-cn" alt="图片"></p>
-<p>这就意味着只要内核是gki内核，就可以通刷同内核大版本(例如5.15.xxx)的内核。<br>某些厂商将私有代码集成在了内核里面。刷入gki内核将丢失私有代码所产生的特性。例如小米的机器刷完gki后会丢快充。</p>
-<h1 id="非gki时期"><a href="#非gki时期" class="headerlink" title="非gki时期"></a>非gki时期</h1><p>主要指的是内核版本为4.x或3.x的内核版本时期。这一阶段，厂商内核的碎片化是极其严重的。<br>一般地，android kernel的来源是这样的:</p>
-<blockquote>
-<p>linux kernel &gt; aosp kernel &gt; 供应商添加soc或外围设备的驱动及特性 &gt; oem厂商添加附加特性 &gt; android kernel</p>
-</blockquote>
-<p>供应商内核和设备内核位于 ACK 的下游。供应商通过修改内核源代码并添加设备驱动程序，添加了对 SoC 和外围设备的支持。这些修改内容可能很多，以至于设备上运行的代码中有多达 50% 是树外代码，并非来自上游 Linux 和 AOSP 通用内核。<br><img src="https://source.android.google.cn/static/docs/core/architecture/images/generic-kernel-image-overview.png?hl=zh-cn" alt="图片"></p>
-<p>几乎所有设备都具有自定义内核。这就导致了内核碎片化问题。</p>
-<h3 id="aosp-kernel"><a href="#aosp-kernel" class="headerlink" title="aosp kernel"></a>aosp kernel</h3><p><del>众所周知，android不是gnu&#x2F;linux,</del>这就意味着aosp kernel和linux kernel会有一些不同。</p>
-<p><a target="_blank" rel="noopener" href="https://android.googlesource.com/kernel/common/">AOSP通用内核</a>（也称为 Android 通用内核或 ACK）是 kernel.org 内核的下游，包含与 Android 社区相关但尚未合并到 Mainline 内核或长期支持 (LTS) 内核的补丁程序。这些补丁程序可能包括：</p>
-<ul>
-<li>Android 功能所需的向后移植和精选的上游功能</li>
-<li>可供 Android 设备使用但仍处于上游开发阶段的功能（例如，Energy Aware Scheduler 任务放置优化）。</li>
-<li>对其他生态系统合作伙伴有用的供应商&#x2F;原始设备制造商 (OEM) 功能（例如，sdcardfs）。</li>
-</ul>
-<p>目前 Android 通用内核也分以下两种：</p>
-<ul>
-<li>功能内核<blockquote>
-<p>包含最新 Android 平台版本功能的增强内核称为功能内核。对于 Android 11，功能内核基于内核版本 4.14.y、4.19.y 和 5.4.y。在过去的平台版本中，功能内核与启动内核相同。但在 Android 12 中，将有两个功能内核和三个启动内核。</p>
-</blockquote>
-</li>
-<li>启动内核<blockquote>
-<p>指定的启动内核可用于启动搭载特定 Android 平台版本的设备。对于 Android 11，可以使用基于内核版本 4.14.y、4.19.y 和 5.4.y 的内核启动设备。</p>
-</blockquote>
-</li>
-</ul>
-<p>每个 Android 平台版本都支持基于三个 Linux 内核版本中的任何一个启动新设备。例如Android 11 的启动内核为 android-4.14-stable、android-4.19-stable 和 android11-5.4。</p>
-<p>由于更新平台版本时通常不需要升级内核，因此缺少平台版本最新功能的内核仍然可以用来启动设备。因此，即使设备上的平台版本已升级到 Android 11，为 Android 10 设计的内核（例如 android-4.19-q）也可以在设备上使用。</p>
-<p>这就导致某些厂商秉承着能用就行的原则，能不升级内核版本就不升级内核版本。吃力可能不讨好的事厂商不会去干。</p>
-<p>厂商不升级内核版本导致了Android 框架代码必须假设支持的内核版本多达 5 个，并且没有针对新的平台版本进行任何内核更改（Android 10 支持内核版本 3.18、4.4、4.9、4.14 和 4.19；在某些情况下，这些版本自 2017 年 Android 8 发布以来还未添加新功能）。</p>
-<h3 id="supplier-kernel"><a href="#supplier-kernel" class="headerlink" title="supplier kernel"></a>supplier kernel</h3><p>供应商在aosp kernel的基础上添加设备（相机，屏幕等）的驱动或特性所产生的内核。</p>
-<h3 id="oem-kernel"><a href="#oem-kernel" class="headerlink" title="oem kernel"></a>oem kernel</h3><p>oem厂商在supplier kernel后添加大量私有特性后所发布的源码。大部分厂商都是非实时开源的。</p>
-<p>通俗讲就是一次性开源，后续安卓版本更新内核代码不会及时提交。</p>
-<p>而且厂商会添加大量私有特性在内核源码中。</p>
-<p>例如<a target="_blank" rel="noopener" href="https://github.com/Coconutat/HuaweiP10-GSI-And-Modify-Or-Support-KernelSU-Tutorial/wiki/7.KernelSU%E9%80%82%E9%85%8DEMUI9%E6%88%969.1.0%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%86%85%E6%A0%B8">华为</a>会在config里添加大量海思麒麟的特性。<br>而<a target="_blank" rel="noopener" href="https://github.com/dabao1955/android_kernel_OPPO_OP4ED5/commit/d05b666078e50111f8cf74033221545a862518c2">OPPO</a>会将私有特性配置在xxxfetures.mk里。</p>
+<p>那么一句话来概括就是，action.yml 属于 Composite Actions，github&#x2F;workflows&#x2F;*.yml 属于 Reusable Workflows.</p>
+<p>为什么要强调这一点，因为我看到很多 fork 才能用的仓库竟然标榜自己是 action，我承认 github 有 actions 选项卡但是那个是 workflow。</p>
+<p>再比如，actions 可以发布到 market space，至于上文说的只有 Reusable Workflows 复用整个工作流，怎么说呢。虽然有 shellcheck action 这种复用的工作流。但是 Composite Actions 也是可以嵌套 actions 的。</p>
+<p>Composite Actions 更多的是设置诸如构建依赖这种，如 setup-python，而 Reusable Workflows 主要是进行作业(例如语法检查)为主。</p>
+<p>而 Composite Actions 的编写有多种方式，主流的有 Shell，Dockerfile 和 TypeScript. 本质上前两者属于一类，所以就一块说了。</p>
+<p>Shell 编写的优点是简单，缺点就是语法检查。你不能用 shellcheck 去检查 yml 中 shell 的语法，而 yamllint 更多是基于符不符合 yaml 语法而不是去检查 shell 代码的合法性。</p>
+<h2 id="为什么要用-TypeScript-重写？"><a href="#为什么要用-TypeScript-重写？" class="headerlink" title="为什么要用 TypeScript 重写？"></a>为什么要用 TypeScript 重写？</h2><p>一开始是参考 Slinhub action 用 shell 写 action，每个步骤用 steps 隔开，然后发现这太不美观了，于是就用一个大的 step 包裹每个小 step，然后每个小 steps 用 start group end group 包裹，然后就因为加太多功能宕机了:</p>
+<p>&#x2F;home&#x2F;runner&#x2F;work&#x2F;kernel_build_action&#x2F;kernel_build_action&#x2F;.&#x2F;action.yml (Line: 134, Col: 12): Exceeded max expression length 21000</p>
+<p>那怎么办？在参考了 setup-python 的设计后了解了有一个 typescript-action 就决定用 TypeScript 重写了，之前有过为了写个人主页写 TypeScript 的经验，学了闭包和异步执行。但是觉得 async 太反人类了就作罢。最后个人主页用 v0.dev 糊了一版就扔到 vercel 上了，反正也没人看。</p>
+<p>幸运的是，Github 有提供<a href="github.com/actions/typescript-action">模板</a>，可以直接拿来用。</p>
+<p>一般情况下只需要了解 core.getInput(‘foo’) 获取 action.yml 里 inputs 里 foo 的值和  exec.exec(“bar”) 就可以写相当一部分有趣的东西了，不是吗？</p>
+<h2 id="TypeScript-的坑"><a href="#TypeScript-的坑" class="headerlink" title="TypeScript 的坑"></a>TypeScript 的坑</h2><p>既然你都用 TypeScript 重写了，是不是得引入 lint 检查？例如 eslint 或者 biome？引入了 linter 是不是也得引入 formatter? 然后恭喜你你得自己配置 linter 和 formatter 然后陷入检查报错的循环中。</p>
+<p>哪怕费劲千辛万苦解决了 linter 的问题，你是不是得配置一个 dependabot 或者 renovate 来检查库的更新啊？一般的 TypeScript 项目都配了你不能不配吧？</p>
+<p>然后恭喜你，另一个坑又来了，actione&#x2F;core^6.0.0 开始 ncc 构建失败，原因是 ncc 不能识别 core 里 package.json 的 export，那怎么办呢？烦请您换 esbuild 喽。</p>
+<p>不换也行，继续老版本然后等着被 cve 攻击呗。</p>
+<p><del><a target="_blank" rel="noopener" href="https://www.cvedetails.com/cve/CVE-2026-26996/">骗你的，升级也会遇到 cve</a></del></p>
+<p>就算克服了这点困难，TypeScript 或者 JavaScript 语法也会带来理解上的灾难:</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">packageKernel</span>(<span class="params">config: PackageConfig</span>): <span class="title class_">Promise</span>&lt;<span class="built_in">void</span>&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (config.<span class="property">anykernel3</span>) &#123;</span><br><span class="line">    <span class="keyword">await</span> <span class="title function_">packageAnyKernel3</span>(config);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">await</span> <span class="title function_">packageBootimg</span>(config);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>等价于 Python:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">package_kernel</span>(<span class="params">config: PackageConfig</span>) -&gt; <span class="literal">None</span>:</span><br><span class="line">    <span class="keyword">if</span> config.anykernel3:</span><br><span class="line">        package_anykernel3(config)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        package_bootimg(config)</span><br></pre></td></tr></table></figure>
+<p>等价于 Go:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">packageKernel</span><span class="params">(config PackageConfig)</span></span> <span class="type">error</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> config.Anykernel3 &#123;</span><br><span class="line">        <span class="keyword">return</span> packageAnyKernel3(config)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> packageBootimg(config)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>等价于 Rust:</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">pub</span> <span class="keyword">fn</span> <span class="title function_">package_kernel</span>(config: PackageConfig) &#123;</span><br><span class="line">    <span class="keyword">if</span> config.anykernel3 &#123;</span><br><span class="line">        <span class="title function_ invoke__">package_anykernel3</span>(config);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="title function_ invoke__">package_bootimg</span>(config);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>看出来区别了吗？我要说的就是臭名昭著的 async ，你以为是同步，其实是异步执行只是看起来像同步哒！</p>
+<p>而 Python 和 Rust 默认是同步的所以就用不着 async。</p>
+<p>在 Reusable Workflows 的体系中，大部分过程都是串行执行的，即 setp a&gt;step b</p>
+<p>但是 nodejs ，或者是 JavaScript 的设计一开始就是异步模型的，在后续的发展中就形成了只要 await 就必须 async 的神经设计。</p>
+<p>更搞笑的是 octokit 提供 python 和 ruby 的 sdk，而 actions 居然只有 TyoeScript 或者说类 JavaScript 系。</p>
+<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>没有结论，这篇文章就是我纯口嗨的。</p>
 
       
 
@@ -280,19 +259,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">kernel</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">TypeScript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">android</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">android kernel</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">gki</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Action</a>
         		</li>
       		
 		</ul>
@@ -348,7 +319,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://dpkg123.netlify.app/2023/07/20/%E6%B5%85%E8%B0%88%E5%AE%89%E5%8D%93%E5%86%85%E6%A0%B8%E7%9A%84%E7%A2%8E%E7%89%87%E5%8C%96/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://dpkg123.netlify.app/2026/03/30/main/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -362,18 +333,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/07/28/linux%E7%94%B5%E8%84%91%E7%BB%99%E6%89%8B%E6%9C%BA%E8%BF%9B%E8%A1%8C9008%E5%88%B7%E6%9C%BA/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          linux电脑给手机进行9008刷机
-        
-      </div>
-    </a>
   
-  
-    <a href="/2023/06/29/%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9%E5%8D%B1%E9%99%A9%E5%9C%B0%E5%B8%A6%E9%83%A8%E5%88%86%E8%A1%A5%E6%A1%A3/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">哔哩哔哩危险地带部分补档</div>
+    <a href="/2026/03/25/%E6%97%A0%E5%90%8D%E6%9D%80%E5%BD%95%E5%83%8F%E6%96%87%E4%BB%B6%E5%88%86%E6%9E%90/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">无名杀录像文件分析</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -400,7 +362,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#gki%E6%97%B6%E6%9C%9F"><span class="toc-number">1.</span> <span class="toc-text">gki时期</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFgki%EF%BC%9F"><span class="toc-number">1.1.</span> <span class="toc-text">什么是gki？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GKI-2-0"><span class="toc-number">1.2.</span> <span class="toc-text">GKI 2.0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gki%E7%9A%84%E7%89%B9%E6%80%A7"><span class="toc-number">1.3.</span> <span class="toc-text">gki的特性</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%9Egki%E6%97%B6%E6%9C%9F"><span class="toc-number">2.</span> <span class="toc-text">非gki时期</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#aosp-kernel"><span class="toc-number">2.1.</span> <span class="toc-text">aosp kernel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#supplier-kernel"><span class="toc-number">2.2.</span> <span class="toc-text">supplier kernel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#oem-kernel"><span class="toc-number">2.3.</span> <span class="toc-text">oem kernel</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Reusable-Workflows-%E5%92%8C-Shell"><span class="toc-number">1.</span> <span class="toc-text">Reusable Workflows 和 Shell</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8-TypeScript-%E9%87%8D%E5%86%99%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">为什么要用 TypeScript 重写？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TypeScript-%E7%9A%84%E5%9D%91"><span class="toc-number">3.</span> <span class="toc-text">TypeScript 的坑</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-number">4.</span> <span class="toc-text">结论</span></a></li></ol>
                     </div>
                 </span>
             </div>
